@@ -6,8 +6,8 @@
 	<script type="text/javascript" src="three.js"></script>
 	<script type="text/javascript" src="OrbitControls.js"></script>
 	<style>
-		body { margin: 0; }
-		canvas { width: 100%; height: 100% }
+		body { margin: 0; overflow: hidden;}
+		canvas { width: 100%; height: 100%; }
 	</style>
 </head>
 <body>
@@ -57,6 +57,26 @@ MidPlatform3.position.set( ro1 * Math.cos( 4/3*Math.PI+p1 ), h1, ro1 * Math.sin(
 
 scene.add( MidPlatform1, MidPlatform2, MidPlatform3 );
 
+var MidAxis1 = new THREE.Mesh( new THREE.CylinderGeometry( 1, 1, 15, 12, 1 ), new THREE.MeshPhongMaterial( {color: 0xdddddd} ) );
+var MidAxis2 = new THREE.Mesh( new THREE.CylinderGeometry( 1, 1, 15, 12, 1 ), new THREE.MeshPhongMaterial( {color: 0xdddddd} ) );
+var MidAxis3 = new THREE.Mesh( new THREE.CylinderGeometry( 1, 1, 15, 12, 1 ), new THREE.MeshPhongMaterial( {color: 0xdddddd} ) );
+
+var h1b = h1;
+ro1 = ro1 / 2 + 2.5;
+h1 = h1 - 5;
+
+MidAxis1.position.set( ro1 * Math.cos( 0/3*Math.PI+p1 ), h1, ro1 * Math.sin( 0/3*Math.PI+p1 ) );
+MidAxis1.rotation.set(0, -Math.PI/6, Math.PI*2/3);
+scene.add( MidAxis1 );
+
+MidAxis2.position.set( ro1 * Math.cos( 2/3*Math.PI+p1 ), h1, ro1 * Math.sin( 2/3*Math.PI+p1 ) );
+MidAxis2.rotation.set(0, -Math.PI+Math.PI/6, Math.PI*2/3);
+scene.add( MidAxis2 );
+
+MidAxis3.position.set( ro1 * Math.cos( 4/3*Math.PI+p1 ), h1, ro1 * Math.sin( 4/3*Math.PI+p1 ) );
+MidAxis3.rotation.set(0, Math.PI/3+Math.PI/6, Math.PI*2/3);
+scene.add( MidAxis3 );
+
 
 
 var Mid1Platform = new THREE.Mesh( new THREE.CylinderGeometry( 10, 10, 1, 36, 1 ), new THREE.MeshPhongMaterial( {color: 0xdddddd} ) );
@@ -69,7 +89,7 @@ var Mid1Platform5 = Mid1Platform.clone();
 var Mid1Platform6 = Mid1Platform.clone();
 
 var ro2 = 30;
-var h2 = h1-37.5;
+var h2 = h1b-37.5;
 Mid1Platform1.position.set( ro2 * Math.cos( 0/3*Math.PI ), h2, ro2 * Math.sin( 0/3*Math.PI ) );
 Mid1Platform2.position.set( ro2 * Math.cos( 1/3*Math.PI ), h2, ro2 * Math.sin( 1/3*Math.PI ) );
 Mid1Platform3.position.set( ro2 * Math.cos( 2/3*Math.PI ), h2, ro2 * Math.sin( 2/3*Math.PI ) );
@@ -79,7 +99,40 @@ Mid1Platform6.position.set( ro2 * Math.cos( 5/3*Math.PI ), h2, ro2 * Math.sin( 5
 
 scene.add( Mid1Platform1, Mid1Platform2, Mid1Platform3, Mid1Platform4, Mid1Platform5, Mid1Platform6 );
 
+var Mid1Axis1 = new THREE.Mesh( new THREE.CylinderGeometry( 1, 1, 30, 12, 1 ), new THREE.MeshPhongMaterial( {color: 0xdddddd} ) );
+var Mid1Axis2 = new THREE.Mesh( new THREE.CylinderGeometry( 1, 1, 30, 12, 1 ), new THREE.MeshPhongMaterial( {color: 0xdddddd} ) );
+var Mid1Axis3 = new THREE.Mesh( new THREE.CylinderGeometry( 1, 1, 30, 12, 1 ), new THREE.MeshPhongMaterial( {color: 0xdddddd} ) );
+var Mid1Axis4 = new THREE.Mesh( new THREE.CylinderGeometry( 1, 1, 30, 12, 1 ), new THREE.MeshPhongMaterial( {color: 0xdddddd} ) );
+var Mid1Axis5 = new THREE.Mesh( new THREE.CylinderGeometry( 1, 1, 30, 12, 1 ), new THREE.MeshPhongMaterial( {color: 0xdddddd} ) );
+var Mid1Axis6 = new THREE.Mesh( new THREE.CylinderGeometry( 1, 1, 30, 12, 1 ), new THREE.MeshPhongMaterial( {color: 0xdddddd} ) );
 
+var h2b = h2;
+var ro2 = ro2/2+2.5;
+var h2 = h2-8;
+
+Mid1Axis1.position.set( ro2 * Math.cos( 0/3*Math.PI ), h2, ro2 * Math.sin( 0/3*Math.PI ) );
+Mid1Axis1.rotation.set(0, 0, Math.PI*2/3);
+scene.add( Mid1Axis1 );
+
+Mid1Axis2.position.set( ro2 * Math.cos( 1/3*Math.PI ), h2, ro2 * Math.sin( 1/3*Math.PI ) );
+Mid1Axis2.rotation.set(0, -1/3*Math.PI, Math.PI*2/3);
+scene.add( Mid1Axis2 );
+
+Mid1Axis3.position.set( ro2 * Math.cos( 2/3*Math.PI ), h2, ro2 * Math.sin( 2/3*Math.PI ) );
+Mid1Axis3.rotation.set(0, -2/3*Math.PI, Math.PI*2/3);
+scene.add( Mid1Axis3 );
+
+Mid1Axis4.position.set( ro2 * Math.cos( 3/3*Math.PI ), h2, ro2 * Math.sin( 3/3*Math.PI ) );
+Mid1Axis4.rotation.set(0, 3/3*Math.PI, Math.PI*2/3);
+scene.add( Mid1Axis4 );
+
+Mid1Axis5.position.set( ro2 * Math.cos( 4/3*Math.PI ), h2, ro2 * Math.sin( 4/3*Math.PI ) );
+Mid1Axis5.rotation.set(0, 4/6*Math.PI, Math.PI*2/3);
+scene.add( Mid1Axis5 );
+
+Mid1Axis6.position.set( ro2 * Math.cos( 5/3*Math.PI ), h2, ro2 * Math.sin( 5/3*Math.PI ) );
+Mid1Axis6.rotation.set(0, 1/3*Math.PI, Math.PI*2/3);
+scene.add( Mid1Axis6 );
 
 
 var BottomPlatform = new THREE.Mesh( new THREE.CylinderGeometry( 15, 15, 1, 36, 1 ), new THREE.MeshPhongMaterial( {color: 0xdddddd} ) );
@@ -92,7 +145,7 @@ var BottomPlatform5 = BottomPlatform.clone();
 var BottomPlatform6 = BottomPlatform.clone();
 
 var ro3 = 30;
-var h3 = h2-47.5;
+var h3 = h2b-47.5;
 var p = Math.PI/6;
 BottomPlatform1.position.set( ro3 * Math.cos( 0/3*Math.PI+p ), h3, ro3 * Math.sin( 0/3*Math.PI+p ) );
 BottomPlatform2.position.set( ro3 * Math.cos( 1/3*Math.PI+p ), h3, ro3 * Math.sin( 1/3*Math.PI+p ) );
@@ -238,12 +291,13 @@ scene.add( Helix6 );
 
 var controls = new THREE.OrbitControls( camera, renderer.domElement );
 var animate = function () {
+	//MidAxis.rotation.y += 0.1;
 requestAnimationFrame( animate );
+
 renderer.render(scene, camera); 
 };
 
 animate();
 
-</script>
-</body>
+</script></body>
 </html>
