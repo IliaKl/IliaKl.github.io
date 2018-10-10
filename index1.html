@@ -30,7 +30,7 @@ var material = new THREE.MeshPhongMaterial( { color: 0xdddddd } );
 
 
 
-
+/*
 var PlatformGT = new THREE.Group();
 
   var platformF = function () {
@@ -105,117 +105,276 @@ var PlatformGT = new THREE.Group();
   platformF();
   PlatformGT.position.set( 0, 130/2, 0 );
 scene.add(PlatformGT);
+*/
 
-var PlatformG0 = new THREE.Group();
 
-  var platformF = function () {
-    var PlatformArray = [];
-    var d = 20;
-    var t = 0.6;
-    var i = 0;
-    PlatformArray[i] = new THREE.Mesh( new THREE.TorusGeometry( d/2, t/2, 8, 64 ), material );
-    PlatformArray[i].position.set( 0, 0, 0 ); 
-    PlatformArray[i].rotation.set(-Math.PI/2, 0, 0);
-    PlatformG1.add( PlatformArray[i] );
-    var i = 1;
-    PlatformArray[i] = new THREE.Mesh( new THREE.CylinderGeometry( t/2, t/2, d/2, 8 ), material );
-    var ro = d/4;
-    var fi = 0/3*Math.PI;
-    var x = ro * Math.cos(fi);
-    var z = ro * Math.sin(fi);
-    PlatformArray[i].position.set( x, -t, z ); 
-    PlatformArray[i].rotation.set(Math.PI/2, 0, fi+Math.PI/2);
-    PlatformG1.add( PlatformArray[i] );
-    var i = 2;
-    PlatformArray[i] = new THREE.Mesh( new THREE.CylinderGeometry( t/2, t/2, d/2, 8 ), material );
-    var ro = d/4;
-    var fi = 2/3*Math.PI;
-    var x = ro * Math.cos(fi);
-    var z = ro * Math.sin(fi);
-    PlatformArray[i].position.set( x, -t, z ); 
-    PlatformArray[i].rotation.set(Math.PI/2, 0, fi+Math.PI/2);
-    PlatformG1.add( PlatformArray[i] );
-    var i = 3;
-    PlatformArray[i] = new THREE.Mesh( new THREE.CylinderGeometry( t/2, t/2, d/2, 8 ), material );
-    var ro = d/4;
-    var fi = 4/3*Math.PI;
-    var x = ro * Math.cos(fi);
-    var z = ro * Math.sin(fi);
-    PlatformArray[i].position.set( x, -t, z ); 
-    PlatformArray[i].rotation.set(Math.PI/2, 0, fi+Math.PI/2);
-    PlatformG1.add( PlatformArray[i] );
-    var i = 4;
-    var v = d/2;
-    PlatformArray[i] = new THREE.Mesh( new THREE.CylinderGeometry( t/2, t/2, v, 8 ), material );
-    PlatformArray[i].position.set( 0, -t-v/2, 0 ); 
-    PlatformArray[i].rotation.set(0, 0, 0);
-    PlatformG1.add( PlatformArray[i] );
-    var i = 5;
-    PlatformArray[i] = new THREE.Mesh( new THREE.CylinderGeometry( d/2-t/2, d/2-t/2, 0.1, 64 ), material );
-    PlatformArray[i].position.set( 0, -t/2+0.05, 0 ); 
-    PlatformArray[i].rotation.set(0, 0, 0);
-    PlatformG1.add( PlatformArray[i] );
-  };
+var Plat0 = function () {
+    var PlatformG0 = new THREE.Group();
 
-  var holderF = function () {
-    var t = 0.6;
-    var radCentrAxe = 5;
-    var coordCentrPlatform = 30;
-    var radBottomHolder = 30;
-    var h1 = 5;
-    var h2 = 10;
-    var d1 = coordCentrPlatform-radCentrAxe;
-    var s1 = (radCentrAxe-2*t)/2-t;
-    var alfa = Math.atan(s1/d1);
-    var torus = new THREE.Mesh( new THREE.TorusGeometry( t, t/2, 8, 32, 3.1 ), material );
-    torus.position.set( 0, 0, 0 ); 
-    torus.rotation.set(Math.PI/2, 0, -Math.PI/2);
-    PlatformG.add( torus );
-    var holder = [];
-    var i = 1;
-    holder[i] = new THREE.Mesh( new THREE.CylinderGeometry( t/2, t/2, d1, 8, 1 ), material );
-    holder[i].position.set( -d1/2, 0, s1 ); 
-    holder[i].rotation.set(Math.PI/2, 0, -Math.PI/2-alfa);
-    PlatformG.add( holder[i] );
-    var i = 2;
-    holder[i] = new THREE.Mesh( new THREE.CylinderGeometry( t/2, t/2, d1, 8, 1 ), material );
-    holder[i].position.set( -d1/2, 0, -s1 ); 
-    holder[i].rotation.set(Math.PI/2, 0, -Math.PI/2+alfa);
-    PlatformG.add( holder[i] );
-    var i = 3;
-    holder[i] = new THREE.Mesh( new THREE.TorusGeometry( radBottomHolder, t/2, 8, 32, 2/7.2*3.14 ), material );
-    holder[i].position.set( -7, -34, 0 ); 
-    holder[i].rotation.set(0, 0, 1.33);
-    PlatformG.add( holder[i] );
-  };
+      var platformF = function () {
+        var PlatformArray = [];
+        var d = 20;
+        var t = 0.6;
+        var i = 0;
+        PlatformArray[i] = new THREE.Mesh( new THREE.TorusGeometry( d/2, t/2, 8, 64 ), material );
+        PlatformArray[i].position.set( 0, 0, 0 ); 
+        PlatformArray[i].rotation.set(-Math.PI/2, 0, 0);
+        PlatformG1.add( PlatformArray[i] );
+        var i = 1;
+        PlatformArray[i] = new THREE.Mesh( new THREE.CylinderGeometry( t/2, t/2, d/2, 8 ), material );
+        var ro = d/4;
+        var fi = 0/3*Math.PI;
+        var x = ro * Math.cos(fi);
+        var z = ro * Math.sin(fi);
+        PlatformArray[i].position.set( x, -t, z ); 
+        PlatformArray[i].rotation.set(Math.PI/2, 0, fi+Math.PI/2);
+        PlatformG1.add( PlatformArray[i] );
+        var i = 2;
+        PlatformArray[i] = new THREE.Mesh( new THREE.CylinderGeometry( t/2, t/2, d/2, 8 ), material );
+        var ro = d/4;
+        var fi = 2/3*Math.PI;
+        var x = ro * Math.cos(fi);
+        var z = ro * Math.sin(fi);
+        PlatformArray[i].position.set( x, -t, z ); 
+        PlatformArray[i].rotation.set(Math.PI/2, 0, fi+Math.PI/2);
+        PlatformG1.add( PlatformArray[i] );
+        var i = 3;
+        PlatformArray[i] = new THREE.Mesh( new THREE.CylinderGeometry( t/2, t/2, d/2, 8 ), material );
+        var ro = d/4;
+        var fi = 4/3*Math.PI;
+        var x = ro * Math.cos(fi);
+        var z = ro * Math.sin(fi);
+        PlatformArray[i].position.set( x, -t, z ); 
+        PlatformArray[i].rotation.set(Math.PI/2, 0, fi+Math.PI/2);
+        PlatformG1.add( PlatformArray[i] );
+        var i = 4;
+        var v = d/2;
+        PlatformArray[i] = new THREE.Mesh( new THREE.CylinderGeometry( t/2, t/2, v, 8 ), material );
+        PlatformArray[i].position.set( 0, -t-v/2, 0 ); 
+        PlatformArray[i].rotation.set(0, 0, 0);
+        PlatformG1.add( PlatformArray[i] );
+        var i = 5;
+        PlatformArray[i] = new THREE.Mesh( new THREE.CylinderGeometry( d/2-t/2, d/2-t/2, 0.1, 64 ), material );
+        PlatformArray[i].position.set( 0, -t/2+0.05, 0 ); 
+        PlatformArray[i].rotation.set(0, 0, 0);
+        PlatformG1.add( PlatformArray[i] );
+      };
 
-  var platformF1 = function (i) {
+      var holderF = function () {
+        var t = 0.6;
+        var radCentrAxe = 5;
+        var coordCentrPlatform = 20;
+        var radBottomHolder = 20;
+        var h1 = 5;
+        var h2 = 10;
+        var d1 = coordCentrPlatform-radCentrAxe;
+        var s1 = (radCentrAxe-2*t)/2-t;
+        var alfa = Math.atan(s1/d1);
+        var torus = new THREE.Mesh( new THREE.TorusGeometry( t, t/2, 8, 32, 3.1 ), material );
+        torus.position.set( 0, 0, 0 ); 
+        torus.rotation.set(Math.PI/2, 0, -Math.PI/2);
+        PlatformG.add( torus );
+        var holder = [];
+        var i = 1;
+        holder[i] = new THREE.Mesh( new THREE.CylinderGeometry( t/2, t/2, d1, 8, 1 ), material );
+        holder[i].position.set( -d1/2, 0, s1 ); 
+        holder[i].rotation.set(Math.PI/2, 0, -Math.PI/2-alfa);
+        PlatformG.add( holder[i] );
+        var i = 2;
+        holder[i] = new THREE.Mesh( new THREE.CylinderGeometry( t/2, t/2, d1, 8, 1 ), material );
+        holder[i].position.set( -d1/2, 0, -s1 ); 
+        holder[i].rotation.set(Math.PI/2, 0, -Math.PI/2+alfa);
+        PlatformG.add( holder[i] );
+        var i = 3;
+        holder[i] = new THREE.Mesh( new THREE.TorusGeometry( radBottomHolder, t/2, 8, 32, 2/7.9*3.14 ), material );
+        holder[i].position.set( -3, -25, 0 ); 
+        holder[i].rotation.set(0, 0, 1.42);
+        PlatformG.add( holder[i] );
+      };
 
-    PlatformA[i] = PlatformG0.clone();
-    var ro = 30;
-    var fi = i/3*Math.PI;
-    var x = ro * Math.cos(fi);
-    var z = ro * Math.sin(fi);
-    PlatformA[i].rotation.set( 0, -fi, 0 );
-    PlatformA[i].position.set( x, -3, z );
-    PlatformG3.add( PlatformA[i] );
-  }
+      var platformF1 = function (i) {
 
-  var PlatformG1 = new THREE.Group();
-  var PlatformG = new THREE.Group();
-  holderF();
-  platformF();
-  PlatformG.position.set( 0, 0, 0 );
-  PlatformG1.position.set( 0, 3, 0 );
-  PlatformG0.add( PlatformG );
-  PlatformG0.add( PlatformG1 );
+        PlatformA[i] = PlatformG0.clone();
+        var ro = 20;
+        var fi = i/3*Math.PI+Math.PI/6;
+        var x = ro * Math.cos(fi);
+        var z = ro * Math.sin(fi);
+        PlatformA[i].rotation.set( 0, -fi, 0 );
+        PlatformA[i].position.set( x, -3, z );
+        PlatformG31.add( PlatformA[i] );
+      }
 
-  var PlatformA = [];
-  var PlatformG3 = new THREE.Group();
-  for (var i = 1; i < 7; i++){
-    platformF1(i);
-  }
-scene.add(PlatformG3);
+      var PlatformG1 = new THREE.Group();
+      var PlatformG = new THREE.Group();
+      holderF();
+      platformF();
+      PlatformG.position.set( 0, 0, 0 );
+      PlatformG1.position.set( 0, 3, 0 );
+      PlatformG0.add( PlatformG );
+      PlatformG0.add( PlatformG1 );
+
+      var PlatformA = [];
+      var PlatformG31 = new THREE.Group();
+      for (var i = 2; i < 7; i=i+2){
+        platformF1(i);
+      }
+          var MidT = new THREE.Mesh( new THREE.TorusGeometry( 4+1.2, 0.3, 8, 64 ), material );
+        MidT.position.set( 0, -3, 0 ); 
+        MidT.rotation.set(Math.PI/2, 0, 0);
+        PlatformG31.add( MidT );
+
+        var MidT1 = new THREE.Mesh( new THREE.TorusGeometry( 4+1.2, 0.3, 8, 64 ), material );
+        MidT1.position.set( 0, -13, 0 ); 
+        MidT1.rotation.set(Math.PI/2, 0, 0);
+        PlatformG31.add( MidT1 );
+
+        var C11= [];
+        for (var i = 1; i < 7; i++){
+        C11[i] = new THREE.Mesh( new THREE.CylinderGeometry( 0.3, 0.3, 10, 8 ), material );
+        var fi = i/3*Math.PI+Math.PI/6;
+        var x = 5.2 * Math.cos(fi);
+        var z = 5.2 * Math.sin(fi);
+        C11[i].position.set( x, -8, z );
+        PlatformG31.add( C11[i] );
+        };
+        PlatformG31.position.set( 0, 30, 0 );
+    scene.add(PlatformG31);
+    };
+Plat0();
+
+
+var Plat1 = function () {
+    var PlatformG0 = new THREE.Group();
+
+      var platformF = function () {
+        var PlatformArray = [];
+        var d = 20;
+        var t = 0.6;
+        var i = 0;
+        PlatformArray[i] = new THREE.Mesh( new THREE.TorusGeometry( d/2, t/2, 8, 64 ), material );
+        PlatformArray[i].position.set( 0, 0, 0 ); 
+        PlatformArray[i].rotation.set(-Math.PI/2, 0, 0);
+        PlatformG1.add( PlatformArray[i] );
+        var i = 1;
+        PlatformArray[i] = new THREE.Mesh( new THREE.CylinderGeometry( t/2, t/2, d/2, 8 ), material );
+        var ro = d/4;
+        var fi = 0/3*Math.PI;
+        var x = ro * Math.cos(fi);
+        var z = ro * Math.sin(fi);
+        PlatformArray[i].position.set( x, -t, z ); 
+        PlatformArray[i].rotation.set(Math.PI/2, 0, fi+Math.PI/2);
+        PlatformG1.add( PlatformArray[i] );
+        var i = 2;
+        PlatformArray[i] = new THREE.Mesh( new THREE.CylinderGeometry( t/2, t/2, d/2, 8 ), material );
+        var ro = d/4;
+        var fi = 2/3*Math.PI;
+        var x = ro * Math.cos(fi);
+        var z = ro * Math.sin(fi);
+        PlatformArray[i].position.set( x, -t, z ); 
+        PlatformArray[i].rotation.set(Math.PI/2, 0, fi+Math.PI/2);
+        PlatformG1.add( PlatformArray[i] );
+        var i = 3;
+        PlatformArray[i] = new THREE.Mesh( new THREE.CylinderGeometry( t/2, t/2, d/2, 8 ), material );
+        var ro = d/4;
+        var fi = 4/3*Math.PI;
+        var x = ro * Math.cos(fi);
+        var z = ro * Math.sin(fi);
+        PlatformArray[i].position.set( x, -t, z ); 
+        PlatformArray[i].rotation.set(Math.PI/2, 0, fi+Math.PI/2);
+        PlatformG1.add( PlatformArray[i] );
+        var i = 4;
+        var v = d/2;
+        PlatformArray[i] = new THREE.Mesh( new THREE.CylinderGeometry( t/2, t/2, v, 8 ), material );
+        PlatformArray[i].position.set( 0, -t-v/2, 0 ); 
+        PlatformArray[i].rotation.set(0, 0, 0);
+        PlatformG1.add( PlatformArray[i] );
+        var i = 5;
+        PlatformArray[i] = new THREE.Mesh( new THREE.CylinderGeometry( d/2-t/2, d/2-t/2, 0.1, 64 ), material );
+        PlatformArray[i].position.set( 0, -t/2+0.05, 0 ); 
+        PlatformArray[i].rotation.set(0, 0, 0);
+        PlatformG1.add( PlatformArray[i] );
+      };
+
+      var holderF = function () {
+        var t = 0.6;
+        var radCentrAxe = 5;
+        var coordCentrPlatform = 30;
+        var radBottomHolder = 30;
+        var h1 = 5;
+        var h2 = 10;
+        var d1 = coordCentrPlatform-radCentrAxe;
+        var s1 = (radCentrAxe-2*t)/2-t;
+        var alfa = Math.atan(s1/d1);
+        var torus = new THREE.Mesh( new THREE.TorusGeometry( t, t/2, 8, 32, 3.1 ), material );
+        torus.position.set( 0, 0, 0 ); 
+        torus.rotation.set(Math.PI/2, 0, -Math.PI/2);
+        PlatformG.add( torus );
+        var holder = [];
+        var i = 1;
+        holder[i] = new THREE.Mesh( new THREE.CylinderGeometry( t/2, t/2, d1, 8, 1 ), material );
+        holder[i].position.set( -d1/2, 0, s1 ); 
+        holder[i].rotation.set(Math.PI/2, 0, -Math.PI/2-alfa);
+        PlatformG.add( holder[i] );
+        var i = 2;
+        holder[i] = new THREE.Mesh( new THREE.CylinderGeometry( t/2, t/2, d1, 8, 1 ), material );
+        holder[i].position.set( -d1/2, 0, -s1 ); 
+        holder[i].rotation.set(Math.PI/2, 0, -Math.PI/2+alfa);
+        PlatformG.add( holder[i] );
+        var i = 3;
+        holder[i] = new THREE.Mesh( new THREE.TorusGeometry( radBottomHolder, t/2, 8, 32, 2/7.2*3.14 ), material );
+        holder[i].position.set( -7, -34, 0 ); 
+        holder[i].rotation.set(0, 0, 1.33);
+        PlatformG.add( holder[i] );
+      };
+
+      var platformF1 = function (i) {
+
+        PlatformA[i] = PlatformG0.clone();
+        var ro = 30;
+        var fi = i/3*Math.PI;
+        var x = ro * Math.cos(fi);
+        var z = ro * Math.sin(fi);
+        PlatformA[i].rotation.set( 0, -fi, 0 );
+        PlatformA[i].position.set( x, -3, z );
+        PlatformG3.add( PlatformA[i] );
+      }
+
+      var PlatformG1 = new THREE.Group();
+      var PlatformG = new THREE.Group();
+      holderF();
+      platformF();
+      PlatformG.position.set( 0, 0, 0 );
+      PlatformG1.position.set( 0, 3, 0 );
+      PlatformG0.add( PlatformG );
+      PlatformG0.add( PlatformG1 );
+
+      var PlatformA = [];
+      var PlatformG3 = new THREE.Group();
+      for (var i = 1; i < 7; i++){
+        platformF1(i);
+      }
+          var MidT = new THREE.Mesh( new THREE.TorusGeometry( 4+1.2, 0.3, 8, 64 ), material );
+        MidT.position.set( 0, -3, 0 ); 
+        MidT.rotation.set(Math.PI/2, 0, 0);
+        PlatformG3.add( MidT );
+
+        var MidT1 = new THREE.Mesh( new THREE.TorusGeometry( 4+1.2, 0.3, 8, 64 ), material );
+        MidT1.position.set( 0, -13, 0 ); 
+        MidT1.rotation.set(Math.PI/2, 0, 0);
+        PlatformG3.add( MidT1 );
+
+        var C11= [];
+        for (var i = 1; i < 7; i++){
+        C11[i] = new THREE.Mesh( new THREE.CylinderGeometry( 0.3, 0.3, 10, 8 ), material );
+        var fi = i/3*Math.PI;
+        var x = 5.2 * Math.cos(fi);
+        var z = 5.2 * Math.sin(fi);
+        C11[i].position.set( x, -8, z );
+        PlatformG3.add( C11[i] );
+        };
+    scene.add(PlatformG3);
+    };
+Plat1();
 
 
 var HelixG = new THREE.Group();
@@ -286,17 +445,17 @@ var HelixG = new THREE.Group();
     BottomT.position.set( 0, -h/2, 0 ); 
     BottomT.rotation.set(Math.PI/2, 0, 0);
     HelixG.add( BottomT );
-
-    var MidT = new THREE.Mesh( new THREE.TorusGeometry( dt/2+t/2+t*2, t/2, 8, 64 ), material );
-    MidT.position.set( 0, 10.75, 0 ); 
+    /*
+    var MidT = new THREE.Mesh( new THREE.TorusGeometry( 4+0.6, 0.3, 8, 64 ), material );
+    MidT.position.set( 0, -3, 0 ); 
     MidT.rotation.set(Math.PI/2, 0, 0);
     HelixG.add( MidT );
 
-    var MidT1 = new THREE.Mesh( new THREE.TorusGeometry( dt/2+t/2+t*2, t/2, 8, 64 ), material );
-    MidT1.position.set( 0, 0.75, 0 ); 
+    var MidT1 = new THREE.Mesh( new THREE.TorusGeometry( 4+0.6, 0.3, 8, 64 ), material );
+    MidT1.position.set( 0, -13, 0 ); 
     MidT1.rotation.set(Math.PI/2, 0, 0);
     HelixG.add( MidT1 );
-
+    */
     var topCT = new THREE.Mesh( new THREE.TorusGeometry( dt/2+t/2+t*2, t/2, 8, 64 ), material );
     topCT.position.set( 0, h/2, 0 ); 
     topCT.rotation.set(Math.PI/2, 0, 0);
@@ -310,7 +469,7 @@ var HelixG = new THREE.Group();
 
   helixF();
   HelixG.position.set( 0, -130/2+102.5/2, 0 );
-scene.add(HelixG);
+//scene.add(HelixG);
 
 
 var HelixGm = new THREE.Group();
@@ -420,7 +579,7 @@ var HelixGm = new THREE.Group();
   helixFm();
   //HelixGm.position.set( 0, 52, 0 );
   HelixGm.position.set( 0, 0, 0 );
-scene.add(HelixGm);
+//scene.add(HelixGm);
 
 
 var M1 = new THREE.Mesh( new THREE.TorusGeometry( 5.6/2, 0.3, 8, 16 ), material );
@@ -437,72 +596,73 @@ var M1 = new THREE.Mesh( new THREE.TorusGeometry( 5.6/2, 0.3, 8, 16 ), material 
     var x = 5.6/2 * Math.cos(fi);
     var z = 5.6/2 * Math.sin(fi);
     C1[i].position.set( x, 51.25, z );
-    scene.add( C1[i] );
+    //scene.add( C1[i] );
     };
 
-scene.add(M1,M2);
+//scene.add(M1,M2);
 
-
-var FootingG = new THREE.Group();
-  var footing = function () {
-    var PlatformArray = [];
-    var d = 70;
-    var t = 0.6;
-    var i = 0;
-    PlatformArray[i] = new THREE.Mesh( new THREE.TorusGeometry( d/2, t/2, 8, 64 ), material );
-    PlatformArray[i].position.set( 0, 0, 0 ); 
-    PlatformArray[i].rotation.set(-Math.PI/2, 0, 0);
-    FootingG.add( PlatformArray[i] );
-    var i = 1;
-    PlatformArray[i] = new THREE.Mesh( new THREE.CylinderGeometry( t/2, t/2, d, 8 ), material );
-    var ro = d/4;
-    var fi = 0/3*Math.PI;
-    var x = ro * Math.cos(fi);
-    var z = ro * Math.sin(fi);
-    PlatformArray[i].position.set( 0, t, 0 ); 
-    PlatformArray[i].rotation.set(Math.PI/2, 0, fi+Math.PI/2);
-    FootingG.add( PlatformArray[i] );
-    var i = 2;
-    PlatformArray[i] = new THREE.Mesh( new THREE.CylinderGeometry( t/2, t/2, d, 8 ), material );
-    var ro = d/4;
-    var fi = 2/3*Math.PI;
-    var x = ro * Math.cos(fi);
-    var z = ro * Math.sin(fi);
-    PlatformArray[i].position.set( 0, t, 0 ); 
-    PlatformArray[i].rotation.set(Math.PI/2, 0, fi+Math.PI/2);
-    FootingG.add( PlatformArray[i] );
-    var i = 3;
-    PlatformArray[i] = new THREE.Mesh( new THREE.CylinderGeometry( t/2, t/2, d, 8 ), material );
-    var ro = d/4;
-    var fi = 4/3*Math.PI;
-    var x = ro * Math.cos(fi);
-    var z = ro * Math.sin(fi);
-    PlatformArray[i].position.set( 0, t, 0 ); 
-    PlatformArray[i].rotation.set(Math.PI/2, 0, fi+Math.PI/2);
-    FootingG.add( PlatformArray[i] );
-    var i = 4;
-    PlatformArray[i] = new THREE.Mesh( new THREE.TorusGeometry( 20, t/2, 8, 64 ), material );
-    PlatformArray[i].position.set( 0, 0, 0 ); 
-    PlatformArray[i].rotation.set(-Math.PI/2, 0, 0);
-    FootingG.add( PlatformArray[i] );
-    var i = 5;
-    PlatformArray[i] = new THREE.Mesh( new THREE.TorusGeometry( 5, t/2, 8, 64 ), material );
-    PlatformArray[i].position.set( 0, 0, 0 ); 
-    PlatformArray[i].rotation.set(-Math.PI/2, 0, 0);
-    FootingG.add( PlatformArray[i] );
-  }
-  footing();
-  FootingG.position.set( 0, -65+0.3-0.6*2, 0 );
-scene.add(FootingG);
-
-
+var F1 = function () {
+    var FootingG = new THREE.Group();
+      var footing = function () {
+        var PlatformArray = [];
+        var d = 70;
+        var t = 0.6;
+        var i = 0;
+        PlatformArray[i] = new THREE.Mesh( new THREE.TorusGeometry( d/2, t/2, 8, 64 ), material );
+        PlatformArray[i].position.set( 0, 0, 0 ); 
+        PlatformArray[i].rotation.set(-Math.PI/2, 0, 0);
+        FootingG.add( PlatformArray[i] );
+        var i = 1;
+        PlatformArray[i] = new THREE.Mesh( new THREE.CylinderGeometry( t/2, t/2, d, 8 ), material );
+        var ro = d/4;
+        var fi = 0/3*Math.PI;
+        var x = ro * Math.cos(fi);
+        var z = ro * Math.sin(fi);
+        PlatformArray[i].position.set( 0, t, 0 ); 
+        PlatformArray[i].rotation.set(Math.PI/2, 0, fi+Math.PI/2);
+        FootingG.add( PlatformArray[i] );
+        var i = 2;
+        PlatformArray[i] = new THREE.Mesh( new THREE.CylinderGeometry( t/2, t/2, d, 8 ), material );
+        var ro = d/4;
+        var fi = 2/3*Math.PI;
+        var x = ro * Math.cos(fi);
+        var z = ro * Math.sin(fi);
+        PlatformArray[i].position.set( 0, t, 0 ); 
+        PlatformArray[i].rotation.set(Math.PI/2, 0, fi+Math.PI/2);
+        FootingG.add( PlatformArray[i] );
+        var i = 3;
+        PlatformArray[i] = new THREE.Mesh( new THREE.CylinderGeometry( t/2, t/2, d, 8 ), material );
+        var ro = d/4;
+        var fi = 4/3*Math.PI;
+        var x = ro * Math.cos(fi);
+        var z = ro * Math.sin(fi);
+        PlatformArray[i].position.set( 0, t, 0 ); 
+        PlatformArray[i].rotation.set(Math.PI/2, 0, fi+Math.PI/2);
+        FootingG.add( PlatformArray[i] );
+        var i = 4;
+        PlatformArray[i] = new THREE.Mesh( new THREE.TorusGeometry( 20, t/2, 8, 64 ), material );
+        PlatformArray[i].position.set( 0, 0, 0 ); 
+        PlatformArray[i].rotation.set(-Math.PI/2, 0, 0);
+        FootingG.add( PlatformArray[i] );
+        var i = 5;
+        PlatformArray[i] = new THREE.Mesh( new THREE.TorusGeometry( 5, t/2, 8, 64 ), material );
+        PlatformArray[i].position.set( 0, 0, 0 ); 
+        PlatformArray[i].rotation.set(-Math.PI/2, 0, 0);
+        FootingG.add( PlatformArray[i] );
+      }
+      footing();
+      FootingG.position.set( 0, -65, 0 );
+    scene.add(FootingG);
+  };
+//F1();
 
 var planeP = new THREE.Mesh( new THREE.PlaneGeometry( 1000, 1000 ), new THREE.MeshPhongMaterial( {color: 0x555555} ) );
-  planeP.position.set( 0, -65-0.6*2, 0 ); planeP.rotation.set(-Math.PI/2, 0, 0);
-  scene.add( planeP );
+  planeP.position.set( 0, 0, 0 ); planeP.rotation.set(-Math.PI/2, 0, 0);
+  //scene.add( planeP );
+
 
 var Box = new THREE.Mesh( new THREE.BoxGeometry( 20, 1, 20 ), new THREE.MeshPhongMaterial( {color: 0x777777} ) );
-  Box.position.set( 0, 130/2, 0 ); //planeP.rotation.set(-Math.PI/2, 0, 0);
+  Box.position.set( 0, 65-0.5, 0 ); //planeP.rotation.set(-Math.PI/2, 0, 0);
   //scene.add( Box );
 
 var animate = function () {
