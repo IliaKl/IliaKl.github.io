@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Model</title>
+	<style>
+		#canvas {border: 1px solid black;}
+		body { margin: 10px; }
+		#container {width: 1000px; height: 700px; /background-color: green; }
+		#container {width: calc(100vw - 20px); height: calc(100vh - 20px); /background-color: green; }
+	</style>
+	<script src="three.js"></script>
+	<script src="OrbitControls.js"></script>
+</head>
+<body>
+	<div id="container"></div>
+	<script>
+
+var container = document.getElementById( 'container' );
+
+var scene = new THREE.Scene();
+scene.background = new THREE.Color( 0xffffff );
+//scene.background = new THREE.Color( 0xaaaaaa );
+var camera = new THREE.PerspectiveCamera( 75, container.offsetWidth/container.offsetHeight, 0.1, 10000 );
+var renderer = new THREE.WebGLRenderer();
+renderer.setSize( container.offsetWidth, container.offsetHeight );
+container.appendChild( renderer.domElement );
+var controls = new THREE.OrbitControls( camera, renderer.domElement );
+
+/*
+var material = new THREE.LineBasicMaterial({ color: 0x0, opacity: 0.5, transparent: true });
+
+/*
+var n = 1;
+var minLengthFiber = 50;
+
+Line = new Array(n);
+
+for (var i = 0; i < n; i++) {
+
+	var startPointX = -5;
+	var startPointY = Math.random() * 2 - 1; // от -1 до 1
+	var startPointZ = Math.random() * 2 - 1;
+
+	for (;;){
+		nextPointX = Math.random() * 2 - 0.4;
+		nextPointY = Math.random() * 2 - 1;
+		nextPointZ = Math.random() * 2 - 1;
+
+		let lengthFiber = ;
+		if ( lengthFiber >= minLengthFiber ) break;
+	}
+
+	
+	var A = Array(10);
+	for (var j = 0; j < 10; j++) {
+		var x = (j-Math.random()*10)-2;
+		var fi = Math.random()*2*Math.PI;
+		var ro = Math.random();
+		var y = ro*Math.sin(fi);
+		var z = ro*Math.cos(fi);
+		A[j] =new THREE.Vector3( x, y, z );
+	};
+
+	var curve = new THREE.CatmullRomCurve3( A );
+	var points = curve.getPoints( 100 );
+	var geometry = new THREE.BufferGeometry().setFromPoints( points );
+
+	Line[i] = new THREE.Line( geometry, material );
+	scene.add(Line[i]);
+
+};
+
+*/
+
+//scene.add(new THREE.Mesh(new THREE.PlaneGeometry(5,7,1),new THREE.MeshBasicMaterial({color:0xffff00,side:THREE.DoubleSide})));
+/*
+camera.position.z = 15;
+
+
+class Fiber {
+	constructor () {
+		this.firstPointX = Math.random()*18-10
+		this.firstPointY = Math.random() * 2 - 1
+		this.firstPointZ = Math.random() * 2 - 1
+		this.lastPointX = this.firstPointX+2
+		this.lastPointY = this.firstPointY
+		this.lastPointZ = this.firstPointZ
+
+		this.time = new Date ()
+	}
+
+	create () {
+		this.firstPointX = -10
+		this.firstPointY = Math.random() * 2 - 1
+		this.firstPointZ = Math.random() * 2 - 1
+		this.lastPointX = this.firstPointX+2
+		this.lastPointY = this.firstPointY
+		this.lastPointZ = this.firstPointZ
+
+		this.time = new Date ()
+	}
+
+	check () {
+		if (this.lastPointX >= 10) this.remove ()
+	}
+
+	remove () {
+		this.create ()
+	}
+
+	shift (x) {
+		this.firstPointX = this.firstPointX + x
+		this.lastPointX = this.lastPointX + x
+	}
+
+	movement (time) {
+		this.shift ((time - this.time)/500)
+		this.time = time
+		this.check ()
+	}
+
+	createGeometry () {
+
+		//let A = Array(2);
+		//A[0] =new THREE.Vector3( this.firstPointX, this.firstPointY, this.firstPointZ );
+		//A[1] =new THREE.Vector3( this.lastPointX, this.lastPointY, this.lastPointZ );
+
+		//let curve = new THREE.CatmullRomCurve3( A );
+		//let points = curve.getPoints( 5 );
+		//let geometry = new THREE.BufferGeometry().setFromPoints( points );
+
+		let geometry = new THREE.Geometry();
+			geometry.vertices = [
+			new THREE.Vector3( this.firstPointX, this.firstPointY, this.firstPointZ ),
+			new THREE.Vector3( this.lastPointX, this.lastPointY, this.lastPointZ )
+		];
+
+		//let Line = new THREE.Line( geometry, material );
+
+		//return Line;
+		return geometry;
+	}
+
+
+}
+
+
+
+var namber = 100;
+var Line = new Array(namber);
+var LineGeometry = new Array(namber);
+var fibers = [];
+
+function Tape () {
+	for (var i = 0; i < namber; i++) {
+		fibers[i]  = new Fiber();
+		LineGeometry[i] = fibers[i].createGeometry ();
+		Line[i] = new THREE.Line( LineGeometry[i], material );
+		scene.add(Line[i]);
+	}
+}
+
+
+function clear () {
+	for (var i = 0; i < namber; i++) {
+		scene.remove(Line[i]);
+		scene.dispose();
+	}
+}
+
+function movementFibers () {
+	//clear ();
+
+	for (var i = 0; i < namber; i++) {
+		fibers[i].movement(new Date());
+
+		LineGeometry[i] = fibers[i].createGeometry ();
+
+		//Line[i].vertices = LineGeometry[i];
+		LineGeometry[i].verticesNeedUpdate = true;
+		
+		//scene.add(Line[i]);
+
+	}
+}
+
+//Tape ();
+
+
+*/
+/*
+			var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+			var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+			var cube = new THREE.Mesh( geometry, material );
+			scene.add( cube );
+*/
+/*
+var material = new THREE.LineBasicMaterial({
+	color: 0x0000ff
+});
+
+var geometry = new THREE.Geometry();
+geometry.vertices.push(
+	new THREE.Vector3( -10, 0, 0 ),
+	new THREE.Vector3( 0, 10, 0 ),
+	new THREE.Vector3( 10, 0, 0 )
+);
+
+var line = new THREE.Line( geometry, material );
+scene.add( line );
+scene.remove( line );
+
+geometry = new THREE.Geometry();
+geometry.vertices.push(
+	new THREE.Vector3( 0, 0, 0 ),
+	new THREE.Vector3( 0, 10, 0 ),
+	new THREE.Vector3( 10, 0, 0 )
+);
+line.verticesNeedUpdate = true;
+//line = new THREE.Line( geometry, material );
+scene.add( line );
+
+
+var animate = function () {
+	requestAnimationFrame( animate );
+	//movementFibers ();
+	renderer.render( scene, camera );
+};
+
+animate();
+
+*/
+
+var camera, scene, renderer;
+var positions, colors;
+var lines = 4;
+var buffer_geometry;
+
+function updateGeomData() {
+    
+    var radius = 280;
+    
+    for ( var i = 0; i < lines; i ++ ) {
+
+        var lat = Math.random()*180 - 90;
+        var lng = Math.random()*360 - 180;
+
+        var phi = (90.0 - lat) * Math.PI / 180.0;
+        var theta = (360.0 - lng) * Math.PI / 180.0;
+        var x = radius * Math.sin(phi) * Math.cos(theta);
+        var y = radius * Math.cos(phi);
+        var z = radius * Math.sin(phi) * Math.sin(theta);
+
+        positions[ i * 6 + 0 ] = 0;
+        positions[ i * 6 + 1 ] = 0;
+        positions[ i * 6 + 2 ] = 0;
+        positions[ i * 6 + 3 ] = x;
+        positions[ i * 6 + 4 ] = y;
+        positions[ i * 6 + 5 ] = z;
+
+        colors[ i * 6 + 0 ] = 0;
+        colors[ i * 6 + 1 ] = 0;
+        colors[ i * 6 + 2 ] = 0;
+        colors[ i * 6 + 3 ] = ( x / radius ) + 0.5;
+        colors[ i * 6 + 4 ] = ( y / radius ) + 0.5;
+        colors[ i * 6 + 5 ] = ( z / radius ) + 0.5;
+    }
+}
+
+function add_lines_buffer_geom() {
+
+    buffer_geometry = new THREE.BufferGeometry();
+
+    buffer_geometry.dynamic = true;
+
+    buffer_geometry.addAttribute( 'position', new THREE.BufferAttribute( new Float32Array(lines * 6), 3 ));
+
+    buffer_geometry.addAttribute( 'color', new THREE.BufferAttribute( new Float32Array(lines * 6), 3 ));
+
+    var material = new THREE.LineBasicMaterial({ vertexColors: true });
+
+    positions = buffer_geometry.attributes.position.array;
+    colors = buffer_geometry.attributes.color.array;
+
+    updateGeomData();
+
+    buffer_geometry.computeBoundingSphere();
+
+    var buffer_mesh = new THREE.Line( buffer_geometry, material );
+    scene.add( buffer_mesh );
+}
+
+function init() {
+/*    container = document.createElement( 'div' );
+    container.style.position = 'absolute';
+    container.style.top = '0px';
+    container.style.left = '0px';
+    container.style.width = '100%';
+    container.style.height = '100%'
+    document.body.appendChild( container );*/
+
+    /*renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    container.appendChild(renderer.domElement);
+    
+    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 2000);*/
+    camera.position.z = 600;
+
+    //scene = new THREE.Scene();
+
+    add_lines_buffer_geom();
+
+    animate();
+}
+
+function animate() {
+
+    requestAnimationFrame(animate);
+
+    //updateGeomData();
+
+    buffer_geometry.attributes.position.needsUpdate = true;
+    buffer_geometry.attributes.color.needsUpdate = true;
+
+    buffer_geometry.computeBoundingSphere();
+
+    renderer.render(scene, camera);
+}
+
+init();
+
+	</script>
+</body>
+</html>

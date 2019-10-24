@@ -1,134 +1,54 @@
-<html>
-	<head>
-<title>three.js</title>
-<style>
-	body { margin: 50px; }
-	#container {width: 1000px; height: 700px; /background-color: green; }
-</style>
-<script type="text/javascript" src="three.js"></script>
-<script type="text/javascript" src="OrbitControls.js"></script>
-	</head>
-	<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Model</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="three.js"></script>
+	<script src="OrbitControls.js"></script>
+	<script src="3D.js"></script>
+	<script src="2D.js"></script>
+</head>
+<body>
+	<div id="main">
+		<div id="header">
+			<p>Carding tape model</p>
+			</br>
+			<form id="form_1">
+				N 
+				<input type="text" id="N" value="1000">
+			</br>
+				<button id="count" type="button" onclick="Start();">Count</button>
+			</form>
+		</div>
+		<div id="canvas"></div>
+		<div id="forButtons">
+			<form>
+				<button id="switch3D" type="button">Run/Stop</button>
+			</form>
+		</div>
+		<div id="subContainer">
+		<div id="container"></div>
+		</div>
+		<div id="footer">
+			Created by
+		</div>
+	</div>
+	<script>
 
-<div id="container"></div>
-<script>
+		var subCont_1 = document.getElementById("subContainer");
+		
+	var lines = 1000;
+		function Start(){
+			document.getElementById("container").remove();
 
-	var container = document.getElementById( 'container' );
+			var div = document.createElement("div");
+			div.id = "container";
+			subCont_1.appendChild(div);
 
-	var scene = new THREE.Scene();
-	scene.background = new THREE.Color( 0xffffff );
-	scene.background = new THREE.Color( 0xaaaaaa );
-	var camera = new THREE.PerspectiveCamera( 75, container.offsetWidth/container.offsetHeight, 0.1, 10000 );
-	var renderer = new THREE.WebGLRenderer();
-	renderer.setSize( container.offsetWidth, container.offsetHeight );
-	container.appendChild( renderer.domElement );
-	var controls = new THREE.OrbitControls( camera, renderer.domElement );
-
-var ambienLight = new THREE.AmbientLight( 0xffffff, 0.15 ); 
-scene.add( ambienLight );
-var directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
-scene.add( directionalLight );
-
-//var geometry = new THREE.BoxGeometry( 1, 1, 1 );
-
-
-var material = new THREE.LineBasicMaterial({ color: 0x0, opacity: 0.5, transparent: true });
-
-/*
-var lineArray = new Float32Array([
-0, 0, 0, 
-0, 1, 0,
-0, 1, 1,
-1, 1, 1,
- ]);
-var lineGeometry = new THREE.BufferGeometry();
-lineGeometry.addAttribute( 'position', new THREE.BufferAttribute( lineArray, 3 ) );
-var Line = new THREE.Line( lineGeometry, material );
-scene.add(Line);
-*/
-/*
-Line = new Array(1);
-
-
-for (var i = 0; i < 1; i++) {
-var lineArray = new Float32Array(10*3);
-for (var j = 0; j < 10*3; j=j+3) {
-lineArray[j] = (j-Math.random()*10)/5-2;
-var fi = Math.random()*2*Math.PI;
-var ro = Math.random();
-lineArray[j+1] = ro*Math.sin(fi);
-lineArray[j+2] = ro*Math.cos(fi);
-
-//lineArray[j+1] = Math.random()*2-1;
-//lineArray[j+2] = Math.random()*2-1;
-};
-var lineGeometry = new THREE.BufferGeometry();
-lineGeometry.addAttribute( 'position', new THREE.BufferAttribute( lineArray, 3 ) );
-Line[i] = new THREE.Line( lineGeometry, material );
-scene.add(Line[i]);
-};
-
-*/
-
-/*
-var A = Array(5);
-
-
-A[0] =new THREE.Vector3( -10, 0, 10 );
-A[1] =new THREE.Vector3( -5, 5, 5 );
-A[2] =new THREE.Vector3( 0, 0, 0 );
-A[3] =new THREE.Vector3( 5, -5, 5 );
-A[4] =new THREE.Vector3( 10, 0, 10 );
-
-
-
-var curve = new THREE.CatmullRomCurve3( A );
-
-var points = curve.getPoints( 50 );
-var geometry = new THREE.BufferGeometry().setFromPoints( points );
-
-var material = new THREE.LineBasicMaterial( { color : 0xff0000 } );
-
-// Create the final object to add to the scene
-var curveObject = new THREE.Line( geometry, material );
-scene.add(curveObject);
-
-*/
-
-
-var n = 1000;
-
-Line = new Array(n);
-for (var i = 0; i < n; i++) {
-var A = Array(100);
-for (var j = 0; j < 100; j++) {
-var x = (j-Math.random()*10)-2;
-var fi = Math.random()*2*Math.PI;
-var ro = Math.random();
-var y = ro*Math.sin(fi);
-var z = ro*Math.cos(fi);
-A[j] =new THREE.Vector3( x, y, z );
-};
-
-var curve = new THREE.CatmullRomCurve3( A );
-var points = curve.getPoints( 2000 );
-var geometry = new THREE.BufferGeometry().setFromPoints( points );
-
-Line[i] = new THREE.Line( geometry, material );
-scene.add(Line[i]);
-
-};
-
-
-
-camera.position.z = 15;
-
-var animate = function () {
-	requestAnimationFrame( animate );
-	renderer.render( scene, camera );
-};
-
-animate();
+			lines = document.getElementById('N').value;
+			init();
+		};
 
 	</script>
 </body>
