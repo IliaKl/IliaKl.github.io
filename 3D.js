@@ -180,12 +180,14 @@ function add_lines_buffer_geom() {
 
 
 function animate() {
-    requestAnimationFrame(animate);
-    updateFibers(lines);
-    createGeomData();
-    buffer_geometry.attributes.position.needsUpdate = true;
-    buffer_geometry.computeBoundingSphere();
-    renderer.render(scene, camera);
+	if ( switch3D == true ){
+		requestAnimationFrame(animate);
+	    updateFibers(lines);
+	    createGeomData();
+	    buffer_geometry.attributes.position.needsUpdate = true;
+	    buffer_geometry.computeBoundingSphere();
+	    renderer.render(scene, camera);
+	}
 }
 
 
@@ -211,4 +213,29 @@ function init (){
 	createGeomData();
 
 	animate();
+}
+
+
+function clearMem() {
+container = NaN;
+scene = NaN;
+camera = NaN;
+renderer = NaN;
+controls = NaN;
+positions = NaN;
+buffer_geometry = NaN;
+ArrayDeltaY = [NaN];
+fibersData = [
+	[NaN],		// x1
+	[NaN],		// y1
+	[NaN],		// y01
+	[NaN],		// z1
+
+	[NaN],		// x2
+	[NaN],		// y2
+	[NaN],		// y02
+	[NaN],		// z2
+
+	[NaN]		// time
+];
 }
