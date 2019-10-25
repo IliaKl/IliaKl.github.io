@@ -181,10 +181,10 @@ function add_lines_buffer_geom() {
 
 function animate() {
     requestAnimationFrame(animate);
-    //updateFibers(lines);
-    //createGeomData();
-    //buffer_geometry.attributes.position.needsUpdate = true;
-    //buffer_geometry.computeBoundingSphere();
+    updateFibers(lines);
+    createGeomData();
+    buffer_geometry.attributes.position.needsUpdate = true;
+    buffer_geometry.computeBoundingSphere();
     renderer.render(scene, camera);
 }
 
@@ -200,7 +200,7 @@ function init (){
 	controls = new THREE.OrbitControls( camera, renderer.domElement );
 
 	//camera.position.x = (minX+maxX)/2;
-	camera.position.z = 1000;
+	camera.position.z = 500;
 
 	createModelArrayY( maxX - minX );
 

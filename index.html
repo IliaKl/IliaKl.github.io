@@ -9,7 +9,7 @@
 		}
 
 		#main {
-			background-color: gray;
+			background-color: white;
 			margin: 5px;
 			width: calc(100% - 10px);
 			height: calc(100vh - 10px);
@@ -89,6 +89,10 @@
 		}
 
 	</style>
+	<script src="three.js"></script>
+	<script src="OrbitControls.js"></script>
+	<script src="3D.js"></script>
+	<script src="2D.js"></script>
 	<script type="text/javascript">
 		
 		function div2D() {
@@ -97,7 +101,9 @@
 
 
 		function div3D() {
+			lines = document.getElementById('N').value;
 			createDiv();
+			init();
 		}
 
 
@@ -135,6 +141,7 @@
 
 		var mainDiv = document.getElementById("main");
 		var closeDiv = document.getElementById("close");
+		var line = 1000;
 
 	</script>
 </body>
