@@ -47,6 +47,22 @@ function createModelArrayY (n) {
 	for (var i = n/2; i < n + 1; i++) {
 		ArrayDeltaY[i] = 0.2;
 	}
+
+	
+	
+
+				/*
+				let string;
+				for (var i = 0; i < n + 1; i++) {
+					string = string + ArrayDeltaY[i] + '</br>';
+				}
+				let div = document.createElement('div');
+
+				//let textNode = document.createTextNode(string);
+				//document.body.append(textNode);
+				div.innerHTML = string;
+					document.body.append(div);
+				*/
 }
 
 
