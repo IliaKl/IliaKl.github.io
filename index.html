@@ -6,7 +6,7 @@
 	<style type="text/css">
 
 		html {
-			font-size: 4vmin;
+			font-size: 1em;
 		}
 
 		body {
@@ -99,6 +99,15 @@
 	<script src="3D.js"></script>
 	<script src="2D.js"></script>
 	<script type="text/javascript">
+
+		function TextSize(){
+			if (document.body.offsetWidth > document.body.offsetHeight) {
+				document.body.style.fontSize ="1.2rem";
+			} else {
+				document.body.style.fontSize ="4vmin";
+			}
+		}
+
 		
 		function div2D() {
 			createDiv();
@@ -151,6 +160,8 @@
 		var closeDiv = document.getElementById("close");
 		var line = 1000;
 		var switch3D = false;
+
+		TextSize();
 
 	</script>
 </body>
