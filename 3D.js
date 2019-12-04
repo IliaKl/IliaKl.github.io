@@ -10,9 +10,9 @@ var ArrayDeltaY = [];
 
 var minX, maxX, lengthFiber, sizeY, sizeZ, timeSpeed;
 
-minX = -1000;
-maxX = 1000;
-lengthFiber =150;
+minX = -800;
+maxX = 800;
+lengthFiber =50;
 sizeY = 100;
 sizeZ = 100;
 timeSpeed = 10;
@@ -37,8 +37,58 @@ fibersData = [
 function createModelArrayY (n) {
 	for (var i = 0; i < n + 1; i++) {
 		ArrayDeltaY[i] = (0.5 + (n - i) / n * 0.5);
+		//ArrayDeltaY[i] = 1;
+
 	}
 
+	for (var i = 0; i < n; i++ ) {
+
+		let pozY = (320-Math.sqrt(300*300-(i+minX)*(i+minX)))/100;
+		//console.log(pozY);
+		if(ArrayDeltaY[i] > pozY){
+			//break;
+			ArrayDeltaY[i] = pozY;
+		}
+		
+	}
+
+	for (var i = 30; i < n-30; i++ ) {
+		let y0 = ArrayDeltaY[i-30];
+		let y1 = ArrayDeltaY[i];
+		let y2 = ArrayDeltaY[i+30];
+
+		let q = 0.01;
+
+		if( y1 > (y0+y2)/2+q ){
+			ArrayDeltaY[i] = (y0+y2)/2+q;
+		}
+
+		if( y1 < (y0+y2)/2-q*10 ){
+			ArrayDeltaY[i] = (y0+y2)/2-q*10;
+		}
+	}
+
+	/*for (var i = 1; i < n; i++ ) {
+		let y0 = ArrayDeltaY[i-1];
+		let y1 = ArrayDeltaY[i];
+		let y2 = ArrayDeltaY[i+1];
+
+		if( (y1-y0+0.00005) < (y2-y1) ){
+			ArrayDeltaY[i+1] = y1+y1-y0+0.00005;
+		}
+	}
+
+	for (var i = n; i > 1; i-- ) {
+		let y0 = ArrayDeltaY[i-1];
+		let y1 = ArrayDeltaY[i];
+		let y2 = ArrayDeltaY[i+1];
+
+		if( (y1-y0) > (y2-y1+0.01) ){
+			ArrayDeltaY[i-1] = y1-y2-y1+0.01;
+		}
+	}
+	*/
+/*
 	var m = ~~(n/3);
 	for (var i = m; i < 2*m; i++){
 		ArrayDeltaY[i] = 0.6 + 0.4 * Math.sin(Math.PI * i/m) ;
@@ -47,7 +97,7 @@ function createModelArrayY (n) {
 	for (var i = n/2; i < n + 1; i++) {
 		ArrayDeltaY[i] = 0.2;
 	}
-
+*/
 	
 	
 
@@ -78,7 +128,7 @@ function firstCreateFibers(n) {
 		let y01 = Math.random() * sizeY * 2 - sizeY;
 		let z1 = Math.random() * sizeZ * 2 - sizeZ;
 
-		let x2 = x + Math.random() * lengthFiber;
+		let x2 = x + lengthFiber * 0.5 + Math.random() * lengthFiber;
 		let y02 = y01;
 		let z2 = z1;
 
@@ -122,7 +172,7 @@ function nextCreateFibers(i, createTime) {
 	let y01 = Math.random() * sizeY * 2 - sizeY;
 	let z1 = Math.random() * sizeZ * 2 - sizeZ;
 
-	let x2 = minX + Math.random() * lengthFiber;
+	let x2 = minX + lengthFiber * 0.5 + Math.random() * lengthFiber;
 	let y02 = y01;
 	let z2 = z1;
 
@@ -191,7 +241,7 @@ function add_lines_buffer_geom() {
     positions = buffer_geometry.attributes.position.array;
     createGeomData();
     buffer_geometry.computeBoundingSphere();
-    var material = new THREE.LineBasicMaterial({ color: 0x0, opacity: 0.7, transparent: true });
+    var material = new THREE.LineBasicMaterial({ color: 0x0, opacity: 0.05, transparent: true });
     var buffer_mesh = new THREE.LineSegments( buffer_geometry, material );
     scene.add( buffer_mesh );
 }
@@ -216,6 +266,7 @@ function init (){
 	container = document.getElementById( 'container' );
 	scene = new THREE.Scene();
 	scene.background = new THREE.Color( 0xffffff );
+	//scene.background = new THREE.Color( 0x02142d );
 	camera = new THREE.PerspectiveCamera( 45, container.offsetWidth/container.offsetHeight, 0.1, 10000 );
 	renderer = new THREE.WebGLRenderer();
 	renderer.setSize( container.offsetWidth, container.offsetHeight );
@@ -269,9 +320,9 @@ fibersData = [
 function rollers() {
 
 	var materialR = new THREE.LineBasicMaterial({
-	color: 0xff0000 });
+	color: 0xff0000, opacity: 0.3, transparent: true });
 	var materialB = new THREE.LineBasicMaterial({
-	color: 0x0000ff });
+	color: 0x0000ff, opacity: 0.5, transparent: true });
 
 var geometry_1 = new THREE.Geometry();
 geometry_1.vertices.push(
@@ -315,7 +366,7 @@ geometry_2.vertices.push(
 var line_1 = new THREE.LineSegments( geometry_1, materialB );
 var line_2 = new THREE.LineSegments( geometry_2, materialR );
 
-scene.add( line_1, line_2 );
+//scene.add( line_1, line_2 );
 
 
 
@@ -404,7 +455,7 @@ var yr2 = 0;
 
 var material_rolls = new THREE.LineBasicMaterial({ color: 0x0, opacity: 0.1, transparent: true });
 var buffer_mesh_rolls = new THREE.LineSegments( buffer_geometry_rolls, material_rolls );
-buffer_mesh_rolls.position.set(0,roll_rad,0);
+buffer_mesh_rolls.position.set(0,roll_rad+sizeY*0.2,0);
 scene.add( buffer_mesh_rolls );
 
 
@@ -442,15 +493,15 @@ var yc1 = 0;
 
 var material_crossbar = new THREE.LineBasicMaterial({ color: 0x0, opacity: 0.1, transparent: true });
 var buffer_mesh_crossbar = new THREE.LineSegments( buffer_geometry_crossbar, material_crossbar );
-buffer_mesh_crossbar.position.set(0,roll_rad,0);
+buffer_mesh_crossbar.position.set(0,roll_rad+sizeY*0.2,0);
 scene.add( buffer_mesh_crossbar );
 
 var buffer_mesh_rolls_d = buffer_mesh_rolls.clone();
-buffer_mesh_rolls_d.position.set(0,-roll_rad,0);
+buffer_mesh_rolls_d.position.set(0,-roll_rad-sizeY*0.2,0);
 scene.add( buffer_mesh_rolls_d );
 
 var buffer_mesh_crossbar_d = buffer_mesh_crossbar.clone();
-buffer_mesh_crossbar_d.position.set(0,-roll_rad,0);
+buffer_mesh_crossbar_d.position.set(0,-roll_rad-sizeY*0.2,0);
 scene.add( buffer_mesh_crossbar_d );
 
 }
