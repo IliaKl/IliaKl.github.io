@@ -38,8 +38,20 @@ fibersData = [
 
 
 function createModelArrayY (n) {
-	for (var i = 0; i < n + 1; i++) {
+	/*for (var i = 0; i < n + 1; i++) {
 		ArrayDeltaY[i] = (0.5 + (n - i) / n * 0.5);
+		//ArrayDeltaY[i] = 1;
+
+	}*/
+
+	for (var i = 0; i < n/2; i++) {
+		ArrayDeltaY[i] = ((n - i) / n);
+		//ArrayDeltaY[i] = 1;
+
+	}
+
+	for (var i = n/2; i < n + 1; i++) {
+		ArrayDeltaY[i] = 0.5;
 		//ArrayDeltaY[i] = 1;
 
 	}
@@ -244,7 +256,7 @@ function add_lines_buffer_geom() {
     positions = buffer_geometry.attributes.position.array;
     createGeomData();
     buffer_geometry.computeBoundingSphere();
-    var material = new THREE.LineBasicMaterial({ color: 0x0, opacity: 0.07, transparent: true });
+    var material = new THREE.LineBasicMaterial({ color: 0x0, opacity: 0.2, transparent: true });
     var buffer_mesh = new THREE.LineSegments( buffer_geometry, material );
     scene.add( buffer_mesh );
 }
@@ -277,7 +289,7 @@ function init (){
 	scene.background = new THREE.Color( 0xffffff );
 	//scene.background = new THREE.Color( 0x02142d );
 	camera = new THREE.PerspectiveCamera( 45, container.offsetWidth/container.offsetHeight, 0.1, 10000 );
-	renderer = new THREE.WebGLRenderer();
+	renderer = new THREE.WebGLRenderer(/*{ antialias: true }*/);
 	renderer.setSize( container.offsetWidth, container.offsetHeight );
 	container.appendChild( renderer.domElement );
 	controls = new THREE.OrbitControls( camera, renderer.domElement );
@@ -428,7 +440,7 @@ var yr2 = 0;
 		yr1 = yr2;
     };
 
-var material_rolls = new THREE.LineBasicMaterial({ color: 0xd0d0f0, opacity: 1, transparent: true });
+var material_rolls = new THREE.LineBasicMaterial({ color: 0x0000ff, opacity: 0.4, transparent: true });
 var buffer_mesh_rolls = new THREE.LineSegments( buffer_geometry_rolls, material_rolls );
 buffer_mesh_rolls.position.set(0,roll_rad+sizeY*0.2,0);
 scene.add( buffer_mesh_rolls );
@@ -455,7 +467,7 @@ positions_crossbar_d = buffer_geometry_crossbar_d.attributes.position.array;
 crossbarGeomUpdate(crossbar_segments, roll_rad);
 
 buffer_geometry_crossbar.computeBoundingSphere();
-var material_crossbar = new THREE.LineBasicMaterial({ color: 0xd0d0f0, opacity: 1, transparent: true });
+var material_crossbar = new THREE.LineBasicMaterial({ color: 0x0000ff, opacity: 0.2, transparent: true });
 var buffer_mesh_crossbar = new THREE.LineSegments( buffer_geometry_crossbar, material_crossbar );
 buffer_mesh_crossbar.position.set(0,roll_rad+sizeY*0.2,0);
 scene.add( buffer_mesh_crossbar );
