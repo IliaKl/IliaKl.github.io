@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ilia Klykovsky</title>
+	<style type="text/css">
+
+		html {
+			font-size: 1em;
+		}
+
+		body {
+			margin: 0;
+		}
+
+		#main {
+			background-color: white;
+			margin: 5px;
+			width: calc(100% - 10px);
+			height: calc(100vh - 10px);
+			position: relative;
+			z-index: 1;
+			display: -webkit-flex; 
+			display: flex;
+		}
+
+		#master {
+			margin: auto;
+			border: 1px solid silver;
+			padding: 0em;
+		}
+
+		form {
+			margin: 0em;
+			font-size: 1.4em;
+			font-family: "Times New Roman", Georgia, Serif;
+			text-align: center;
+		}
+
+		input {
+			margin: 0 20px;
+			color: blue;
+			background-color: transparent;
+			padding: 0em;
+			border: 1px solid transparent;
+			border-bottom: 1px solid silver;
+			font-size: 1.1em;
+			font-family: "Times New Roman", Georgia, Serif;
+			width: 4em;
+			text-align: center;
+		}
+
+		button {
+			margin: 1em;
+			color: black;
+			background-color: transparent;
+			/padding: 10px 30px;
+			border: 1px solid silver;
+			font-size: 1em;
+			font-family: "Times New Roman", Georgia, Serif;
+			width: 5em;
+			height: 2em;
+			text-align: center;
+		}
+
+		p {
+			margin: 1em;
+			text-align: center;
+			font-size: 2em;
+			font-family: "Times New Roman", Georgia, Serif;
+			/font-style: italic;
+		}
+
+		#container {
+			position: fixed;
+			z-index: 5;
+			background-color: silver;
+			width: calc(100% - 10px);
+			height: calc(100vh - 10px);
+		}
+
+		#close {
+			z-index: 10;
+			color: black;
+			background-color: transparent;
+			position: fixed;
+			display: none;
+			padding: 0.5em;
+			font-size: 1.4em;
+			right: 5px;
+			top: 5px;
+			/border: 1px solid black;
+			
+		}
+
+	</style>
+	<script src="three.js"></script>
+	<script src="OrbitControls.js"></script>
+	<script src="3D.js"></script>
+	<script src="2D.js"></script>
+	<script type="text/javascript">
+
+		function TextSize(){
+			if (document.body.offsetWidth > document.body.offsetHeight) {
+				document.body.style.fontSize ="1.2rem";
+			} else {
+				document.body.style.fontSize ="4vmin";
+			}
+		}
+
+		
+		function div2D() {
+			createDiv();
+		}
+
+
+		function div3D() {
+			lines = document.getElementById('N').value;
+			switch3D = true;
+			createDiv();
+			init();
+		}
+
+
+		function createDiv() {
+			var containerDiv = document.createElement("div");
+			containerDiv.id = 'container';
+			mainDiv.appendChild(containerDiv);
+
+			closeDiv.style.display = 'block';
+		}
+
+
+		function closeWin() {
+			closeDiv.style.display = "none";
+			document.getElementById("container").remove();
+			switch3D = false;
+			clearMem();
+		}
+
+	</script>
+</head>
+<body>
+	<div id="main">
+		<div id="close" onclick="closeWin();">X</div>
+		<div id="master">
+			<p>Carding tape model</p>
+			<form id="form_1">
+				N = <input type="text" id="N" value="1000">
+				</br>
+				<button id="button2D" type="button" onclick="div2D();">2D</button>
+				<button id="button2D" type="button" onclick="div3D();">3D</button>
+			</form>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+
+		//var d = new Date();
+		//d = d-1575898000000;
+		//console.log(d);
+
+		var mainDiv = document.getElementById("main");
+		var closeDiv = document.getElementById("close");
+		var line = 1000;
+		var switch3D = false;
+
+		TextSize();
+
+	</script>
+</body>
+</html>
