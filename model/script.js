@@ -16,7 +16,6 @@ function init(){
 
 	var cleanCtx = document.getElementById("cleanButton");
 	//cleanCtx.onclick = clean(W, H);
-
 }
 
 
@@ -36,16 +35,16 @@ function createMathArray(W, H){
 	var dynamicXArray 		= createDynamicXArray(borderLine, W, H);
 	var dynamicYArray 		= createDynamicYArray(borderLine, W, H);
 	var electrostaticArray 	= createElectrostaticArray(borderLine, W, H, circleRad, circleX, circleY);
-	var thresholdArrays		= createThresholdArrays(W, H);
+	var thresholdArrays		= createThresholdArrays(W, H, circleRad, circleX, circleY);
 	var thresholdXArray 	= thresholdArrays[0];
 	var thresholdYArray 	= thresholdArrays[1];
 
 		/**** массивы для математических расчетов ****/
-	var staticData 		= fillMathAraay(W, H);
-	var dynamicXData	= fillMathAraay(W, H);
-	var dynamicYData	= fillMathAraay(W, H);
-	var leapXData		= fillMathAraay(W, H);
-	var leapYData		= fillMathAraay(W, H);
+	var staticData 		= sumData(W, H, frictionArray);
+	var dynamicXData	= sumData(W, H, dynamicXArray);
+	var dynamicYData	= sumData(W, H, dynamicYArray, electrostaticArray);
+	var leapXData		= sumData(W, H, thresholdXArray);
+	var leapYData		= sumData(W, H, thresholdYArray);
 
 	var arrays = [
 		borderArray,
