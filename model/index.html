@@ -8,7 +8,14 @@
 	<script src="script.js"></script>
 	<script type="text/javascript">
 
-		var ctx, IData, W, H;
+		var ctx, IData, ctxd, IPnt, W, H, RunButton, TimeGlobal;
+		RunButton = false;
+
+		var staticData;
+		var dynamicXData;
+		var dynamicYData;
+		var leapXData;
+		var leapYData;
 		
 		function clean(){
 			ctx.clearRect(0, 0, W, H);

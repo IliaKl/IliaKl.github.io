@@ -4,15 +4,27 @@ function init(){
 	var canvas = document.getElementById("cnv_1");
 	ctx = canvas.getContext("2d");
 
+	var canvas_d = document.getElementById('cnv_2');
+	var ctxd = canvas_d.getContext('2d');
+
 	W = 720;
 	H = 480;
 
 	ctx.canvas.width = W;
 	ctx.canvas.height = H;
+	ctxd.canvas.width = W;
+	ctxd.canvas.height = H;
+
+	ctxd.fillStyle = "rgba(0,0,0,0)";
+	ctxd.fillRect(0,0,W,H);
 
 	var array = createMathArray(W, H);
 	var IData = createImageArray(ctx, array, W, H);
 	draw(ctx, IData);
+
+	var pArray = createTestPoins(W, H, 40, true);
+	var IPnt = createImagePoints(ctxd, pArray, W, H);
+	drawPoints(ctxd, IPnt);
 
 	var cleanCtx = document.getElementById("cleanButton");
 	//cleanCtx.onclick = clean(W, H);
@@ -40,11 +52,11 @@ function createMathArray(W, H){
 	var thresholdYArray 	= thresholdArrays[1];
 
 		/**** массивы для математических расчетов ****/
-	var staticData 		= sumData(W, H, frictionArray);
-	var dynamicXData	= sumData(W, H, dynamicXArray);
-	var dynamicYData	= sumData(W, H, dynamicYArray, electrostaticArray);
-	var leapXData		= sumData(W, H, thresholdXArray);
-	var leapYData		= sumData(W, H, thresholdYArray);
+	staticData 		= sumData(W, H, frictionArray);
+	dynamicXData	= sumData(W, H, dynamicXArray);
+	dynamicYData	= sumData(W, H, dynamicYArray, electrostaticArray);
+	leapXData		= sumData(W, H, thresholdXArray);
+	leapYData		= sumData(W, H, thresholdYArray);
 
 	var arrays = [
 		borderArray,
@@ -94,7 +106,7 @@ function createImageArray(ctx, array, W, H){
 
 	for (var i = 0; i < W; i++) {
 		for (var j = 0; j < H; j++){
-			let n = ((i) + (j * W)) * 4;
+			var n = ((i) + (j * W)) * 4;
 			IData.data[n+0] = array[i][j][0];
 			IData.data[n+1] = array[i][j][1];
 			IData.data[n+2] = array[i][j][2];
@@ -108,3 +120,42 @@ function createImageArray(ctx, array, W, H){
 function draw(ctx, IData){
 	ctx.putImageData(IData, 0, 0);
 }
+
+
+function createImagePoints(ctxd, array, W, H){
+	var IPnt = ctxd.createImageData(W, H);
+	var arrayX = array[0];
+	var arrayY = array[1];
+
+	for (var i = 0; i < W; i++) {
+		for (var j = 0; j < H; j++){
+			var n = ((i) + (j * W)) * 4;
+			IPnt.data[ n + 0 ] = 0;
+			IPnt.data[ n + 1 ] = 0;
+			IPnt.data[ n + 2 ] = 0;
+			IPnt.data[ n + 3 ] = 0;
+		}
+	}
+
+	for(var i = 0; i < arrayX.length; i++){
+		var n = ((arrayX[i]) + (arrayY[i] * W)) * 4;
+		IPnt.data[ n + 0 ] = 0;
+		IPnt.data[ n + 1 ] = 0;
+		IPnt.data[ n + 2 ] = 0;
+		IPnt.data[ n + 3 ] = 255;
+	}
+
+	return IPnt;
+}
+
+
+function drawPoints(ctxd, IPnt){
+	ctxd.putImageData(IPnt, 0, 0);
+}
+
+
+/*function animate(W, H){
+	ctx_2.clearRect(0,0,W,H);
+
+	if (Run == true) {window.requestAnimationFrame(animate)};
+}*/

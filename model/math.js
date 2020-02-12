@@ -220,7 +220,7 @@ function createDynamicYArray(line, W, H){ // add circle
 }
 
 
-function createElectrostaticArray(line, W, H, circleRad, circleX, circleY){
+function createElectrostaticArray(line, W, H, circleRad, circleX, circleY){ // add X and Y arrays
 	var array = fillMathAraay(W, H);
 
 	for( var i = 0; i < W; i++ ){
@@ -241,7 +241,7 @@ function createElectrostaticArray(line, W, H, circleRad, circleX, circleY){
 
 	}
 
-	return array;
+	return array; //
 }
 
 
@@ -426,3 +426,50 @@ function sumData(W, H, array1, array2, array3){
 	return array;
 }
 
+
+
+/*function dynamicTestPoints(){
+
+}*/
+
+
+function createTestPoins(W, H, L, rand){
+	var arrayX = [];
+	var arrayY = [];
+	var nX = ~~( W / L ) - 1;
+	var nY = ~~( H / L ) - 1;
+	var n = nX * nY;
+
+	if (rand == true) {
+		for(var i = 0; i < n; i++){
+			arrayX[i] = ~~(Math.random() * W);
+			arrayY[i] = ~~(Math.random() * H);
+		}
+	}
+
+	var array = [arrayX, arrayY];
+
+//	var arrayTH = countP(array, leapXData, leapYData);
+
+	return array;
+}
+
+
+function countP(array, thresholdXArray, thresholdYArray){
+	var arrayX = array[0];
+	var arrayY = array[1];
+
+	for(var i = 0; i < arrayX.length; i++){
+		var x = ~~arrayX[i];
+		var y = ~~arrayY[i];
+		if ( ( 	thresholdXArray[ x ][ y ] != 0 ) || 
+			( 	thresholdYArray[ x ][ y ] != 0 ) ) {
+			arrayX[i] = ~~thresholdXArray[ x ][ y ];
+			arrayY[i] = ~~thresholdYArray[ x ][ y ];
+		}
+	}
+}
+
+/*function drawPoints(){
+
+}*/
