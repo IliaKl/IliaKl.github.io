@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>10. Advanced Acoustical Investigations</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div id="header">
+		<p class="heading">EASE Tutorial</p>
+		<p class="heading">10. Advanced Acoustical Investigations</p><br>
+	</div>
+	<div class="nav">
+		<a href="index.html">Table of contents</a><br>
+		<a href="9.html">9. Room Investigatiions</a><br>
+		<a href="11.html">11. AURA</a>
+	</div>
+	<div id="contents">
+		
+<p><b>Chapter
+10: Advanced Acoustical Investigations</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p><b>A d v a
+n c e d A c o u s t i c a l I n v e s t i g a t i o n s</b></p>
+<p><img
+width=596 height=356 src="E3.files/image094.jpg"></p>
+<p>209</p>
+<p><b>EASE
+4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p><b>Chapter
+10: Advanced Acoustical Investigations</b></p>
+<p><img
+width=291 height=291 src="E3.files/image095.jpg"></p>
+<p>All the
+Mapping functions we reviewed in Room Investigations are avail-able in both
+EASE and EASE JR. <b>Now, it's time to move on to simula-tions that are
+available only to EASE users.</b></p>
+<p><b>Local
+Decay Times</b></p>
+<p>EASE
+4.3 has the ability to quickly develop RT Times based on reflection studies.
+The Eyring or Sabine formulas EASE JR and EASE use to calcu-late RT times are
+generalized formulas that don't apply to every room.</p>
+<p>For
+example, they assume the room's absorption material is distributed
+homogeneously on the room's surfaces, a condition that doesn't exist in every
+room. The RT Times are also a single set of times for the entire room while in
+real life the RT Times from one location to another.</p>
+<p><i>Local
+Decay Time </i>provides a quick check on the accuracy of these for-mulas, as
+well as providing RT projections for specific points within the room. It uses
+an omnidirectional source to distribute Rays throughout the room and calculates
+the RT Time from their decay. The result is RT Times that are more &quot;real
+life&quot; figures.</p>
+<p><img
+width=291 height=291 src="E3.files/image096.jpg"></p>
+<p>Select <i>Local
+Decay Times</i> is accessed in either Area Mapping or Room Mapping from the <i>Mapping</i>
+pull down menu. We used Area Mapping which opened the Calculation Parameters’
+setup window shown here. Note that it is similar to the one we have been using
+in Area Mapping, but doesn't have a Loudspeaker selection section. The reason
+is that the sys-tem loudspeakers won't be used to calculate the Local Decay
+Times. In-stead an omnidirectional source will be used. This simulation is
+interested only in the room's decay times.</p>
+<p>Press <i>Next</i>
+to bring up the second setup window which also should look familiar.</p>
+<p>Note
+that you have a choice of Mapping on Seats or Areas or both. Al-though you can
+map on Areas, we suggest Mapping on only the Seats. Mapping on Areas will take
+a considerable amount of time because of the number of points involved, which
+defeats our objective of doing a quick check. Select <i>Seat</i>s and then use
+the <i>List Seat</i> button to select all 5 of the Listener Seats.</p>
+<p><img
+width=291 height=291 src="E3.files/image097.jpg"></p>
+<p>Now,
+press <i>Next</i> to open the Noise setup window; accept the default set-tings
+and press <i>Next</i> to move on to the Calculation setup window.</p>
+<p>We
+suggest using the Default settings. Using more Rays or a larger Re-flection
+Order would yield more precise figures, but we are just looking for a quick
+check and the default settings will be adequate.</p>
+<p>The
+results are shown in the screen on the next page.</p>
+<p>210</p>
+<p><b>Chapter
+10: Advanced Acoustical Investigations</b></p>
+<p><img
+width=671 height=445 src="E3.files/image098.jpg"></p>
+<p>Use the
+Location control window to take a look at the projected Local RT Times for each
+of the 5 Seats. Note the variance from Seat to Seat.</p>
+<p>The
+projected Sabine and Eyring RT Times are shown below for comparison. Be aware
+the scales for the three displays are different and take this into account
+while comparing the three projections.</p>
+<p><img
+width=665 height=357 src="E3.files/image099.jpg"></p>
+<p>211</p>
+<p><b>EASE
+4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p><b>Standard
+Mapping With Reflections</b></p>
+<p>Standard
+Mapping uses a statistical formula to calcu-late reflected sound levels from
+the Direct Sound lev-els and the RT Times developed by either the Eyring or
+Sabine formulas. <i>Standard With Reflections</i> (avail-able under the Mapping
+pull down menu in either Area Mapping or Room Mapping) replaces the generalized
+Eyring or Sabine generated RT times with RT times developed by Ray Tracing. It
+is a more accurate method, but the calculations take considerable more time.
+How much more time depends on the complex-ity of the room, the number of
+loudspeakers involved, the number of Rays you choose to use, the Reflection
+Order you select and the speed of your computer.</p>
+<p><img
+width=390 height=223 src="E3.files/image100.jpg"></p>
+<p>Selecting
+<i>Standard With Reflections</i> will initiate the fa-miliar four Calculation
+setup windows plus a fifth Ray Tracing setup window. If you decide to try it
+out so you can compare the results with those obtained with Standard Mapping,
+click on <i>OK</i>.</p>
+<p>Two
+status windows will appear to keep you advised</p>
+<p>of the
+status of the calculations. Note that the total</p>
+<p>time is
+well over 3 hours. You may want to consider</p>
+<p>using
+just a few Seats instead of all the Audience</p>
+<p>Areas.</p>
+<p><img
+width=633 height=387 src="E3.files/image101.jpg"></p>
+<p>212</p>
+<p><b>Chapter
+10: Advanced Acoustical Investigations</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p><b>Local
+Ray Tracing</b></p>
+<p>Local
+Ray Tracing allows you to quickly take a more in-depth look at various spots
+around the room than Local Decay Times.</p>
+<p>Like
+Local Decay Times, Local Ray Tracing can be ac-cessed from either Area Mapping
+or Room Mapping. Select <i>Local Ray Tracing</i> from the <i>Tools</i> pull
+down menu. Then click on a spot in one of the Audience Areas to establish the
+location of the Walker (Probe if you entered from Area Mapping). This will open
+a Ray Tracing setup window.</p>
+<p><img
+width=391 height=223 src="E3.files/image102.jpg"></p>
+<p>Accept
+the default settings and click on <i>OK</i>.</p>
+<p>This
+will open a file name/location dialog window. As-sign a file name and click on <i>OK</i>.</p>
+<p>The
+default settings of 1000 Rays per Loudspeaker and 3rd Order reflections are
+fine to provide a quick snap shot of what's happening at the chosen location.
+Far more Rays per Loudspeaker and much higher re-flection orders would be
+needed for a detailed investi-gation. The results of our 3rd Order study are
+shown in the following Reflectrogram.</p>
+<p><img
+width=534 height=385 src="E3.files/image103.jpg"></p>
+<p>The red
+pulses represent direct sound and the green pulses represent the reflections
+that were picked up in the simulation. Note that click-ing on any pulse
+produces a readout giving the exact level and arrival time.</p>
+<p>Local
+Ray Tracing also offers a number of other interesting displays, including MTF
+and STI. Check them out using the Tool Bar icons or the Graphs pull down menu.</p>
+<p>213</p>
+<p><b>EASE
+4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p><b>Ray 
+Tracing Impacts (Find Impacts)</b></p>
+<p><i>Find
+Impacts </i>is a Ray Tracing option that registers rays that pass within a
+meter of the chosen point (impact upon a 1 meter counting bal-loon), stores the
+results and then automatically runs a mirror image routine to identify the
+impacts that hit the center of the counting bal-loon. <i>Find Impacts</i>
+requires a larger number of rays (100,000 or more in many cases) and higher
+reflection orders than Local Ray Tracing. It relies upon the laws of
+probability to identify an adequate number of impacts to ensure an acceptable
+degree of accuracy. The computa-tional time is proportional to the number of
+Faces; i.e., doubling the number of Faces doubles the time required. <i>Find
+Impact</i> results are suitable for detailed acoustical investigations and EARS
+auralizations.</p>
+<p>From
+the Main window, select <i>Ray Tracing</i> from the <i>Calculations</i> pull
+down menu. Then select <i>Ray Tracing Impacts</i> from the <i>Rays</i> pull down
+menu to open the initial <i>Find Impacts</i> set up menu shown below. Notice
+that many of the choices are similar to the ones found under Ray Tracing.</p>
+<p><img
+width=327 height=204 src="E3.files/image104.jpg"></p>
+<p>The
+four buttons at the top allow you to select the Loudspeakers and Listeners
+Seats that will be used in the study.</p>
+<p>Keep in
+mind the difference between Ray Tracing and Impact Studies is that Impact
+Studies investigate only the Rays that hit (impact) a specific target, a 1
+meter counting balloon surrounding the Listeners Seat. <i>Ray Tracing</i> does
+not record impacts. <i>Find Impact</i> does. To save time in this exercise,
+we’ll use the 5 Listeners Seats and only the Main loudspeaker and three Delay
+loudspeakers.</p>
+<p>The
+search options are similar to the ones we explored under Ray Tracing, but now
+we want to make an Impact file. Put a check in <i>Make</i> <i>Impact file</i>.
+We could check<i> Brief Impact Info </i>and<i> Draw Impact Ray </i>but they
+would not add much information to the simulation and would<i> </i>lengthen the
+calculation time. The next step is to decide upon the length of the simulation.</p>
+<p>A
+general rule for producing good Impact files in a reasonable period of
+calculation time is that the Room's <i>Mean Free Path Time</i> times the <i>Reflection
+Order </i>should be approximately equal to the<i> Time Frame</i>. The<i> Mean
+Free Path Time </i>for Theater 1 can be found in the Room<i> </i>Data folder.
+(Open the Project Data module, right click on the screen and then select <i>Room
+Data</i> from the Mouse Menu.)</p>
+<p>It is
+.03 sec. This means that if we want to use a Reflection Order of 10, the Time
+Frame should be approximately 300 msec. Put a check in <i>Time (ms)</i> and
+enter 300 into the <i>Time (ms)</i> field. Then <i>OK</i> the setup.</p>
+<p>The
+setup screen shown below will appear. Put a check in the Order selection box and
+Insert 10 into the Order field.</p>
+<p><img
+width=364 height=209 src="E3.files/image105.jpg"></p>
+<p>214</p>
+<p><b>Chapter
+10: Advanced Acoustical Investigations</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p>Notice
+that this menu is identical to the one we worked with under Ray Tracing, except
+for having an <i>Impact Chance</i> field added. EASE will review our setup
+parameters and use the <i>Impact Chance</i> field to tell us what the odds are
+of registering all of the possible impacts. Ob-viously, the higher the
+percentage the more accurate the simulation.</p>
+<p>Notice
+that the program entered a higher (longer) figure into the <i>Time</i> window
+than the one we entered in the previous menu. The previous figure defined the
+time frame from the first Impact. The figure shown in this menu also includes
+the time from when the first Ray is gener-ated to its first Impact. We'll use
+the 375 msec figure and start with an <i>Order</i> count of 10 and 100 <i>Rays
+per Loudspeaker</i>.</p>
+<p>You'll
+notice the Impact Chance is quite small, so increase the number of Rays per
+Loudspeaker to 10,000 and then to 50,000. It takes a lot of Rays to get the
+Impact Chance over 50 %. 50% is not good enough for an auralization, so try
+150,000 rays. This will improve the Im-pact Chance to almost 90%..</p>
+<p>Notice
+that we did not check Make Trace File or Draw Trace Rays. Our objective is to
+make an Impact File and creating a Trace File or drawing the Trace Rays at the
+same time only significantly lengthens the computation time without serving any
+real purpose. We also did not check Directed Emission. Directed Emissions
+produces a weighted display that is used primarily to enhance Movie
+presentations.</p>
+<p>We did,
+however, put a check in the <i>Brief Ray Info</i> box. This tells the program
+to flash brief information on each Ray and its color in the Ray Tracing control
+screen. Yellow indicates the Ray was cut off by the Time Frame before it
+impacted upon the Listener Seat. Magenta indi-cates that the cutoff was caused
+by the Reflection Order limitation. Blue Rays are ones that Impact upon the
+Listener Seat. During the sim-ulation, the Rays flash by so quickly you
+probably won't be able to see the blue flashes, but you should see a good mix
+of Yellow and Magenta flashes. If you only see Yellow, it's a sign that the
+Time Frame may be to short. All Magenta flashes indicates the Reflection Order
+probably should be higher.</p>
+<p>Clicking
+on <i>OK</i> will introduce a prompt reminding you the Impact Chance is less
+than 100%.</p>
+<p>Acknowledging
+the prompt by clicking on <i>OK</i> will open a new window giving you the
+opportunity to name the File and its destination. The simulation will start
+after you have entered this information and approved it by clicking on <i>OK</i>.
+Notice that after the simulation starts you will be given the approximate
+length of time the simulation will require. It will be significant. On our 2
+GHz machine the estimate was just under 1 1/2 hours. A 50,000 Ray study would
+have taken about 40 minutes.</p>
+<p>During
+the simulation, an informational box will keep you up to date on the progress
+of the study and the amount of time left.</p>
+<p><img
+width=431 height=347 src="E3.files/image106.jpg"></p>
+<p>215</p>
+<p><b>EASE
+4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p>When
+the simulation is complete, the .log screen shown below will open partially
+obscuring the Ray Control window. It records the parame-ters used for the
+simulation and summarizes the results in text form. If you want, you can print
+or save this information for future reference.</p>
+<p><img
+width=339 height=340 src="E3.files/image107.jpg"></p>
+<p>The
+Rays Control window now summarizes the results of the Impact simulation for
+you. As you can see from the screen shown below, over 8600 impacts were
+recorded. Note that the summary also tabulates the Impacts by their Order.</p>
+<p>A
+prompt will also ask if you want to View Result File Now.</p>
+<p><img
+width=445 height=359 src="E3.files/image108.jpg"></p>
+<p>216</p>
+<p><b>Chapter
+10: Advanced Acoustical Investigations</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p><b>View
+Impact File</b></p>
+<p>Answering
+<i>Yes</i> will open the familiar View Trace File menu, except it is now called
+<i>View Impact File</i> and includes an <i>Invoke Probe</i> button.</p>
+<p><img
+width=397 height=246 src="E3.files/image109.jpg"></p>
+<p><b>Acoustical
+Probe</b></p>
+<p>Pressing
+the <i>Invoke Prob</i>e button opens the Probe acoustical analysis program
+module and its wide range of acoustical analysis tools.</p>
+<p>Prompts
+will appear giving you the opportunity to select what Loudspeakers and what
+Seats will be used in the analysis.</p>
+<p><img
+width=149 height=310 src="E3.files/image110.jpg"></p>
+<p><img
+width=150 height=287 src="E3.files/image111.jpg"></p>
+<p>Remember,
+we created the <i>Impact File</i> using only the Main and Delay loudspeakers.
+It's possible you might want to turn some of them Off to get a better look at
+the effect of using, for example, just the main floor loudspeakers. We will use
+all of them as we want to see the full system's performance.</p>
+<p>As soon
+as the Loudspeaker selection is approved by clicking on <i>OK</i>, another
+prompt will appear asking for your <i>Seat</i> selection. You will be allowed
+to select only one <i>Listener Seat</i> from those listed even if more than one
+Listener Seat was included in the Impact study. Remem-ber, the object of this
+investigation is to see what's happening at a specific spot.</p>
+<p>It
+should be noted here that including all 5 Listener Seats in our Impact study
+instead of a single Seat did not increase the calculation time by a factor of
+five. Instead, it only increased the time by about 50%. Most experienced users
+will run their Impact studies on at least several strategically located
+Listener Seats at one time. They will also schedule their activities so the
+simulation can be run while they are doing something else, such as having
+lunch.</p>
+<p>217</p>
+<p><b>EASE
+4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p><b>Probe
+Displays</b></p>
+<p>Selecting
+<i>Seat 5</i> and approving the selection by clicking <i>OK</i> will start the
+process. When it is completed, a Reflectogram similar to the one shown below
+will appear. Don't expect the Reflectogram to appear instantly. EASE has a lot
+of data to review before it draws the Reflec-togram and it may take a minute or
+two. Be patient.</p>
+<p><img
+width=577 height=416 src="E3.files/image112.jpg"></p>
+<p>Now use
+your Mouse and the Cursor to select one of the Impact Pulses and introduce a
+readout on the screen showing the exact arrival time of that reflection and its
+exact level. Note that if you use your right Mouse button to select the Pulse,
+the program will write the same information on the screen.</p>
+<p>Next,
+click on the <i>Pick</i> icon in the Tool Bar section and then click on another
+one of the Impact Pulses. Notice that the status bar below the Reflectogram now
+gives you the number of the Pulse you selected, its origination point, time of arrival,
+energy level, reflection order and ar-rival direction. This is all information
+that EASE has stored on every impact for each of the 21 frequency bands.</p>
+<p>To
+check this out, click on the <i>Frequency</i> icon and choose a new frequency.
+The program will then quickly redraw the Reflectogram for the new frequency. If
+you want to look more closely at a certain section of the Reflectogram, use the
+<i>F11</i> key stroke to Zoom In on the window or the Zoom icon and cursor to
+Zoom in on a section of the Reflectogram.</p>
+<p>Select
+one of the Impact Pulses again and then minimize the Reflectogram and return to
+the View Impact File control window, select the Ray tab. Note that the control
+window identifies the Impact Pulse you selected, traces its patch Face by Face
+and gives you the Arrival time and level. The View Project window also traces
+the Impact Pulse’s path.</p>
+<p>You can
+also view the reflections by <i>Reflection Order</i>. Go to the <i>View</i>
+pull down menu and select <i>Reflection Orde</i>r. Then select the <i>Order</i>
+you want to see, 3 for 3rd Order for example. EASE will now highlight all the
+3rd Order Reflections. You can easily view other Reflection Orders by using <i>Ctrl</i>
+- or <i>Ctrl +</i> keystrokes to move to a lower or higher Order.</p>
+<p>218</p>
+<p><b>Chapter
+10: Advanced Acoustical Investigations</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p>The <i>Waterfall</i>
+is another interesting display. It's accessible by clicking on its tool bar
+icon or through the Graph pull down menu. You'll find it under <i>Time Response</i>.
+What makes the Waterfall interesting is that it shows at a glance the energy
+level and arrival time for each impact at each of the 21 frequencies.</p>
+<p><img
+width=559 height=335 src="E3.files/image113.jpg"></p>
+<p>Note
+that you can Zoom in on it to get a better view of a specific section and that
+you can also select any one of the Impulses by clicking on it. You most likely
+will notice that as you switch from one presentation screen to another, the
+Pulse selection follows making it easy to look at a particular pulse in several
+different ways.</p>
+<p>The <i>3-D
+Hedgehog</i> display shown below provides another interesting view. It shows
+the Pulse Directionality in a distinctive fashion. The 3-D Hedgehog display can
+be accessed either by clicking on its tool bar icon or in the <i>Graphs</i>
+pull down menu under <i>Pulse Directionality</i>.</p>
+<p>You
+probably also noticed two other listings in the Pulse Directionality menu, <i>Horizontal</i>
+and <b>Vertica</b>l. Selecting these produces vertical and horizontal views of
+the Hedgehog.</p>
+<p><img
+width=557 height=333 src="E3.files/image114.jpg"></p>
+<p>219</p>
+<p><b>EASE
+4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p>Two
+more important EASE displays are the <i>Impulse Response (IR)</i> display and <i>Energy
+Time Curve (ETC</i>). EASE calculates the Impulse Response by convolving all 21
+of the 1/3 octave band reflectograms with a Unity Sphere. This produces a
+monaural IR you could measure in real life with an omnispherical microphone. To
+look at the Impulse Response, click on the <i>IR (Impulse Response)</i> icon in
+the tool bar or use the <i>Graphs</i> pull down menu and select <i>Time
+Response/Impulse Response.</i></p>
+<p><img
+width=559 height=335 src="E3.files/image115.jpg"></p>
+<p>The <i>Energy
+Time Curve (ETC)</i> is developed by squaring and transforming the IR signal.
+Click on the <i>Show ETC</i> icon or use the <i>Graphs</i> pull down menu and
+select <i>Time Response</i>.</p>
+<p><img
+width=559 height=335 src="E3.files/image116.jpg"></p>
+<p>The <i>Frequency
+Response</i> curve shown on the next page is available by going to the <i>Graphs</i>
+pull down menu or by clicking on its tool bar icon. As you see, it shows both
+the 1/3 octave average energy levels and the detailed response curve. Also
+notice that you are looking at an A weighted curve. An unweighted curve can be
+obtained by going to the <i>Frq.Rsp</i> section of the <i>Options</i> folder
+and removing the check in the <i>Levels in db (A)</i> box. Use the <i>Appl</i>y
+button to see the difference A weighting makes.</p>
+<p>220</p>
+<p><b>Chapter
+10: Advanced Acoustical Investigations</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p>You
+probably noticed a number of deep dips in the response curve. To find out how
+deep these are, select the <i>Pick</i> tool and then click on the response
+curve. This will turn the cursor into crosshairs that can be moved along the
+response curve with the right and left arrow keys. Let's check out the one that
+appears to be slightly below 3000 Hz. You'll find out the hole is actually at
+2806 Hz and is over 30 dB deep.</p>
+<p><img
+width=559 height=335 src="E3.files/image117.jpg"></p>
+<p>Another
+useful EASE feature is the use of MTF's (Modulation Transfer Functions) as a
+basis for high accuracy intelligibility predictions. The program uses the seven
+averaged frequency dependent octave band Impulse Responses to calculate by
+means of 14 modulation frequen-cies the MTI values. From these, EASE derives
+the MTF curves and the STI (Speech Transmission Index) for Standard (average),
+Male, and Female speech. To initiate this function, click on the <i>Show MTF</i>
+icon or go to the <i>Graphs</i> pull down menu, select <i>Expectation Values</i>
+and then <i>MTF/STI</i>. A typical MTF/STI display appears below.</p>
+<p><img
+width=559 height=335 src="E3.files/image118.jpg"></p>
+<p>The
+calculated STI figures appear at the top of the screen; STI is the average
+figure, M is for Male speech and F is female speech.</p>
+<p>221</p>
+<p><b>EASE
+4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p>The
+Probe also allows you to look at Phase Angles in a Hedgehog type display.
+You'll find <i>Phase Angles</i> listed in the <i>Time Response</i> sec-tion
+under the <i>Graphs</i> pull down menu.</p>
+<p>You are
+able to step through all of these presentations one by one by using the Arrow
+icons in the Tool Bar.</p>
+<p><b>RT
+Displays &amp; Schroeder RT</b></p>
+<p>Our
+review of Probe functions wouldn't be complete without looking into the RT
+displays. Selecting <i>Reverberation Time</i> from the <i>Reverber-ation </i>section
+under the<i> Graphs </i>pull down menu will draw the RT curve calculated using
+the<i> “Provided Formula”</i>; the last RT Curve we<i> </i>looked at. In our
+case, it will probably be the Local Decay Time we looked at in the Room
+Investigations section of this Tutorial.</p>
+<p>Then
+open the <i>Options</i> menu (hit <i>F9</i> or right click on the screen and
+select Options from the Mouse menu) and open the Rev. Time tab.</p>
+<p><img
+width=461 height=376 src="E3.files/image119.jpg"></p>
+<p>The <i>Replace
+by</i> section will change the display of the figures in the RT display for the
+chosen RT formula and then use these figures in any future Probe calculations
+using RT times. If <i>Schroeder</i> is chosen, the program will also calculate
+the RT time based on Schroeder's reverse integration formula and the
+Reflectogram's energy levels.</p>
+<p>The
+Display section will draw the RT curves for the selected formula(s) on the RT
+graph. Note that before you will be able to see the Schroeder curve, you must
+first press the Schroeder button in the <i>Replace By</i> section to tell the
+program to calculate Schroeder RT fig-ures.</p>
+<p>Let’s
+display the Schroeder RT Times , as well as those calculated by Eyring and
+Sabine formulas. Check all three.</p>
+<p>As you
+can see from the curves show on the next page, there are noticeable differences
+between the projections.</p>
+<p>In general,
+the RT times projected by Schroeder are considered to be more accurate.
+Remember, both Sabine and Eyring are generalized formulas. Schroeder is based
+on the declining energy levels projected by the program.</p>
+<p>The RT
+times projected by Schroeder also will vary from Listeners Seat to Listeners
+Seat, while the generalized Eyring and Sabine formu-las produce only one RT
+time for the room. Another thing to remember while looking at the graph is that
+the scaling accentuates the differ-ences.</p>
+<p>222</p>
+<p><b>Chapter
+10: Advanced Acoustical Investigations</b></p>
+<p><img
+width=671 height=360 src="E3.files/image120.jpg"></p>
+<p>Let's
+try out the Schroeder backward integration method. If the Options menu isn't
+still open, open it (<i>Options Menu [F9]</i>) and select the <i>Schroeder </i>tab.</p>
+<p><img
+width=461 height=376 src="E3.files/image121.jpg"></p>
+<p>Note
+that <i>Add Estimated Exponential Tail Energy</i> and <i>Include Pulses Outside
+Start/Stop Times</i> are checked. When checked <i>Add Estimated</i> <i>Exponential
+Tail Energy </i>tells EASE to add and use a calculated tail in its RT
+calculations.<i> Include Pulses Outside Start/Stop Times </i>tells the<i> </i>program
+to use all the pulses in the Reflectogram even if some are outside the Start
+and Stop times entered for the Regression Interval.</p>
+<p><i>Add
+Energy Due to Impact Chance </i>is mainly used with short
+reflectograms to get realistic Reverberation Tails in the calculations. You'll<i>
+</i>want to check out the differences these settings make.</p>
+<p>223</p>
+<p><b>EASE
+4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p>Note
+that selecting <i>Draw Schroeder Curve into Reflectogram</i> will add the
+Schroeder curve to the Reflectogram. See below.</p>
+<p><img
+width=559 height=335 src="E3.files/image122.jpg"></p>
+<p>EASE
+also allows you to compare the rooms projected RT times to the times normally
+considered ideal for various types of usage. To ex-plore this option, go to the
+<i>Reverberation</i> section of the <i>Graphs</i> pull down menu and select <i>Tolerance</i>.
+This will add a Tolerance window to the graph.</p>
+<p>Then
+open the <i>Options</i> folder (<i>F9</i> or right click on the graph and
+select <i>Options</i>) and click on the <i>Tolerance</i> tab to open the
+Tolerance folder shown below.</p>
+<p><img
+width=396 height=322 src="E3.files/image123.jpg"></p>
+<p>As you
+can see, you have a choice of 3 Tolerance Norms. The Standard Norm is based on
+European thinking and allows the rooms in-tended use to be taken in
+consideration. Dolby, as the name implies was influenced by US theater
+thinking, while THX is the standard used by Lucas Film for cinemas.</p>
+<p>When
+Standard is selected as the Norm, The Room Purpose buttons produce a new
+tolerance window for the common usages shown. If you explore the variations you
+will find the 1 kHz RT times vary from a low of 1.2 for Lecture/Sport
+facilities to 2.2 for Organ Music.</p>
+<p>224</p>
+<p><b>Chapter
+10: Advanced Acoustical Investigations</b></p>
+<p><img
+width=673 height=362 src="E3.files/image124.jpg"></p>
+<p>If you
+explore the variations, you will notice that the RT times of the Theater 1 room
+we have been using as a model are too low for good music reproduction. If you
+skipped the Optimize RT section of the manual, now would be a good time to
+review it and find out how EASE can help you determine what surface material
+changes would increase the RT time.</p>
+<p>Also
+note that the RT times developed in the Probe module are used only in Probe
+calculations. If you want to use the Schroeder figures in EASE Mapping, you
+will need to manually copy them into <i>Edit Room/Room Data/Room RT</i> and
+then check <i>RT Locked</i>.</p>
+<p>Before
+we move on to the next step, we should consider saving the Response file
+(Reflectogram) we generated from the Impact File. Oth-erwise, it will be lost
+when we exit this mode and will have to be recreated the next time we want to
+look at it. Selecting <i>Save Response</i> <i>File As </i>under the<i> File </i>pull
+down menu and following the prompts will take care of this. Now, exit from the
+Find Impacts/Probe program.</p>
+<p><b>Mirror
+Image Impacts</b></p>
+<p>Mirror
+Image Impacts is another way to produce Impact Files. It uses rays like Ray
+Tracing, but uses an algorithm to determine which rays will impact on the
+target and then traces only those rays. It seeks out 100 % of the impacts and
+leaves nothing to chance. But, the calcula-tions also take longer, especially
+in rooms having a large number of Faces. Mirror Image Impacts is not
+recommended for use in rooms having more than 40 Faces or in 10th order or
+higher reflections studies.</p>
+<p>Impact
+Files generated by Mirror Image Impacts have the same characteristics as those
+generated by Ray Tracing Impacts and are treated the same by the View Impacts
+program. Selecting <i>Mirror Image Impacts</i> from the <i>Ray Tracing</i> pull
+down menu opens the control screen shown below.</p>
+<p><img
+width=327 height=187 src="E3.files/image125.jpg"></p>
+<p>225</p>
+<p><b>EASE
+4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p>If the
+same setup criteria is used as the criteria we used before in Find Impacts,
+namely a Reflection Order of 10 and a 375 ms Time frame, the calculation will
+take many hours. Ray Tracing Impacts completed the calculations in less than 3
+hours when 200,000 Rays were used.</p>
+<p><b>NOTE:</b></p>
+<p>A
+general rule for producing good reflectograms in a reasonable period of time is
+that the Mean Free Path Time of the room times the Re-flection Order should
+approximately equal the Time Frame. The Mean Free Time can be found in the Room
+Data folder under the Edit pull down menu in Edit Project. It is .03 sec or 30
+ms for Theater 1. A Reflection Order of 12 times 30 gives us 360 ms for the
+Time Frame.</p>
+<p>With
+these parameters, 100,000 Rays per loudspeaker produces an 80.5 % probability
+factor. Refer to Chapter 11 on AURA and Chapter 12 on Auralization for more
+information on creating good reflectograms.</p>
+<p><b>Split
+Impact File</b></p>
+<p>If we
+had elected to use only one Listeners Seat when we created our Impact File
+using Find Impacts w would have had to run another simulation to look at other
+Listener Seat locations. We avoided this by using all 5 seats in our original
+Find Impacts study.</p>
+<p>Many
+experienced users will use multiple Listener Seats in their simulations and set
+up any lengthy calculations at the end of the day so their computer work on
+them overnight. The disadvantage of this is the large files they produce. Our 5
+Listener Seat Impact File, for ex-ample, is over 100 MB.</p>
+<p>Split
+Impact File provides a means of easily breaking large, multiple Listeners Seat
+files into individual files. Activation of <i>Split Impact Files</i> brings up
+a prompt asking for the name of the file you want to split. Entering the file
+name and clicking on <i>OK</i> will split the file into as many files as there
+were Listeners Seats in the original file. The Files will identified with their
+Listener Seat name, for example by -1,-2, etc..</p>
+<p><b>Update
+Impact File</b></p>
+<p>Update
+Trace File allows you to change wall materials or loudspeaker models in a model
+and then quickly &quot;update&quot; (recalculate) associ-ated .trc Trace Files
+and .mpc Impact Files. Changes that can be accommodated also include
+loudspeaker aiming, delay and alignment. Geometric changes, such as relocating
+a Loudspeaker or rearranging Faces cannot be handled by this feature.</p>
+<p>Operation
+is simple, open the <i>Update Trace File</i> window, enter the name of the file
+you want to update and then hit the <i>OK</i> button.</p>
+<p>One
+word of caution about this feature. The Update Trace File routine upgrades the
+existing File; it does not create a new one. Thus, you will lose access to the
+existing file unless you first save it as a Response File or make a copy of it
+under another name.</p>
+<p>226</p>
+
+	</div>
+	<div class="nav">
+		<a href="index.html">Table of contents</a><br>
+		<a href="9.html">9. Room Investigatiions</a><br>
+		<a href="11.html">11. AURA</a>
+	</div>
+	<div id="footer">
+		EASE Tutorial
+	</div>
+</body>
+</html>

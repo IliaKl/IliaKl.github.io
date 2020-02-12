@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>11. AURA</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div id="header">
+		<p class="heading">EASE Tutorial</p>
+		<p class="heading">11. AURA</p><br>
+	</div>
+	<div class="nav">
+		<a href="index.html">Table of contents</a><br>
+		<a href="10.html">10. Advanced Acoustical Investigations</a><br>
+		<a href="12.html">12. Auralization</a>
+	</div>
+	<div id="contents">
+		
+<p><b>Chapter
+11: AURA</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p><b>A U R A</b></p>
+<p><img
+width=596 height=468 src="E3.files/image126.jpg"></p>
+<p>227</p>
+<p><b>EASE
+4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p><b>Chapter
+11:</b> <b>AURA</b></p>
+<p>The
+AURA, Analysis Utility for Room Acoustics, module is an extremely powerful
+acoustical analysis tool.</p>
+<p>Based
+on the CAESAR algorithms developed by Aachen University (RWTH), AURA allows the
+calculation of all key room acoustical pa-rameters defined in ISO3382, the
+International Standard on Room Acoustic Measurements. These include</p>
+<p>Early
+Decay Time (EDT)</p>
+<p>Reverberation
+Time (T10, T20, T30)</p>
+<p>Lateral
+Fraction (LF)</p>
+<p>Lateral
+Fraction Coefficient (LFC)</p>
+<p>Clarity
+(C80)</p>
+<p>Definition,
+C50</p>
+<p>Sound
+Strength</p>
+<p>Center
+Time</p>
+<p>Direct
+SPL</p>
+<p>Total
+SPL</p>
+<p>Echo
+Criteria for Speech and Music</p>
+<p>STI and
+Articulation Loss (AlCons.)</p>
+<p>AURA is
+a tool for producing more accurate and realistic acoustical simulations. AURA
+initially creates an Echogram (Reflectogram) and then extracts from the Echogram
+most of the measures simulated in Standard Mapping, plus a number of
+standardized acoustical meas-ures that give the user a more detailed picture of
+the room's acoustics and performance.</p>
+<p>Whenever
+an adequate number of reflections are simulated, an AURA simulation is more
+accurate than one created solely from statistical mapping, which estimates the
+diffuse field from reverberation time values calculated using generalized
+formulas. Statistical mapping, how-ever, requires less time and computer
+horsepower to produce its simulations.</p>
+<p>We will
+use a new model for our AURA exercises. You will find the room in the Examples
+folder under EASE40 Data. It's identified as AURA1.</p>
+<p><img
+width=502 height=305 src="E3.files/image127.jpg"></p>
+<p>228</p>
+<p><b>Chapter
+11: AURA</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p>AURA
+provides two simulation methods, AURA Mapping and AURA Response:</p>
+<p><b>AURA Mapping </b>will map the acoustical
+measures (according to ISO standard 3382) on Audience Areas or at individual Listener<b>
+</b>Seats by developing an Echogram. AURA Mapping results are adequate for
+mapping purposes but not for Auralization.</p>
+<p><b>AURA
+Response</b>, on the other hand, calculates a Reflectogram, from which a
+Binaural Impulse Response can be extracted and<b> </b>used for Auralization.</p>
+<p>Before
+we start exploring Aura’s capabilities, let’s take a look at the room using
+Area Mapping to get a feel for its performance.</p>
+<p>Select <i>Area Mapping</i> from the <i>Calculations</i> pull
+down menu. The first thing you will notice is that the Main floor Audience Area
+is obscuring the Balcony Audience Area. The designer forgot to move one of the
+audience areas so this wouldn't happen. No problem, return to the Edit Project
+module and select <i>Area Layout</i> from the <i>Edit</i> pull down menu. Then
+select <i>Move</i> from the <i>Edit</i> pull down menu and grab the Main Floor
+Audience Area and move it out of the way.</p>
+<p>Now
+click on the <i>Direct SPL</i> icon. Select all five loudspeakers and both
+Audience Areas in the Settings setup screen Also check <i>All Map-pings,then
+click </i>on<i> Nex</i>t. When the Items and Noise screens open, accept the
+default settings by pressing on<i> Nex</i>t. In the Calculation win-dow make
+sure that <i>Map with Shadows</i> is turned On and then press <i>OK</i>.</p>
+<p>Return
+to the Area Mapping screen and rerun the Direct SPL simulation. As you can see
+from the 1000 Hz to 4000 Hz plot shown below the loudspeaker system is
+producing fairly smooth, high level direct sound coverage except in the corners
+of the audience areas.</p>
+<p><img
+width=533 height=320 src="E3.files/image128.jpg"></p>
+<p>229</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=665 height=1
+src="E4.files/image001.jpg"></p>
+<p>Next, run an STI simulation. As you can see the intelligibility
+looks pretty good.</p>
+<p><img width=532 height=305
+src="E4.files/image002.jpg"></p>
+<p>This would also be a good time to look at the room’s RT60.
+Return to the Main menu and from the <i>View</i> pull down menu select <i>Room</i>
+<i>Info/Draw RT.</i></p>
+<p><img width=385 height=421
+src="E4.files/image003.jpg"></p>
+<p>230</p>
+<p><b>Chapter 11: AURA</b></p>
+<p><img width=665 height=1
+src="E4.files/image001.jpg"></p>
+<p><b>AURA Mapping</b></p>
+<p><img width=266 height=269
+src="E4.files/image004.jpg"></p>
+<p>Now, it's time to begin to explore AURA Mapping. Return to the
+Area Mapping window and select <i>Aura</i> from the <i>Mapping</i> pull down
+menu. This will open the Aura Mapping Settings dialog window.</p>
+<p>As you can see it is almost identical to one we have been using
+in Standard Mapping. The big difference is that only All Mapping is allowed.
+Make sure all five loudspeakers are selected. Next, change the default label
+(Calculation #1) to a more meaningful name, such as AuraCalc #1. Then click on <i>Next</i>.</p>
+<p>When the Items tab opens notice that you have a choice of
+carrying out your analysis on Audience Areas, at specific Listener Seats or
+both. You can also choose which Audience Areas and Listener Seats are to be
+included. (Note that if we had entered the AURA module through Room Mapping, we
+would also be able to include Faces in the investigation.)</p>
+<p>The calculation time associated with mapping on Audience Areas
+in AURA needs to be carefully assessed. In AURA, Audience Areas are divided
+into a grid of points and AURA will develop an Echogram/Reflectogram at each
+point. The density of this grid is determined by the Resolution setting in the
+previous Tab. If we had planned to use Area Mapping in this exercise, we would
+probably have increased the Patch Size under Settings to at least 4, which is a
+very low resolution setting when compared to the Patch Size we have been using
+in Standard Mapping</p>
+<p><img width=265 height=266
+src="E4.files/image005.jpg"></p>
+<p>Calculation time is also dependent, among other many factors, on
+the number of particles (rays) that are used.. The denser the grid and the
+higher the num-ber of particles, the more accurate the simulation and the
+longer the calcula-tion will take. In many cases, however, the calculation time
+would be very long, even with a powerful computing machine. This often prompts
+a compro-mise between the different parameters. When compromising, be careful
+not to set the Resolution setting too coarse as the maps can then be
+misleading.</p>
+<p>Another possibility is running the AURA calculations at individual
+Listener Seats. The Echogram/Reflectogram is then created only at these points
+and the Resolution settings are immaterial. The number of Listener Seats and
+their locations can usually be set to yield adequate results in a reasonable
+calculation time. By properly placing Listener Seats at representative
+loca-tions in the room and then running AURA calculation at these
+representative locations you can get descriptive results about the general
+performance of the room relatively quickly.</p>
+<p><img width=266 height=269
+src="E4.files/image006.jpg"></p>
+<p>How dense and how far apart these Listener Seats should be
+placed is an issue, especially in large rooms where impulse response may change
+drasti-cally from one location to another. In these cases a few Listener Seats
+may not be enough to draw a descriptive picture of the room's performance and
+more Listener Seats will have to be added.</p>
+<p>We'll use only the Listener Seats in our exercise. Make sure
+that only <i>On</i> <i>Seats </i>is checked and then select all four<i> Listener
+Seats </i>under the<i> List. Seat </i>button.</p>
+<p>Press <i>Nex</i>t to move onto the Noise tab and then <i>Next</i>
+again to open the Cal-culations tab.</p>
+<p>231</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=665 height=1
+src="E4.files/image001.jpg"></p>
+<p><b>Calculation Setup Parameters</b></p>
+<p><img width=273 height=276
+src="E4.files/image007.jpg"></p>
+<p>The Calculations dialog window allows you to choose the number
+of <i>Particle</i>s (Rays) that will be used in the simulation, the <i>Length</i>
+of the simulation (the width of the Time window), the <i>Default Value</i> for
+the Scattering factor that will be taken into account and the <i>Number of
+Calculation Threads</i>.</p>
+<p><img width=273 height=276
+src="E4.files/image008.jpg"></p>
+<p>The higher the number of Particles (used here as another
+ex-pression for radiated rays), the denser the Echogram and the greater the
+accuracy. A drop down selection wizard provides several presets that allow you
+to choose between fast and rough calculations (<i>Very Low, Low Resolution</i>
+settings) and slow and accurate calculations (<i>High, Very High Resolution</i>
+settings). Normally, one would start the process by calculat-ing at a lower
+resolution to obtain an overview and use higher resolutions once final results
+are needed.</p>
+<p>You may enter arbitrary particle numbers by selecting the
+User-Defined list item. Notice that as you choose one of the resolution levels,
+the number of Particles shown in the asso-ciated field changes.</p>
+<p><img width=273 height=276
+src="E4.files/image009.jpg"></p>
+<p>A similar drop down menu assists in choosing an appropriate
+length for the simulation. The minimum <i>Length [ms</i>] should be
+approximately two thirds of the expected RT time. This is the default, labeled <i>Standard,
+Fast</i>. The setting <i>Long</i> can be used to enhance the simulation
+accuracy, for example in the case of flutter echoes, but it is seldom required.
+The setting <i>Extended </i>should only be used if a significant deviation from<i>
+</i>the statistical RT is to be expected, such as in coupled rooms.</p>
+<p>Using the <i>User-Defined</i> setting you may enter your own
+choice, for example for early-energy investigations only sev-eral hundred milliseconds
+maybe enough. However, be aware that most room-acoustic measures require a
+full-length impulse response</p>
+<p>232</p>
+<p><b>Chapter 11: AURA</b></p>
+<p><img width=665 height=1
+src="E4.files/image001.jpg"></p>
+<p>One of AURA's features is its ability to include scattering
+(diffusion) in its simulations. Surfaces exposed to sound waves exhibit, in
+addition to the specular reflection of the sound waves in a certain direction,
+some de-gree of <i>diffusion</i>, which is the scattering of the incident sound
+wave in many different directions with considerably attenuated amplitudes. The <i>Scattering
+</i>characteristics of Wall Materials, when known, can be entered<i> </i>into
+the Wall Materials data base and used in AURA simulations. More details on this
+feature follow near the end of this Tutorial section.</p>
+<p><img width=273 height=276
+src="E4.files/image010.jpg"></p>
+<p>AURA also provides an <i>Add Scattering</i> feature that factors
+a nominal amount of Diffusion into the simulations when the Diffusion
+characteris-tics of the wall materials are not known. The <i>Default Value for
+Surfaces</i> <i>without Scattering Data </i>defines how wall materials are
+treated which<i> </i>have no scattering properties assigned.</p>
+<p>Generally, a broadband scattering factor of 20% has turned out
+to be a feasible choice for most projects. If your room has very large, smooth
+walls you may want to switch to the setting <i>Smooth Flat Surfaces</i> with a
+default scattering coefficient of 10%. If your room is very diverse and
+in-cludes a lot of columns, diffusers, furniture or other elements you may want
+to use <i>Considerable Surface Structures</i> which defines 40% of the
+reflected energy as being scattered instead of specularly reflected.</p>
+<p>If you want to be more accurate than that, you will need to
+define scat-tering coefficients for each of the wall materials in use. We’ll go
+into more detail on this later in the Tutorial. Note that if the Scattering
+Coeffi-cients of all the wall materials being used have been defined, the
+Scat-tering menu will be inoperative. EASE defines &quot;having Scattering
+defined&quot; as having at least one 1/3 octave band defined.</p>
+<p><img width=273 height=276
+src="E4.files/image011.jpg"></p>
+<p>Introduced with EASE 4.3, the new version 3.0 of AURA features
+multi-threaded calculations. This new function allows AURA calculations to be
+performed in a fraction of the computation time required previously. It is
+particularly efficient on computers having quad-core or larger proces-sors. For
+any multi-core computer AURA may be faster by the number of cores compared to
+the single-core computer. Additional improvements in AURA compared to the previous
+versions further increase the speed gain even on a single-core computer.</p>
+<p>To obtain the maximum performance choose the <i>Number of
+Calculation</i> <i>Threads </i>equivalent to the number of processors (or
+virtual processors)<i> </i>of your computer. Selecting a higher number will
+result in too much switching overhead and does not increase the overall
+performance. Se-lecting a lower number will keep your computer more responsive
+to user input, for example, to work on another project or document while the
+computation is running, but it will also slow down the calculation.</p>
+<p>For this exercise we suggest using the number of threads equal
+to the</p>
+<p>number of processors in your computer. This will require almost
+all of the</p>
+<p>computer’s performance for the calculation, but will be the fastest.</p>
+<p>233</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=665 height=1
+src="E4.files/image001.jpg"></p>
+<p>The <i>Advanced Options &gt;&gt;</i> selection bar in the lower
+right corner of the Calcula-tions window leads to a new dialog window.</p>
+<p><img width=273 height=276
+src="E4.files/image012.jpg"></p>
+<p>AURA Mapping provides two methods of simulating the sound
+propagation, <i>En-ergy Loss </i>and<i> Particle </i>Loss. In<i> Energy Loss</i>,
+which is the default, the energy at<i> </i>every wall reflection is decreased
+by (1-&#945;). In <i>Particle Loss</i> the energy at every wall reflection
+remains constant, but a comparison between a random number (range from 0 to 1)
+with the absorption coefficient &#945; of the wall will decide whether the ray
+will be further traced or not. Energy Loss is more accurate un-less a high
+number of Particles are used, but more time-consuming.</p>
+<p>AURA also includes a <i>Diffuse Rain</i> option that recognizes
+the scattered portion of the simulation more than the conventional method. It's
+use is recommended in highly reverberant rooms (such as gyms) and rooms with
+partially shadowed areas (such as theaters with deep under-balcony areas) and
+side rooms (al-coves). In these cases, it requires smaller Particle numbers and
+lower calcula-tion times than the conventional method. For example, 1/10 the
+number of Particles is commonly used with Diffuse Rain.</p>
+<p>The algorithms that support Diffuse Rain actually generate new
+Rays whenever a Ray strikes a surface and follows these new Rays until they
+impact upon a Listeners Seat. The energy level of the new Rays takes into
+account the Surface's scattering coefficient as well as the surface's
+absorption. The energy level of the primary specular reflected Ray is, of
+course, reduced by the energy absorbed by the surface and the amount lost
+through scattering.</p>
+<p>Also available is the setting for <i>Orientation Point</i> which
+is required for the correct use of LF and LFC investigations. This is the point
+where the imagined receiving head is aimed at, since the two measures LF and
+LFC depend on the direction of the intruding sound waves and thus on the
+orientation of the receiver. It should normally be set to the coordinates of
+the main loudspeaker or to a center point on the stage.</p>
+<p>We won’t use <i>Particle Loss</i> or <i>Diffuse Rain</i> in this
+simulation. Instead we'll use the default settings; <i>Low Resolution, Fast</i>
+for the <i>Particles</i> setting and <i>Standard, Fast</i> for the <i>Length.</i>
+figure. Please note, however, that 32,000 Particles is a relatively low figure.
+As a result, the re-sults shown in our review may differ slightly from the ones
+you get as you work through this exercise. If we used a higher number of
+Parti-cles in these simulations, the variations would become smaller.</p>
+<p>To start the simulation, press <i>OK</i>. You will then receive
+an alert,telling you the amount of RAM and hard disk space needed to complete
+the calculation. It gives you the opportunity to modify the setup parame-ters,
+if the amount of memory needed is beyond your machine’s capa-bility.</p>
+<p><img width=593 height=337
+src="E4.files/image013.jpg"></p>
+<p>Press <i>OK</i> and AURA will start the calculations, which will
+take some time. How long depends on the setup parameters and your computing
+machine's capability. A Busy status screen will let you know approxi-mately how
+long the simulation will take and follow the progress.</p>
+<p>234</p>
+<p><b>Chapter 11: AURA</b></p>
+<p><img width=665 height=1
+src="E4.files/image001.jpg"></p>
+<p>A <i>Combine Loudspeakers</i> prompt will appear as soon as the
+calculation is completed.</p>
+<p><img width=314 height=340
+src="E4.files/image014.jpg"></p>
+<p>Clicking on <i>OK</i> will give you access to the Aura Map-ping
+Calculation control window . Note that all 5 Loud-speakers are checked.</p>
+<p>We used all 5 loudspeakers in our simulation and we certainly
+want to save the results, so we don't have to rerun the simulation. To do this,
+press <i>Combine Loud-speakers</i>. This will bring up a<i> Save Mapping File </i>prompt.
+Let's call the file <i>All Loudspeakers On</i> since it covers the &quot;all
+loudspeakers on&quot; simulation. Insert <i>All</i> <i>Loudspeakers On </i>into
+the File Name window and<i> </i>press <i>OK</i> to save the mapping file as an
+.emp file.</p>
+<p>AURA will save the file and then return to the combina-tion
+control window to allow you to create and save other Mapping files based on
+other Loudspeaker com-</p>
+<p>binations. <b>Do not press Done at this time unless</b> <b>you
+want to lose all the data in memory.</b></p>
+<p>Uncheck Loudspeakers S3, S4 and S5 and then press <i>Combine
+Loudspeakers </i>again. Once again you will be<i> </i>prompted to save the
+results in a Mapping file, which this time we will call <i>s1s2.emp</i>. Note
+that this file will contain the Echogram data for the room with only
+Loudspeakers S1 and S2 turned on.</p>
+<p><img width=314 height=106
+src="E4.files/image015.jpg"></p>
+<p>However, the data for all 5 Loudspeakers still exists and will
+until you close the Recombination window. This allows you to make more Mapping
+Files with other Loudspeaker combinations. After you have fin-ished making
+these Files, press the <i>Done</i> button to close the Combination Control
+window and start an-alyzing the Mapping files you have created.</p>
+<p><img width=404 height=280
+src="E4.files/image016.jpg"></p>
+<p>AURA will then give you one last reminder that you are going to
+lose the chance of any further Recombi-nations if you continue.</p>
+<p>Pressing <i>Yes</i> will close the Recombination window and open
+a View Calculations window based on the last Loudspeaker Recombination created.</p>
+<p>We do not want that Mapping file at this point; we want the <i>All
+Loudspeakers On</i> file. To change the file, click on the <i>File Folde</i>r
+icon to open the <i>Load</i> <i>Map File </i>dialog box and select the All
+Loudspeakers<i> </i>On file.</p>
+<p>Approving the selection by clicking on <i>Open</i> will load and
+open the mapping file we want.</p>
+<p>235</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=665 height=1
+src="E4.files/image001.jpg"></p>
+<p>The AURA View Calculations window is identical to the View
+Calculations window we explored under Room Investigations, only now you will
+find that the Echogram Tab is active. Refer to the graphic at the top of the
+next page.</p>
+<p><img width=456 height=358
+src="E4.files/image017.jpg"></p>
+<p>If you previously skipped the Room In-vestigations portion of
+the Tutorial, we suggest at least scanning it before you go on.</p>
+<p><b>Echograms</b></p>
+<p>An Echogram differs from a Reflectogram in that an Echogram
+stores all the energy arriving at a location in 1 ms wide boxes or bins as they
+are commonly called (refer to the graphic shown below).</p>
+<p>A Reflectogram records impacts (single</p>
+<p>reflections) on a specific location and</p>
+<p>stores them. The detailed information</p>
+<p>provided by a Reflectogram requires sig-</p>
+<p>nificantly more memory but it is also more</p>
+<p>accurate and required for good auralizations.</p>
+<p><img width=596 height=185
+src="E4.files/image018.jpg"></p>
+<p>Selecting the <i>Echogram</i> Tab will open the Echogram shown
+at the top of the next page. Notice that we have selected Listener Seat #1 for
+use in the following graphics and no weighting. Feel free to investigate the
+performance at other Listen Seats and/or with A weighting as we go through this
+exercise.</p>
+<p>Note that the Red Sum and Blue Schroeder curves will not be
+visible until you have turned them on. The Sum curve represents the energy
+buildup at the chosen location, Listener Seat 1, as a function of time, while
+the Schroeder curve is a backward-integration curve. It is used for calculating
+the reverberation time</p>
+<p>You can manipulate the <i>Time</i> and <i>Scale</i> axes to zoom
+in and out on the Echogram. The <i>Step</i> option also allows you to increase
+the box size from 1 ms to wider values to show energy summation in case of
+identical reflection impacts. This is especially useful with calculations based
+on Particle Loss. Try different input values under <i>Scale</i> and <i>Time
+[ms]</i> and see for yourself what happens.</p>
+<p>Before we check out the wide assortment of acoustical measures
+offered by AURA Mapping, lets pause a minute to review a few basics. Classic
+measures, such as RT60, D/R Ratio and Critical Distance, are useful indicators
+of the acoustic performance of the Room and its sound system, but do not fully take
+into account the subjective aspects of the listening experience.</p>
+<p>236</p>
+<p><b>Chapter 11: AURA</b></p>
+<p><img width=665 height=1
+src="E4.files/image001.jpg"></p>
+<p>Over the years, acousticians have developed other measures that
+more fully reflect the listener’s tonal perception of sound. ISO 3382, the
+International Standard on Room Acoustic Measurements, defines these measures.</p>
+<p>A detailed description of these measures is beyond the scope of
+this Tutorial. For additional information, we can only refer you to the Ap-pendix
+section of the EASE43Manual included in your EASE program and to acoustical
+text books. Glenn Ballou's Handbook For Sound Engineers, Fourth Edition, for
+example, contains an excellent review of this subject.. You'll find the EASE43
+Manual stored under Program Files/EASE 4.3/Easepath/Ease43Manual..</p>
+<p><img width=391 height=307
+src="E4.files/image019.jpg"></p>
+<p>Now, let’s return to the <i>Frequency</i> tab, and check what
+acoustical measures AURA Mapping offers. We'll start with <i>EDT</i>. Go to the
+drop down Measures selection box in the Tool Bars and select EDT.</p>
+<p><b>EDT Early Decay Time</b></p>
+<p>EDT stands for <i>Early Decay Tim</i>e, an important room
+acoustical version of the RT. Instead of “measuring” the time needed for a 60
+dB decay, <i>Early Decay Time</i> meas-ures the time needed for the first 10 dB
+drop of the Schroeder decay curve (from 0 dB to -10 dB) and then extrapolates
+the 60 dB decay time by multiplying by 6. EDT figures are more related to the
+subjective RT impres-sion a listener gets in a room.</p>
+<p><img width=391 height=313
+src="E4.files/image020.jpg"></p>
+<p>For example, compare the EDT curve at Listener Seat 1, to the
+other Listener Seats. It is easy to do. Go to the Lo-cation section of the
+Tools Bars and click on the &lt; and &gt; arrows to move from one Listeners
+Seat to another. No-tice how quick and easy it is.</p>
+<p>Note how the RT curves vary from one seat to another, especially
+from Listener Seat 3 which is located under the balcony.</p>
+<p>Also note that they vary considerably from the Room RT60 curve
+calculated using the Eyring RT formula.</p>
+<p>237</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=665 height=1
+src="E4.files/image001.jpg"></p>
+<p><img width=456 height=365
+src="E4.files/image021.jpg"></p>
+<p><b>T Measures (T10, T20, T30)</b></p>
+<p>Because of the differences between the objectively calculated
+classical RT60 and subjectively perceived EDT impres-sions, other RT measures
+were also in-troduced. For example, <i>T10</i> which is defined as the time
+required, after ex-cluding the first 5 dB of decay, for the sound energy to
+decay another 10 dB, multiplied by 6 to project the 60 dB decay time.</p>
+<p>The T10 RT curve at Listener Seat 1 is shown to the right.. AURA
+also calcu-lates T20 and T30 which have defini-tions close to those of EDT and
+T10. Try them out. It only takes a few seconds.</p>
+<p><img width=456 height=365
+src="E4.files/image022.jpg"></p>
+<p><b>Definition</b></p>
+<p>Now select <i>Definition</i> at <i>Listener Seat 2</i>, to get
+the Definition curve show below. <i>Definition </i>is one of a number of different<i>
+</i>energy measures used in room acoustics. It defines what percent the energy
+in the first 50 ms after the first arrival is of the total energy. For good
+intelligibility a considerable part of the total energy (&gt;50%) should arrive
+within this first 50 ms period</p>
+<p>238</p>
+<p><b>Chapter 11: AURA</b></p>
+<p><img width=665 height=1
+src="E4.files/image001.jpg"></p>
+<p><img width=456 height=365
+src="E4.files/image023.jpg"></p>
+<p><b>C50</b></p>
+<p>The <i>C50</i> curve is shown on the right at <i>Listener Seat 3</i>,
+where we can notice<i> </i>positive values at all one-third-octave bands with a
+clear rise at the higher fre-quencies. Any value above 0 dB in a room with
+normal reverberation repre-sents good intelligibility. In rooms with higher
+than normal reverberation, any value above -5 dB is considered good.</p>
+<p><img width=456 height=365
+src="E4.files/image024.jpg"></p>
+<p><b>STI Speech Transmission Index</b></p>
+<p>Another frequently used intelligibility measure is the <i>STI
+Speech Transmission</i> <i>Index </i>, which is a single number be-tween 0 and
+1.</p>
+<p><i>STI </i>is calculated from a set of other<i> </i>numbers called MTF
+Modulation Trans-fer Function. It takes into account how the transmission from
+source to receiver is affected at different frequency bands and how much these
+frequency bands contribute to speech intelligibility. If you turn to the STI
+display in our example, you will get the curve shown here, which shows an <i>STI</i>
+of 0.694 at <i>Listener Seat</i> <i>3.</i></p>
+<p>239</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=665 height=1
+src="E4.files/image001.jpg"></p>
+<p><img width=456 height=365
+src="E4.files/image025.jpg"></p>
+<p>Before we leave the <i>STI</i> display, click on the <i>Options</i>
+tab. Note that it offers you two variations to the <i>Standard STI</i>
+calculation, one modified to reflect intel-ligibility with a <i>Male</i> voice
+and the other based on the use of a <i>Female</i> voice.</p>
+<p>You may also switch to a STIPa or RaSTI setting to compare with
+meas-urement results. Check out the effect of changing these setup parameters
+on the STI display.</p>
+<p>In addition to these settings, corrections for low
+signal-to-noise ratio and for masking of frequency bands can be taken into
+account. These parameters for the STI are taken into account ac-cording to the
+standard IEC 60268-16 (2003).</p>
+<p><img width=456 height=365
+src="E4.files/image026.jpg"></p>
+<p><b>ALcons%</b></p>
+<p><b>Articulation Loss of Consonants</b></p>
+<p>ALcons, Articulation Loss of Conso-nants, is another way of
+measuring in-telligibility. It measures intelligibility by the percentage of
+articulation loss of consonants. The <i>Alcons%</i> for the same Listener Seat
+are shown to the right.</p>
+<p>Note that we added a tabular listing to the screen by selecting
+Combined in the lower left corner of the screen. This al-lows us to read the
+exact values at dif-ferent frequency bands. In this case we have Alcons of
+3.88%, which is consis-tent with what we would expect from the C50 figures.
+Note, however, that it is significantly lower than the result we ob-tained when
+we mapped Alcons under Area Mapping.</p>
+<p>240</p>
+<p><b>Chapter 11: AURA</b></p>
+<p><img width=665 height=1
+src="E4.files/image001.jpg"></p>
+<p><img width=456 height=365
+src="E4.files/image027.jpg"></p>
+<p><b>C80 Clarity Measure</b></p>
+<p>For the assessment of music, AURA provides the well-known C80
+Clarity measure, which belongs to the energy ratios set. It is defined as the
+ratio in dB of the energy in the first 80 ms after the first sound arrival to
+the energy content arriving after the first 80 ms.</p>
+<p>It is not always desirable to have C80 values as high as
+possible, because the higher the value of C80 the lower the effect of the
+diffuse field, whose exis-tence under proper control is needed in many cases of
+music reproduction.</p>
+<p>The scale for evaluating the C80 pro-jections is in the Room
+Investigations section of this tutorial. In our example, the system would
+reproduce the per-cussive instruments especially good.</p>
+<p><img width=456 height=361
+src="E4.files/image028.jpg"></p>
+<p><b>Center Time</b></p>
+<p><b>Center Time </b>is a reference value for<b> </b>spatial
+impression and clarity. It is de-fined as the ratio between the summed products
+of the energy components of the arriving reflections and their corre-sponding
+delays to the total energy component. The higher the value, the more spatial is
+the acoustic impression.</p>
+<p>241</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=665 height=1
+src="E4.files/image001.jpg"></p>
+<p><img width=456 height=361
+src="E4.files/image029.jpg"></p>
+<p><b>LF Lateral Fraction</b></p>
+<p><b>LF, Lateral Fraction</b>, is a measure of<b> </b>the
+perception of the spatial extension of sources. This map shows the Lat-eral
+Fraction in percentage.</p>
+<p><img width=456 height=361
+src="E4.files/image030.jpg"></p>
+<p><b>LFC Lateral Fraction Coefficient</b></p>
+<p><b>LFC, Lateral Fraction Coefficient</b>, is<b>
+</b>also a measure of the perception of the spatial extension of sources. It
+shows the Lateral Fraction Coefficient as a percentage.</p>
+<p>242</p>
+<p><b>Chapter 11: AURA</b></p>
+<p><img width=665 height=1
+src="E4.files/image001.jpg"></p>
+<p><img width=456 height=361
+src="E4.files/image031.jpg"></p>
+<p><b>Sound Strength</b></p>
+<p><b>Sound Strength </b>is a dB ratio between<b> </b>the
+total energy at the measuring loca-tion to the energy measured 10 m from the
+same acoustic source in the free field. It characterizes the volume level.</p>
+<p><img width=456 height=361
+src="E4.files/image032.jpg"></p>
+<p><b>Echo Speech</b></p>
+<p><b>Echo Speech </b>projects how seriously<b> </b>delayed
+energy spikes will degrade speech intelligibility. It is derived by ap-plying a
+weighting function (proposed by Dietsch and Kraak) to the Energy Time Curve.
+Computed values greater than 1 are likely to be problematic and values greater
+than 0.9 are marginal.</p>
+<p>243</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=665 height=1
+src="E4.files/image001.jpg"></p>
+<p><img width=456 height=361
+src="E4.files/image033.jpg"></p>
+<p><b>ECHO Music</b></p>
+<p><b>Echo Music </b>projects how seriously de-layed energy
+spikes will degrade the quality of music. It is derived by applying a weighting
+function (proposed by Di-etsch and Kraak) to the Energy Time Curve. Computed
+values greater than</p>
+<p>1.8 are likely to be problematic and val-ues greater than 1.5
+are marginal.</p>
+<p>Note that the Echo Speech and Echo Music Calculations display
+the results as a function of frequency.</p>
+<p><img width=456 height=361
+src="E4.files/image034.jpg"></p>
+<p><b>Echo Speech Echograms Echo Music Echograms</b></p>
+<p><b>Echo Speech Echograms </b>and<b> Echo</b></p>
+<p><b>Music Echograms </b>are also available as<b> </b>a
+function of time under the <i>Echogram</i> Tab by clicking on the <i>Echo
+Speech</i> or <i>Echo Music </i>buttons.</p>
+<p>The Echo Speech Echogram is shown here. As you can see it shows
+the val-ues at a particular frequency, 1000 Hz in our example, as a function of
+Time.</p>
+<p>244</p>
+<p><b>Chapter 11: AURA</b></p>
+<p><img width=665 height=1
+src="E4.files/image001.jpg"></p>
+<p>Note the Red and Yellow lines in the Echo Speech Echogram on the
+previous page and the Echo Music Echogram shown here.</p>
+<p><img width=456 height=361
+src="E4.files/image035.jpg"></p>
+<p>Except for early reflections, anything above the Red line is
+likely to be a prob-lem while anything above the yellow line is marginal. In
+our example, the peak be-tween 60 msec and 75 msec doesn't rep-resent a problem
+because of the short delay times. In fact, it’s not uncommon as the early
+reflections impact upon the tar-get.</p>
+<p>Note that you can use the Cursor to de-termine the exact
+location of this peak in time. Run the Cursor across the chart and the delay
+times and SPL levels will read out in the Cursor section at the bot-tom of the
+screen.</p>
+<p><b>Histograms</b></p>
+<p>AURA also provides a Histogram as a quick way of checking the
+validity of the simulation. A Histogram quickly tells you if an appropriate
+number of particles were used in the simulation.</p>
+<p><img width=456 height=358
+src="E4.files/image036.jpg"></p>
+<p>Select <i>Histogram</i> by putting a check in the <i>Histogram</i>
+radio button. It's located beneath the <i>Echogram</i> radio button.</p>
+<p>This will open the Histogram shown here. As you can see, a
+Histogram displays the number of impacts stored in each of the 1 ms wide bins.
+The impact display should be both dense and constant during the entire time
+frame (1000 ms in this exam-ple). An inadequate number of Particles was used if
+the display isn't dense or if it thins out toward the end of the time frame.</p>
+<p>The number of impacts stored in each bin is also important. A
+good rule of thumb to follow is that on the average each bin should have at
+least 10 impacts. If the av-</p>
+<p>erage falls much below 10, consideration should be given to
+rerunning the calculation with more Particles. If it's below 5, the calculation
+should definitely be rerun. You can get a good feel for the average by running
+the Cursor across the chart while observing the count in the Cursor readout at
+the bottom of the screen.</p>
+<p>Note that when the Particle Loss method is used, some thinning
+toward the end of time frame is acceptable as long as only energy ratio
+calculations, such as C Measures, will be run. In energy ratio calculations,
+only a good impact balance before and after the Split Time needs to be assured.
+RT and STI calculations, on the other hand, need a long smooth particle
+distribution over time to be accurate.</p>
+<p>245</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=665 height=1
+src="E4.files/image001.jpg"></p>
+<p><b>Particle Loss Method</b></p>
+<p>We used an <i>Energy Loss</i> simulation in all of our previous
+AURA examples. Now let's take a quick look at the faster <i>Particle Loss </i>method.</p>
+<p><img width=456 height=358
+src="E4.files/image037.jpg"></p>
+<p>Return to the <i>Area Mapping</i> window and select <i>Aura</i>
+from the <i>Mapping</i> pull down menu. Use all of the same set-tings, except
+under the <i>Calculations</i> <i>Tab/Advanced Options </i>switch to<i>
+Parti-cle Loss.</i></p>
+<p>The first thing you will notice is that the simulation takes far
+less time. On our 2.8GHz dual-core machine with 1 MB of RAM less than 30
+seconds com-pared to almost 5 minutes for the En-ergy Loss simulation.</p>
+<p>The trade off is accuracy. Follow the prompts, do the
+Recombination and save the Mapping File. Open the <i>View</i> <i>Calculations </i>window
+and click on the<i> Echogram </i>Tab. As can see from the<i> </i>graphic to the
+right, the density is far less than it was in the Energy Loss Echogram.</p>
+<p><img width=456 height=358
+src="E4.files/image038.jpg"></p>
+<p>The next logical step is to use the His-togram to see if it
+shows a usable simulation. As you can see from the graphic, it doesn't come
+close to meet-ing the criteria for a good simulation.</p>
+<p>246</p>
+<p><b>Chapter 11: AURA</b></p>
+<p><img width=665 height=1
+src="E4.files/image001.jpg"></p>
+<p><img width=456 height=358
+src="E4.files/image039.jpg"></p>
+<p>Now, do a new study using <i>High Reso-lution Slow</i>, that is,
+506,000 Particles. It<i> </i>will take longer, but still less than it took for
+the Energy Loss simulation. The re-sulting Echogram appears to the right.</p>
+<p>As you can see, the density has in-creased and is now more
+comparable to the one generated by the Energy Loss method. You'll also find
+that the other simulations are closer to ones generated from the Energy Loss
+simu-lation, but that there still are small dif-ferences.</p>
+<p><img width=456 height=358
+src="E4.files/image040.jpg"></p>
+<p>The Histogram shows you why. You still need to use more
+Particles to achieve the same degree of accuracy as the Energy Loss method.</p>
+<p>247</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=665 height=1
+src="E4.files/image001.jpg"></p>
+<p><b>Aura-Response</b></p>
+<p>AURA Response is used mainly for architectural acoustic
+investigations and auralization. Its advanced algorithms allow the creation of
+Re-flectograms with larger reflection orders and longer time windows than is
+possible with the Mirror Image and Ray Tracing algorithms used by EASE. This
+eliminates the need to add a statistical Tail to the Reflectogram and improves
+the realism of any auralization.</p>
+<p>We will begin our exercise by accessing <i>Calculate AURA
+Response</i> under <i>Tools</i>, in either the <i>Area Mapping</i> or <i>Room
+Mapping</i> modules.</p>
+<p>Note that you have to Activate one of the Audience Areas and
+pick a spot in one of the active Audience Areas before you can open <i>Calculate</i>
+<i>AURA Response</i>. Go to the Items pull down menu and choose<i> Select
+Active/Audience Areas </i>and make your Audience Area selection. Don't<i> </i>worry
+about the location, you will have a chance to change it before running the
+calculations. If you select <i>Room Mapping</i> as the entry port, you don't
+need to pick a spot.</p>
+<p><img width=312 height=339
+src="E4.files/image041.jpg"></p>
+<p>AURA Response opens with the AURA Response Calculation setup
+window shown to the right..</p>
+<p>As you can see, this setup window gives us the opportunity to
+select the Loudspeakers that will be used in the simulation and the results
+(files) destination. If we select <i>Probe</i>, the result (files) will be sent
+to the Probe and the Probe will open at the completion of the simulation.
+Se-lecting <i>EARS</i> will open the File in EARS for further processing.</p>
+<p>Selecting <i>Only Save To File</i> will save the results as a
+Response File that can then be opened at any time in the Main menu by going to
+the <i>Calculations </i>pull down menu and selecting<i> Probe Post Processing</i>.</p>
+<p>Note the <i>Create BIR File</i> check box. The program can also
+create a .bir (Binaural Impulse Response File) for auralization at the same
+time it creates the .rsp Response File. Creating both at the same time will
+lengthen the calculation time, but only by a small amount.</p>
+<p><img width=312 height=339
+src="E4.files/image042.jpg"></p>
+<p>To reduce the calculation time, we'll use only Loudspeakers S1
+&amp; S2 and send the results to the Probe. Normally, of course, we would be
+using all of the Loudspeakers.</p>
+<p>Press <i>Nex</i>t and the <i>Location</i>s Tab window shown here
+will appear.</p>
+<p>This setup window lets you choose what locations will be used in
+the simulation. Note that you can select both the <i>Walker</i> location and
+any combination of the <i>Listener Seats</i> and the program will generate a
+Re-sponse File for each location selected. We'll use just a single Listener
+Seat, Seat 1, to reduce the calculation time.</p>
+<p>A more common practice would be to include all the Listener
+Seats, so the Room's performance could be evaluated at a number of locations.</p>
+<p>Pressing <i>Next</i> will open the <i>Calculation</i> Tab window
+shown at the top of the next page.</p>
+<p>248</p>
+<p><b>Chapter 11: AURA</b></p>
+<p><img width=665 height=1
+src="E4.files/image001.jpg"></p>
+<p>The <i>Calculation</i> Tab gives you a chance to review and set
+a number of essential parameters for the Response File simulation. The basic
+parameters are the same as for the AURA Mapping, please refer to the
+description above. Under <i>Advanced Options</i> additional largely spe-cific
+to the AURA Response calculation settings are available.</p>
+<p><img width=312 height=339
+src="E4.files/image043.jpg"></p>
+<p>In order to understand them better, note that the Response File
+Calcu-lation is done in two separate parts (runs). For the early geometric
+re-flections having a reflection order up to the cut off order (the first
+part), a hybrid Mirror Image method is used. This method uses a ray tracing
+algorithm to scan the room for mirror images using a deterministic, non uniform
+directional distribution. For the early scattered reflections and the later
+reflections (the second part) an energetic ray tracing algorithm with a uniform
+density distribution is used. Both parts are finally added to gain the
+response.</p>
+<p>The essential parameters are:</p>
+<p><b>Max. Diameter after 1s [m]:</b></p>
+<p>This setting determines the diameter of the counting balloon
+after 1 second. It is automatically adjusted when you select the number of <i>Par-ticles
+</i>in the<i> Standard Options </i>screen. This particle number is used for<i> </i>both
+the first and the second part of the ray tracing. If you want the re-sults for
+the early part to be more precise in comparison to the late part, you have to
+lower the <i>Max. Diameter</i> setting accordingly.</p>
+<p>This parameter can be adjusted according to the room details. In
+a room with only a few large walls, a larger value can be chosen. On the other
+hand, in a room with many walls which give the room a lot more details, a
+smaller number (diameter) is appropriate. A good choice is to use the diameter
+of the smallest surface. However, less than 1m (3 Ft.) is usually not really
+necessary and more than 5m (15 Ft.) is probably too large.</p>
+<p><img width=312 height=339
+src="E4.files/image044.jpg"></p>
+<p>Note that the number of rays is proportional to 1/d <b>2</b>.
+In other words doubling the diameter makes this part of the calculation run 4
+times faster. For our purpose, the default setting will be sufficient.</p>
+<p><b>Cut Off Order:</b></p>
+<p><i>Cut Off Order </i>sets the transition reflection
+order where the program<i> </i>switches from the hybrid Mirror Image method to
+the ray tracing calcu-lation method. No extrapolation is used.</p>
+<p>For the second part, the ray tracing calculation, sound
+particles are ra-diated with a well defined energy depending on the directivity
+of the source. These particles are followed through the room and each time a
+reflection takes place at a surface the surface absorption is taken into
+account. Finally, if the particle hits a receiver its current energy is added
+to a Bin in an Echogram. The Bin is selected according to the source's delay
+and the distance travelled by the particle.</p>
+<p>The Order should be set depending on the probability of singular
+strong or flutter echoes in the room. If all walls are more or less scattering
+surfaces, smaller orders can be used. If some walls have a low scattering
+coefficient, larger reflection orders should be used</p>
+<p>The program will accept settings from 1 to 30 and the default
+setting is 10. Usually relatively small Orders (5 to 7) are used for Probe
+re-flection studies and higher numbers used if the simulation will be used for
+auralization.</p>
+<p>249</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=665 height=1
+src="E4.files/image001.jpg"></p>
+<p><b>Density Factor</b></p>
+<p><img width=312 height=339
+src="E4.files/image045.jpg"></p>
+<p><i>Density Factor </i>defines the number of pulses
+per ms that will be used to<i> </i>generate the detailed structure of the late
+part in the reflectogram. Set-tings from 10 to 30 are acceptable and the
+default setting is 20. We'll use 10.</p>
+<p><b>Tail Resolution:</b></p>
+<p><i>Tail Resolution </i>defines the time resolution for
+the calculation of the tail<i> </i>part by setting the width of the time boxes
+(bins) used for the energy distribution of the late part. A range from 1 to 10
+is allowed with a de-fault setting of 5. We'll use 5.</p>
+<p>Press <i>Start Simulation</i> to approve the settings and begin
+the simulation. Like in AURA Mapping, the program will initially show you an
+estimate of the required RAM and hard disk space. Confirm with <i>OK</i>.</p>
+<p>Expect the calculation to take some time. It took slightly over
+3 minutes on our 2.53 GHz dual-core test machine and almost 7 minutes on a 2
+GHz machine with 512 MB of RAM.</p>
+<p>Since we elected to send the results to the Probe, a prompt will
+appear at the conclusion of the simulation. It provides a means of selecting
+the File that will be opened in the Probe.</p>
+<p>Select a file and press <i>OK</i> and the EASE Probe window will
+open. See below.</p>
+<p><img width=493 height=356
+src="E4.files/image046.jpg"></p>
+<p>At this point you can work with and analyze the Reflectogram
+just as you did in Advanced Acoustical Investigations.</p>
+<p>250</p>
+<p><b>Chapter 11: AURA</b></p>
+<p><img width=665 height=1
+src="E4.files/image001.jpg"></p>
+<p>To verify this, let's add the Schroeder RT Time to the
+Reflectogram. Open the <i>Options Menu [F9]</i> and open the <i>Schroeder</i>
+Tab. Press the <i>Compute </i>button and select<i> Draw Schroeder Curve into
+Reflectogram </i>. Then click on<i> OK </i>and the Schroeder RT information
+will be added<i> </i>to the Reflectogram.</p>
+<p><img width=491 height=355
+src="E4.files/image047.jpg"></p>
+<p>You will recall that we used Loudspeakers S1 and S2 in our
+calculations. We can, if we want, split this file into two files, one for
+Loud-speaker S1 and the other for Loudspeaker S2. Under the Edit pull down
+menu, select <i>Deactivate/ Loudspeake</i>r Pulses and deactivate Loudspeaker
+S2. Now, all the reflections belonging to S2 will be grayed out.</p>
+<p><img width=491 height=355
+src="E4.files/image048.jpg"></p>
+<p>If we want, we can save the active part of this reflectogram
+(shown in green color) as a new .rsp Response File. Then, after reloading the
+Probe, we can use the Reflectogram to analyze the systems performance with just
+S1 turned on.</p>
+<p>251</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=665 height=1
+src="E4.files/image001.jpg"></p>
+<p><b>Wall Materials Database Scattering Wizard</b></p>
+<p>The EASE 4.3 Wall Materials database includes a Scattering Wizard
+that allows real-life approximations of scattering coefficients.</p>
+<p>We’ll start by selecting a Wall Material in the 4.3 Wall
+Material Database. Go to the Main EASE window and select <i>Main Databases /</i></p>
+<p><i>Wall Materials </i>and browse to the material you
+want to use,.We chose<i> GYPBRD58.mat </i>and double clicked on it to open the
+file on GYP-</p>
+<p>BRD 5/8.</p>
+<p><img width=320 height=262
+src="E4.files/image049.jpg"></p>
+<p>Note that it includes a graph of the Absorption Coefficients.</p>
+<p>Selecting the <i>Coefficients</i> Tab introduces a new screen
+with a tabular listing of the <i>Absorption Coefficients</i> and a column for
+the <i>Scattering</i> <i>Coefficients.</i></p>
+<p><img width=320 height=262
+src="E4.files/image050.jpg"></p>
+<p>At this point you can manually enter the <i>Scattering
+Coefficients</i> it you know them.</p>
+<p>Selecting <i>Calculate Scattering</i> from the <i>Edit</i> pull
+down menu will open a setup screen that allows you to calculate the scattering
+character-istics based on the surface’s size and shape. The new file including
+the Scattering Coefficients can then be saved and used in AURA sim-ulations.</p>
+<p>252</p>
+<p><b>Chapter 11: AURA</b></p>
+<p><img width=665 height=1
+src="E4.files/image001.jpg"></p>
+<p><img width=388 height=235
+src="E4.files/image051.jpg"></p>
+<p>Note that the setup screens give you the oppor-tunity to select
+from a variety of surface shapes and to define its size.</p>
+<p>Note that you can also look at a number of ex-amples that have
+been created to help you be-come familiar with this portion of the program.</p>
+<p><img width=384 height=232
+src="E4.files/image052.jpg"></p>
+<p>The graphic below shows the Scattering Coeffi-cients using a 2
+Ft. Square.</p>
+<p><img width=320 height=262
+src="E4.files/image053.jpg"></p>
+<p>At this point you can save the file under a new name and then
+use it in your room models just as you would any other material. AURA can then
+use these Scattering Coefficients in its calculations.</p>
+<p>Try out this section using different materials, sizes and
+shapes. You’ll find them interesting.</p>
+<p>253</p>
+
+	</div>
+	<div class="nav">
+		<a href="index.html">Table of contents</a><br>
+		<a href="10.html">10. Advanced Acoustical Investigations</a><br>
+		<a href="12.html">12. Auralization</a>
+	</div>
+	<div id="footer">
+		EASE Tutorial
+	</div>
+</body>
+</html>

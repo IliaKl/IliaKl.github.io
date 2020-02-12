@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>6. Import / Export Capabilities</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div id="header">
+		<p class="heading">EASE Tutorial</p>
+		<p class="heading">6. Import / Export Capabilities</p><br>
+	</div>
+	<div class="nav">
+		<a href="index.html">Table of contents</a><br>
+		<a href="5.html">5. Cluster Construction</a><br>
+		<a href="7.html">7. Using Optimize RT</a>
+	</div>
+	<div id="contents">
+		
+<p><b>Chapter 6: Import / Export Capabilities</b></p>
+<p><img width=665 height=1
+src="E2.files/image001.jpg"></p>
+<p><b>I M E X</b></p>
+<p><b>I m p o r t / E x p o r t</b> <b>M o d u l e</b></p>
+<p><img width=600 height=403
+src="E2.files/image119.jpg"></p>
+<p>143</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=665 height=1
+src="E2.files/image001.jpg"></p>
+<p><b>Chapter 6. Import / Export Capabilities</b></p>
+<p><b>Introduction</b></p>
+<p>The IMEX Import &amp; Export Module included in EASE JR and EASE
+allows a wide variety of different file types to be imported into the pro-gram
+and most EASE files to be exported in a number of formats.</p>
+<p><img width=210 height=237
+src="E2.files/image120.jpg"></p>
+<p>EASE 2.1, CADP2, ASCII, Google SketchUp and AutoCAD DXF Files
+can all be imported, while most EASE 4.3 data files can be exported to other
+programs as either Google SketchUp, AutoCAD DXF or ASCII Files, or exported
+directly to EASE 3.0. EASE 3.0 Files open automatically in 4.3 and do not need
+to be imported.</p>
+<p>To open the IMEX Import/Export Module select <i>Import/Expor</i>t
+from the <i>File</i> pull down menu in the Main EASE screen. When the IMEX
+window opens, open the <i>Tools</i> pull down menu shown here.</p>
+<p>Note that if you enter the IMEX module as a “stand alone” module
+(without a project loaded) the Export listing will be grayed out.</p>
+<p><b>Import EASE 2.1</b></p>
+<p>To import existing EASE 2.1 files, select <i>Import EASE 2.1</i>
+to open the sub-menu shown here: The first three choices are used to Import old
+EASE 2.1 projects into 4.3. The first option, <i>Project / Global Base </i>will
+install the EASE 2.1 Loudspeaker and Material database files that<i> </i>are a
+part of the EASE 2.1 project file into the EASE40Data Global Speaker and
+Material database folders.</p>
+<p><img width=204 height=168
+src="E2.files/image121.jpg"></p>
+<p>The second option, <i>Project / Local Base</i>, will install the
+EASE 2.1 Loudspeaker and Material database files along with the project files.
+It allows you to keep the old database files separate from the newer database
+files.</p>
+<p>The third choice, <i>Project Group / Local Base</i> is used to
+import a group of 2.1 project files into 4.3. Note that the data files will be
+kept separate from the EASE 4.3 database files.</p>
+<p>The second set of import choices, <i>Speaker File</i> and <i>Speaker
+Folde</i>r, allow existing EASE 2.1 Loudspeaker files to be imported into 4.3.
+Speaker File imports a single loudspeaker data file, while Speaker Folder
+imports a group of loudspeaker data files. The Speaker File method is
+recommended since it provides you with more control over the import routine.
+Note that all imported loudspeakers will be marked &quot;Non-Authorized.&quot;</p>
+<p><i>Material File </i>and Material<i> Folder </i>perform
+the same functions for Wall Materials. In all cases,<i> </i>make your selection
+and then follow the Prompts.</p>
+<p><b>Export EASE 3.0 Project</b></p>
+<p>Export EASE 3.0 Project provides a means of converting and
+exporting an EASE 4.3 Project File as an EASE 3.0 Project File. Note that this
+option is not available unless a Project has been loaded into the program.</p>
+<p>The conversion, however, is not always a perfectly smooth one
+and some editing of the 3.0 Project File may have to be done. Also note that
+none of the 4.3 Data Files, (Loudspeakers, Wall Materials, etc.) will be
+exported. They cannot be converted from 4.3 to 3.0 files. This means the
+loudspeaker and materials used in the 4.3 project must exist in the 3.0
+Databases as 3.0 files</p>
+<p>EASE 4.3 will export the converted Project file as a Packed
+(zipped) file. When installing it in 3.0, make sure the Base File Find option
+is checked. Then EASE 3.0 will attempt to reassign the 4.3 Wall Material and
+Loudspeaker pointers.</p>
+<p>144</p>
+<p><b>Chapter 6: Import / Export Capabilities</b></p>
+<p><img width=665 height=1
+src="E2.files/image001.jpg"></p>
+<p><b>Import CADP2</b></p>
+<p><img width=137 height=107
+src="E2.files/image122.jpg"></p>
+<p><b>I</b>mport CADP2 is used to import existing CADP2 Job Data into EASE
+4.3. Click on<b> </b><i>Import CADP2</i><b> </b>to<b> </b>open the sub-menu
+shown here, then select the file type and follow the prompts.</p>
+<p>Note that CADP2 Devices and Absorbers should be imported first,
+Array Files next and then the Job File.</p>
+<p><img width=152 height=213
+src="E2.files/image123.jpg"></p>
+<p><b>Import ASCII</b></p>
+<p>Import ASCII allows &quot;Comma And Quotes-Delimited&quot; ASCII
+Files created by spread sheet programs for Speaker Models, Wall Materials,
+Lamps and IR Emitters to be imported into the program. Edges, Faces,
+Loudspeakers, Audience Areas and Listener Seats ASCII files created by EASE
+3.0, 4.0, 4.1, 4.2, and 4.3 can also be imported.</p>
+<p>Select <i>Import ASCII</i>, then make your selection from the
+sub-menu shown and follow the Prompts.</p>
+<p>Note that the file name extension filter is different for each
+item. Examples of properly formatted ASCII files can be viewed by using Windows
+Explorer to browse to <i>Program Files/EASE 4.3/EasePath/Exam-ples_ASCII.</i></p>
+<p><img width=152 height=170
+src="E2.files/image124.jpg"></p>
+<p><b>Import ASCII (EASE 2.1)</b></p>
+<p>ASCII files generated by EASE 2.1 are formatted differently than
+the ones created by EASE 3.0 and EASE 4.3. The Import ASCII (EASE 2.1) option
+opens the sub-menu shown here to allow these files to be imported into EASE
+4.3.</p>
+<p><img width=150 height=158
+src="E2.files/image125.jpg"></p>
+<p><b>Export ASCII</b></p>
+<p>Export ASCII allows EASE 4.3 project files to be exported in
+ASCII format for use in other programs such as Word or Excel. Note that this
+option will not be available unless you have loaded a project into the program.
+Then select <i>Export ASCII</i> and make your choice from the sub-menu shown
+below.</p>
+<p><b>Import DXF / SKP</b></p>
+<p>Import DXF / SKP allows files created by Computer-Aided-Design
+(CAD) programs to be imported into the program. See the CAD File Transfer
+section that follows for more information.</p>
+<p><b>Export DXF</b></p>
+<p>Export DXF allows EASE 4.3 project files to be exported in DXF
+format for use in AutoCAD. Note that this option will not be available un-less
+you have loaded a project into the program. See the CAD File Transfer section
+that follows for more information.</p>
+<p><b>Export SKP</b></p>
+<p>Export SKP allows EASE 4.3 project files to be exported to
+Google SketchUp. Note that this option will not be available unless you have
+loaded a project into the program. See the CAD File Transfer section that
+follows for more information.</p>
+<p>145</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=665 height=1
+src="E2.files/image001.jpg"></p>
+<p><b>Computer-Aided-Design (CAD) File Transfer</b></p>
+<p>Both EASE and EASE JR have facilities to Import and Export both
+DXF and SketchUp files. This means that drawing files can be ex-changed between
+EASE/EASE JR and any 3D CAD program that can work with DXF or SketchUp files.</p>
+<p>For the following exercises we will assume you will be
+exchanging files with AutoCAD 2010 or Google SketchUp 7. It's possible to use
+other 3D CAD programs or older versions of AutoCAD or SketchUp in a similar
+manner; however there may be differences in procedure. EASE exports files that
+are compatible with Google SketchUp 6 and AutoCAD 2000 DXF. Review the
+operations manual for your CAD pro-gram if you have any doubts.</p>
+<p>The Export process is relatively simple. The first step is to
+open the project you want to export. We'll use Theater 1 for this exercise.
+There are two ways to do this, using the Main menu or by opening the EASE IMEX
+module as a stand-alone module.</p>
+<p>If you choose the Main menu method, select <i>Import/Export</i>
+from the Main menu bar's <i>File</i> pull down menu after loading the project.
+This will open the EASE IMEX Import/Export program module with a blank screen.
+Then follow the instructions for exporting DXF or SXP files that follow.</p>
+<p>If you choose to run the EASE IMEX module as a stand-alone
+module, select <i>Close Project</i> from the <i>Main</i> menu's <i>File</i>
+pull down menu, then select <i>Import/Export</i> from the Main menu's <i>File</i>
+pull down menu. When the IMEX module opens, select <i>Open Project</i> from the
+<i>File</i> pull down menu and browse to <i>Theater 1</i>. Click <i>OK</i>.
+Then follow the instructions for exporting DXF or SXP files that follow.</p>
+<p><b>Exporting DXF Files from EASE</b></p>
+<p>Select <i>Export DXF</i> from the Tools pull down menu. This
+will open a window asking you for the name of the file you are creating and
+where you want it saved. Enter the requested information and then press <i>Save</i>
+to open the Export DXF screen shown below.</p>
+<p><img width=336 height=260
+src="E2.files/image126.jpg"></p>
+<p>The DXF Length Unit section provides a means of rescaling the
+model before exporting it. EASE works in Meters (internally it converts Meters
+to Inches for non Metric users) and you may want to rescale the drawing before
+exporting it. For example, if you are exporting the drawing for use by an
+Architect, you may want to rescale the drawing to Inches. Most architects work
+in Architectural units (inches con-verted to feet and inches for display
+purpose).</p>
+<p>The EASE -&gt; DXF section provides two options for the export
+of the Face coordinates. Selecting <i>Convert EASE Faces to: 3D PolyFaces</i>
+will create entities that can be shaded and rendered in AutoCAD. Because the
+faces of the mesh are planar, the mesh will approximate curved surfaces in the
+same way that EASE does and will maintain the structure of the EASE Faces and
+the exact Vertex coordinates.</p>
+<p><i>Convert EASE Faces to: 3D Polyline</i>s will
+create entities that will not be rendered in AutoCAD. This option is the best
+choice for programs<i> </i>that do not support 3d PolyFaces and will maintain
+the structure of the EASE Faces and the exact Vertex coordinates. Press <i>OK</i>
+to close the window and export the DXF File.</p>
+<p>146</p>
+<p><b>Chapter 6: Import / Export Capabilities</b></p>
+<p><img width=665 height=1
+src="E2.files/image001.jpg"></p>
+<p><b>Importing EASE DXF Files into AutoCAD</b></p>
+<p>Open AutoCAD and select <i>Open</i> from the <i>File</i> pull
+down menu. Select the <i>Files of Type:</i> drop down menu and change it from
+Drawing</p>
+<p>(*.dwg) to <i>DXF (*.dxf)</i>. Then Browse to the DXF file you
+created for this exercise and press <i>Open</i>. That's all there is to it. The
+model is now in AutoCAD as a drawing and can be manipulated in AutoCAD just
+like any other AutoCAD drawing.</p>
+<p>Select <i>SE Isometric</i> from the sub-menu <i>3D Views</i> in
+the <i>View</i> pull down menu to display the drawing similar to the default 3D
+view in EASE. Note that all the elements of the EASE model were exported.</p>
+<p><img width=441 height=359
+src="E2.files/image127.jpg"></p>
+<p>The Export/Import routine placed the various EASE drawing items
+and materials on different Layers in the AutoCAD drawing and assigned names and
+colors to the Layers that correspond to their EASE Wall Material names and
+colors. For details, go to the AutoCAD Format pull down menu and select Layers.
+This will open the AutoCAD Layer dialog shown below.</p>
+<p><img width=441 height=286
+src="E2.files/image128.jpg"></p>
+<p>147</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=665 height=1
+src="E2.files/image001.jpg"></p>
+<p><b>Exporting SKP Files from EASE</b></p>
+<p>Select <i>Export SKP</i> from the <i>Tools</i> pull down menu.
+This will open a window asking you for the name of the file you are creating
+and where you want it saved. Enter the requested information and then press <i>Save</i>
+to open the Export SKP screen shown here.</p>
+<p><img width=174 height=168
+src="E2.files/image129.jpg"></p>
+<p>The EASE -&gt; SKP section provides two options for the quality
+of the drawing export. Selecting <i>Quality of Drawing: Draft (fast) </i>is the
+quickest way to create a SketchUp drawing and can be used<i> </i>if there are
+no or only a few EASE Faces that are not exactly planar. This is the Default
+setting.</p>
+<p><i>Quality of Drawing: Good (slow) </i>will
+create a SketchUp drawing that groups all non-planar EASE<i> </i>Faces to
+create a higher quality rendering in SketchUp. This can take a long time to
+convert if there are many non-planer EASE Faces. Use this setting if the Draft
+setting has too many extra lines on the surfaces.</p>
+<p><b>Importing EASE SKP Files into SketchUp</b></p>
+<p>Open Google SketchUp and select <i>Open</i> from the <i>File</i>
+pull down menu. Then Browse to the SKP file you created for this exercise and
+press <i>Open</i>. That's all there is to it. The model is now in SketchUp as a
+drawing and can be manipulated in SketchUp just like any other SketchUp
+drawing.</p>
+<p>Select <i>Iso</i> from the sub-menu <i>Standard Views</i> in the
+<i>Camera</i> pull down menu and then press <i>Ctrl-Shift-E</i> to display the
+drawing similar to the default 3D view in EASE. Note that all the elements of
+the EASE model were exported.</p>
+<p><img width=528 height=436
+src="E2.files/image130.jpg"></p>
+<p>The Export/Import routine placed the various EASE drawing items
+and materials on different Layers in the SketchUp drawing and assigned names
+and colors to the Layers that correspond to their EASE Wall Material names and
+colors. For details, go to the SketchUp Window pull down menu and select <i>Layers</i>.
+This will open the SketchUp Layer dialog shown on the next page.</p>
+<p>148</p>
+<p><b>Chapter 6: Import / Export Capabilities</b></p>
+<p><img width=671 height=353
+src="E2.files/image131.jpg"></p>
+<p><b>Importing AutoCAD® DXF Files into EASE</b></p>
+<p>Importing AutoCAD 3D DXF drawing files into EASE is just as
+simple as exporting an EASE model to AutoCAD as a DXF file -- <b>when the</b> <b>AutoCAD
+drawing has been properly formatted.</b></p>
+<p>Unlike EASE 3.0 which could import only DXF drawing files
+created with 3D Faces, EASE 4.3 can import most AutoCAD drawing ele-ments. The
+main exceptions are Solids and Regions. Fortunately, they can easily be
+converted to elements that can be read by EASE using the XEDGES command in
+AutoCAD 2007 and later. In fact, if you have AutoCAD and want to model the room
+in AutoCAD and then Export it to EASE, you may want to construct the AutoCAD
+model using 3D Solids and then use the XEDGES command before exporting it to a
+DXF file that EASE can use.</p>
+<p><b>At this point, you may want to take a few minutes to review the
+Import-Export-DXF section of the EASE Manual. It contains some very useful
+hints. You'll find the DXF section in Chapter 13.</b></p>
+<p><b>The EASE Manual is stored as a PDF File under C:/<i>ProgramFiles/EASE4.3/EasePath/EASE43
+Manual.</i> Additional information on Importing DXF files can also be found on
+the web at <i>olsonsound.com/ease/index.html.</i></b></p>
+<p>If you do not have AutoCAD and are working with an Architect who
+does, be sure to tell him of the limitations of the Import routine. In fact,
+you may want to copy this portion of the Tutorial and the DXF section of the
+EASE 4.3 Manual and give it to him as a guide.</p>
+<p>Note: EASE like other similar programs cannot convert 2D
+drawings into a 3D model. However, 2D drawings exported as DXF files can be
+imported into EASE. Some users will import the room's 2D floor plan drawing
+into EASE and then use it as the foundation for their 3D EASE model.</p>
+<p>To import a file, return to the EASE IMEX Import/Export program
+module (select <i>Import/Export</i> from the <i>Main</i> menu bar's <i>File</i>
+pull down menu) and select <i>Import DXF/ SKP</i> from the <i>Tool</i>s pull
+down menu. This will open a window asking for the name and location of the file
+you want to Import.</p>
+<p>We might as well use the Theater 1 DXF File we created under
+Export DXF. Browse to it and press <i>OK</i>.</p>
+<p>This will bring up the Import DXF Setup screen shown on the next
+page.</p>
+<p>149</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=673 height=398
+src="E2.files/image132.jpg"></p>
+<p>We will start by setting the <i>Vertex Snap Cube</i> to 0. This
+will bring in all the Vertex coordinates without altering their location. This
+is a good way to start, especially if you are importing an unknown model.</p>
+<p>We'll accept the default settings for <i>Plane Face Tolerance</i>,
+<i>Min. Circle Sectors</i> and <i>Max. Arc-Sector Length</i>. We may want to
+change these later after we have had a look at the imported model. The <i>Min.
+Circle Segments</i> setting of 8, for example, is fine for importing small
+circles but may be too low for any large circles. We won't know until we have
+imported the project and looked at it.</p>
+<p>We will also leave all the checkboxes unchecked. This will keep
+the import time to a minimum. This is a good practice to follow when you are
+importing an unknown file. Your first objective is to open the file to see what
+you have.</p>
+<p>Press <i>OK</i> to close the window and import the DXF File.</p>
+<p>The Assign Wall Material window shown on the next page will
+open.</p>
+<p>In this case all of the materials were correctly assigned based
+on the Layer Names from the imported file.</p>
+<p>Select the <i>Assign from List</i> or <i>Assign from File</i>
+button when a row is selected to change the Assigned EASE Material for that
+Layer in the imported file.</p>
+<p>If you intend to import this project multiple times or will be
+importing a number of files that use the same set of Wall Materials then you
+should press the <i>Save Map</i> button to create a text-formatted map file
+that contains a table of layer names and Wall Material files. You can then use
+the <i>Load Map</i> button when importing the subsequent files to assign the
+materials to the same layers.</p>
+<p>Refer to the EASE 4.3 Manual or the Help files for a description
+of the rest of the options and buttons in this window.</p>
+<p>150</p>
+<p><b>Chapter
+6: Import / Export Capabilities</b></p>
+<p><img
+width=672 height=426 src="E3.files/image001.jpg"></p>
+<p>Select <i>OK</i>
+to close the dialog window. A Save File prompt will appear giving you the
+opportunity to save the File as an EASE Project File. You can either save it
+now or save it later, after you have had a chance to look more closely at the
+imported DXF File. We suggest taking a closer look before saving it, but the
+choice is yours. <i>Save</i> or <i>Cancel</i> the Save File prompt and the File
+will open in the IMEX window shown below.</p>
+<p><img
+width=536 height=388 src="E3.files/image002.jpg"></p>
+<p>151</p>
+<p><b>EASE
+4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p>If you
+have AutoCAD and had the opportunity to look at the model in AutoCAD, you will
+note that the item colors are the same as the colors were in AutoCAD.</p>
+<p>Normally
+your first step would be to check the dimensions of the model to see if you
+used the right scaling for the Import. You'll find the overall dimensions
+listed in the upper left corner of the screen. If they appear to be much too
+large or too small, you can either import the file again or open the <i>Edit</i>
+pull down menu and select <i>Rescale Project</i> to rescale the model's
+dimensions.</p>
+<p>Next,
+look carefully at the drawing. Does it look like you anticipated or do you
+suspect that some details or items are missing? If so, who-ever created the DXF
+File in AutoCAD, may have turned one or more Layers Off or Frozen them before
+creating the DXF File. Try import-ing the File again, only this time check <i>Read
+“off”</i> and <i>“frozen” Layers</i> in the <i>Options</i> section of the
+Import DXF window. This will &quot;unfreeze&quot; the Frozen Layers and turn
+&quot;On&quot; any that were turned &quot;Off&quot;.</p>
+<p>Be aware
+that some of the Faces/Edges may be difficult to see on small or low resolution
+screens because of the lack of contrast between the material colors and the
+background color of the IMEX window.. In most cases, the Faces/Edges are there,
+you just can’t see them. To verify that they are there Save the file and open
+it in Edit Project.</p>
+<p>Now,
+it's time to save the file as an EASE Project File if you didn't save it
+immediately after importing it. If you didn't save it previously, go to the
+File pull down menu and select <i>Apply Project Data</i>. This will close the
+IMEX Import/Export program module and allow you to save the project in the EASE
+Main window.</p>
+<p>Note
+that the preceding paragraph assumes you followed the Tutorial closely and had
+a project open when you entered the IMEX program module. If you opened the IMEX
+program module as a stand-alone module (without having first loaded a project)
+the Apply Project Data command line won't be available to you. You have to go
+to the <i>File</i> pull down menu and select <i>Save As</i> and then manually
+close the IMEX Import/Export program module.</p>
+<p>Then
+select <i>Open</i> Project from the <i>Edit</i> pull down menu in the <i>Main</i>
+window, browse to the Project File you created, open the project and go to the <i>Edit
+Project Data</i> mode. Note that the Vertices and Faces are all there.</p>
+<p><b>Importing
+Google SketchUp SKP Files into EASE</b></p>
+<p>Importing
+Google SketchUp SKP drawing files into EASE is just as simple as exporting an
+EASE model to SketchUp as a SKP file when the SketchUp drawing has been
+properly formatted.</p>
+<p>We
+might as well use the Theater 1 SKP File we created under Export SKP. Browse to
+it and press OK. This will bring up the Import SKP Setup screen shown below.</p>
+<p><img
+width=209 height=164 src="E3.files/image004.jpg"></p>
+<p>We will
+leave the Include Invisible Structures checkbox unchecked. If there are
+invisible elements in the SketchUp file that need to be im-ported this checkbox
+should be checked.</p>
+<p>152</p>
+<p><b>Chapter
+6: Import / Export Capabilities</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p>Press <i>OK</i>
+to Import the SKP File.</p>
+<p>The
+Assign Wall Material window shown below will open.</p>
+<p><img
+width=640 height=490 src="E3.files/image005.jpg"></p>
+<p>In this
+case all of the materials were correctly assigned based on the Layer Names from
+the imported file.</p>
+<p>Select
+the <i>Assign from List</i> or <i>Assign from File</i> button when a row is
+selected to change the Assigned EASE Material for that Layer in the imported
+file.</p>
+<p>If you
+intend to import this project multiple times or will be importing a number of
+files that use the same set of Wall Materials then you should press the <i>Save
+Map</i> button to create a text-formatted map file that contains a table of
+layer names and Wall Material files.</p>
+<p>You can
+then use the <i>Load Map</i> button when importing the subsequent files to
+assign the materials to the same layers.</p>
+<p>See the
+EASE4.3 Users Manual or the Help files for a description of the rest of the
+options and buttons in this window.</p>
+<p>Select <i>OK</i>
+to close the dialog window and the File will open in the IMEX window shown on
+the next page.</p>
+<p>153</p>
+<p><b>EASE
+4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p>The
+File will open in the IMEX window.</p>
+<p><img
+width=497 height=360 src="E3.files/image006.jpg"></p>
+<p>A Save
+File prompt will also appear giving you the opportunity to save the File as an
+EASE Project File. You can either save it now or save it later, after you have
+had a chance to look more closely at the imported SKP File. We suggest taking a
+closer look before saving it, but the choice is yours.</p>
+<p>If you
+have SketchUp and had the opportunity to look at the model in SketchUp, you
+will note that the item colors are the same as the col-ors were in SketchUp.</p>
+<p>Normally
+your first step would be to check the dimensions of the model to see if the
+right scaling was used for the Import. You'll find the overall dimensions
+listed in the upper left corner of the screen. If they appear to be much too
+large or too small, you can open the <i>Edit</i> pull down menu and select <i>Rescale
+Projec</i>t to rescale the model's dimensions.</p>
+<p>Be
+aware that some of the Faces/Edges may be difficult to see on small or low
+resolution screens because of the lack of contrast between the material colors
+and the background color of the IMEX window.. In most cases, the Faces/Edges
+are there, you just can’t see them. To verify that they are there Save the file
+and open it in Edit Project.</p>
+<p>Now,
+it's time to save the file as an EASE Project File if you didn't save it
+immediately after importing it. If you didn't save it previously, go to the <i>File</i>
+pull down menu and select <i>Apply Project Data</i>. This will close the IMEX
+Import/Export program module and allow you to save the project in the EASE Main
+window.</p>
+<p>Note
+that the preceding paragraph assumes you followed the Tutorial closely and had
+a project open when you entered the IMEX program module. If you opened the IMEX
+program module as a stand-alone module (without having first loaded a project)
+the Apply Project Data command line won't be available to you. You have to go
+to the <i>File</i> pull down menu and select <i>Save As</i> and then manually
+close the IMEX Import/Export program module.</p>
+<p>Then
+select <i>Open Project</i> from the <i>Edit</i> pull down menu in the Main
+window, browse to the Project File you created, open the project and go to the <i>Edit
+Project Data</i> mode. Note that the Vertices and Faces are all there.</p>
+<p>154</p>
+<p><b>Chapter
+6: Import / Export Capabilities</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p><b>Some
+Hints For Those Who Do Not Have AutoCAD</b></p>
+<p>Now,
+let's take another look at some of the problems you may encounter when you
+Import an unknown file.</p>
+<p>Importing
+an AutoCAD DXF File of unknown properties when you don't have AutoCAD and can't
+look at the drawing or modify it can be a real challenge. Fortunately EASE 4.3
+includes a number of tools that can help you.</p>
+<p><b>What if
+the File doesn't Import? </b>This is a sign that the DXF does not have
+any importable elements, or that all layers are frozen or the<b> </b>File
+format is wrong. All you can do is to go back to the source of the DXF File and
+review with them what you need.</p>
+<p><b>What if
+you can see a multitude of lines in the drawing, but very few Faces? </b>Try
+importing the drawing again, only with the<b> </b><i>Closed</i><b> </b><i>Multiple
+Lines to Faces </i>option turned On in the Import DXF Setup window. The import
+routine will then create a Face from any set of lines,<i> </i>polylines and
+arcs that are planar and when connected end-point to start-point they enclose
+an area.</p>
+<p><b>What if
+the drawing includes a multitude of small Faces? </b>Try the<b>
+</b><i>Collect Scattered Faces</i><b> </b>option.<b> </b><i>Collect Scattered
+Faces</i><b> </b>will create a<b> </b>single Face from any set of Faces that
+are planar and completely fill an area.</p>
+<p>When
+you select <i>Collect Scattered Faces</i>, two new options will appear, <i>Cut
+Intersecting Faces</i> and <i>Overlap Test</i>. <i>Collect Scattered Faces</i>
+may produce Faces that intersect (have one Face going through another without
+creating an intersection). <i>Cut Intersecting Faces</i> will cut these Faces
+into pieces.</p>
+<p>Collect
+Scattered Faces may also produce Faces that look incomplete. When this happens,
+check the <i>Overlap Test</i>. This should solve the problem.</p>
+<p><b>What if
+Collect Scattered Faces only eliminated a few of the small Faces? </b>Try
+rerunning the import routine with a larger<b> </b><i>Plane Face</i><b> </b><i>Tolerance</i>.
+This will enable the<i> Collect Scattered Faces </i>option to combine more
+Faces.</p>
+<p><b>What if
+the drawing has a number of Face borders that contain a number of Vertices? </b>Try the<b>
+</b><i>Straighten Border of Faces</i><b> </b>option. The<b> </b>import routine
+will look for these Vertices and delete any that are on the Face border between
+the corner Vertices.</p>
+<p><b>What if
+the Straighten Border of Face Option only deletes a few of the surplus
+Vertices? </b>Try rerunning the import routine with a<b> </b>larger <i>Vertex
+Snap Cube</i>.</p>
+<p><b>What if
+the drawing includes a number of &quot;Outside&quot; Faces? </b>Try the<b>
+</b><i>Waste Outside Faces</i><b> </b>option.<b> </b><i>Waste Outside Faces</i><b>
+</b>uses a Ray<b> </b>Tracing algorithm to detect inside Faces and mark outside
+Faces. Outside Faces are assigned a &quot;Waste&quot; wall material in EASE.
+They are then relatively easy to delete using the Project's Face Table.</p>
+<p>If
+there are a large number of outside Faces and you have AutoCAD, another way to
+get rid of them is to Export the project back to Auto-CAD. They will all be
+placed on a Waste layer in AutoCAD and can then easily be deleted by deleting
+the Layer.</p>
+<p>The Ray
+Tracing algorithm also detects Two-Fold Faces and corrects the orientation of
+Faces that are improperly oriented.</p>
+<p>One
+word of caution concerning <i>Waste Outside Faces</i>. It uses a so-called
+Spy-Point as the source of the Detection Rays. Without Auto-</p>
+<p>CAD,
+you have no way of knowing where the Spy-Point(s) is (are) located or how many
+of them are included. The odds are that the Auto-</p>
+<p>CAD
+drawing won't have any Spy-Points, but you never know until you have tried it.</p>
+<p>If the
+AutoCAD drawing doesn't include any Spy-Points, EASE will place a Spy-Point in
+the geometric center of the model. Be careful on this one. If you have an L
+shaped room or some other strange shape, it's possible the geometric center may
+be outside the room.</p>
+<p>Selecting
+<i>Waste Outside Faces</i> will introduce a sub-menu giving you the opportunity
+to set the <i>Detection Order</i> for the Ray Tracing Algo-rithm or to use the <i>Auto</i>
+setting. The <i>Auto</i> setting will run the routine until it assumes that all
+internal Faces have been found. This can take a long time in models having a
+large number of Faces. We suggest starting with a low <i>Detection Order</i>.</p>
+<p>155</p>
+<p><b>EASE
+4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p><b>What if
+only one side of the room imports? </b>Return to the Import DXF window
+and check<b> </b><i>Add Symmetrical Entities</i><b> </b>in the Options
+sec-tion. The Import routine will then put in the other side of the room as a
+mirror image.</p>
+<p><b>Can I
+import just Edges and not Faces? </b>If the model is very complex,
+it may be easier to just import the structure of the model without<b> </b>any
+of the planar lines being automatically turned into Faces. In the Import DXF
+window check the <i>Only Structure (Faces to Edges)</i> in the Options section.
+The Import routine will only import the edges of the surfaces as EASE Edges.
+You can then use the coordinates of the Edges to draw your own EASE Faces or
+Extrude the edges to create Faces. After you are done creating all the Faces
+you can delete all the Edges using the Edge Table.</p>
+<p>As soon
+as you are satisfied that you have a usable drawing, your first step will
+probably be to determine if there are any Holes in the Room. The odds are that
+there may be a few as some of the Faces may be incorrectly oriented. This
+should be easy to correct using the Find Holes/Fix Holes technique we learned
+while building Tutorial 1.</p>
+<p>If you
+did not assign materials to all the layers using the Assign Wall Material
+window then the Color and Material Coupled feature of EASE will simplify the
+task of assigning materials based on the color of the surface. Open <i>Tables</i>
+under the <i>Edit</i> pull down menu and select <i>Faces</i>. This will open
+the Edit Face Table. The<i> Color and Material Coupled </i>command is under the<i>
+Tools </i>pull down menu. It enables you to<i> </i>change the material of all
+Faces having the same color by changing the material on just one of them. It's
+a great time saver if the model has a large number of Faces.</p>
+<p>If the
+AutoCAD drawing didn't include material colors, the simplest thing to do is
+select one of the Faces, then right click to open the Mouse Menu (or use the
+Ctrl + F3 key command) to open the <i>Change All Same</i> window and insert the
+material used on the highest num-ber of Faces. This will take care of all the
+Faces that use that material quickly and reduce the number of Faces you have to
+do individually.</p>
+<p>156</p>
+
+	</div>
+	<div class="nav">
+		<a href="index.html">Table of contents</a><br>
+		<a href="5.html">5. Cluster Construction</a><br>
+		<a href="7.html">7. Using Optimize RT</a>
+	</div>
+	<div id="footer">
+		EASE Tutorial
+	</div>
+</body>
+</html>

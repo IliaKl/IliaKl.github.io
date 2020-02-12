@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4. Advanced Modeling Techniques</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div id="header">
+		<p class="heading">EASE Tutorial</p>
+		<p class="heading">4. Advanced Modeling Techniques</p><br>
+	</div>
+	<div class="nav">
+		<a href="index.html">Table of contents</a><br>
+		<a href="3.html">3. Constructing a Model</a><br>
+		<a href="5.html">5. Cluster Construction</a>
+	</div>
+	<div id="contents">
+		
+<p><b>Chapter 4: Advanced Modeling Techniques</b></p>
+<p><img width=665 height=1
+src="E1.files/image004.jpg"></p>
+<p><b>Advanced Modeling Techniques</b></p>
+<p><img width=600 height=434
+src="E1.files/image116.jpg"></p>
+<p>77</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=665 height=1
+src="E1.files/image004.jpg"></p>
+<p><b>Introduction</b></p>
+<p>In Constructing a Model we covered the construction of a basic
+room model in EASE using the x,y,z coordinate method. In this section, we will
+become acquainted with the wide array of modeling tools offered by EASE 4.3.and
+explore the use of Create Shapes and prototypes to reduce the amount of
+modeling time required.</p>
+<p>Certain complex shapes, curved surfaces in particular, can be
+both difficult and time consuming to enter with the techniques we learned while
+constructing our Model_1 Tutorial room. Other modeling tasks, such as adding
+row upon row of bleachers or installing a distributed loudspeaker system in the
+ceiling of a room can be very time consuming without using shortcuts. There
+also will be times when it would be nice to be able to cut a Face into two or three
+parts.</p>
+<p>Fortunately, EASE includes a number of tools that make these
+tasks a snap. Please take the time to at least scan this section of the
+Tuto-rial to get a feeling for how these tasks can be handled. Knowing that
+these tools are available could save you hours on your next model-ing job.</p>
+<p><b>Adding Windows and Doors</b></p>
+<p>We did not include windows or doors in our Model_1 room. Now.
+let’s add windows to dress up our model.</p>
+<p>As the first step, open the Model_1 room and do a <i>Save
+Project As</i> to create a new project. It’s always a good practice to save the
+original project before doing any major modifications. We’ll call it Model_2.
+Note that the Save File dialog box directs the new file to the Tutorial folder.</p>
+<p><img width=248 height=183
+src="E1.files/image117.jpg"></p>
+<p>We’ll use the Coat and Duplicate/Displace features to add three
+4-foot by 6-foot windows to the side walls for practice. We'll put them on 14
+foot centers starting 10 feet from the rear wall and place them 3 feet up from
+the floor.</p>
+<p>There are several ways to do create the window Face, the two
+most popular are using Duplicate/Displace and with Extrude. We'll go through
+the Duplicate/Displace method first.</p>
+<p><img width=313 height=215
+src="E1.files/image118.jpg"></p>
+<p>The coordinates for the first Vertex will be -25, -65, 3 and
+that is all the Vertex info we need to know to create the window's other 3
+Vertices using Duplicate/Displace. Select the <i>Insert Vertex [v]</i> tool and
+then click on the screen to add the Vertex. Then enter the coordinate
+information into the pop up screen to properly locate the Vertex.</p>
+<p>Next, right click on the screen to open the Mouse menu and
+select <i>Dupli-cate </i>to bring up the Displacement screen; type 4 into the<i>
+y-value </i>field to<i> </i>locate the other lower corner of the window and <i>OK</i>
+the move. Next, use <i>Duplicate </i>to create the top corners of the window
+(hint: displace the z lo-cation by 6). The next step is to add the Face. Click
+on the <i>Add Face</i> <i>tool [f] </i>and then on the window's Vertices to
+make the Face.</p>
+<p>When the Properties folder opens, use <i>WindGlass</i> for the
+material. Then use the Coat feature to Coat the window onto the wall (don't
+for-get to make it a Two-Fold Face). Note that if you don't know the Face
+number of the wall, you will need to return to the Edit Project window to get
+it. You can't Coat a Face onto another Face unless you know its Face number.</p>
+<p>78</p>
+<p><b>Chapter 4: Advanced Modeling Techniques</b></p>
+<p><img width=665 height=1
+src="E1.files/image004.jpg"></p>
+<p>The Extrude method is even simpler. Insert the first Vertex.
+Then right click and select <i>Extrude</i>. Put a 4 in the y axis field and a 6
+in the z axis field. Click on <i>OK</i> and EASE will make the Face for you.</p>
+<p>We'll use Duplicate/Displace to create the other Faces. Select
+the Face and enter 14 in the y axis field. Then put a 2 in the <i>Repeated</i>
+field.</p>
+<p>Click on <i>OK</i> and it's done. It is that easy.</p>
+<p><img width=659 height=265
+src="E1.files/image119.jpg"></p>
+<p>A word of caution about using <i>Coat Of</i> to paste one Face
+on top of another. EASE automatically moves the Face being coated onto an-other
+Face a small distance away from the other Face. By coating our first window
+onto the wall that faces into the room (by placing the first Vertex on the
+reflective wall, Face F6 in the model)l), we made sure the window would be
+placed inside the Room. If we had placed the first Vertex on the outside of the
+wall (Face F6* in the model), the program would have placed the window outside
+the room.</p>
+<p><b>Using Edges &amp; Vertex On Face Margin</b></p>
+<p>Edges (lines drawn between two Vertices) only serve to add
+detail to a model for cosmetic purposes. They are not considered in any
+calcu-lations.</p>
+<p>As an example of their use, lets use Edges to add four panes to
+the windows in our model. The first step will be to insert Vertices into the
+Margins (edges) of one of the existing windows.</p>
+<p>Hint, you may want to Zoom In on the window to better observe
+the procedure.</p>
+<p><img width=242 height=167
+src="E1.files/image120.jpg"></p>
+<p>We’ll use the <i>Vertex On Face Margin</i> command to do this.
+Select one of the windows, open the Mouse Menu and select Vertex On Face
+Margin. Then click on one of the edges of the window, let’s say the bottom
+edge. The program will insert the Vertex into the edge of the window at the
+point you clicked. Now all you need to do is to make sure it is in the right
+position.</p>
+<p>Select the Vertice and right click on it to open its Properties
+window. You’ll find that the only coordinate you need to change is the y
+coordinate. Correct it and then hit <i>OK</i>.</p>
+<p>If you were to open the Window’s Properties folder now, you
+would see that the new Vertice has been added to the listing of the window’s
+Vertices. It is now part of the</p>
+<p>window. Repeat the procedure to add a Vertice to the top of the
+window, Then click on the <i>Insert Edge [e]</i> tool and connect the two
+Vertices together. Repeat the procedure to put Vertices into the sides of the
+window and create an Edge between them.</p>
+<p>If you have trouble selecting the new Vertice after it is
+inserted, use the Find <i>[Ctrl F]</i> command to select it.</p>
+<p>79</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=665 height=1
+src="E1.files/image004.jpg"></p>
+<p><b>Finding Unknown Coordinate Locations</b></p>
+<p>While modeling a Room, it is not unusual to encounter situations
+where an exact dimension is required, but not shown on the blueprints and the
+approximate figure provided by scaling is not good enough for EASE. EASE
+demands that Faces be flat (planar) and that Faces meet perfectly! It doesn't
+like holes!</p>
+<p>Situations like this often occur in the Chancel area of churches
+when a section of the rear wall is brought forward to provide an exit into the
+Sacristy. See drawing below.</p>
+<p><b>Z Dimension Unknown</b></p>
+<p><img width=482 height=323
+src="E1.files/image121.jpg"></p>
+<p>0, 0, 25</p>
+ <p>22,</p>
+ <p>-24, 0</p>
+ <p>-25, 0, 12</p>
+ <p>2, -24,</p>
+ <p>0</p>
+<p>-2, -24, 0</p>
+<p>-25, 0, 2</p>
+<p><img width=7 height=7
+src="E1.files/image122.jpg"> -22, -24, 0</p>
+<p>-25, -20, 0</p>
+<p>The problem is the z coordinate dimension for the Vertices that
+mark the intersection of the walls with the roof. The x and y coordinate
+fig-ures at the floor level are usually either given or are easy to measure and
+they are the same for the upper Vertices. The z dimension is the one that quite
+often is an unknown! Fortunately, EASE can help find this dimension. It’s done
+using the ability of EASE to Extrude Vertices and Edges.</p>
+<p>The first step is to insert one of the four corner Vertices into
+the floor of the Chancel. Assuming the section being added is 4 feet deep and
+10 feet across, the x, y, z Coordinates for the floor Vertices would be -5, 0,
+2 &amp; -5, -4, 2 and 5, 0, 2 &amp; 5, -4, 2. First, <i>Pick</i> the Chancel
+floor Face (F5) and then right click to bring up the Mouse menu. Notice that
+there are two commands that deal with Vertices, <i>Vertex On</i> <i>Face Margin
+</i>and<i> Vertex On Face</i>. The<i> Vertex On Face Margin </i>will insert a
+Vertice into the Edge of a Face while the<i> Vertex On Face </i>places<i> </i>the
+Vertex within the Face.</p>
+<p>We'll use the Vertex on Face Margin to add the Vertice at -5, 0,
+2 and let EASE put in its mirror image Vertice at 5, 0, 2. Select <i>Vertex On</i>
+<i>Face Margin </i>and use your Mouse to place the Vertice at approximately its
+correct location on the edge of F5. Left click at that location to<i> </i>add
+the Vertice. EASE will put in its mirror image. Pick one of the two Vertices
+that were added, then right click on it to open the Mouse menu and select <i>Properties</i>.
+Change the x coordinate to -5 and hit <i>OK</i>.</p>
+<p>Now, <i>Pick</i> the Chancel floor, Face F5 and open its
+Properties sheet. Note that the new Vertices have been added to the Face's
+descrip-tion. Next check the rear wall, Face F8, in the same fashion. You will
+find the new Vertices have also been automatically added to this Face.</p>
+<p>We’ll use the <i>Vertex On Face</i> command to insert the floor
+Vertices at -5, -4, 2 and 5, -4, 2. Pick Face F5, and right click to open the
+Mouse menu and select <i>Vertex on Face</i> from the Mouse menu. Next, left
+click on Face 5 to add the Vertice and enter the correct coordi-nate
+information when the Properties sheet opens.</p>
+<p>80</p>
+<p><b>Chapter 4: Advanced Modeling Techniques</b></p>
+<p><img width=665 height=1
+src="E1.files/image004.jpg"></p>
+<p>Note that we didn't actually have to use the <i>Vertex on Face
+Margin</i> and <i>Vertex On Face</i> commands. We could have just inserted one
+of the floor Vertices at its proper coordinate location and then proceeded on
+to the next step. It was good practice, though.</p>
+<p>The next step is to Extrude one of the floor Vertices from the
+floor to the ceiling Face. Select one of the Vertices, right click to open the
+Mouse menu and then select <i>Extrude</i> to open the Extrude window shown on
+the left below. Note that you'll have to click on the <i>Options</i> button to
+open the Options portion of the window.</p>
+<p><img width=173 height=190
+src="E1.files/image123.jpg"></p>
+<p><img width=177 height=291
+src="E1.files/image124.jpg"></p>
+<p>Insert 1 in the z field and check <i>Create Edge and Extrude to
+Next Face</i> and click <i>OK</i>. This will extrude the Vertex to the Ceiling
+Face and insert an Edge at the same time. See below.</p>
+<p><img width=511 height=312
+src="E1.files/image125.jpg"></p>
+<p>In this situation we didn’t have to insert a positive figure in
+the z field to tell the program what direction to Extrude to the next Face.
+There will be cases, though, where it will be necessary to tell the program
+what direction to Extrude and we wanted to acquaint you with the pos-sibility.</p>
+<p>If you want to verify that the top Vertices were placed at the
+proper height, switch to the end view. You will see that they are.</p>
+<p>81</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=665 height=1
+src="E1.files/image004.jpg"></p>
+<p>Now all we need to do is Extrude one of the Edges we just
+created 4 feet in the y direction and we'll have two of the three Faces we need
+in place. See below.</p>
+<p><img width=507 height=308
+src="E1.files/image126.jpg"></p>
+<p>We could stop here, since you now know how to put in Vertices,
+Edges and Faces when one of the coordinates is unknown. As it turns out, you
+didn't need to know the unknown coordinate's exact location. However, let's continue
+the room modification to gain experience in modifying rooms.</p>
+<p>We'll start by adding the third Face (the front Face) to the
+section we are building. The first step is to add the Vertex where the new
+section meets the apex of the roof. Pick the Vertex at the end of the building
+and use Duplicate/Displace to put in the new Vertex (Displace it -4 feet in the
+y direction). Now adding the third Face is as simple as connecting the five
+Vertices that define this Face. Use the <i>Insert Face</i> Icon or the <i>f</i>
+key command and insert the Face.</p>
+<p>All that remains is to get rid of the surface areas that are no
+longer part of the Room. To do this, we’ll need to delete the chancel floor,
+the roof and the two back wall Faces and replace them with new Faces. Pick them
+and hit the <i>Delete</i> key. Then use the <i>Insert Face [f]</i> tool to put
+in the new Faces. In the process of adding the rear wall Faces you’ll discover
+that you need to add two new Vertices. See drawing on the next page. The best
+way to do this is to use the <i>Vertex On Face Margin</i> command. Otherwise,
+you’ll have to eventually blow away (delete) the two side wall Faces and redraw
+them to include the new Vertices.</p>
+<p>Helpful Hints</p>
+<p>1. Don’t be afraid to make a mistake. If you do, you
+always have the <i>Undo</i> command to fix it by stepping back to just before
+you made the mistake.</p>
+<p>2. You may want to delete and replace the Faces one by
+one, instead of deleting all of them at once and then starting to redraw them.
+If you delete too much of a model at one time, it’s easy to lose track of which
+Vertice is which.</p>
+<p>3. Before you start to enter a new Face, make sure you
+have a clear view of all the Vertices that will go into the Face so it will be
+easy to pick them. Use the scroll bars to turn and rotate the drawing and your
+Mouse wheel to Zoom in and out until you get a clear view.</p>
+<p>When you are finished adding the new Faces, you'll notice that
+you have a Vertice left over, the one that used to be at the end of the roof
+peak. Blow it away by selecting it and then hitting the <i>Delete</i> key.</p>
+<p>Note that if you had been building this model from scratch
+instead of modifying an existing model you would have had to create Ceiling
+Faces before you could Extrude the floor Vertice to the ceiling. To do this you
+would have had to insert a vertice at the end of the roof peak. When done, your
+Room should look like the one shown on the next page.</p>
+<p>82</p>
+<p><b>Chapter 4: Advanced Modeling Techniques</b></p>
+<p><img width=672 height=333
+src="E1.files/image127.jpg"></p>
+<p>New Vertices</p>
+<p><b>Distance Calculations</b></p>
+<p>From time to time, you will want to know the exact distance
+between two points in the room; for example, between the loudspeaker and a
+listener at the rear of the room. EASE can do it for you.</p>
+<p>Put in a <i>Listener Seat</i> at the rear of the room if your
+model doesn’t already have one. Start by clicking on one of the Audience Areas
+at the very rear of the area. Then use the Mouse menu to place a <i>Seat on
+Area.</i></p>
+<p>Next, Pick the Loudspeaker, then right click on it to bring up
+the Mouse menu and select <i>Keep For Distance [Shift + k)</i>. Then <i>Pick</i>
+one of the <i>Listener Seats</i>, right click for the Mouse menu and select <i>Show
+Distance [Shift + 0 (zero)]</i>. This will introduce a pop up screen showing
+the angular relationship between the two points, the physical distance between
+them (the distance between the Loudspeaker and the Lis-tener Seat) and the time
+needed for sound waves to cover the distance.</p>
+<p>Note that as long as <i>Keep For Distance</i> is selected on the
+Loudspeaker, you can also easily check the distance between the Loudspeaker and
+any point in the room just by clicking on the desired point and then using <i>Shift
++ 0 (zero</i>).</p>
+<p><img width=504 height=306
+src="E1.files/image128.jpg"></p>
+<p>83</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=665 height=1
+src="E1.files/image004.jpg"></p>
+<p><b>Create Shape Examples</b></p>
+<p>The Create Shape 3D, Line Array and Circular Array sections of
+the Insert pull down menu can be used effectively to create complex shapes with
+a minimum of effort. Create Shape is also used to place columns and other
+objects inside the room.</p>
+<p>Lets create a new name for this model. We'll call it <i>Circus</i>.
+Open EASE and choose <i>New Projec</i>t under the File menu (or use the desktop
+Icon to Start Working and Create Project) and enter the name Tutorial in the <i>Hall</i>
+field and Circus in the <i>Project File Name</i> field. We want to place the
+Circus files in the Tutorial folder. Approve the setup by clicking on <i>Create</i>
+and then go to <i>Room Info/Data</i> under the <i>View</i> pull down menu and
+enter Circus in the <i>Project Version</i> field. Then click on OK and the <i>Edit
+Project</i> module will open automatically.</p>
+<p><img width=345 height=273
+src="E1.files/image129.jpg"></p>
+<p>For the first exercise, let’s create a room similar to the
+Model_1 room we built in Section 3 of this Tutorial. We'll do this by first
+making a box and then adding a roof to it. Select <i>Create Shape 3D</i> from
+the <i>Insert</i> pull down menu and then choose <i>Cuboid</i> (sometimes
+called a shoebox) from the drop down listing at the top of the Create Shape
+window.</p>
+<p>Notice that you can choose between a Cuboid, Pyra-mid, Cupola,
+Cylinder and Cone. We’ll practice with all of these before we finish this
+section of the Tutorial.</p>
+<p>We want to make a room 75' long, 50' wide and 12' high (not
+including the roof). Notice that we inserted No into the <i>With Ceiling</i>
+box field. We don't want to put in a ceiling, because we will be adding the
+roof (ceiling) as the next step in building the room.</p>
+<p>The <i>Hollow Polyhedron</i> box determines the orientation of
+the Faces. When checked, it places all the reflective surfaces (the Faces)
+facing into the room which is what we want. Clicking <i>OK</i> will generate
+the room below.</p>
+<p><img width=502 height=305
+src="E1.files/image130.jpg"></p>
+<p>Notice that the program put the 0, 0, 0 point in the center of
+the room instead of at one end. We could have put this point at one end by
+changing the <i>Center (Ft.) y</i> location from 0 to -37.5 in the Create Shape
+dialog box. (Convention suggests that the y= 0 point should be at the front
+wall of the room or the front of the stage, with the room extending in the
+negative y direction.) The reason for this is that EASE, by default, aims the
+loudspeakers in the negative y direction.</p>
+<p>84</p>
+<p><b>Chapter 4: Advanced Modeling Techniques</b></p>
+<p><img width=665 height=1
+src="E1.files/image004.jpg"></p>
+<p>If we want to change the 0, 0, 0 location at this time, we can
+easily do so by going to the <i>Tools</i> pull down menu and selecting <i>Move
+Room Origin.</i> Move Room Origin opens a screen that allows you to chance the
+0, 0, 0 coordinate locations. Try it out; insert -37.5 in the y field and <i>OK</i>
+the change.</p>
+<p><img width=178 height=196
+src="E1.files/image131.jpg"></p>
+<p>Note that Move Room Origin moves the Room and not the point of
+origin. That’s why we used -37.5 instead of 37.5. Remember this point as it
+will come up again as we move through the Tutorial.</p>
+<p>We also could have created this cuboid by inserting a single
+Vertex into the drawing and then ex-truding it the proper distances along the
+x, y and z axis. In EASE, there usually is more than one way to quickly and
+easily accomplish an objective. The choice of which method to use often hinges
+upon personal preference. At other times it can make a big difference in the
+amount of time re-quired. Our goal is to make you aware of the various options.</p>
+<p>Our next step will be to add a peaked roof to the model. Return
+to <i>Create Shape 3D</i> under the <i>In-sert </i>pull down menu only this
+time select<i> Pyramid</i>. When the Create Shape/Pyramid dialog win-dow
+appears, fill in the data fields as shown.</p>
+<p><img width=179 height=343
+src="E1.files/image132.jpg"></p>
+<p>Notice that we placed the <i>Floor Level</i> (the base of the
+pyramid) at 12 feet (the height of the walls) and said Yes to <i>With Ceiling</i>,
+but No to With Floor. We also set the Ceiling Width to 0 and the Ceil-ing
+Length to 75. Setting the length to 0 would generate a true pyramid. Clicking
+on <i>OK</i> will add the roof to our model and produce the room shown below.
+Note that the program also created the two Faces that represent the triangular
+top sections of the end walls.</p>
+<p>At this point, you may want to check the orientation of the
+Faces to verify that EASE entered them correctly. You'll see that they are
+correct. You also may want to check the Vertices to verify that EASE did not
+create &quot;stacked&quot; Vertices when it placed the roof on top of the
+walls. Once again, you will find that EASE took care of everything.</p>
+<p>Create Shapes is a quick and easy way to create a room. As a
+general rule, though, the Prototype method is even faster when one of the
+prototype rooms closely resembles the room you are con-structing. Prototypes
+usually include Audience Areas, Listener Seats and Loudspeakers while these
+items have to be added to rooms created with Create Shapes</p>
+<p>In this case, for example, the Auditory w/Peaked Roof and Church
+A rooms would probably be a better choice than Create Shapes. Refer to pages
+108 to 121 for more details on the use of Proto-type Rooms.</p>
+<p><img width=502 height=305
+src="E1.files/image133.jpg"></p>
+<p>85</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=665 height=1
+src="E1.files/image004.jpg"></p>
+<p><b>Creating Curved Surfaces</b></p>
+<p>For our next modeling exercise, let's create a room with a
+curved rear wall and a flat ceiling. Our room will have a 10' ceiling and be
+50' wide and 80' long overall. The rear wall will have a 10 foot arc.</p>
+<p>We'll start by creating the curved wall. First, we need to get
+rid of the room we created in the previous exercise. Two clicks on the <i>Undo</i>
+tool button should take care of this.</p>
+<p>The first step will be to put in the Vertices representing the
+bottom of the wall. Select <i>Circular Array/Vertices</i> from the <i>Insert</i>
+pull down menu and use the left mouse button to insert 3 Vertices. The first
+two Vertices represent the ends of the Arc and the third, the apex of the Arc.
+Don't worry about where to place the Vertices, we'll be placing them in the
+right location in the next step.</p>
+<p><img width=342 height=327
+src="E1.files/image134.jpg"></p>
+<p>After inserting the first two Vertices, the Insert Circular
+Array win-dow will open. Ignore it and insert the 3rd Vertice.</p>
+<p>The Insert Circular Array window allows you to precisely define
+the Arc's characteristics. <i>Starting Point(ft</i>) is the beginning of the
+arc, <i>Point On Arc(ft)</i> is the apex and <i>Ending Point(ft</i>) is the
+finish point. The figures shown are the proper ones for the room we are
+creating. Enter them into the proper fields. Hint: Use your Tab key to move from
+field to field.</p>
+<p>You will see the Vertices move on the screen as you type in the
+correct locations. If they move off the screen, you will need to Zoom Out or
+hit the Home key to see them after you finish enter-ing the location
+coordinates.</p>
+<p>We chose to define the Arc with 10 points. This will result in a
+wall having 9 Faces. Using more points would create more Faces and a smoother
+arc, but would also lengthen computation times during the simulation routines.
+Approving the setup by clicking on <i>OK</i> (or hitting <i>Enter</i>) will
+produce 10 Vertices in the shape of an arc.</p>
+<p><img width=502 height=305
+src="E1.files/image135.jpg"></p>
+<p>86</p>
+<p><b>Chapter 4: Advanced Modeling Techniques</b></p>
+<p><img width=665 height=1
+src="E1.files/image004.jpg"></p>
+<p>The next step is to turn these points into a Face. Choose the <i>Insert
+Face [f]</i> tool and connect the Vertices together to make the Face. See
+below.</p>
+<p><img width=502 height=305
+src="E1.files/image136.jpg"></p>
+<p><b>Using Extrude</b></p>
+<p>We will use the Extrude feature of EASE to add walls and a
+ceiling. Pick the floor Face and then right click to open the Mouse menu,
+select <i>Extrude </i>and enter 10 into the<i> z </i>field of the Displacement
+dialog box that opens.</p>
+<p>This will extrude the Face (floor) up 10 feet and create the
+curved wall and associated ceiling.</p>
+<p><img width=502 height=305
+src="E1.files/image137.jpg"></p>
+<p>Notice that a front wall (face) was also created. We do not need
+this, so pick it and blow it away (hit the Delete key).</p>
+<p>87</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=665 height=1
+src="E2.files/image001.jpg"></p>
+<p>Now, we can add the rest of the room. We'll do this using <i>Create
+Shape 3D/Cuboid</i> under the <i>Insert</i> pull down menu. We'll add a cuboid
+70' in length, 10' in height and 50' in width, the size of the room minus the
+curved end section, which represents the rear wall of the model. Note that the
+default location for Y is 0,0,0. Since we created the curved section based on
+the 0, 0, 0 point being at the center of the rear wall, we'll need to move this
+point by -35. Insert -35 in the <i>Center [Ft.] y</i> field.</p>
+<p>Approving the insertion by hitting <i>O</i>K will add the rest
+of the room.</p>
+<p><img width=502 height=305
+src="E2.files/image002.jpg"></p>
+<p>Notice that once again we have an extra Face. Delete it and the
+room is complete except for adding the surface materials. Simple, isn't it?</p>
+<p>Hint: The quickest way to add the surface materials is to Pick a
+Face, and use <i>Ctrl + F3</i> to do a global edit of surface materials. Select
+the most common material used in the room, for instance PLAST/LTHR, and press <i>OK</i>
+to turn all Faces (surfaces) into PLAST/LTHR. Now, only the Faces whose surface
+material are not PLAST/LTHR need to be changed.</p>
+<p>If the curved wall had been a semicircle, instead of an arc, we
+would probably have used Create Cylinder under the Create Shape 3D menu to
+create the curved section of the room. We'll take a look at using Create
+Cylinder in the next exercise.</p>
+<p>Note that we could also have created the cuboid section of the
+room by Extruding one of the corner Vertices 50 Ft. in the x direction, 70 Ft.</p>
+<p>in the y direction and 10 Ft.. in the z direction. Try it, it
+works.</p>
+<p>In actual practice we might have created the cuboid section of
+the Room first and then added the curved rear section of the Room. Either way
+works. It’s mainly a matter of personal preference.</p>
+<p>Now it’s time to move on to another example, so use the Undo
+icon to delete the room we just created. Be aware that if you had used F6 to
+check and save data at any point while building the Room, the Undo command
+wouldn’t completely delete the Room. It only goes back to the last saved point.</p>
+<p>88</p>
+<p><b>Chapter 4: Advanced Modeling Techniques</b></p>
+<p><img width=665 height=1
+src="E2.files/image001.jpg"></p>
+<p><b>Creating Rooms with Curved Ceilings and Walls</b></p>
+<p>For our next exercise, we'll create a more complex room. The
+basic structure is 300' in width and length and has 60' walls. The peak of the
+dome is 120' above the floor level. The side entrance extends out 90 feet from
+the building and is 75 Ft. wide. We will call this room Circus_2</p>
+<p>Notice that the building is symmetrical except for the side
+entrance. We'll do all the modeling we can in the Symmetrical mode and then</p>
+<p><img width=502 height=305
+src="E2.files/image003.jpg"></p>
+<p>turn off Symmetry and add the side entrance.</p>
+<p>We will start the modeling process with the curved wall and
+domed ceiling. Select <i>Create Shape3D</i> and use the drop down arrow to
+select <i>Cylinder </i>from the Insert pull down menu to open the<i> Create
+Shape /Cylinde</i>r window. Fill in the fields as shown on the next page and
+then<i> </i>approve the insertion by clicking on OK.</p>
+<p>Notice that we asked for a Cylinder with a floor, but without a
+ceiling and for a <i>Hollow Polyhedron</i>. We want the reflective Faces on the
+in-side of the cylinder. We also chose <i>12 Steps</i> instead of the default
+value of 10 because this is a large room and we wanted the higher reso-lution.</p>
+<p><img width=649 height=301
+src="E2.files/image004.jpg"></p>
+<p>89</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=665 height=1
+src="E2.files/image001.jpg"></p>
+<p>The next step is to add the dome (cupola) to the top of the
+cylinder. Return to the <i>Create Shape 3D</i> menu and select <i>Cupola</i>.</p>
+<p><img width=657 height=301
+src="E2.files/image005.jpg"></p>
+<p>Notice that we specified a dome with a Ceiling and no Floor and
+placed the Floor Level at 60 Ft., the height of the walls. Clicking on <i>OK</i>
+produces the model shown.</p>
+<p>The next step is to &quot;blow away&quot; the Faces we don't
+need. It's an easy task since in the symmetrical modeling mode EASE will delete
+half of them. Pick one of the Faces that need to be deleted and hit the Delete
+key. You will probably find this process easier if you start with one of the
+wall Faces as there are fewer of them to delete.</p>
+<p>Notice that after you have deleted a Face, the program helps you
+by Picking the Face numbered one lower than the Face you deleted. You don't
+have to actually Pick every Face. EASE does it for you. The only thing you have
+to watch for is inadvertently deleting the floor while you are getting rid of
+the unwanted wall and ceiling Faces. Haste makes waste.</p>
+<p>You may also want to Zoom In on the Faces at the top of the dome
+when you are deleting them. It make it a little easier.</p>
+<p><img width=502 height=305
+src="E2.files/image006.jpg"></p>
+<p>90</p>
+<p><b>Chapter 4: Advanced Modeling Techniques</b></p>
+<p><img width=665 height=1
+src="E2.files/image001.jpg"></p>
+<p>When all the Faces have been deleted, your model will look like
+this.</p>
+<p><img width=502 height=305
+src="E2.files/image007.jpg"></p>
+<p>All that remains is to delete the unwanted Vertices. This is
+done simply by using the <i>Shift +Ctrl + F12</i> key stroke command that
+deletes all unattached Vertices. The result appears below.</p>
+<p><img width=502 height=305
+src="E2.files/image008.jpg"></p>
+<p>The next step is to change the shape of the floor. The uncovered
+half needs to be a rectangular instead of being circular. We’ll do this by
+moving (Displacing) the Vertices in that section of the floor to form a
+rectangle.</p>
+<p>Select either Vertex P3 or P3*. If you aren't sure which ones
+they are, there are two easy ways to find them. One is to use the <i>Ctrl + F</i>
+Find command and enter P3 or P3* in the Find field; the other is to turn On all
+the Vertex Labels.</p>
+<p>You can also Pick the floor Vertices one by one and use the
+Status Bar at the bottom of the window to check its Vertice number until you
+find P3 or P3*..</p>
+<p>91</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=665 height=1
+src="E2.files/image001.jpg"></p>
+<p>Next, use the right Mouse button to open the Mouse menu and
+select <i>Properties</i> or hit <i>F4</i> to open the Property sheet for Vertex
+P3. Change its x coordinate to -150 and <i>OK</i> the setup. Then, select <i>P1</i>
+and change both its x and its y coordinates to -150. When you finish this step,
+the model will look like the one shown below.</p>
+<p><img width=502 height=305
+src="E2.files/image009.jpg"></p>
+<p>Now, its time to add the curved ceiling over this section..
+We'll start by adding the Vertices using the <i>Insert Circular Array/Vertex</i>
+function we used in the previous exercise.</p>
+<p>For this exercise though, we'll use a somewhat different tact.
+We’ll change the editing plane in which we are working to make it easier to
+in-sert these Vertices. We’ll also change to the <i>y (end)</i> view. There are
+several ways to do this. One way is to open the Options menu by clicking on the
+<i>Options [F9]</i> button in the tool bar section and select the <i>Editing</i>
+tab. You can also change to the end view, right click on the screen to open the
+Mouse menu and select <i>xz Plane Value</i>. Another and far easier way is to
+use the <i>shift +y</i> key command. It automati-cally switches to the end view
+and opens the Editing tab. Try it; it works.</p>
+<p><img width=387 height=323
+src="E2.files/image010.jpg"></p>
+<p>92</p>
+<p><b>Chapter 4: Advanced Modeling Techniques</b></p>
+<p><img width=665 height=1
+src="E2.files/image001.jpg"></p>
+<p>Set the Editing Plane to the xz - Plane and the <i>Plane Value</i>
+to -150. This assures that we will be working in the end wall of the structure.</p>
+<p>Now, select <i>Circular Array/Vertices</i> from the <i>Insert</i>
+pull down menu. Notice that the cursor changes to a cross. Click on the two
+lower cor-ners of the roof and then move the cross hair to the peak of the roof
+and click there.</p>
+<p><img width=502 height=305
+src="E2.files/image011.jpg"></p>
+<p>The Insert Array window shown below will open as you place the
+second point and you may have to move it in order to place the third point.</p>
+<p><img width=339 height=323
+src="E2.files/image012.jpg"></p>
+<p>Notice that the program placed all 3 Vertices at -150 on the
+Y-axis. Some of the other coordinate values are probably not entirely correct,
+so change them to the correct figures shown below. The only thing left is to
+tell the program how many Vertices we want in the arc. Eleven is the correct
+number, as eleven is the number of Vertices in the edge of the existing dome.
+Insert 11 in the <i>Items to Insert</i> field and hit <i>OK</i> to add the
+Vertices. You'll probably have to switch to the 3D view to see them.</p>
+<p>93</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=671 height=329
+src="E2.files/image013.jpg"></p>
+<p>Now, we can add the Faces. Select the <i>Insert Face [F]</i>
+button in the tool bar section and add the Faces one by one. Be sure to watch
+the Face orientation as they are added. If incorrect, use the Invert button in
+the tool bar section. Don't forget to include Vertex P3 in the side walls and
+Vertex P2 in the end wall. When all the Faces are added, the room should look
+like this.</p>
+<p><img width=502 height=305
+src="E2.files/image014.jpg"></p>
+<p>We chose this method of entering the end wall and the roof to
+illustrate the technique and use of the Create Circular Array/Vertices feature.
+There is, however, a far easier and faster way to create the end wall and roof.
+It's the Extrude feature. We would have added an end wall Face to the model so
+we could Extrude it and instantly create in one simple step all the walls and
+ceiling sections we just finished putting in one by one. After the extrusion,
+the end wall Face we created so we could Extrude it would have to be deleted,
+but that's easy to do. We also would have an extra floor Face in the area we
+extruded which would have to be deleted. Nevertheless, the Extrude method would
+would have been easier and much faster.</p>
+<p>If you haven't been saving your work regularly while you created
+this model, now would be a good time to do so. Just hit <i>F6</i>.</p>
+<p>94</p>
+<p><b>Chapter 4: Advanced Modeling Techniques</b></p>
+<p><img width=665 height=1
+src="E2.files/image001.jpg"></p>
+<p><b>Quitting The Symmetrical Modeling Mode</b></p>
+<p>The next major step is to add the side entrance to the room and
+its two support columns. Refer to the drawing on page 89 if you have for-gotten
+what the completed room looks like. So far, we have been working in the symmetrical
+mode. We now need to change this as the side entrance is on just one side of
+the structure.</p>
+<p>It is important to note that once you have left the symmetrical
+mode you shouldn't try to return. To show you what happens, go to the <i>Show</i>
+<i>Vertex Table (</i>click on the Vertex Table icon) to see how many Vertices
+are being used. The number, if you have done everything correctly,<i> </i>is 34
+which does not count the mirrored (*) Vertices. Next, close the Vertice Table
+and pick one of the mirror image Vertices, P3* for exam-ple.</p>
+<p>Now right click on the screen to open the Mouse menu and select <i>Room
+Data</i>. Then change the editing mode from Symmetrical to non-symmetrical by
+clicking on the <i>Room Symmetric</i> box. Click on <i>OK</i> to initiate the
+change. Now if you go back to the <i>Show Vertex Table</i>; you will see that
+59 Vertices are listed. You will also note that the P3* Vertex selected is now
+designated P36. The numbers of all the mirrored Vertices were changed. The same
+holds true for all the Mirrored Faces. They, too, were renumbered.</p>
+<p>What happens if you try to go back to the symmetrical modeling
+mode is that EASE puts in mirror images of all the existing Vertices and Faces.
+You end up with 2 of everything. This is why you shouldn't try to go back.</p>
+<p><b>Cutting a Face Into Two Parts (Using Fixed Cut)</b></p>
+<p>Now, it's time to add the side entrance. What we need to do is
+cut Face F26 (your drawing may show different Face and Vertex numbers) in half
+and build the entrance hall out from the right hand section. To do this we need
+another Vertex, one at the top of the Face directly above P36. We could add
+this Vertex using Duplicate/Displace. However, using this approach would mean
+that we would also have to blow away Face F26 and the roof section directly
+above it, and then enter 3 new Faces. This is not difficult to do, but it's not
+the easiest way.</p>
+<p>An easier way is to use the Vertex On Face Margin and Fixed Cut
+features of EASE.</p>
+<p>Select Face F26 (it could be another number in your model if you
+didn’t exactly follow the Tutorial instructions), then right click to open the
+Mouse menu and select <i>Vertex On Face Margin</i>. The cursor will now change
+to cross-hairs; center them on the edge of Face F26 above P36 and click to
+insert a Vertex (P60) into the edge or margin of the Face at that point.</p>
+<p>It should be noted that the program will automatically also
+insert Vertex P60 into the roof section Face above Face F20. Next, select
+Vertex P60 and open its Property sheet to adjust its position. It should be
+placed at -75 on the Y axis.</p>
+<p>The next step is to use the Fixed Cut function to cut the Face
+into half. Select <i>Fixed Cut</i> from the <i>Tools</i> pull down menu and
+then click on Vertices P60 and P36. This will divide the Face into two parts at
+that location.</p>
+<p><img width=502 height=305
+src="E2.files/image015.jpg"></p>
+<p>95</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=665 height=1
+src="E2.files/image001.jpg"></p>
+<p>We'll use the Extrude function of EASE to complete the entrance.
+Pick Face F26 (it could be an other number in your model) and use the Mouse
+menu to select Extrude and open the Extrude Displacement dialog box. Enter 90 in
+the <i>x:</i> field and then hit <i>OK</i> and EASE will build (extrude) Face
+F26 outward 90 feet to construct the entrance.</p>
+<p><img width=665 height=301
+src="E2.files/image016.jpg"></p>
+<p>In one simple operation you have eliminated the need to
+individually enter 5 Faces; the EASE Extrude feature did it for you.</p>
+<p>We no longer need Face F26 (in fact, it's actually blocking the
+entrance way), so blow it away by selecting it and hitting the <i>Delete</i>
+key.</p>
+<p>Now, would also be a good time to check the orientation of the
+entrance way Faces. One way is to Pick them one by one and if they are
+in-correctly oriented, use the Invert button in the Tool Bar section or the
+Mouse menu to individually turn them around. You will probably find they are
+all incorrectly oriented.</p>
+<p>We could have avoided this by first inverting the Face being
+Extruded. It, the Face being Extruded needed to have its exposed (reflective)
+surface facing the direction of the extrusion.</p>
+<p>Note that we extruded the entrance way from a Face that was
+perpendicular to the Y axis, so all we had to do was extrude it 90 Ft. along
+the X axis. If we had placed the entrance way on one of the angled walls, and
+wanted it to be perpendicular to the wall, we would have en-tered 90 inthe
+Distance field, checked <i>Align to First Face and</i> pressed the <i>Face
+Normal Direction</i> option offered by the Extrude function.</p>
+<p>Selecting this option would have told the program that we wanted
+the entrance way to be at right angles (perpendicular) to the selected Face.
+Extrude would then have calculated the correct extrusion angles.</p>
+<p>The EASE Extrude function is a powerful modeling tool and one
+that you should get to know well. It can save you hours of modeling time once
+you become familiar with it and what it can do.</p>
+<p>We'll practice with it again in the next exercise.</p>
+<p>96</p>
+<p><b>Chapter 4: Advanced Modeling Techniques</b></p>
+<p><img width=665 height=1
+src="E2.files/image001.jpg"></p>
+<p><b>Adding Interior Shapes</b></p>
+<p>Next, we'll add the two entrance way columns. The two columns
+are placed 30 feet apart on the center line of the entrance.</p>
+<p>Open the <i>Create Shape 3D</i> menu under the <i>Insert</i>
+pull down menu and select <i>Cylinder</i>. The correct parameters are shown in
+the left Dis-placement dialog box shown below. The parameters for the second
+column are shown in the right Displacement dialog box.</p>
+<p><img width=163 height=278
+src="E2.files/image017.jpg"></p>
+<p><img width=163 height=280
+src="E2.files/image018.jpg"></p>
+<p>Note that both <i>With Floor</i> and <i>With Ceiling</i> show
+Yes in their Value field and that <i>Hollow Polyhedron</i> shows No. In this
+case, we don't want a Hollow Polyhedron as we want the reflective Faces looking
+out into the room. We said Yes to <i>With Ceiling</i> and <i>With Floor</i> to
+allow EASE to insert these Faces into the entryway floor and ceiling without
+creating Holes.</p>
+<p>Now go back to <i>Create Shape 3D/Cylinder</i> and put in the
+parameters for the second column. Note that EASE makes this easy by picking up
+the parameters from the previous Cylinder. All you need to do is change the <i>Center
+x</i> location. The screen on the right above has the correct settings.</p>
+<p>Be aware that this will throw off the room surface area
+calculations slightly unless you also Coat the top Faces of the columns to the
+ceiling Face and the bottom Faces to the floor Face. This will tell the program
+to subtract the surface area of these Faces from the overall surface area. You
+do not need to turn the top and bottom Faces into 2-Fold Faces.</p>
+<p><img width=502 height=305
+src="E2.files/image019.jpg"></p>
+<p>97</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=665 height=1
+src="E2.files/image001.jpg"></p>
+<p><b>Using Extrude Faces</b></p>
+<p>Before we move on, let's explore another use of Extrude.</p>
+<p>Let's place a floor to ceiling column inside the main room where
+the ceiling slopes and the coordinates are unknown..</p>
+<p>Open the <i>Create Shape 3D/Cylinder</i> window again and change
+the <i>Center [ft] x</i> coordinate to 130 and the <i>Height</i> to 0. We only
+want to put in the base of the column at this time. <i>OK</i> the insertion.</p>
+<p><img width=163 height=278
+src="E2.files/image020.jpg"></p>
+<p><img width=157 height=257
+src="E2.files/image021.jpg"></p>
+<p>Then select the Face we just inserted, right click and select <i>Extrude</i>.
+Note that you probably will have to Zoom In on it in order to select it.</p>
+<p>We want to extrude the Face in the + z direction, so enter 1 in
+the <i>Height [ft]dz</i> field.. EASE needs to know what direction to extrude
+the Face.</p>
+<p>Then, open the <i>Options</i> section of the Displacement window
+and put a check in <i>Extrude to Next Face</i>.</p>
+<p>Hit <i>OK</i> and the program will extrude the column base to
+the ceiling and place the top of the column in the slanted ceiling Face.</p>
+<p><img width=502 height=305
+src="E2.files/image022.jpg"></p>
+<p>98</p>
+<p><b>Chapter 4: Advanced Modeling Techniques</b></p>
+<p><img width=665 height=1
+src="E2.files/image001.jpg"></p>
+<p><b>Adding Doors and Windows</b></p>
+<p>Now it’s time to add the entrance-way door to our model. The
+door will be centered in the entrance way and will be 30’ wide and 24’ high.</p>
+<p><img width=155 height=170
+src="E2.files/image023.jpg"></p>
+<p><b>Using Coat Feature</b></p>
+<p><img width=223 height=154
+src="E2.files/image024.jpg"></p>
+<p>We know from an earlier exercise that the easy way to do this is
+to Coat a two-fold Face onto the entrance-way wall. All you need to do is
+insert a Vertice at x = 240, y = -22.5, Z = 0 and then ex-trude it 24’ up and
+-30’ in the y direction to create the Face representing the door. Then use the
+Properties folder to turn it into a Two-Fold Face and Coat it onto the wall
+Face. It’s a simple 3-step procedure.</p>
+<p><b>By Modeling into a Wall</b></p>
+<p>Let’s explore what would be required if, for some reason, we
+didn’t want to use the Coat feature.</p>
+<p>Then we would have to model the door into the Face. This would
+entail creating the door Face, blowing away the existing entrance-way wall
+Face, and redrawing it, a more complicated procedure.</p>
+<p>The steps would be:</p>
+<p>1. Select the entrance-way Face and use the <i>Vertex on Face
+Margin</i> procedure to place a Vertice (one of the lower corners of the door)
+in the edge of the entrance-way wall Face.</p>
+<p>2. Use <i>Vertex on Face Margin</i> to place the other lower
+corner of the door in the edge of the entrance-way wall Face.</p>
+<p>Note: If we did not use the Vertex on Face Margin to place these
+two Vertices, we would also have to eventually blow away the en-trance-way
+floor face and redraw it.</p>
+<p>3. Use <i>Duplicate/Displac</i>e to put in the two Vertices
+representing the top of the door.</p>
+<p>4. Use <i>Insert Face</i> to create the door Face.</p>
+<p>5 Blow away the entrance way wall Face and re-enter the wall
+Face to include the 4 door Vertices. Remember. EASE wants all Ver-tices that
+lie on the edge of a Face to be included in the Face.</p>
+<p><img width=505 height=315
+src="E2.files/image025.jpg"></p>
+<p>99</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=665 height=1
+src="E2.files/image001.jpg"></p>
+<p><b>Using Sequence</b></p>
+<p><img width=275 height=248
+src="E2.files/image026.jpg"></p>
+<p>Our next exercise will be to add two 60' by 30' windows to the
+flat face of the structure using the Sequence feature. We will put the windows
+20' above the floor and space them 120' apart. Open the Insert pull down menu
+and select Sequence. This will open the screen shown below.</p>
+<p>Note that Sequence can be used to insert Vertices, Seats and
+Loud-speakers, as well as several other items. We will be inserting Vertices.
+The first step is to locate the first Vertex by inserting its x, y, z
+coordi-nates into the dx, dy and dz fields. Insert 120, -150, 20. Then press
+the Next button</p>
+<p>Note that the coordinates you inserted now appear in the Last
+Waypoint section. The window is 60' wide, so we want to place the next Vertex
+60' closer to the y-axis. Insert -60 into the dx field and then hit <i>Next</i>.
+The third Vertex needs to be placed 120' feet from the last one, so enter -120
+into the dx field, hit the <i>Next</i> button and insert -60 for the 4th Vertex
+lo-cation. Note that the locations of the new Waypoints you are entering are
+relative to the location of the previous Waypoint.</p>
+<p><img width=275 height=248
+src="E2.files/image027.jpg"></p>
+<p>Finally, <i>OK</i> the Vertex sequence and EASE will place the
+four Vertices in their right location.</p>
+<p>The bottom Vertices are now in place. To add the top Vertices,
+repeat the steps given above, except change the dz coordinate by 30. Remem-ber,
+the windows are 30' high. As you can see, this feature allows you to insert a
+number of irregularly spaced items quickly and easily.</p>
+<p>All that remains is to create the window Faces and Coat them
+onto the wall Face. Use the Insert Face [F] icon in the tool bar to add the
+Faces. Don't forget to identify them as two-Fold Faces and to Coat them onto
+the wall Face.</p>
+<p><img width=505 height=315
+src="E2.files/image028.jpg"></p>
+<p>100</p>
+<p><b>Chapter 4: Advanced Modeling Techniques</b></p>
+<p><img width=671 height=340
+src="E2.files/image029.jpg"></p>
+<p>As I'm sure you realize, these windows could just as easily been
+created with the Duplicate and Displace technique we used to add win-dows to
+the Tutorial room (reference page 78). We used Sequence in this exercise merely
+to demonstrate the technique. Also note that if the Vertices had been evenly
+spaced, we would have used <i>Insert Line Array</i> , instead of Sequence.
+We'll practice using the Insert Line Array feature a little later.</p>
+<p><b>Using Insert Audience Area</b></p>
+<p>The next step is to add an Audience Area to our building using
+the <i>Insert Audience Area</i> command and the graphic modeling capabilities
+of EASE. First, we will need to set the level for the Audience Area plane. Use
+the right Mouse button to open the Mouse Menu and select <i>Options [F9] </i>and
+then open the<i> Editing </i>window. Change to the<i> xy Plane </i>and set the<i>
+Plane Value </i>(the height of the plane) to 3.94', the ap-proximate height of
+a seated listener's ear.</p>
+<p>Note that you could have more easily accomplished the same thing
+using the <i>shift + z</i> command. It would have taken you directly to the z
+(overhead) view.</p>
+<p><img width=505 height=315
+src="E2.files/image030.jpg"></p>
+<p>101</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=665 height=1
+src="E2.files/image001.jpg"></p>
+<p>Next select the <i>Insert Audience Area [A]</i> tool and
+graphically insert the Audience Area by placing its four corners at their
+approximate loca-tion. As soon as the fourth point is inserted, the dialog
+window shown below will open giving you an opportunity to fine tune the size
+and lo-cation of the Audience Area.</p>
+<p><img width=505 height=315
+src="E2.files/image031.jpg"></p>
+<p>Click on OK and the Audience Area will be correctly added to the
+model.</p>
+<p><b>Adding Loudspeaker Grids</b></p>
+<p>Now, lets add a distributed loudspeaker system to our room.
+We'll put in a grid of overhead loudspeakers 30 feet above the floor on 30'
+centers. First, open the Editing tab under Options (<i>F9</i> or right click on
+the screen and select <i>Options</i> from the Mouse men) or go direct to the
+Editing tab with <i>Shift + z</i> and change the <i>xy plane</i> level to 30'.
+If you used <i>Shift + z</i> to open the Editing window you are now using the z
+or overhead view of the room. If you didn't use Shift + z to reach the Editing
+tab, switch to the Z view using the <i>Z (Plan View)</i> icon or the <i>z</i>
+key command.</p>
+<p>While in the Options folder, you may also want to turn on the
+z-Grid to aid in placing the loudspeakers. Select the Grid tab and then check
+z-Grid. Hit OK.</p>
+<p>Open the <i>Insert</i> pull down menu and select <i>Linear
+Array/Loudspeakers</i>. Next, use the cursor to place the end points of the
+first loud-speaker row at its approximate location. This will open the setup
+window shown below. The Starting Point and End Point coordinates most like
+won't be entirely correct, so insert the correct coordinates (see below). Then,
+insert the number of loudspeakers desired, in our case 9. If you want the
+loudspeakers identified (labeled) put a check in the Label box. Now, click <i>OK</i>
+to insert the first row of loudspeakers.</p>
+<p><img width=280 height=211
+src="E2.files/image032.jpg"></p>
+<p>102</p>
+<p><b>Chapter 4: Advanced Modeling Techniques</b></p>
+<p><img width=671 height=340
+src="E2.files/image033.jpg"></p>
+<p>Use the same procedure to insert the other four loudspeaker rows
+and you are done in a minute or two. What you want to do is to de-crease the y
+coordinate by 30 for each row of loudspeakers.</p>
+<p>Your room should now look like the one shown below.</p>
+<p><img width=505 height=315
+src="E2.files/image034.jpg"></p>
+<p>Next, Pick one of the loudspeakers and right click to open the
+Mouse menu and then select <i>Change All Same</i>. This will open a Choose
+Speaker window and allow you to quickly select the loudspeaker you want to use
+and change all the loudspeakers to that model. Note that you can also
+accomplish the same thing with the <i>Ctrl + F3</i> key command.</p>
+<p>At this point, all the loudspeakers are probably aimed down the
+Y-axis instead of being pointed down at the floor. Verify this by picking one
+of the loudspeakers, opening its Properties folder and turning On Show dB Cov
+Cone.</p>
+<p>You need to change the Vertical Angle of each loudspeaker to
+-90.</p>
+<p>103</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=665 height=1
+src="E2.files/image001.jpg"></p>
+<p>There are several ways to do this.</p>
+<p><img width=177 height=281
+src="E2.files/image035.jpg"></p>
+<p>One is go to the <i>Tools</i> pull down menu and select <i>Move
+Loudspeaker</i> <i>Group</i>. This will open a selection window. Select all the
+Loudspeakers in<i> </i>the first row and hit <i>OK</i>. This will turn all the
+Loudspeakers in that row ”Active” and open a <i>Move Active Items</i> window.
+Insert -90 in the <i>d Ver</i> field and press the <i>Go To Finger</i> icon.
+This will re-aim all the loudspeakers in that row. Then follow the same
+procedure for the other four rows. Note that you must do each row individually.</p>
+<p>You can also use the Loudspeaker Table. Open it and select all
+the loud-speakers using the Left Mouse button and the Shift key.</p>
+<p><img width=636 height=318
+src="E2.files/image036.jpg"></p>
+<p><img width=636 height=318
+src="E2.files/image037.jpg"></p>
+<p>Then go to the Tools pull down menu and select <i>Set Value To</i>.
+This will open a Select Value window. Select <i>Ver[o]</i> and hit <i>OK</i>.
+This will introduce a prompt asking for the value, insert -90 and <i>OK</i>.
+Exit the Loudspeaker Table and check the loudspeaker aiming. You'll see that
+all of them have been re-aimed. It goes quickly.</p>
+<p><img width=314 height=135
+src="E2.files/image038.jpg"></p>
+<p>Hint: Another way to quickly insert a number of loudspeakers and
+a way employed by many users is to insert one loudspeaker, set its aiming and
+other properties including the power level correctly, and then use the
+Du-plicate/Displace and Repeat features to add and locate all the other
+loud-speakers. With this technique, all loudspeakers will be properly set up
+and aimed correctly when they are inserted.</p>
+<p>104</p>
+<p><b>Chapter 4: Advanced Modeling Techniques</b></p>
+<p><img width=665 height=1
+src="E2.files/image001.jpg"></p>
+<p><b>Adding Steps / Bleachers</b></p>
+<p>Our final exercise in the Circus project will be to add
+bleachers along one wall. Let's make them 140' long and start them 6.5' from
+the end wall. We'll let them come 15 feet out into the room and assume that
+each seat is 18 inches deep and 18 inches above the previous seat. For the
+moment, let's also assume the seats have no backs.</p>
+<p>Amazingly, we only need to know the x, y, z coordinates for one
+Vertex to construct the bleachers. These are needed to locate the first Vertex
+after it has been inserted using the Insert Vertex [v] con. Then, its a simple
+matter of using the Duplicate/Displace function to add the other three Vertices
+that define the first row of seats and to create the Face. Duplicate/Displace
+and Repeat can then be used to make additional rows of seats.</p>
+<p><img width=120 height=252
+src="E2.files/image039.jpg"></p>
+<p>Use -135, -143.5, 1.5 as the coordinates for the first Vertex.
+Then Duplicate it and Displace (move) it 1.5 ' closer to the wall (-1.5). Then
+Duplicate/Displace it 140' along the Y axis; then Duplicate/Displace this
+Vertex 1.5' away from the wall. Make a mental note of the Vertices P numbers as
+you put them in.</p>
+<p>Use the Insert Face [f] button to make the Face representing the
+first row of seats. Make sure you identify it as a Two-Fold Face. It is
+suspended in the room (not touching any wall or floor surfaces, so it needs to
+be a Two-Fold Face.</p>
+<p>You may run into problems putting in this Face using the Insert
+Face tool, because the Vertices at the ends of the Face are so close together
+on the screen that it's hard to pick the right one. At other times, the program
+will have difficulty telling which of the Vertices you want to select. When
+this happens, a prompt asking you to choose between two or more Vertice numbers
+will appear. Make the choice and click on <i>OK</i>.</p>
+<p>Using the Zoom key commands (F11 &amp; F12) or the Ctrl + Arrow
+keys to zoom in on the Vertices will help make this process easier and faster.</p>
+<p>A way to get around this is to use the <i>New Item</i> icon in
+the tool bar. Clicking on it produces a Select Item dialog box asking what you
+wish to create. Choosing Face and clicking OK will produce another dialog box
+asking if you want to create a new Face. Answer Yes and the Properties window
+for a new Face will appear. . Use the Change button and the Choose Vertex
+window to one-by-one change the default Vertices listed to the ones defining
+the Face you are adding and click on OK to create the Face. It only takes a few
+seconds.</p>
+<p><img width=564 height=312
+src="E2.files/image040.jpg"></p>
+<p>105</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=665 height=1
+src="E2.files/image001.jpg"></p>
+<p>After the Face that represents the first row of seats is
+created, right click on the Face to bring up the Mouse menu, select <i>Duplicate</i>.
+When the Displacement screen appears, displace this Face up 1.5' and back 1.5'
+(displace Z by 1.5 and X by -1.5. Then, insert 8 into the Repeated field.</p>
+<p><img width=150 height=163
+src="E2.files/image041.jpg"></p>
+<p>Clicking on <i>OK</i> will then automatically Duplicate and
+Displace the Face 8 times. The result appears below. The bleachers, of course,
+have no seat backs and appear to be suspended in space which,of course, they
+are.</p>
+<p><img width=505 height=315
+src="E2.files/image042.jpg"></p>
+<p>If you don’t like this illusion or if you want to dress up the
+drawing, use the <i>Insert Edge [e]</i> icon to tie the ends of the seats
+together and to put in a base. (Note that you'll need to add Vertices at the
+intersection of the wall and the floor to outline the base.)</p>
+<p><img width=505 height=315
+src="E2.files/image043.jpg"></p>
+<p>106</p>
+<p><b>Chapter 4: Advanced Modeling Techniques</b></p>
+<p><img width=665 height=1
+src="E2.files/image001.jpg"></p>
+<p>Putting in these Edges will not alter the Room characteristics;
+it just dresses up the drawing and makes it look like the seats have backs.</p>
+<p>Remember, in EASE, Edges have no acoustical properties.</p>
+<p><img width=505 height=315
+src="E2.files/image044.jpg"></p>
+<p>If the seats have backs, adding backs to them is as easy as it
+was to put in the seats. Select the <i>Insert Face [f]</i> icon and then click
+on the four Vertices that outline the space between the first and second row of
+seats to insert the first seat back. Then select this Face and right click to
+bring up the Mouse menu, select Duplicate. When the Displacement screen appears,
+displace this Face up 1.5' and back 1.5' (change X by -1.5 and Z by 1.5). Then,
+insert 8 into the Repeated field. This will Duplicate and Displace the Face 8
+times.</p>
+<p><img width=505 height=315
+src="E2.files/image045.jpg"></p>
+<p>The Duplicate/Displace technique we used produces
+&quot;stacked&quot; Vertices. If you take a close look at the bleacher Vertices
+by Picking them, you'll notice that there are two Vertices &quot;stacked&quot;
+on top of each other at most points. Key command <i>Ctrl + F12</i> will fix
+this problem. Try it and see what happens.</p>
+<p>Note that if these bleachers were made from concrete or
+otherwise enclosed, we would have needed to use single sided Faces and mod-eled
+the bleachers into the wall and floor.</p>
+<p>107</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=665 height=1
+src="E2.files/image001.jpg"></p>
+<p><b>Using Prototype Rooms</b></p>
+<p>Many of the rooms you will be modeling will fit into a
+relatively few basic categories. EASE provides a library of basic room
+Prototypes that can be quickly modified into close approximations of actual
+rooms. In many cases, using these Prototype rooms can dramatically speed up the
+room-modeling process. Drawings of the 33 different Prototype rooms included in
+EASE are at the end of this section. Please take a few minutes to familiarize
+yourself with the variety of models available.</p>
+<p>There are two ways to access the Prototypes. The first is to
+access them from the Insert pull down menu while in the Edit Project mode.</p>
+<p>The other way is from the Desktop. We'll go through the Edit
+Project approach first.</p>
+<p>Earlier we decided that Church (A) was similar to the Tutorial
+room we were building, so we'll use the Church (A) Prototype in this exercise.
+We'll call it Church(A) and store it in its own folder, instead of in the
+Tutorial folder as we have in the past. From the Main <i>File</i> pull down
+menu choose <i>New Project</i> and type Church(A) in both the <i>Hall</i> and
+the <i>Project File Name</i> fields and then click on <i>Create</i>. Answer <i>OK</i>
+to the Project Path prompt that appears.</p>
+<p><img width=301 height=114
+src="E2.files/image046.jpg"></p>
+<p>Next, open <i>Room Info/Data</i> under the <i>View</i> pull down
+menu and enter Church(A) in the <i>Project Version</i> field.</p>
+<p><img width=153 height=208
+src="E2.files/image047.jpg"></p>
+<p>Then open the Edit Project module (<i>Project Data</i> under the
+<i>Edit</i> pull down menu). When the Edit Project module opens, select <i>Load
+Prototypes</i> from the <i>Insert</i> pull down menu. This will open the Load
+Proto-type menu and an outline drawing of the Amphitheater Prototype.</p>
+<p>Use the drop down listing (click on the Down Arrow button) to
+locate and select <i>Church (A)</i>. Then press the <i>Assemble Room</i>
+button. A Replace Actual Prototype prompt will appear; answer <i>Yes</i>. This
+will open the dimensional table for Church (A) and an outline drawing of the
+room.</p>
+<p><img width=505 height=315
+src="E2.files/image048.jpg"></p>
+<p>108</p>
+<p><b>Chapter 4: Advanced Modeling Techniques</b></p>
+<p><img width=665 height=1
+src="E2.files/image001.jpg"></p>
+<p>If we had used the Desktop method of reaching the Prototypes, we
+would have bypassed the first Load Prototype screen. From the Main screen we
+would have selected <i>Start Working</i>, then clicked on <i>Create Project</i>
+and when the Prototype icons appeared selected <i>Church (A)</i> by double
+clicking on it. This would have opened the Project Options window with Church
+(A) already inserted in the Hall and Project File Name fields. Clicking on <i>Create</i>
+would then have opened the dimensional table for Church (A) and the outline
+drawing of the Church(A) prototype.</p>
+<p>Notice that selecting one of the dimension blocks, such as <i>Height</i>,
+highlights that item in the drawing to prevent you from changing the wrong
+dimension.</p>
+<p><img width=435 height=326
+src="E2.files/image049.jpg"></p>
+<p>Change the dimensions to match the dimensions of our Model_1
+room. Remember it was 75 Feet long, 50 feet wide, 12 feet to to top of the
+walls and the peak was at 25 feet. The Chancel area (stage) was elevated two
+feet and there were two 1 foot steps. You can at any time during this process
+view on the screen any changes you have made by hitting <i>Apply</i>. Change
+the initial dimensions to match our Model_1 dimensions and then click on <i>Apply</i>
+and <i>OK</i>. This will convert the Prototype into a working EASE model</p>
+<p><img width=435 height=326
+src="E2.files/image050.jpg"></p>
+<p>109</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=665 height=1
+src="E2.files/image001.jpg"></p>
+<p>There are 3 notable differences between this room and the
+Model_1 room we created; The end walls are made of only one Face (instead of
+being two separate Faces), there are no steps leading up to the Chancel area
+and the seating areas are not defined. All can be easily corrected.</p>
+<p>Use <i>Fixed Cut</i> to divide each of the end Faces into two
+parts (select <i>Fixed Cut</i> from the <i>Tool</i>s pull down menu and then
+click on the two Vertices at the top of the wall).</p>
+<p>Adding the steps is a little more complicated. First, blow away
+(delete) the Main Floor and the Wall Faces. Then, use Vertice on Face Mar-gin
+to add two Vertices to the front of the 2 foot high Chancel Face and use Fixed
+Cut to cut the Face into two 1 foot high Faces. Extrude the bottom face 1 foot
+forward (in the -y direction) and then delete the three unneeded faces formed
+during the extrusion. The final step is to re-enter the Main Floor and Side
+Wall Faces. You will be surprised how little time it takes.</p>
+<p><img width=505 height=315
+src="E2.files/image051.jpg"></p>
+<p>The Seating Areas can be added using the Coat feature just as
+you did in the Model_1 exercise.</p>
+<p>Don’t forget that the default Wall Material for prototype Faces
+is Absorber and this needs to be changed to the correct wall materials.
+Oth-erwise very bit of sound that strikes a surface will be immediately
+absorbed and there will be no reflections. EASE cannot calculate RT times for a
+room with no reflections as there is no reverberation.</p>
+<p>Most rooms have one material that is dominate, i.e., used on
+most of the Faces. With that in mind, Pick one of the Faces with the dominate
+material and then right click to open the Mouse menu. Select <i>Change All Same</i>
+and change the wall material on all of the Faces to the dominate material and
+then individually change the remaining Faces.</p>
+<p><b><i>Prototype Room Models</i></b></p>
+<p>Drawing of the 33 prototype rooms available follow starting on
+the next page.</p>
+<p>Please scan through them to acquaint yourself with the wide
+variety of models available as Prototypes.</p>
+<p>110</p>
+<p><b>Chapter 4: Advanced Modeling Techniques</b></p>
+<p><img width=671 height=313
+src="E2.files/image052.jpg"></p>
+<p><b>Auditory</b></p>
+<p><img width=505 height=288
+src="E2.files/image053.jpg"></p>
+<p><b>Auditory</b></p>
+<p><b>With</b></p>
+<p><b>Sloped Floor</b></p>
+<p><img width=505 height=288
+src="E2.files/image054.jpg"></p>
+<p><b>Auditory</b></p>
+<p><b>with Balcony</b></p>
+<p>111</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=671 height=313
+src="E2.files/image055.jpg"></p>
+<p><b>Auditory</b></p>
+<p><b>with Slanted Walls</b></p>
+<p><img width=505 height=288
+src="E2.files/image056.jpg"></p>
+<p><b>Auditory</b></p>
+<p><b>with a</b></p>
+<p><b>Peaked Roof</b></p>
+<p><img width=505 height=288
+src="E2.files/image057.jpg"></p>
+<p><b>Auditory</b></p>
+<p><b>with a</b></p>
+<p><b>Peaked Roof</b></p>
+<p><b>&amp;</b></p>
+<p><b>Slanted Walls</b></p>
+<p>112</p>
+<p><b>Chapter 4: Advanced Modeling Techniques</b></p>
+<p><img width=671 height=313
+src="E2.files/image058.jpg"></p>
+<p><b>Auditory</b></p>
+<p><b>with a</b></p>
+<p><b>Peaked Roof</b></p>
+<p><b>&amp;</b></p>
+<p><b>Sloping Floor</b></p>
+<p><img width=505 height=288
+src="E2.files/image059.jpg"></p>
+<p><b>Auditory</b></p>
+<p><b>with a Balcony,</b></p>
+<p><b>Peaked Roof</b></p>
+<p><b>&amp;</b></p>
+<p><b>Slanted Walls</b></p>
+<p><img width=505 height=288
+src="E2.files/image060.jpg"></p>
+<p><b>Auditory</b></p>
+<p><b>with a</b></p>
+<p><b>Balcony</b></p>
+<p><b>Peaked Roof</b></p>
+<p><b>&amp;</b></p>
+<p><b>Sloping Floor</b></p>
+<p>113</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=671 height=314
+src="E2.files/image061.jpg"></p>
+<p><b>Auditory</b></p>
+<p><b>with a</b></p>
+<p><b>Balcony</b></p>
+<p><b>&amp;</b></p>
+<p><b>Slanted Walls</b></p>
+<p><img width=505 height=288
+src="E2.files/image062.jpg"></p>
+<p><b>Auditory</b></p>
+<p><b>with a</b></p>
+<p><b>Balcony</b></p>
+<p><b>&amp;</b></p>
+<p><b>Sloping Floor</b></p>
+<p><img width=505 height=288
+src="E2.files/image063.jpg"></p>
+<p><b>Auditory</b></p>
+<p><b>with a</b></p>
+<p><b>Balcony</b></p>
+<p><b>Slanted Walls</b></p>
+<p><b>&amp; Sloping Floor</b></p>
+<p>114</p>
+<p><b>Chapter 4: Advanced Modeling Techniques</b></p>
+<p><img width=671 height=313
+src="E2.files/image064.jpg"></p>
+<p><b>Auditory</b></p>
+<p><b>with a</b></p>
+<p><b>Sloping Floor</b></p>
+<p><b>&amp;</b></p>
+<p><b>Slanted Walls</b></p>
+<p><img width=505 height=288
+src="E2.files/image065.jpg"></p>
+<p><b>Auditory</b></p>
+<p><b>with a</b></p>
+<p><b>Balcony</b></p>
+<p><b>&amp;</b></p>
+<p><b>Peaked Roof</b></p>
+<p><img width=505 height=288
+src="E2.files/image066.jpg"></p>
+<p><b>Auditory</b></p>
+<p><b>with a</b></p>
+<p><b>Peaked Roof</b></p>
+<p><b>Slanted Walls</b></p>
+<p><b>&amp;</b></p>
+<p><b>Sloping Floor</b></p>
+<p>115</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=671 height=312
+src="E2.files/image067.jpg"></p>
+<p><b>Auditory</b></p>
+<p><b>with a</b></p>
+<p><b>Peaked Roof</b></p>
+<p><b>Sloping Floor</b></p>
+<p><b>&amp;</b></p>
+<p><b>Slanted Walls</b></p>
+<p><img width=505 height=288
+src="E2.files/image068.jpg"></p>
+<p><b>Amphitheater</b></p>
+<p><img width=505 height=288
+src="E2.files/image069.jpg"></p>
+<p><b>Basilica</b></p>
+<p>116</p>
+<p><b>Chapter 4: Advanced Modeling Techniques</b></p>
+<p><img width=671 height=314
+src="E2.files/image070.jpg"></p>
+<p><b>Church</b></p>
+<p><img width=505 height=288
+src="E2.files/image071.jpg"></p>
+<p><b>Church A</b></p>
+<p><img width=505 height=288
+src="E2.files/image072.jpg"></p>
+<p><b>Colosseum</b></p>
+<p>117</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=671 height=312
+src="E2.files/image073.jpg"></p>
+<p><b>Gothic Dome</b></p>
+<p><img width=505 height=288
+src="E2.files/image074.jpg"></p>
+<p><b>Multipurpose</b></p>
+<p><img width=505 height=288
+src="E2.files/image075.jpg"></p>
+<p><b>Octagon</b></p>
+<p>118</p>
+<p><b>Chapter 4: Advanced Modeling Techniques</b></p>
+<p><img width=671 height=313
+src="E2.files/image076.jpg"></p>
+<p><b>Opera</b></p>
+<p><img width=505 height=288
+src="E2.files/image077.jpg"></p>
+<p><b>Redoubt</b></p>
+<p><img width=505 height=288
+src="E2.files/image078.jpg"></p>
+<p><b>Shell</b></p>
+<p>119</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=671 height=313
+src="E2.files/image079.jpg"></p>
+<p><b>Sporting Hall</b></p>
+<p><img width=505 height=288
+src="E2.files/image080.jpg"></p>
+<p><b>Stadium</b></p>
+<p><img width=505 height=288
+src="E2.files/image081.jpg"></p>
+<p><b>Stadium 2</b></p>
+<p>120</p>
+<p><b>Chapter 4: Advanced Modeling Techniques</b></p>
+<p><img width=671 height=314
+src="E2.files/image082.jpg"></p>
+<p><b>Station</b></p>
+<p><img width=505 height=288
+src="E2.files/image083.jpg"></p>
+<p><b>Theater</b></p>
+<p><img width=505 height=288
+src="E2.files/image084.jpg"></p>
+<p><b>TriCube</b></p>
+<p>121</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=665 height=1
+src="E2.files/image001.jpg"></p>
+<p><b>Using Objects</b></p>
+<p>One of the most useful EASE modeling features is the ability to
+group together a number of items (Vertices, Faces, Edges, Speakers, etc.) into
+a single item or Object as its called by the program. Objects can be created
+from items of different types and can then be duplicated, moved and saved as an
+Object for use in other models.</p>
+<p>Let's start our investigation of Objects by creating a new
+project. This time we'll use the Desktop Icons and Prototypes to quickly create
+a new model. From the opening window, double click on <i>Start Working</i>,
+then select <i>Create Projec</i>t and <i>Church(A</i>). We'll call our new
+project Church_2 and put it in the Tutorial folder. When the Project Options
+screen opens insert Tutorial in the <i>Hall</i> field and Church2 in the <i>Project</i>
+<i>File Name </i>field and then click on<i> Creat</i>e.</p>
+<p>Our model will be similar to the prototype Church(A), except for
+having a height of 60', width of 60', length of 120' and five 2' by 1' wooden
+beams (rafters) on 20' centers. When the Prototype screen opens, change the
+dimensions to show a total Height of 60 feet, Breadth (width) of 60 feet and
+Length of 103.6 feet (the stage is 16.4 feet deep). Hit <i>Apply</i> and then <i>OK</i>.
+Then return to the Main window and go to <i>Room Info/Data </i>under the<i>
+View </i>pull down menu; enter Church_2 in the<i> Project Version </i>field and<i>
+OK</i>. Then open the Edit Project module.<i> </i>See how quick and easy it is
+to build a working model.</p>
+<p><img width=468 height=292
+src="E2.files/image085.jpg"></p>
+<p>We'll use Duplicate/Displace to put in the first beam. Select
+one of the corner Vertices at the top of the rear wall (P6* for example) and
+Du-plicate/Displace it by 20' along the x axis (displace it 20 in the y field).
+Then Extrude the new Vertice 1 in the y direction and -2 in the the z direction
+to Extrude the Face representing the end of the beam.</p>
+<p><img width=468 height=292
+src="E2.files/image086.jpg"></p>
+<p>122</p>
+<p><b>Chapter 4: Advanced Modeling Techniques</b></p>
+<p><img width=665 height=1
+src="E2.files/image001.jpg"></p>
+<p>The next step is to extrude the Face you just created -30 in the
+X direction to create the beam.</p>
+<p><img width=468 height=292
+src="E2.files/image087.jpg"></p>
+<p>Now Displace the center Face by 43.60 in the z direction (the
+roof peak is at 60 feet and the top of the beam at 16.4 feet, the height of the
+wall). It’s that simple.</p>
+<p><img width=468 height=292
+src="E2.files/image088.jpg"></p>
+<p>Hint: If you had forgotten the height of the roof peak or the
+height of the wall, select one of the appropriate Vertices and read the z
+coordi-nate from the status bar at the bottom of the screen.</p>
+<p>The next step is to turn the beam into an Object that can be
+easily duplicated and moved. There are three ways to do this:</p>
+<p><i>1. Activate </i>all the items you want included
+in the Object and then use<i> Create Object </i>under the<i> Insert </i>Pull
+down menu to turn them into<i> </i>an Object.</p>
+<p>2. Open <i>Create Objec</i>t and use the Magic Wand to select
+the items and add them to a list of items to be included in the Object.</p>
+<p>3. Open <i>Create Object</i> and use the Item Tables to
+select and add the desired items to the list of items to be included.</p>
+<p>Note that Objects can also be created while Extruding an item.
+We’ll practice that, too. We’ll try all of these methods, starting with the Add
+Active Items approach.</p>
+<p>123</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=665 height=1
+src="E2.files/image001.jpg"></p>
+<p>Use your Mouse and individually Pick (select) all the items that
+will be included in the Object; select an item using the Pick Tool and then
+right click to open the Mouse Menu and select <i>Activate</i> or use the <i>F8</i>
+key command. Repeat the procedure until all of the items that will be included
+in the Object have been Activated. Notice that you must individually Activate
+each item. EASE will not automatically Activate mir-ror image items. Then
+select <i>Create Objec</i>t from the <i>Inser</i>t pull down menu to open the
+dialog box shown below.</p>
+<p><img width=457 height=455
+src="E2.files/image089.jpg"></p>
+<p>Answering <i>Yes</i> will open the Edit Object win-dow shown to
+the right. Notice that under Items it shows all the Vertices included in the
+Faces we turned Active. If you aren’t sure of this click on the Faces radio
+button and the items listing will change to show the Faces in-cluded in the
+Image.</p>
+<p>Notice that this window also gives you the op-portunity to name
+(Label) the Object and in-clude a description.</p>
+<p>The Add Active, Add Picked, and Add Faces buttons are used to
+add an item to the list.</p>
+<p>The Edit tab opens a new window which gives you the opportunity
+to change the Wall Materials used in the Object, their color when viewed in the
+Eyes module and their Texture in Vision.</p>
+<p><img width=410 height=328
+src="E2.files/image090.jpg"></p>
+<p>The Axis tab allows you to set the Point Of Origin (insertion
+point) for the Object.</p>
+<p>Be aware that if you aren’t sure where to place the Point Of
+Origin, you can use Apply to check out its location in the room model and then
+change the Point Of Origin if you don’t like it. The Object symbol lets you
+know where it is located.</p>
+<p>Clicking on <i>OK</i> will turn the selected items into an
+Object. See next page.</p>
+<p>Note: You will not be able to see the Object symbol unless <i>Objects</i>
+is checked under the <i>Items </i>pull down menu</p>
+<p>124</p>
+<p><b>Chapter 4: Advanced Modeling Techniques</b></p>
+<p><img width=665 height=1
+src="E2.files/image001.jpg"></p>
+<p>Notice that the only change in the Room drawing is the addition
+of the Object symbol.</p>
+<p><img width=506 height=316
+src="E2.files/image091.jpg"></p>
+<p>The big difference is that the Object can be treated as a single
+item and Duplicated, Displaced, Moved and Saved As an Object and filed away for
+use in another project. The individual items in the Object retain their
+original identities and can be modified.</p>
+<p>Now that we have the Object created the rest is a snap. Select the
+Object, use the right mouse button to open the Mouse Menu and select <i>Duplicate</i>.
+When the Displacement dialog box opens, insert 20 in the<i> </i><u>y</u><i> </i>field
+and 4 in the<i> Repeated </i>field. Then press<i> OK </i>to add 4 more<i> </i>beams
+in their correct location.</p>
+<p><img width=506 height=316
+src="E2.files/image092.jpg"></p>
+<p>This would be a good time to check the Room for Holes. Go to <i>Room
+Data</i> (right click on screen and then select <i>Room Data</i>) and make sure
+<i>Room Open</i> isn’t checked. The Room needs to be closed before you check
+for holes. Then select <i>Check Holes</i> from the <i>Tools</i> pull down menu
+and anticipate the Well Done prompt.</p>
+<p>125</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=665 height=1
+src="E2.files/image001.jpg"></p>
+<p>The second method of creating an Object is the Magic Wand. To
+explore this method, open Create Objects under the Insert pull down menu, only
+this time answer <i>No</i> to the Assign Active Items prompt. This will open
+the Edit Object window. Select the Wand and then return to the Edit Project
+screen and use the Wand and the left Mouse button to individually select the
+desired items (Faces). Then right click on the selected item to add it to the
+Object. A musical tone will tell you that the item has been added successfully.</p>
+<p>You may want to minimize the Edit Object window while using the
+Wand to select items. If you do, restore the Edit Object window after you have
+finished selecting the items, define the Point of Origin and click on <i>OK</i>
+to create the Object.</p>
+<p>The third method of creating an Object make use of the project’s
+Item Tables. To explore this method, open <i>Create Object</i> under the <i>Insert</i>
+pull down menu and then cancel the Use Active Items Prompt when it opens. When
+the Edit Object screen opens, select the Items tab, if it isn’t already
+selected, and choose one of the items listed, Faces for example.</p>
+<p>Then press the <i>Select</i> button to open a listing of all the
+Faces in the project. Now, all you need to do is select the Faces you want
+included in the Object. If you don't know the Face numbers, return to the Edit
+Project window, turn on the Face Labels and make note of their num-bers. Then
+return to the Edit Object window and select/add them to the Object. Hint: To
+select multiple items hold down the <i>Ctrl</i> key while using the left mouse
+button to select them one by one.</p>
+<p><img width=361 height=289
+src="E2.files/image093.jpg"></p>
+<p>When you are finished selecting them, click on <i>OK</i> and
+then on <i>OK</i> again to create the Object.</p>
+<p><img width=157 height=299
+src="E2.files/image094.jpg"></p>
+<p>Objects can also be created directly from Create Shape 3D under
+the Insert pull down menu. To see how this works, let's assume that our room
+has large circular windows 4 feet in diameter in both end walls.</p>
+<p>Go to <i>Create Shape 3D</i> and select <i>Cylinder.</i> When
+the Create Shape screen opens, fill in the fields as shown. We're going to
+place the window 30 feet above the floor in the rear wall.</p>
+<p>Note that we listed the Height of the cylinder as 0 (we just
+want a circular Face and not a cylinder) and put a check in the <i>Create
+Object</i> box.</p>
+<p>126</p>
+<p><b>Chapter 4: Advanced Modeling Techniques</b></p>
+<p><img width=665 height=1
+src="E2.files/image001.jpg"></p>
+<p>Note that the program created an Object just where we wanted it.</p>
+<p><img width=505 height=315
+src="E2.files/image095.jpg"></p>
+<p>The only problem is that it's not upright. Not a problem,
+really. Use the right Mouse button to open the Mouse menu and select <i>Move</i>.
+When the Move screen appears, use the <i>Aiming</i> section to rotate the
+Object 90 degrees vertically. Now, the window is exactly where we want it.</p>
+<p><img width=505 height=315
+src="E2.files/image096.jpg"></p>
+<p>But, it looks a little small. We must have been looking for a
+window 8 feet in diameter and not 4 feet. Again, no problem. Use the Mouse menu
+again and select <i>Scale</i>. Enter 2 into the field and hit <i>OK</i>. Now
+the window is the correct size.</p>
+<p>All that is left to do is to turn the window into a 2-Fold face
+and Coat it onto the end wall.</p>
+<p>Obviously, at this point we can use Duplicate/Displace to add a
+second window and move it to the front wall</p>
+<p>127</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=665 height=1
+src="E2.files/image001.jpg"></p>
+<p>Create Objects is a powerful tool. With Create Objects and a
+little imagination you can easily solve many of your modeling problems. You can
+also use it to dress up your model. You can, for example, take a few minutes to
+create a nice looking church pew as an Object and then save it and use it in
+place of Listener Seats in all your future church models.</p>
+<p><img width=357 height=199
+src="E2.files/image097.jpg"></p>
+<p><b>Packing a Project</b></p>
+<p>Before we move on to Cluster Construction, let’s Pack the
+project away for storage or shipment. Packed files are the best way to store
+your old project files. They also are the best way to e-mail a project to an
+associate.</p>
+<p>Open the project you want to Pack and then select <i>Pack
+Project</i> from the <i>File</i> pull down menu. This will open the familiar
+Name and Desti-nation dialog window shown below. Verify or rename the project
+and its storage location and then click on <i>Save.</i></p>
+<p><img width=372 height=256
+src="E2.files/image098.jpg"></p>
+<p>Clicking on <i>Save</i> will open the Prompt shown below.
+Answering <i>OK</i> will compress the Project file and store it away.</p>
+<p><img width=212 height=163
+src="E2.files/image099.jpg"></p>
+<p>128</p>
+
+	</div>
+	<div class="nav">
+		<a href="index.html">Table of contents</a><br>
+		<a href="3.html">3. Constructing a Model</a><br>
+		<a href="5.html">5. Cluster Construction</a>
+	</div>
+	<div id="footer">
+		EASE Tutorial
+	</div>
+</body>
+</html>

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>13. IR Infrared</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div id="header">
+		<p class="heading">EASE Tutorial</p>
+		<p class="heading">13. IR Infrared</p><br>
+	</div>
+	<div class="nav">
+		<a href="index.html">Table of contents</a><br>
+		<a href="12.html">12. Auralization</a><br>
+		<a href="14.html">INDEX</a>
+	</div>
+	<div id="contents">
+		
+<p><b>Chapter 13: IR Infrared</b></p>
+<p><img width=665 height=1
+src="E4.files/image001.jpg"></p>
+<p><b>I R</b> <b>I n f r a r e d</b></p>
+<p><img width=576 height=387
+src="E4.files/image080.png"></p>
+<p>273</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=665 height=1
+src="E4.files/image001.jpg"></p>
+<p><b>Section 13: IR Infrared</b></p>
+<p>The IR Infrared module allows the performance of Infrared
+systems to be simulated and analyzed in much the same fashion as Loud-speaker
+systems and their performance are simulated and analyzed.</p>
+<p>We will use the AURA1 room model as our room model. You will
+find it in the Projects 40 folder under EASE40 Data. It's identified as AURA1.
+Open the model and then select <i>Project Data</i> from the <i>Edi</i>t pull
+down menu.</p>
+<p><img width=505 height=315
+src="E4.files/image081.jpg"></p>
+<p>Our first step will be to add the IR Emitters to the model.
+First, though, a few words about IR Emitters. An IR Emitter consists of a
+Modula-tor and a Radiator.</p>
+<p><b>Modulators </b>determine the type of transmission (broad
+band or narrow band), the carrier frequency and the number of channels.</p>
+<p><b>Radiators </b>determine the coverage pattern and signal
+level.</p>
+<p>Modulators and Radiators may be packaged as two separate devices
+or combined into a single unit. EASE, however, manages the data of modulators,
+radiators and combined units as separate files.</p>
+<p>IR Emitters are inserted into a model in the same fashion as
+Loudspeakers, but the rules for placement are different. Infrared is strictly
+line-of-sight transmission between the Radiator and the Receiver(s). Typically
+Radiators are mounted as high as possible to prevent obstruc-tions, such as
+those seated in the row ahead of the listener, from interfering with the
+transmission. When more than one Radiatior is needed to provide adequate
+coverage, it's common to split them (place them a distance apart) and
+cross-fire the signal. This improves the likelihood that the signal from at
+least one of the Radiators will reach the Receiver.</p>
+<p>The interference caused by cross-firing and overlapping coverage
+has a positive effect in Infrared systems and not a negative effect as it
+usually has in loudspeaker systems.</p>
+<p><b>Inserting IR Emitters</b></p>
+<p>To insert an IR Emitter click on the <i>Insert IR Emitter</i>
+button in the Tool Bar or go to the <i>Insert</i> pull down menu and click on <i>IR
+Emitter</i>. Then, click on any spot in the room. This will open the IR Emitter
+Properties window shown at the top of the next page.</p>
+<p>274</p>
+<p><b>Chapter 13: IR Infrared</b></p>
+<p><img width=665 height=286
+src="E4.files/image082.jpg"></p>
+<p>The first step is to correct the location of the Emitter by
+entering the correct x, y, z coor-dinates under Location. Let's assume that our
+plan is to install two Emitters, one on each side of the stage and fairly close
+to the ceiling. Enter -31 as the x coordinate, 10 for y and 35 for z.</p>
+<p>Note that if we knew the aiming angles, we could enter them
+under View Angle. We don't know them, so we'll wait and use the Aiming feature
+after we have finished defin-ing the Emitter.</p>
+<p>The next step is to assign the corresponding devices (
+Modulators and Radiators) to the IR Emitter. We'll start with the Modulator.
+which determines the carrier frequency of the signal transmission as well as
+the number of transmission channels. Click on the <i>[.]</i> button to the
+right of the Modulator Model text field to open the Choose Modulator win-dow.</p>
+<p><img width=218 height=264
+src="E4.files/image083.jpg"></p>
+<p>Click on <i>Browse</i> and use conventional browsing techniques
+to locate the E<i>ASE40Data/</i> <i>IR Devices/IR Sennheiser </i>folder. Open
+it, click on<i> Select All</i>, then<i> Add&gt;&gt; </i>and then press<i> OK</i>.</p>
+<p>This will return you to the Choose Modulator window. Let's use
+the Sennheiser SI1015, a broad-band, two-channel modulator. It will give us
+full range, 20 Hz to 20 kHz stereo performance. Narrow-band, multiple channel
+modulators are used mainly for speech in simultaneous interpretation systems.</p>
+<p>Select the <i>SI1015</i> and click on <i>OK</i>. Next, click on <i>Select</i>
+in the Modulator section of the Properties window and select both frequencies.
+We want to reproduce a stereo signal, so we'll need to use both channels.</p>
+<p><img width=216 height=262
+src="E4.files/image084.jpg"></p>
+<p>Follow the same procedure to assign the IR Radiator, but be sure
+to use only a Radiator that is compatible with the SI1015 Modulator. We'll use
+the SZI1029.</p>
+<p>The cable length between the Modulator and Radiator is important
+when the Radiator is at a great distance from the Modulator and when multiple
+Radiators are used and the cable lengths vary. For this exercise, let's assume
+the lengths will be the same for both Radiators and enter 50 in the <i>Cable
+Length</i> field. Click on <i>OK</i> to accept the settings and close the
+Properties window.</p>
+<p>275</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=665 height=1
+src="E4.files/image001.jpg"></p>
+<p>The AURA1 model we chose to use was not in the Symmetrical
+modeling mode so only one IR Emitter was placed in the model. We also know from
+earlier Tutorial lessons that it’s not a good idea to try to go back to the
+Symmetrical modeling mode once you have exited it. So, follow the same
+procedure to insert the second Emitter or use Duplicate/Displace to insert it
+and then displace it by 62 feet. Pick the first Emitter and then right click on
+the screen to open the Mouse menu, select <i>Duplicate</i> and then insert 62
+in the x field of the Displace screen.</p>
+<p>Now, lets aim the Radiator portion of the Emitter. Pick it, if
+it isn't selected, and then right click to open the Mouse Menu. Select IR
+Emitter Aiming and the Aiming screen shown below will appear. Just click on the
+screen to reaim the Radiator. It's that simple.</p>
+<p>Notice that the Horizontal and Vertical aiming angles are
+displayed at the bottom of the screen. Make note of these as you'll want the
+sec-ond Radiator aimed to the same spot on the other side of the room. Hint; we
+ended up with 50 degrees horizontal and -25 degrees vertical for IR1.</p>
+<p><img width=533 height=387
+src="E4.files/image085.jpg"></p>
+<p>Then repeat the procedure with IR2.</p>
+<p><b>Calculations</b></p>
+<p>Now its time to see how the system performs. Ease allows you to
+calculate an IR signal-to-noise ratio (S/N ratio in dB) for each channel as a
+function of distance and carrier frequency for Listener Seats and Audience
+Areas under Area Mapping and for Listener Seats, Audience Areas and Faces under
+Room Mapping. Interference and shadowing effects can be included in the
+simulation.</p>
+<p>Reflections are not included and the simulation will be made with
+only direct radiation considered. Reflections are not included since
+insuf-ficient data exists on the Infrared reflection characteristics of of
+surface materials. Fortunately, reflections improve the signal-to-noise ratio
+which makes the simulation results conservative.</p>
+<p>276</p>
+<p><b>Chapter 13: IR Infrared</b></p>
+<p><img width=665 height=1
+src="E4.files/image001.jpg"></p>
+<p>The mapping routine for IR simulations is very similar to the
+routine used for Loudspeakers. Press <i>F5</i> to <i>Check Data</i> and then
+switch to the Ease Main Window and open the <i>Area Mapping</i> module. (Click
+on <i>Area Mapping</i> in the <i>Calculations</i> pull down menu.)</p>
+<p>When the Area Mapping window opens, the first thing you will
+notice is that the Main floor Audience Area is obscuring the Balcony Audi-ence
+Area. The designer forgot to move one of the Audience Areas so this wouldn't
+happen. No problem, return to the Edit Project module and select <i>Area Layou</i>t
+from the <i>Edit</i> pull down menu. Then select <i>Move</i> from the <i>Edit</i>
+pull down menu and grab the Main Floor Audience Area and move it out of the
+way.</p>
+<p>Return to the Area Mapping window and click on <i>IR Simulation</i>
+in the <i>Mapping</i> pull down menu and the first of three IR Simulation
+dialog windows will open.shown below will open.</p>
+<p><img width=282 height=237
+src="E4.files/image086.jpg"></p>
+<p>Select the IR Emitters that will be used in the calculation by
+clicking on the IR Emitter button and then selecting both IR Emitters.</p>
+<p>You will probably also want to reduce the patch Size; change it
+from 3.28 to 1.</p>
+<p>Then press the <i>Next</i> button to move to the second
+(Set-tings) tab.</p>
+<p><img width=282 height=237
+src="E4.files/image087.jpg"></p>
+<p>The Settings tab determine which Audience Areas or Listener
+Seats will be included in the simulation. Select both Audience Areas and then
+press the <i>Next</i> button to move to the third (Calculations) tab.</p>
+<p><img width=282 height=237
+src="E4.files/image088.jpg"></p>
+<p>Make sure both the <i>Interference Sum</i> and <i>Map with</i> <i>Shadow
+</i>boxes are checked. We do want to take interfer-ence and shadowing into
+account in our simulation.</p>
+<p>277</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=665 height=1
+src="E4.files/image001.jpg"></p>
+<p>Notice that we did not insert a Noise Level figure in the <i>Noise
+Level [dB]</i> field. Little data exists on how the two primary types of
+interfer-ence affect the overall signal-to-noise ratio. Unmodulated
+Interference, such as the interference caused by daylight and stage lighting
+which have their own Infrared component, can wash out the signal.</p>
+<p>Modulated Interference, the interference caused by light
+dimmers, fluorescent light and electronic ballasts introduce buzz and static
+into the system.</p>
+<p>The Noise Level [dB] field was included so that when data
+becomes available it can be entered into the program and included in the
+signal-to-noise calculation.</p>
+<p>When you are ready to start the simulation, click on <i>OK</i>.
+When the View Calculation Window opens minimize it so you can see the map-ping
+display.</p>
+<p><img width=505 height=316
+src="E4.files/image089.jpg"></p>
+<p>As a general rule, ratios of 50 dB or higher are considered
+good; levels of 40 dB to 50 dB are marginal and lower levels are probably not
+acceptable.</p>
+<p>Our map dips below below 50 in the corners of the balcony, so
+lets try reaiming the Emitters.</p>
+<p>Return to Edit Project and change the vertical aiming angles on
+the two IR Emitters from -25 to -20. <i>Check Data [F5]</i> and then return to
+the Mapping window. Click on <i>Acquire Project Data</i> in the <i>File</i>
+pull down menu and answer <i>Yes</i> to the prompts that appear to rerun the
+simula-tion. You will see that this improved the performance.</p>
+<p>To try other aiming angles return to the Edit Project window,
+change the aiming angles, Check Data and then return to the Mapping mod-ule.</p>
+<p>We tried again and ended up using 45 for the Horizontal angle
+and -18 for the Vertical Angle.The result appears at the top of the next page.</p>
+<p>Note that now the coverage is above 50 throughout the Audience
+Areas.</p>
+<p>278</p>
+<p><b>Chapter 13: IR Infrared</b></p>
+<p><img width=671 height=342
+src="E4.files/image090.jpg"></p>
+<p>We touched earlier on the importance of cable length. Let's
+explore this further by adding 100 feet to the length of the cable to one of
+the Radiators.</p>
+<p>Return to the Edit Project window, select one of the IR Emitters
+and then right click to open the Mouse Menu. Open the Properties folder and
+increase the cable length by 100 feet. Click on <i>OK</i> and then press <i>F5</i>
+to Check Data.</p>
+<p>Return to the Area Mapping window, click on <i>Acquire Project
+Data</i> in the and follow the prompts to rerun the simulation.</p>
+<p>As you can see, cable length is important.</p>
+<p><img width=505 height=316
+src="E4.files/image091.jpg"></p>
+<p>279</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=671 height=338
+src="E4.files/image092.jpg"></p>
+<p><b>Creating New IR Devices</b></p>
+<p>Adding new IR devices to the IR database file is a relatively
+simple procedure.</p>
+<p>To establish new IR modulator and IR radiator files go to the <i>File</i>
+pull down menu in the Ease Main win-dow. Then click on <i>IR Sources</i> in the
+Main Data Bases submenu. This will open the IR Base module.</p>
+<p>To add a new IR device, select <i>New</i> <i>Device </i>from the<i>
+File </i>pull down<i> </i>menu.</p>
+<p>This will open a Create New Device dialog box.</p>
+<p><img width=248 height=240
+src="E4.files/image093.jpg"></p>
+<p>Choose the type of device (Radiator, Modulator or
+Modulator/Radiator Combined ) and then click on <i>OK</i>.</p>
+<p><b>Radiators</b></p>
+<p>We'll start with a Radiator, so put a check in the radio button
+in front of <i>Radiator </i>and hit<i> OK</i>.</p>
+<p>Now, open the Edit pull down menu. You'll see that only three of
+the five selections are active, Radiator Model, Radiator Data and Attenua-tion
+Data. If we had checked Modu-lator in the previous operation, only Modulator
+Model, Modulator Data and Attenuation would be active. Selecting
+Modulator/Radiator Com-bined would have turned all five items active.</p>
+<p><img width=202 height=313
+src="E4.files/image094.jpg"></p>
+<p>We'll start by selecting <i>Radiator</i></p>
+<p><i>Model. </i>This will open the screen</p>
+<p>shown to the right.</p>
+<p>Enter the model number of the de-vice in the Radiator Model
+field and the name of the manufacturer in the Manufacturer field. Note that if
+we were entering a combined Radia-tor/Modulator it would be necessary to check <i>Modulator
+Integrated</i>. Click on <i>OK</i> to confirm the data and close the window.</p>
+<p>280</p>
+<p><b>Chapter 13: IR Infrared</b></p>
+<p><img width=665 height=1
+src="E4.files/image001.jpg"></p>
+<p>Now return to the Edit pull down menu and select <i>Radiator
+Data</i>. This will open</p>
+<p><img width=266 height=402
+src="E4.files/image095.jpg"></p>
+<p>the Radiator Data screen.</p>
+<p>.</p>
+<p>The only Radiator Data parameter that is actually needed by the
+program to complete the simulation calculations is the number of IR diodes. All
+the other data is included only for information. Enter the number of diodes in
+the <i>IR</i> <i>Diodes Number </i>field</p>
+<p>After you have finished entering the data, click on <i>Compute
+Sensitivity [dB]</i> to initiate the calculation of a characteristic radiation
+level.</p>
+<p>This is the level of the signal-to-noise ratio at a distance of
+1 m without consid-eration of the directivity characteristic. The
+characteristic radiation level is calcu-lated according to:</p>
+<p><img width=241 height=111
+src="E4.files/image096.jpg"></p>
+<p>n<sub>D</sub> = number of diodes</p>
+<p>L<sub>D</sub> = diode capacity</p>
+<p>0,2141 sr Radiation angle = +/- 15 °</p>
+<p><img width=22 height=34
+src="E4.files/image097.jpg"></p>
+<p>Correction factor for the diode capacity, the specified value is
+for a supply with 100 mA c.a.</p>
+<p>The actual supply, however, is with 90 mA c.a. (in devices of
+the Sennheiser Company)</p>
+<p>Note that the radiation capacity of the diode is not variable
+and is fixed at 15 mW (according to the the specifications of the diodes used
+by Sennheiser in their IR devices) .The set-up for level calculation was
+derived from the available measured data. Click on <i>OK</i> to confirm the
+data and close the window.</p>
+<p><img width=324 height=303
+src="E4.files/image098.jpg"></p>
+<p>Now click on <i>Attenuation Data</i> in the <i>Edit</i> menu to
+open the Attenua-tion Data window. The table contained in the window is used to
+enter the directional attenuation data of the radiator. All values are in the
+minus dB scale (level of signal-to-noise ratio). The level at 0.0 degree
+(normally the main axis) is normalized with 0 dB and all other meas-urements
+are derived from this point. However, the numbers may be entered without a
+minus sign as the program assumes that all attenu-ation values are negative.</p>
+<p>The chart shows the polars in line values from 0 degree to 180
+de-grees. 0 is on the axis in front of the radiator and 180 is looking at the
+rear of the radiator. Visualize this as a wedge or a slice of an orange. The
+column angles from 0 degree to 355 degrees take the slice and tilt it 5
+degrees. 0 degree corresponds to the left half of the horizontal polars and 180
+to the right half. At 90 degrees the visible half of the polars corresponds to
+the upper vertical half and at 270 degrees we see the lower vertical half.</p>
+<p>It is also possible to enter only the horizontal and vertical
+polar data. Enter the data, then select <i>Compute Elliptical Lobe</i> from the
+<i>Data</i> pull down menu. EASE will then calculate all the other data points
+by means of an elliptical lobe algorithm.</p>
+<p>Selecting <i>Apply</i> in the Data window will store the Data. <i>Exit</i>
+will store the Data and close the window.</p>
+<p>281</p>
+<p><b>EASE 4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img width=665 height=1
+src="E4.files/image001.jpg"></p>
+<p><b>Modulators</b></p>
+<p><img width=202 height=314
+src="E4.files/image099.jpg"></p>
+<p>Now click on <i>Modulator Model</i> in the <i>Edit</i> menu to
+open the Modulator Model window.</p>
+<p>Notice that this window is similar to the Radiator Model window.
+Enter the manufacturer's name and the model number and, if you are entering a
+combined Radiator/Modulator check <i>Radiator Integrated</i>. Then click on <i>OK
+</i>to confirm the data and close the window.</p>
+<p>Next, click on <i>Modulator Data</i> in the Edit menu, and the
+Modulator Data window will open.</p>
+<p>The program actually needs only the four following parameters
+for its simulations. The other data is included only for information.</p>
+<p>-the type of modulation, broad band (wide) or narrow band (narrow)
+Note that narrow band modulation is usually used only for multi-channel
+systems, such as those used for simultaneous interpreta-tion systems.</p>
+<p>-the maximum carrier frequency (Max. RF Channel)</p>
+<p><img width=238 height=355
+src="E4.files/image100.jpg"></p>
+<p>-the minimum carrier frequency (Min. RF Channel)</p>
+<p>-and the number of channels (RF Channels Number)</p>
+<p>Notice that the program will allow only two wide band channels.</p>
+<p>Click on <i>OK</i> to confirm the data and close the window.</p>
+<p>The last step is to save and store the entered data in the Ease
+IR Radia-tor/Modulator files.</p>
+<p>Click on <i>Save Device As</i> in the File menu of the IR Base
+main window.</p>
+<p>The dialog box that pops up shows the name of the device as a
+standard file name.</p>
+<p>The radiator data and the
+modulator data are stored in files with the ex-tensions .irr and .irm,
+respectively. With combined units, only the name of the radiator file is given.
+The modulator file is stored under the same name</p>
+<p>282</p>
+
+	</div>
+	<div class="nav">
+		<a href="index.html">Table of contents</a><br>
+		<a href="12.html">12. Auralization</a><br>
+		<a href="14.html">INDEX</a>
+	</div>
+	<div id="footer">
+		EASE Tutorial
+	</div>
+</body>
+</html>

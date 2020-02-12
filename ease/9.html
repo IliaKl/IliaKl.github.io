@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>9. Room Investigatiions</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div id="header">
+		<p class="heading">EASE Tutorial</p>
+		<p class="heading">9. Room Investigatiions</p><br>
+	</div>
+	<div class="nav">
+		<a href="index.html">Table of contents</a><br>
+		<a href="8.html">8. Vision</a><br>
+		<a href="10.html">10. Advanced Acoustical Investigations</a>
+	</div>
+	<div id="contents">
+		
+<p><b>Chapter
+9: Room Investigatiions</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p><b>R o o m</b> <b>I n v e s t i g a t i o n s</b></p>
+<p><img
+width=596 height=468 src="E3.files/image037.jpg"></p>
+<p>179</p>
+<p><b>EASE
+4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p><b>Chapter
+9. Room Investigations</b></p>
+<p>Now it
+is time to investigate the many ways EASE and EASE JR offer to simulate and
+display the acoustical and electro-acoustical per-formance of the room and its
+loudspeaker system.</p>
+<p>In this
+section, we will cover all the investigations that are available to both EASE
+and EASE JR users. In the next section, Advanced Acoustical Investigations,
+we’ll take up the investigations available only to EASE users.</p>
+<p><b>New
+Mapping Conventions</b></p>
+<p>Before
+we go on let’s explore several of EASE 4.3’s significant improvements.</p>
+<p>EASE
+and EASE JR 4.3 now offer a choice of Mapping Conventions. Previous ver-sions
+used a Multi-Tone excitation signal for the simulations; all power was inserted
+in all frequency bands. In this method the excitation signal is comparable to a
+den-sity signal with a W<u>hite Noise spectrum.</u></p>
+<p><img
+width=249 height=292 src="E3.files/image038.jpg"></p>
+<p>EASE
+4.3 introduces a Broadband Pink Noise excitation signal and sums the results
+according to RTA conventions, a technique commonly employed by RTA ‘s using a
+Pink Noise signal.</p>
+<p>A
+detailed discussion of these two methods is beyond the scope of this Tutorial.</p>
+<p>The use
+of Broadband Pink Noise also enables EASE to offer accurate A-Weighted response
+curves.</p>
+<p>The
+default method for all new projects is the Broadband Pink Noise method.
+Proj-ects created in earlier versions of EASE will open using the Multi-Tone
+method. These projects mapping method can be switched to Broadband Pink Noise
+in the Settings tab of the Room Data folder shown here.</p>
+<p>To
+access the Settings tab,either select <i>Room Info/ Data</i> from the Main <i>View</i>
+pull down menu or right click on the screen in Edit Project and select <i>Room
+Data</i> from the Mouse menu.</p>
+<p><b>New
+Level Conventions</b></p>
+<p>The
+change in Mapping Conventions also dictated a change in the Loudspeaker Level
+Conventions to accommodate the Pink Noise signal.</p>
+<p>Projects
+created in earlier versions of EASE will open in 4.3 with the earlier
+multi-tone Mapping settings. Projects created in 4.3 will open with the Mapping
+Convention set to Broadband Pink Noise .</p>
+<p>Note:If
+you open an older project and switch to the Broad band Pink Noise mapping
+method and enter either Area Mapping or Room Mapping, a prompt will ask you to
+Check Data first. When you attempt to Check Data, a second prompt will inform
+you that the loudspeaker power setting exceeds the maxi-mum power allowable for
+Pink Noise Mapping. You will need to open Edit Project, select one of the
+project’s loudspeakers, open its Properties folder and change its power level
+settings.</p>
+<p><img
+width=161 height=105 src="E3.files/image039.jpg"></p>
+<p>All the
+Ele Power figures will be shown in red as an indication they are set to high;
+see example on the next page. The easiest and recommended way to set the levels
+to ones accept-able for Pink Noise Mapping is to press the <i>Flat Max</i>
+button in the Level section.</p>
+<p><img
+width=266 height=109 src="E3.files/image040.jpg"></p>
+<p>If the
+project has more than one loudspeaker the Loudspeaker Power Exceeds Maximum
+Power prompt will again appear; clicking <i>OK</i> will highlight a second
+loudspeaker and open its Properties folder. Again select <i>Flat Ma</i>x and <i>OK</i>.
+Ease will continue to step through the loudspeakers until all the power levels
+have been adjusted to the Pink Noise level convention.. It really goes quite
+fast.</p>
+<p>180</p>
+<p><b>Chapter
+9: Room Investigations</b></p>
+<p><img
+width=665 height=310 src="E3.files/image041.jpg"></p>
+<p><b>New STI
+Intelligibility Calculations</b></p>
+<p>EASE
+and EASE JR now calculate STI using the MTI (Modulation Tranfer Index) values
+in accordance with the current IEC16 Standard IEC60268-16:2003. ALcons and
+RaSTI intelligibility figures are then derived from the STI figures.</p>
+<p>This
+method allows EASE and EASE JR to caculate STI, ALcons and RaSTI
+intelligibility projections in both open areas and closed spaces..</p>
+<p><b>Area
+Mapping</b></p>
+<p>For the
+first part of this exercise we will study Area Mapping using the Theater 1
+example. Room Mapping will be covered later.</p>
+<p><img
+width=249 height=292 src="E3.files/image042.jpg"></p>
+<p>Open
+EASE, if it isn't already open, and either select <i>Open Project</i> from the <i>File</i>
+pull down menu or use the desk top icons to find and select <i>Theater 1</i>.
+When the Draw Room prompt appears answer <i>No</i>, unless you want to
+reacquaint yourself with the room model. You do not need to Draw the room at
+this time, Instead, you can go direct to the <i>Calculations</i> pull down menu
+and select <i>Area Mapping</i>.</p>
+<p>Before
+we go on let’s check the default settings for the Mapping functions. They are
+found in the Edit Data folder.</p>
+<p>Either
+select <i>Room Info/ Data</i> from the Main <i>View</i> pull down menu or right
+click on the screen in Edit Project and select <i>Room Data</i> from the Mouse
+menu.</p>
+<p>The
+Settings tab contains the radio buttons that allow you to select either
+Broad-band Pink Noise or Multi-Tone excitation signal. Broadband Pink Noise is
+recom-mended. The Settings tab also includes controls for the size of the
+Loudspeaker Symbol used in Edit Project and for the programs Tolerance for
+Plane Faces. We suggest using the default settings for these controls.</p>
+<p>181</p>
+<p><b>EASE
+4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img
+width=666 height=314 src="E3.files/image043.jpg"></p>
+<p>Let’s
+check out the Mapping and Noise tabs next. Click on the <i>Mapping</i> tab.</p>
+<p>The <i>Split
+Time [ms]</i> setting determines which reflections are considered di-rect sound
+during the calculations and which ones are reverberant sound. Since the D/R
+(Direct Sound / Reverberant Sound) ratio is a key factor in de-termining
+intelligibility and in evaluating other aspects of the system's per-formance
+this is an important setting.</p>
+<p>Early
+reflections, those arriving within 15 to 40 msec of the direct sound, im-prove
+intelligibility while reflections arriving later detract from intelligibility.
+We suggest 35 msec as a good compromise between the 15 msec figure fa-vored by
+some acousticians and the 40 ms favored by others. Change the setting from 10
+to 35.</p>
+<p><i>Map
+With Shadow </i>introduces the effects of any shadowing into the simula-tion. In
+the Theater1 model, for example, the effects of the shadowing caused by the
+balcony are visible only if Shadowing is turned On. Since simulations run
+without shadowing are misleading if there are obstructions in the room, many
+users automatically turn Shadowing On all the time.</p>
+<p><img
+width=249 height=292 src="E3.files/image044.jpg"></p>
+<p>The <i>Interference</i>
+section establishes how the energy levels are calculated. When <i>Interference
+Sum</i> is not checked, the energy levels are calculated by simple energy
+addition of the direct sound from one or more loudspeakers.</p>
+<p>Mathematically,
+this translates into a &quot;sum of the squares&quot; calculation where the
+contribution from a source is first squared and then added to the squared
+contributions from other sources. All phase information is lost in the process.</p>
+<p>Turning
+<i>Interference Sum</i> On by placing a check in the box reverses the
+mathematical operation and all source contributions are added first in a
+complex manner and then the resulting complex sum squared. This retains all the
+phase effects such as cancellations and additions. Run a Direct Sound
+simulation with both Interference Sum settings and you'll see a vast
+difference. Note that after you have changed the settings, you need to rerun
+the simulation to actually see the results.</p>
+<p>The <i>Pot.
+Energy</i> and <i>Kin. Energy</i> options allows the calculations to be run
+using only the pressure part (potential) of the energy or the velocity
+(kinetic) part or both parts when both are checked. A thorough explanation of
+this as-pect of the program is beyond the scope of this manual. Our
+recommenda-tion is to use <i>Interference Sum</i> and the <i>1/3rd Octave</i>
+bandwidth.</p>
+<p><img
+width=249 height=292 src="E3.files/image045.jpg"></p>
+<p>The <i>Noise</i>
+tab allows you to set the default noise levels for the project. Note how easy
+it is to raise or lower individual frequency levels or all levels
+simul-taneously by using the <i>Level</i> buttons.</p>
+<p>The <i>Load
+File</i> icon allows you to import measured noise data if it is available and
+use it in the simulations. You can also <i>Save</i> the noise data file and
+then use it at a later date in another project.</p>
+<p>We
+reviewed the Room RT tab earlier while constructing our Model_1 Room. If you
+skipped that portion of the tutorial, return to page 62 to review it.</p>
+<p>182</p>
+<p><b>Chapter
+9: Room Investigatiions</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p>Now it’s
+time to open the Area Mapping window. Return to the <i>Main</i> window and
+select <i>Area Mapping</i> from the <i>Calculations</i> pull dopwn menu.</p>
+<p><img
+width=411 height=296 src="E3.files/image046.jpg"></p>
+<p>it’s
+possible your screen may not show the Audience Area names. If it does not, go
+to the <i>Items</i> pull down menu and turn on <i>Audience</i> <i>Area Labels </i>or
+use the Tool Bar icon to turn them On. Note that the four Audience Areas are
+not simply labeled A1, A2, etc. EASE allows<i> </i>you to use labels that are
+more descriptive and we strongly advise you to do so for the Audience Areas,
+Loudspeakers and Listener Seats. It makes everything so much easier.</p>
+<p><b>Moving
+Audience Areas</b></p>
+<p>Notice
+that the Audience Area labeled BAL, the balcony Audience Area, does not overlap
+or shadow the two main floor Audience Areas (areas A2 &amp; Main) as it does in
+the actual room. This is because EASE allows you to move Audience Areas for
+display purposes. If you want to try this out, return to the <i>Main</i> menu
+and open the <i>Edit Project</i> program. Then select <i>Area Layout</i> from
+the <i>Edit</i> pull down menu to view the Audience Areas. Pick one of the
+Audience Areas and then select <i>Move</i> from the <i>Edit</i> pull down menu.
+The cursor will now turn from a pointer into a pair of pliers. Use the pliers
+to grab the selected Audience Area and move it around the screen. It's that
+easy to re-arrange Audience Areas for easy viewing.</p>
+<p><b>Mapping</b></p>
+<p>Clicking
+on any one of the Mapping icons in the Tool Bar section of the Area Mapping
+window will initiate the Mapping procedure and open the Settings dialog box.</p>
+<p><img
+width=264 height=267 src="E3.files/image047.jpg"></p>
+<p>This
+window and the ones that follow remind you of the parameters that need to be
+set up before a simulation. The Settings tab is where you select the frequency
+of the simulation, choose what loudspeaker(s) will be used and decide upon the
+resolution.</p>
+<p>You
+also are presented with the choice of running a <i>Single</i> map or of using
+the <i>All</i> <i>Mappings </i>feature. When<i> All Mapping </i>is selected,
+the program gathers all the<i> </i>data it needs to quickly display all the
+simulations available at any frequency. This is a great time saver when you are
+doing a detailed analysis. We suggest using the <i>All Mapping</i> option and
+selecting <i>Direct SPL</i> as the measure to show first.</p>
+<p>Clicking
+on the Loudspeaker button opens a list of the loudspeakers used in the model
+and gives you the opportunity to select which ones will be used in the
+sim-ulation.</p>
+<p>We’ll
+discuss the Resolution later. For now accept the default setting. Click on <i>Next
+</i>to advance to the next setup window.</p>
+<p>183</p>
+<p><b>EASE
+4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img
+width=666 height=290 src="E3.files/image048.jpg"></p>
+<p>The
+Items tab lets you choose what Audience Areas and Listener Seats will be
+included in the simulation.</p>
+<p>Click
+on the <i>Aud. Are</i>a button and select all four of the Audience Areas. Note
+that the easy way to do this is to right click on the <i>OK</i> button to
+select all of them and then left click on <i>OK</i>. To select several of the
+Areas, hold down the <i>Ctrl</i> button and make your selection using the left
+Mouse button.</p>
+<p><img
+width=264 height=267 src="E3.files/image049.jpg"></p>
+<p>Then
+either open the <i>Noise</i> tab or click on <i>Next</i> to open it.</p>
+<p>The
+Noise setup window allows you to set the noise levels (modify the de-fault
+settings established in Room Data) that will be used in intelligibility
+cal-culations. These are important to accurate Intelligibility projections, so
+don’t overlook them. Accept the default settings for now and click on <i>Next</i>.</p>
+<p><img
+width=264 height=267 src="E3.files/image050.jpg"></p>
+<p>The
+Calculations window allows you to make further adjustments to the de-fault
+settings established in Room Data. Shadowing can be turned On or Off. When
+Shadowing is On, EASE takes into account the shadowing effect of any objects in
+the room, such as columns and balconies. When it's Off, it doesn't.</p>
+<p>Under <i>Interference</i>,
+make sure <i>Interference Sum</i> and <i>Third Octave</i> are checked and the <i>Split
+Time</i> is set to 35. Refer back to page 182 for further information on these
+settings if you feel you need it. For now, accept the de-fault settings.</p>
+<p>Finally,
+click on <i>OK</i> to run the simulation.</p>
+<p>184</p>
+<p><b>Chapter
+9: Room Investigatiions</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p>It will
+take a minute or two for the program to gather all the data need to render the
+Direct SPL Map. Note that the program scans each Au-dience Area individually
+and then goes on to the next Audience Area. When the simulation is complete,
+the window shown below will open. Notice that the View Calculations control
+window essentially covers the actual SPL Map.</p>
+<p><img
+width=512 height=369 src="E3.files/image051.jpg"></p>
+<p>To view
+the SPL Map click on the big minus sign icon on the left side of the View
+Calculations control screen to minimize it; see below.</p>
+<p><img
+width=512 height=369 src="E3.files/image052.jpg"></p>
+<p>185</p>
+<p><b>EASE
+4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p><b>Display
+Methods</b></p>
+<p>Before
+we go on let’s take a look at the various mapping display methods offered by
+EASE. Control of the display method is provided by the four Tool Bar display
+icons or by using the View pull down menu.</p>
+<p>The
+default display method and the method we have used so far in the Tutorial is
+commonly called Color Patches; the View pull down menu lists it as Patch Grid
+and Painted.</p>
+<p>Another
+method uses Isobars instead of Patches. The isobar graphic below was made by
+turning Painted (Color) off and Labels On.</p>
+<p>Note
+that if you going to use a black &amp; white Isobar display, Labels must be on
+or all you will see is blank areas.</p>
+<p><img
+width=504 height=310 src="E3.files/image053.jpg"></p>
+<p>The
+next graphic was made with with Patch Grid turned On and Coloring turned Off.
+It plainly shows why the method is called Patches or Patch Grid. EASE scans
+each square (Patch) sequentially to develop the display.</p>
+<p><img
+width=504 height=310 src="E3.files/image054.jpg"></p>
+<p>The
+size of each Patch determines the resolution and the amount of time needed to
+do the calculation. The smaller the Patch size, the higher the resolution and
+the longer the calculation takes.</p>
+<p>186</p>
+<p><b>Chapter
+9: Room Investigatiions</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p>Control
+of the resolution is provided by the first Calculation Parameters setup window.
+See below.</p>
+<p><img
+width=332 height=332 src="E3.files/image055.jpg"></p>
+<p>We have
+been using 1 for the patch size and 1 dB for the Isoline display. The display
+shown below was made using a patch size of 3. No-tice the loss of resolution.</p>
+<p>Notice
+that the setup window also contains a <i>Use Area Setting</i> check box and a <i>L/8</i>
+button. The Properties window for Audience Areas al-lows you to define the scan
+resolution for each individual Audience Area. Checking <i>Use Area Settings</i>
+tells the program to use these set-tings instead of the Patch Size setting.
+Pressing the L/8 button changes the resolution (the patch size) to 1/8
+wavelength at the frequency chosen for the simulation (.14 feet at 1000 Hz and
+.07 feet at 2000 Hz, for example).</p>
+<p><img
+width=504 height=310 src="E3.files/image056.jpg"></p>
+<p>Note
+that in all the Mapping displays, you can obtain a readout of the level at any
+point by left clicking on that point; right clicking will both readout the
+level and write it on the display.</p>
+<p>187</p>
+<p><b>EASE
+4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p><b>View
+Calculations Window</b></p>
+<p>The
+Frequency tab display is showing us the Direct SPL values for all frequencies
+at the location shown.</p>
+<p><img
+width=391 height=307 src="E3.files/image057.jpg"></p>
+<p>Note
+the four color bars to the right of the graph. The top three allow you to look
+at the <i>Average</i>, <i>Minimum</i> and Maximum SPL levels for the area
+scanned. The bottom one allows you to turn off the red SPL curve for the
+individual location. The result of turning Average, Minimum and <i>Maximum</i>
+On is shown below.</p>
+<p><img
+width=391 height=307 src="E3.files/image058.jpg"></p>
+<p>Note
+that moving the cursor to any point on one of the curves will produce a readout
+in the Cursor field at the bottom of the window giving you the frequency and
+Direct SPL level at that point.</p>
+<p>The
+View section in the lower left of the window allows you to change the display
+window from a graph to a tabular listing of the same infor-mation or to a side
+by side display of both. Try it out.</p>
+<p>The <i>Send
+Picture To</i> button is a quick way to save the chart/graph to the Clipboard
+as an electronic file or to send it to the EASE Page De-signer. The <i>Send
+Values</i> button saves the single values to the Clipboard for further post
+processing.</p>
+<p>188</p>
+<p><b>Chapter
+9: Room Investigatiions</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p>The <i>File
+Info</i> tab contains a statistical summary of the setup parameters, including
+the loudspeakers used, their locations and output levels in an ASCII text
+format that can be saved and opened in other programs and then printed.</p>
+<p>The <i>Echogram</i>
+tab is empty at this time and will be until an Echogram is created. Echograms
+are a feature available only to AURA users.</p>
+<p>We'll
+cover them later in the AURA section of this manual.</p>
+<p>The <i>Distribution</i>
+tab opens the distribution window which displays a bar graph representation of
+the selected parameter, Direct SPL at 1000 Hz in the example shown below. As
+you can see, it enables you to quickly determine what percentage of the mapped
+areas fall within cer-tain criteria. In this example, 90 % of the total area
+falls within 94 to 98 dB (plus or minus 2 dB) .</p>
+<p>This
+window is your answer to the specifications that call for coverage to be
+&quot;flat within +/-__dB&quot;. Use the Cursor and Cursor value readout below
+the bar graph to obtain exact readings.</p>
+<p><img
+width=391 height=307 src="E3.files/image059.jpg"></p>
+<p>If you
+find it hard to read the exact figures from the graph, click on <i>Table</i> to
+open the Distribution Table which gives you exact figures.</p>
+<p><img
+width=391 height=307 src="E3.files/image060.jpg"></p>
+<p>189</p>
+<p><b>EASE
+4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p>Now,
+lets take a closer look at the top Tool Bar portion of the View Calculation
+window.</p>
+<p><img
+width=595 height=103 src="E3.files/image061.jpg"></p>
+<p>The
+large button on the left (the + button in the above graphic) opens and closes
+the bottom Evaluation Display portion of the window. It al-lows you to close
+the bottom portion of the window, so you can see the Map.</p>
+<p>The <i>Open
+Folder</i> icon is used to open previously created .emp Mapping files for
+review. The <i>Floppy Disk</i> icon button next to it is used to save the
+current simulation as a .emp Map file. The <i>Notepad</i> icon is used to save
+the current file in an ASCII .txt format. The <i>Waste Basket</i> icon is used
+to delete the current simulation file from the View Calculation module and
+choose another one from the File Listing drop down menu.</p>
+<p>The
+left colorful Map icon is used to draw a new Map. Lets try it out. Open the
+drop down menu directly below the Redraw button and se-lect a new simulation
+type. Note that you have a wide variety to choose from. Selecting one, STI for
+example, and then pressing the <i>Re-draw </i>button will quickly produce an
+STI map in place of the Direct SPL map. Since we used All Mapping, the program
+doesn't have to rerun<i> </i>the entire simulation. All it has to do is scan
+the data it collected and render the drawing, a process that takes only a few
+seconds.</p>
+<p>The
+right colorful Map icon allows the selection of all simulations and all
+frequencies and frequency resolutions. Pressing the icon, opens a drop down
+menu giving you the choice of <i>Render All</i> or <i>Send to EASEPaD</i>. <i>Render
+All</i> will render all the Maps selected and <i>Send To</i> <i>EASEPaD </i>will
+both render the Maps and send them to<i> EASEPaD </i>for further processing.</p>
+<p>Selecting
+one of the two choices will open the selection menu shown below. The buttons
+and the selection fields make it easy for you to select the specific Maps you
+want to see or save. Try it out. You'll find it a very useful tool for putting
+together presentations.</p>
+<p><img
+width=286 height=399 src="E3.files/image062.jpg"></p>
+<p>190</p>
+<p><b>Chapter
+9: Room Investigatiions</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p>The <i>Frequency</i>
+drop down menu allows you to quickly select the center point of the frequency
+band that will be used in the next simulation while the <i>Bandwidth</i> drop
+down menu determines the width of the frequency band.</p>
+<p>Note
+that you have a choice of Third Octave, One Octave, Three Octaves, Broadband
+and a number of specific frequencies. One Octave will average the results over
+one octave, while Broadband will show the results averaged across the entire
+spectrum. Custom bandwidths can be generated using the <i>Frequency</i> menu to
+set the lower frequency limit and the numerical frequency listings to set the
+upper limit, 1000 Hz plus to 5000 Hz for example.</p>
+<p>The wider
+the bandwidth, the less apparent the effects of comb filtering. As a general
+rule, simulations run with a 3 octave bandwidth come closest to simulating the
+variations you will hear while &quot;walking&quot; the room during the final
+commissioning.</p>
+<p>The
+location section of the tool bars shown below identifies the location of the
+graph shown in the display section of the window and allows you to change the
+location.</p>
+<p><img
+width=372 height=58 src="E3.files/image063.jpg"></p>
+<p>In this
+case we are looking at the 1st point in Audience Area A2. The location
+coordinates follow. The l&lt;, &lt;, &lt; &lt; and &gt;&gt;, &gt;, &gt;l
+buttons allow you to move backwards and forwards through the points scanned.
+The number field allows you to choose the size of the step.</p>
+<p>The <i>Walker</i>,
+when activated, displays the actual location.</p>
+<p>The <i>Weight</i>
+drop down arrow allows you to select between “unweighted” frequency curves and
+A-Weighted curves. See below.</p>
+<p><img
+width=391 height=307 src="E3.files/image064.jpg"></p>
+<p>191</p>
+<p><b>EASE
+4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p>Before
+we go on let’s take time to save the mapping file. You may have noticed that in
+the View Calculations window the word “Temporary” followed the name of the
+calculation. This is the program’s way of telling you that the Mapping file you
+created has not been saved and will be lost if you close it without saving it.</p>
+<p><img
+width=359 height=247 src="E3.files/image065.jpg"></p>
+<p>Clicking
+on the <i>Floppy Disk</i> icon will open a familiar Window Save dialog box.
+Name the Calculation file and then <i>Save</i> it as a .emp file. To open the
+file at a later time, open Area Mapping and select Load EASE Mapping from the
+File pull down menu. Then browse to the file and select it.</p>
+<p><b>STI 
+Speech Transmission Index</b></p>
+<p>STI has
+largely replaced ALcons as the preferred method of measuring intelligibility.
+EASE and EASE JR now project STI using the MTI (Modulation Transfer Index) in
+accordance with IEC Standard 60268-16:2003.</p>
+<p>Select
+STI from the drop down measurement type field in the View Calculations window
+to calculate STI from the data that was gathered from the All Mapping
+simulation. Note that the resultant display shows both the single STI figure
+and the frequency band sensitive MTI fig-ures.</p>
+<p><img
+width=391 height=307 src="E3.files/image066.jpg"></p>
+<p>If you
+need the exact STI figure, click on Table.</p>
+<p>192</p>
+<p><b>Chapter
+9: Room Investigatiions</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p>Notice
+that the Calculations Control window now includes an <i>Options</i> tab.
+Clicking on it opens the STI Options folder shown below.</p>
+<p>It
+allows you to choose between the “Standard” STI and ones calculated for either
+Male or Female voices. Other calculation options include <i>STIPa Male</i>,<i>
+STIPa female </i>and<i> RaSTI </i>simulations. You also are given the choice of
+considering the Noise Floor and/or the effects of<i> Sig-nal Masking </i>in the
+STI simulations.</p>
+<p><img
+width=391 height=307 src="E3.files/image067.jpg"></p>
+<p>Please
+check these out to become familiar with the differences.</p>
+<p>If you
+want to see the STI Area Map, click on the <i>Render</i> icon.</p>
+<p>Note
+that changing from one measure to another in the Area Map is a 2 step
+procedure. First, you need to select and calculate the meas-ure from the data
+gathered during All Mapping and then you need to Render (redraw) the map.</p>
+<p><img
+width=391 height=241 src="E3.files/image068.jpg"></p>
+ <p>A reference guide for interpreting STI figures follows:</p>
+ <p> 
+ <p>0.75 to 1</p>
+ <p>Excellent</p>
+ <p> 
+ <p>0.6 to 0.75</p>
+ <p>Good</p>
+ <p> 
+ <p> 
+ <p>0.45 to 0.6</p>
+ <p>Fair</p>
+ <p> 
+ <p>0.3 to 0.45</p>
+ <p>Poor</p>
+ <p>0 to 0.3</p>
+ <p>Unacceptable</p>
+ <p> 
+<p>193</p>
+<p><b>EASE
+4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p><b>ALCons</b></p>
+<p>EASE
+and EASE JR 4.3 derive ALCons (% Articulation Loss of Consonants) from the
+Speech Transmission Index using the Farrel Becker equation. Refer to <i>Appendix
+A, ALCons STI</i> in the EASE 4.3 Manual (C:/Program Files/EASE
+4.3/EasePath/Ease4.3Manual) for details on the relationship between STI and
+other related measures such as RaSTI and STIPa.</p>
+<p>A
+typical ALCons map appears below. In ALCons, Green is good. To be more
+specific:</p>
+ <p>Percent ALCons</p>
+ <p>0% to</p>
+ <p>3%</p>
+ <p>Excellent</p>
+ <p>3% to 7%</p>
+ <p>Good</p>
+ <p>7% to 15%</p>
+ <p>Fair</p>
+ <p>15% to 33%</p>
+ <p>Poor</p>
+ <p>Above</p>
+ <p>33%</p>
+ <p>Unacceptable</p>
+<p>Note:
+This scale corresponds with the standardized STI values, but experience has
+shown that good intelligibility is achieved with less than 12% ALcons and very
+good intelligibility with ALcons of 7% or less.</p>
+<p><img
+width=391 height=241 src="E3.files/image069.jpg"></p>
+<p><b>C
+(Clarity) Calculations</b></p>
+<p>C
+(Clarity) calculations offer several ways to evaluate the acoustic performance
+of a room and its loudspeaker system. They are widely used in Europe.</p>
+<p><b>C7 </b>is
+equivalent to the D/R ratio widely used in the U.S. and represents another way
+to look at the strength of the Direct Sound field. It<b> </b>displays in dB the
+ratio of direct and reverberant sound using a Split Time of 7 ms. Values above
+-15 dB show good localization (a good D/R ratio). The closer the value comes to
+0, the better the localization.</p>
+<p><b>C50 </b>is used
+to project speech intelligibility. It displays the ratio of energy before and
+after 50 ms; i.e., its similar to Alcons with a 50 ms Split<b> </b>Time. Any
+value above 0 dB in a room with normal reverberation represents good
+intelligibility. In rooms with higher than normal reverbera-tion, any value
+above -5 dB is considered good.</p>
+<p><b>C80 </b>is
+often called a clarity ratio. It uses an 80 ms Split Time to predict the
+articulation (clarity) of different types of music. In other words, it<b> </b>provides
+a look at the room's musical performance. A brief explanation follows.</p>
+<p>Musical
+instruments can be divided into four basic types:</p>
+<p>1. Blown instruments (e.g., organ, tuba, clarinet, etc.)
+These instruments have a slow attack and slow decay.</p>
+<p>2. Bowed instruments (e.g., violin, viola, cello, bass
+etc.) These instruments have slightly quicker attack and slow decay.</p>
+<p>3. Plucked instrument (e.g., guitar, string bass,
+harpsichord, etc.) These instruments have quick attack and medium slow decay.</p>
+<p>4. Percussive
+instruments (e.g., piano, drums, electronic instruments, xylophone etc.) These
+instruments have a quick attack and a quick decay.</p>
+<p>194</p>
+<p><b>Chapter
+9: Room Investigatiions</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p>The
+scale for interpreting C80 follows:</p>
+<p>• 0 +/- 2 dB is ideal for organ or blown instruments played
+at a slow rate of speed. This is perfect for organ recital halls</p>
+<p>• 2
++/-2 dB is ideal for bowed instruments and is best shown by a room made for
+classical or symphonic instrumental music. The speed of the music is quicker.
+The music of live choirs is also good at this level. This would be good for
+traditional churches</p>
+<p>• 4
++/-2 dB is ideal for plucked instruments. The speed of the music is quicker as
+well as more modern. This would be described as folk music or in churches as
+Light Contemporary. This would also cover light popular music such as Light
+Jazz</p>
+<p>• 6
++/-2 dB is ideal for percussive instruments. This can be described best as Rock
+and Roll. In churches this would be known as Full Contemporary.</p>
+<p>For
+good musical performance, the number should not exceed +8 dB at any location. A
+C80 plot for Theater1 follows.</p>
+<p><img
+width=391 height=241 src="E3.files/image070.jpg"></p>
+<p><b>Csplit</b></p>
+<p>Csplit
+offers a way to look at the energy ratios before and after the selected Split
+Time. It gives you the opportunity to see the effect of dif-ferent Split time
+settings. The selected Split Time in this case, of course, is the Split Time we
+set up before running the All Mapping simula-tion (35 msec.)</p>
+<p><b>D/R
+Ratios</b></p>
+<p>D/R
+Ratio shows the ratio of direct to reverberant sound in terms of dB. Zero dB
+indicates the sound levels are the same. Numbers less than 0 indicate the
+reverberant sound level is higher than the direct sound level. Numbers greater
+than 0 indicate the direct sound level is higher. Note that in Theater 1 the
+reverberant level is higher than the direct sound level. This is not unusual.</p>
+<p><img
+width=391 height=241 src="E3.files/image071.jpg"></p>
+<p>195</p>
+<p><b>EASE
+4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p><b>Critical
+Distance</b></p>
+<p>Critical
+Distance displays the ratio of Direct to Reverberant sound in terms of
+distance. Critical Distance is the distance in space at which the Direct and
+Reverberant sound levels are equal. This is displayed as a 1. Figures of more
+than 1 indicate the reverberant sound level at this distance is higher than the
+direct sound coming from the loudspeakers. Figures lower than 1 indicate that
+at this distance from the Loudspeakers the Direct Sound level is higher than
+the level of the reverberant field.</p>
+<p>A
+Critical Distance plot for Theater 1 appears below. Note all the figures are
+above 1, another indication that the reverberant field is higher in level than
+the Direct Sound.Pressure Levels</p>
+<p><img
+width=391 height=241 src="E3.files/image072.jpg"></p>
+<p><b>Pressure
+Levels L7, L50, L80, Lsplit</b></p>
+<p>The L7,
+L50 and L80 simulations allow you to look at the sum of the direct and
+reverberant sound energy within the specified time; for ex-ample the first 7
+msec when L7 is used. Lsplit uses the split time set up for the simulation, in
+this case 35 msec. In other words, Pressure Level simulations are similar to
+the C7, C50, C80, Csplit calculations, except they show you the total sound
+during the specified period.</p>
+<p><b>Total
+SPL (SUM)</b></p>
+<p>Sum or
+Total SPL displays the sum of the Direct and Reverberant sound energy in dB. In
+other words, it displays the total sound level.</p>
+<p>Don't
+be surprised at the small variation between the minimum and maximum levels.
+It's normal.</p>
+<p><b>Arrival
+Time</b></p>
+<p>Arrival
+Time (First) shows the arrival times of the direct sound from the loudspeakers in
+terms of msec. It is extremely useful in determining the amount of delay needed
+in distributed loudspeaker systems. Exact readings can be obtained by clicking
+on the screen with either the right or left mouse button. The left button
+&quot;reads out&quot; the time; the right button writes it on the screen.</p>
+<p><img
+width=391 height=241 src="E3.files/image073.jpg"></p>
+<p>196</p>
+<p><b>Chapter
+9: Room Investigatiions</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p><b>Lspk
+Overlap</b></p>
+<p>Lspk
+Overlap shows the number (quantity) of loudspeakers of comparable intensity
+providing sound at a specific location. A value of 1 indi-cates that there is
+no overlap. Values greater than 1 indicate the amount of overlap. As a general
+rule, values of 1.5 or greater indicate that comb filtering or other
+undesirable interference behaviors may be expected at that location. A Lspk
+Overlap display for Theater 1 follows.</p>
+<p><img
+width=391 height=241 src="E3.files/image074.jpg"></p>
+<p><b>ITD Gap</b></p>
+<p>ITD Gap
+displays the difference in arrival times between the first two direct sound
+arrivals. This information is useful in determining the proper placement of
+loudspeakers and the delay times needed in distributed loudspeaker systems.
+Note that we have added to this display a number of value readouts.</p>
+<p><img
+width=391 height=241 src="E3.files/image075.jpg"></p>
+<p>197</p>
+<p><b>EASE
+4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p><b>Aiming</b></p>
+<p>Aiming
+produces coverage isobars on the Audience Areas as an aid to aiming the
+loudspeakers. It is not included in the drop down meas-urement selection menu
+we have been using since it is more of an overlay than a true map.</p>
+<p>To turn
+Aiming On, either select Aiming from the pull down Mapping menu in the Standard
+Mapping window or use the Tool Bar icon.</p>
+<p>Coverage
+isobars will quickly appear on top of the map being viewed at the time you
+turned On Aiming. They will reflect the parameters used in the previous
+simulation; loudspeakers used, frequency, shadowing, etc.</p>
+<p><img
+width=391 height=241 src="E3.files/image076.jpg"></p>
+<p>The
+heavy squares in the display shown above represent the aiming points of
+loudspeakers aimed directly at one of the Audience Areas.</p>
+<p>As you
+can see not all the loudspeakers are aimed at points within the Audience Areas.</p>
+<p>This
+graphic was made with Shadowing turned On. The blue lines are calling your
+attention to the shadowing effects of the balcony and its location.</p>
+<p>The
+Aiming display comes with several options. Right click on the screen to open
+the Mouse menu and select <i>Options</i> or press <i>F9</i> to open the Options
+menu. Then select the <i>Items</i> folder. Note that you have a choice of -3
+dB,- 6 dB or -9 dB coverage lines. You can also turn the <i>Radii </i>On or
+Off. Make whatever changes you want, then click on<i> Apply </i>to see the
+change. If you like the new effect, click on<i> OK</i>.</p>
+<p>Be
+aware that the Aiming overlay will remain On until you turn it Off.</p>
+<p><b>Auralize
+Direct Sound</b></p>
+<p>One of
+the interesting features offered by both EASE JR and EASE is the ability to
+auralize Direct Sound. This features allows you to quickly audibly check
+loudspeaker alignment and level adjustment in multi-loudspeaker systems. It can
+be activated from either Area Map-ping or Room Mapping.</p>
+<p>We'll
+use Area Mapping. Return to the <i>Main</i> window and select <i>Area Mapping</i>
+from the <i>Calculations</i> pull down menu. Then, select either Direct SPL or
+Recalculate and proceed through the setup windows. The program needs to know
+what loudspeakers will be used in the au-ralization.</p>
+<p>When
+the simulation is complete and the View Calculations window appears, close it.
+Then open the <i>Tools</i> pull down menu, select <i>Aural-ize Direct Sound </i>and
+use the mouse to select a spot in one of the Audience Areas. (Note that the
+cursor changed into cross hairs when<i> </i>you selected Auralize Direct
+Sound.) Clicking on a spot in one of the Audience Areas with the left mouse
+button will open the Auralization control window shown at the top of the next
+page.</p>
+<p>198</p>
+<p><b>Chapter
+9: Room Investigatiions</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p><img
+width=346 height=396 src="E3.files/image077.jpg"></p>
+<p>Unless
+you have previously changed the default settings, only the <i>Eject</i> button
+will be active. Under normal opera-tion (the default settings) it acts as a
+procedural start but-ton by loading the FIR Filter and then activating the <i>Go</i>
+button.</p>
+<p>Now,
+it's time to have a little fun. Run several auraliza-tions at different spots
+in the audience with all of the loud-speakers turned On. Note that the response
+at each location is stored as a FIR Filter file in the program and that you can
+quickly and easily switch between the differ-ent FIR files.</p>
+<p>Before
+you can proceed with the direct sound auraliza-tion, you need to select the
+Input Signal that will be used. Click on the <i>File Folder</i> icon and select
+the <i>Male Voice</i> <i>.Wa</i>v file.</p>
+<p>Then
+press the <i>Eject</i> button to reset the system and acti-vate the <i>Go</i>
+button. Press the <i>Go</i> button and listen to the Auralization over your
+computer’s loudspeakers.</p>
+<p>Note
+that you may have to turn up the level on your PC's sound card to hear the
+Direct Sound auralization and that you are listening to only Direct Sound; no
+reflections are included. To hear the reflections, you must have EASE and EARS.</p>
+<p><img
+width=346 height=396 src="E3.files/image078.jpg"></p>
+<p>You
+will find that the loudspeaker system is quite well aligned and balanced.</p>
+<p>Then
+open, if it is not open, the Edit Project module. Se-lect the center balcony
+loudspeaker <i>(Balc. Delay Ctr</i>) and insert a 200 msec delay.</p>
+<p>Select
+the loudspeaker and then open its <i>Properties</i> folder using the Mouse
+menu. Change the <i>Delay Time</i> from 54 to 200 msec and <i>OK</i>. Now hit <i>F6</i>
+to <i>Apply and</i> <i>Save </i>the change . Return to the Area Mapping window<i>
+</i>and Acquire Data using the File pull down menu.</p>
+<p>Now, do
+several Direct Sound auralizations with the new settings. You'll notice a big
+difference.</p>
+<p>199</p>
+<p><b>EASE
+4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p><b>Ray
+Tracing</b></p>
+<p>Ray
+Tracing is an often used concept in CAD programs for the rendering of
+illuminated objects. In EASE, Ray Tracing is used to study the propagation of
+sound rays. Rays are released into the room and each Ray's path is traced until
+it reaches predetermined limits.</p>
+<p>Ray
+Tracing allows you to study reflection patterns within the room by emitting
+rays whose reflection paths can be viewed and investigated. The key words in
+the previous sentence are &quot;reflection patterns&quot;. The Ray Tracing
+routine does not allow you to investigate reflections that hit a specific spot
+within the room. Comparatively few rays are needed in Ray Tracing to produce
+the quantity of rays needed for reflection pattern studies and for the Movie
+module. Consequently, Ray Tracing reflection pattern studies are relatively
+quick to make. Only a few hundred rays and low order reflection orders are
+needed. The maximum for EASE JR users is 1000 rays and Third-Order reflections.</p>
+<p><img
+width=198 height=121 src="E3.files/image079.jpg"></p>
+<p>To
+start Ray Tracing, if the <i>Edit Project</i> module is open close or minimize
+it and then return to the <i>Main</i> menu and open the <i>Calculations</i>
+pull down menu. Selecting <i>Ray Tracing</i> will open the Prompt shown to the
+right.</p>
+<p>It's
+asking if you want to be able to look at the Rays as they are being drawn.
+Let's say <i>Yes</i>.</p>
+<p>This
+will open two windows, the main Ray Tracing control window and the Ray Tracing
+View</p>
+<p>Project
+window; see below.</p>
+<p><img
+width=596 height=448 src="E3.files/image080.jpg"></p>
+<p>Select
+the <i>Rays</i> pull down menu in the <i>Ray Tracing Control</i> window and
+then click on <i>Ray Tracing</i>. This will open the Ray Tracing setup window
+shown at the top of the next page.</p>
+<p>200</p>
+<p><b>Chapter
+9: Room Investigatiions</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p>The <i>Loudspeaker</i>
+and <i>Lspk Group</i> but-tons are used to select the loudspeakers that will be
+used in the simulation, while the <i>Rays per Loudspeaker</i> field deter-mines
+how many rays will be emitted by each loudspeaker. The thing to remem-ber while
+making these setups is that the larger the number of loudspeakers and the more
+rays emitted by each loud-speaker, the longer the calculation time.</p>
+<p><img
+width=458 height=262 src="E3.files/image081.jpg"></p>
+<p>The <i>Trace
+Control By</i> section sets up the ray cutoff parameters for the simulation. <i>Order
+</i>determines how many reflections<i> </i>(bounces) the program will trace,
+before going on to the next ray. For reflection pattern studies no more than
+Third-Order</p>
+<p>reflections
+(the maximum allowed by EASE JR) are needed.</p>
+<p><i>Time </i>establishes
+the length of the investigation. Lengths of 100 to 300 ms are typical for Ray
+Tracing, although shorter and longer times<i> </i>are possible. <i>Loss</i>
+cuts off the ray trace when the SPL has dropped the specified amount. This is
+typically set at 60 dB.</p>
+<p><i>Directed
+Emission </i>produces a weighted display used primarily to enhance simple
+reflection studies and Movie presentations.</p>
+<p>The <i>Tracing
+Options</i> section determines how the rays will be displayed and whether or
+not they will be saved in a <i>Trace</i> file. When <i>Draw</i> <i>Trace Rays </i>is
+checked the program will draw the rays in the<i> View Project </i>screen. The
+rays will appear in rapid order on the screen as their<i> </i>paths are
+calculated by the program unless <i>Show Every Ray</i> is also checked.
+Checking <i>Show Every Ray</i> allows you to manually step through and observe
+the rays one by one as they are calculated.</p>
+<p>When <i>Brief
+Ray Info</i> is checked, information on each Ray's path will flash across the
+Ray Tracing Control window while the window color flashes with the Ray's color.</p>
+<p><i>Make
+Trace File </i>saves the results of the simulation in a .trc Trace file for
+later viewing and analysis using<i> View Trace File</i>. View Trace File<i> </i>provides
+many more viewing options than Ray Tracing, including the ability to
+individually look at each loudspeakers reflection pattern.</p>
+<p>Because
+of this, many experienced users will run an extensive trace file using all of
+the loudspeakers and then use View Trace File to ana-lyze the reflection patterns.</p>
+<p>Let's
+try out Ray Tracing. For our first try, we'll use only the Main floor and Balc
+De-layL, Balc DelayR and Balc Delay Ctr loudspeaker and 500 rays. Press the <i>Loudspeaker
+</i>button and select them and<i> </i>insert 500 into the <i>Rays per
+Loudspeaker</i> fierld..</p>
+<p><img
+width=458 height=262 src="E3.files/image082.jpg"></p>
+<p>Then
+set the <i>Order</i> to 3, the <i>Time</i> to 200 ms and the <i>Loss [dB]</i>
+to 60 dB. We'll use <i>Directed Emission</i>, too, as we'll be using<i> </i>the
+Movie feature shortly. Note that you have to put a check in the <i>Time [ms]</i>
+and <i>Loss [dB] </i>boxes before you can fill in the<i> </i>fields. Then put
+checks into <i>Draw Trace</i> <i>Rays </i>and<i> Brief Ray Info</i>. The setup
+menu<i> </i>should look like this when you are done.</p>
+<p>201</p>
+<p><b>EASE
+4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p>Before
+you click on <i>OK</i>, make sure you can see the View Project window. You'll
+may want to rearrange the screen to get a better view of it.</p>
+<p>Now
+click on <i>OK</i>. Notice that the room quickly fills up with yellow and
+magenta rays. The magenta color rays are the programs way of telling you that
+the time window is too short; that many of the rays are being cut off by the
+time limitation before their trace is completed. Do the Ray Trace again with
+the <i>Time</i> set to 400 ms and you'll see the magenta rays disappear, an
+indication they are now being allowed to finish their trace. Note that the Ray
+Tracing Control window summarizes the completed simulation.</p>
+<p><img
+width=463 height=347 src="E3.files/image083.jpg"></p>
+<p>Also
+notice that as soon as you <i>OK</i> the <i>Computation Ready</i> prompt that
+appears at the end of the tracing routine the rays disappear. The same thing
+happens if you attempt to rotate or enlarge the room to get a better view of
+the rays. The way around this is to use the <i>Make</i> <i>Trace File </i>option,
+so most users will automatically make a Trace File every time they do an
+investigation. Its easier to work with and more<i> </i>flexible. Let's see how
+this works.</p>
+<p>Open
+the <i>Ray Tracing</i> setup menu again; go to the Ray Tracing Control window
+and select <i>Ray Tracing</i> from the Rays pull down menu. This time select <i>Make
+Trace File</i>. Also, make sure <i>Draw Trace Rays</i> and <i>Show Every Ray</i>
+are not checked. All we want to do is to make a Trace File and forcing the
+program to draw the rays only slows down the computations. Click on <i>OK</i>.
+This will brings up a screen which al-lows you to name the file and choose its
+location (see below).</p>
+<p><img
+width=387 height=266 src="E3.files/image084.jpg"></p>
+<p>202</p>
+<p><b>Chapter
+9: Room Investigatiions</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p><b>VIEW
+TRACE FILE</b></p>
+<p>Note
+that the program will be placing the .trc Trace File in a Raytracing folder in
+the Theater 1 Project folder. The computation will start as soon as you click
+on <i>Save</i>.</p>
+<p>As soon
+as the computation is completed, the View Trace File screen will appear.</p>
+<p><img
+width=383 height=238 src="E3.files/image085.jpg"></p>
+<p>Note
+that with a click of a button you can draw all the rays or just the bounce
+points, or clear the display (Wipe Room). You can also turn the loudspeakers On
+and Off individually, enabling you to study each loudspeakers reflection
+pattern.</p>
+<p>You can
+also rotate and/or enlarge the room at will to get a better view of the Ray's
+paths without losing the display.</p>
+<p>Opening
+the <i>Ray</i> tab introduces the control menu shown below. Notice that it
+gives you the ability to step through each individual Ray and simultaneously
+displays information on the Ray's path and final SPL level.</p>
+<p><img
+width=383 height=238 src="E3.files/image086.jpg"></p>
+<p>The
+scroll bar allows you to bypass the “ray by ray” review and “scroll” ahead or
+back to various parts of the Ray Tracing study; jump from Ray #10 to reflection
+Ray #200 for example.</p>
+<p>203</p>
+<p><b>EASE
+4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p>Another
+thing that can be done in View Trace File is to look at only the Rays generated
+within the loudspeaker -3 dB, -6 dB and -9 dB cov-erage cones. To try this out,
+click on the <i>Ray Tracing Contro</i>l window and press <i>F9</i>, or go to
+the <i>File</i> pull down menu and select the <i>Options</i> folder to open the
+following screen.</p>
+<p><img
+width=360 height=282 src="E3.files/image087.jpg"></p>
+<p>Note
+that the Default settings have the &quot;In Use&quot; box selected in the <i>Ray
+Impact</i> Colors section while <i>In Use</i> is not selected in the <i>Attenua-tion
+(1m) </i>section. Change this by clicking on the Attenuation (1m)<i> &quot;In
+Use&quot; </i>button and then<i> OK </i>the change. We will now be seeing the<i>
+</i>Rays based on the loudspeakers coverage cone, instead of by their normal
+Ray colors.</p>
+<p>Note
+that the program allows you to Hide certain items. If we had wanted to show
+only the -3 dB cone, we would have checked the Hide boxes associated with -6 dB
+and -9 dB. Note that now when you draw (step through the Rays from a loudspeaker,
+you will see only the Rays generated within the loudspeakers -3 dB coverage
+cone. See below. Notice the number of reflections off the floor into the under
+bal-cony area.</p>
+<p>You can
+also do the same to use only the -6 dB (actually -3 to -6) or -9 dB (actually
+-6 to -9) coverage cones or any combination of cones.</p>
+<p><img
+width=580 height=354 src="E3.files/image088.jpg"></p>
+<p>204</p>
+<p><b>Chapter
+9: Room Investigatiions</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p>Another
+useful Ray Tracing feature of EASE 4.3 allows you to view the first order
+reflections from a specific Face in the same color as the Face color itself.
+This option is useful in determining the proper inclination of reflector or
+side wall panels and in studying reflections from troublesome Faces. Let's try
+it out using the right side wall and the ceiling in our model.</p>
+<p>We'll
+start by changing the color of the ceiling Face to bright Red and 0ne side wall
+to a vivid Blue. This will make it easier for us to differen-tiate between the
+ceiling and side wall reflections. Face colors can't be changed in View
+Project, so we'll have to open the Edit Project module and change the colors
+there.</p>
+<p>Open
+the <i>Edit Project</i> module, if it isn’t already open, and pick the ceiling
+Face and use the right mouse button to open the Mouse menu and then either
+select the Ceiling Face’s <i>Properties</i> folder and change the Face color to
+red or select <i>Color</i> and change it. Note that <i>Ctrl +</i> <i>F2 </i>would
+also open the color change dialog window. Follow the same procedure to change
+the color of the side wall to bright blue. Then</p>
+<p><i>Check
+Data [F5] </i>and return to the<i> Ray Tracing </i>module.</p>
+<p>Use <i>Ctrl
++ o</i> to <i>Acquire</i> the changes you made in Edit Project. and then open
+the Options folder <i>(F9)</i> and select <i>1. Reflection Face Color</i> <i>Only.
+OK </i>the change to return to the Rays control window and select Ray Tracing
+from the Rays pull down menu.</p>
+<p>We want
+to study the reflections from the Main Loudspeaker off the one side wall and
+the ceiling. Insert 1 in the Trace Control Order field, 20 in the Rays per
+Loudspeaker field and select the Main Loudspeaker. Under Tracing Options select
+Make Trace File and proceed by fol-lowing the prompts.</p>
+<p>You may
+want to rerun the simulation using a few more Rays or 2nd order reflections to
+gain further insight into the reflection pattern. It’s easy to do. The
+simulation shown below was made with 40 Rays and 2nd order reflections.</p>
+<p><img
+width=599 height=450 src="E3.files/image089.jpg"></p>
+<p>205</p>
+<p><b>EASE
+4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p><b>MOVIES</b></p>
+<p>Now,
+let's move on to the Movie mode. Click on the Movie tab to open the Movie
+Control screen shown below.</p>
+<p><img
+width=496 height=308 src="E3.files/image090.jpg"></p>
+<p>This
+screen allows you to control the movies length and the manner of presentation.
+The <i>Fixed, Order, SPL</i> and <i>Loss</i> buttons select the na-ture of the
+display. When <i>SP</i>L is checked, for example, the color of the rays will
+change with their SPL level.</p>
+<p>When <i>Beam</i>
+is checked, the Movie will show the rays as beams. When it is not checked, only
+the wavefront will be shown. The <i>Night</i> but-ton turns the display window
+from its normal gray background color to a midnight blue that makes it easier
+to see the rays.</p>
+<p>We will
+start by using <i>Loss</i> and <i>Beam</i>. Click on them to turn them On.</p>
+<p>The
+control buttons on the bottom allow you to <i>Start</i> and <i>Stop</i> the
+movie, to <i>Step Forward</i> or <i>Step Back</i> through it and to <i>Pause</i>
+in the pres-entation. <i>Wipe</i> clears the display of any previous
+information.</p>
+<p>Press
+the <i>Start</i> button and watch the rays spread out into the room. You will
+notice that the rays change color as they get further from the loudspeaker.
+They are changing color to show the dB loss.</p>
+<p>The
+color codes for the <i>Loss</i>, <i>Order</i> and <i>SP</i>L displays can be
+found and changed under the <i>Color</i> tab</p>
+<p>Our
+initial Trace File was was made using only 500 Rays from just the Main and
+delayed Balcony Loudspeakers, so you will not be able to see the Downfill,
+Under Balcony and Stage Lip Loudspeakers in the Movie. If you want to see them,
+you’ll need to make a new Trace File with all the Loudspeakers turned On. Note
+that the opening <i>View Trace File</i> window allows you to select what
+Loudspeakers will be used in the Movie. You probably will also want to increase
+the number of rays. Using more rays per loudspeaker enhances the Movie display.</p>
+<p>The
+Movie graphic shown on the next page was made with 1000 rays per loudspeaker
+and just the Main loudspeaker and the delayed loudspeakesr in the lip of the
+stage turned On.</p>
+<p>Note
+how the movie shows the delay as the sound expands into the room.</p>
+<p>206</p>
+<p><b>Chapter
+9: Room Investigatiions</b></p>
+<p><img
+width=672 height=353 src="E3.files/image091.jpg"></p>
+<p><b>Room
+Mapping</b></p>
+<p>So far
+in this Tutorial section we have used only Area Mapping. Room Mapping is
+similar to Area Mapping, except that it also allows Map-ping on the Room
+surfaces. The setup routine is identical except that you now have a choice of
+Mapping on just the Audience Area(s) or the Room surfaces (Faces) or on both.</p>
+<p>Note
+that in Room Mapping EASE JR users can map only Direct SPL. EASE users have the
+option of mapping other measures on the Au-dience Areas and Room Surfaces
+(Faces). If you skipped the Overview section of the Tutorial, please return to
+pages 35-39 for a more de-tailed description of the two mapping methods.</p>
+<p>Room
+Mapping is accessed by selecting <i>Room Mapping</i> under the <i>Calculations</i>
+pull down menu and following the same steps you followed in Area Mapping.. The
+graphic below shows a Direct SPL Map on the Audience Areas as it appears in
+Room Mapping.</p>
+<p>Note
+that the graphic lists the Parameters used in the simulation in the upper left
+corner of the map. In our example, it shows that only the Main loudspeaker was
+used in the simulations. The other loudspeakers were all turned Off.</p>
+<p><img
+width=490 height=288 src="E3.files/image092.jpg"></p>
+<p>207</p>
+<p><b>EASE
+4.3 User’s Guide &amp; Tutorial</b></p>
+<p><img
+width=665 height=1 src="E3.files/image003.jpg"></p>
+<p>The
+following graphic shows the Direct SPL mapped on all the room surfaces (Faces)
+with only the Main loudspeaker turned On and the Audience Areas turned Off.</p>
+<p><img
+width=490 height=288 src="E3.files/image093.jpg"></p>
+<p>Notice
+the black area behind the front Face of the balcony. It shows that this area is
+being shadowed by the balcony Face. This didn’t show in Area Mapping since the
+Audience Area is at ear height and is not being shadowed by the balcony Face.</p>
+<p>The
+same holds true for the very rear of the Main floor, only in reverse. In Area
+Mapping someone seated in the rear seats of the main foor</p>
+<p>Audiences
+Areas was shadowed from the Main Loudspeaker by the balcony. However, the floor
+under them is not in the shadowed area.</p>
+<p>EASE is
+very precise.</p>
+<p>The
+black areas in the back stage area are an indication that EASE had difficulty
+calculating a level because of the resolution used in the simulation. Change to
+a higher resolution and they will disappear.</p>
+<p>You may
+wonder why the backstage Faces show an SPL level even though they do not have a
+“line of sight” view of the main Loud-speaker. How can they receive Direct
+Sound? Remember, we defined Direct Sound to include early reflections that
+arrive within 35 ms (a 35 ms Split Time). You are looking at the levels of the
+early reflections.</p>
+<p>208</p>
+
+	</div>
+	<div class="nav">
+		<a href="index.html">Table of contents</a><br>
+		<a href="8.html">8. Vision</a><br>
+		<a href="10.html">10. Advanced Acoustical Investigations</a>
+	</div>
+	<div id="footer">
+		EASE Tutorial
+	</div>
+</body>
+</html>

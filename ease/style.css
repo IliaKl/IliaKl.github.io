@@ -3,6 +3,34 @@ body {
 	margin: 0 auto;
 }
 
-.heading { font-size: 1.3rem; }
-
 a { text-decoration: none; }
+
+.heading {
+	font-size: 1.4rem;
+	margin: 1rem;
+}
+
+#header {}
+
+.nav {
+	font-size: 1rem;
+	margin: 1rem;
+	padding: 3rem 0 3rem;
+}
+
+.nav a {
+	line-height: 1.4rem;
+}
+
+#index a {
+	font-size: 1rem;
+	line-height: 1.2rem;
+}
+
+#contents {}
+
+#footer {
+	color: silver;
+	margin: 1rem;
+	font-size: 1.2rem;
+}
