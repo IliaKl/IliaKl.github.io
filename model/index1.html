@@ -50,9 +50,14 @@
 //	ctx.fillStyle = "rgba(255,255,255,1)";
 //	ctx.fillRect(x, y, 1, 1);
 
-	var dl = 50;
+	var dl = 100;
+	var DataArrayX = [];
+	var DataArrayY = [];
+
+function createForseField () {
 	var PDataX = [];
 	var PDataY = [];
+
 	for(var i = 0; i <= ( W / dl ) + 1; i++){
 		PDataX[i] = [];
 		PDataY[i] = [];
@@ -63,16 +68,55 @@
 			var ro = Math.random();
 			var x = ro * Math.cos( fi );
 			var y = ro * Math.sin( fi );*/
+			var x = Math.random() * 2 - 1;
+			var y = Math.random() * 2 - 1;
 
-			var x = -1;
-			var y = Math.random() * 4 - 2;
+			if (i < 2) {
+				var x = 1;
+				var y = 0;
+			}
+
+			if (i > ( W / dl ) - 2) {
+				var x = -1;
+				var y = 0;
+			}
+
+			if (j < 2) {
+				var x = 0;
+				var y = 1;
+			}
+
+			if (j > ( H / dl ) - 2) {
+				var x = 0;
+				var y = -1;
+			}
+
+			if (i < 2 && j < 2) {
+				var x = 1;
+				var y = 1;
+			}
+
+			if (i > ( W / dl ) - 2 && j > ( H / dl ) - 2) {
+				var x = -1;
+				var y = -1;
+			}
+
+			if (i < 2 && j > ( H / dl ) - 2) {
+				var x = 1;
+				var y = -1;
+			}
+
+			if (i > ( W / dl ) - 2 && j < 2) {
+				var x = -1;
+				var y = 1;
+			}
 
 			PDataX[i][j] = x;
 			PDataY[i][j] = y;
 
+
 			var fx = dl * i;
 			var fy = dl * j;
-
 			//ctx.moveTo()
 			ctx.strokeStyle = "rgba(255,255,255,0.3)";
 			ctx.beginPath();
@@ -84,10 +128,12 @@
 			ctx.fillRect(fx,fy,3,3);
 		}
 	}
+
+
 	//console.log(PDataX[0][0]);
 
-	var DataArrayX = [];
-	var DataArrayY = [];
+	//var DataArrayX = [];
+	//var DataArrayY = [];
 	for(var i = 0; i <= W; i++){
 		DataArrayX[i] = [];
 		DataArrayY[i] = [];
@@ -129,7 +175,7 @@
 	}
 	//console.log(DataArrayY);
 
-	for(var i = 0; i < W; i++){
+	/*for(var i = 0; i < W; i++){
 		for(var j = 0; j < H; j++){
 
 			var ColX = DataArrayX[i][j] * 127 + 127;
@@ -138,10 +184,10 @@
 			//ctx.fillStyle = 'rgba(0,' + ColX + ',' + ColY + ',1 )';
 			//ctx.fillRect(i, j, 1, 1);
 		}
-	}
+	}*/
+}
 
-
-
+createForseField();
 
 function cretePoints( n ) {
 	var PointsArray = [[],[],[],[],[],[]];
@@ -166,7 +212,7 @@ function cretePoints( n ) {
 	return PointsArray;
 }
 
-function dynamicPoits( PointsArray ) {
+/*function dynamicPoits( PointsArray ) {
 	var TimeNow = new Date();
 	var dTime = ( TimeNow - Time ) / 100;
 	var nm = 10;
@@ -230,14 +276,13 @@ function dynamicPoits( PointsArray ) {
 			PointsArray[0][i] = xd1 + PointsArray[0][i - 1];
 			PointsArray[1][i] = yd1 + PointsArray[1][i - 1];
 
-/*r = sqrt(y^2 + x^2)
-cf = x / r
-sf = y / r
-x1 = r1 * cf
-y1 = r1 * sf*/
+			/*r = sqrt(y^2 + x^2)
+			cf = x / r
+			sf = y / r
+			x1 = r1 * cf
+			y1 = r1 * sf*/
 
-		}
-
+	/*	}
 	}
 
 
@@ -260,12 +305,11 @@ y1 = r1 * sf*/
 		PointsArray[0][i] = xm;
 		PointsArray[1][i] = ym;
 	}*/
-
-	Time = TimeNow;
+	/*Time = TimeNow;
 	return PointsArray;
-}
+}*/
 
-function drawPoints( PointsArray ) {
+/*function drawPoints( PointsArray ) {
 	ctxD.clearRect(0, 0, W, H);
 	ctxD.fillStyle = "rgba(0,0,0,0)";
 	ctxD.strokeStyle = "rgba(0,0,0,0)";
@@ -290,16 +334,174 @@ function drawPoints( PointsArray ) {
 	var yd = PointsArray[1][i];
 	ctxD.fillStyle = "rgba(255,255,255,0.9)";
 	ctxD.fillRect(xd,yd,3,3);
+}*/
+
+
+
+class Fiber {
+	constructor ( n, l ) {
+		this.n = n;
+		this.l = l;
+		this.point = [];
+		this.createPoints();
+		this.forse = {
+			'x': 0,
+			'y': 0
+		}
+		this.forseFirstPoint = {
+			'x': 0,
+			'y': 0
+		}
+		this.forseLastPoint = {
+			'x': 0,
+			'y': 0
+		}
+
+	}
+
+	createPoints(){
+		for(var i = 0; i < this.n; i++){
+			this.point[i] = {
+				'pos': {
+					'x': i * this.l + 250,
+					'y': 250
+				},
+				'forse': {
+					'x': 0,
+					'y': 0
+				}
+			}
+		}
+	}
+
+	setForse( ForseDataX, ForseDataY ){
+		for(var i = 0; i < this.n; i++){
+			var point_x = this.point[i].pos.x;
+			var point_y = this.point[i].pos.y;
+			var forse_x = ForseDataX[Math.abs(~~point_x)][Math.abs(~~point_y)];
+			var forse_y = ForseDataY[Math.abs(~~point_x)][Math.abs(~~point_y)];
+			this.point[i].forse.x = forse_x;
+			this.point[i].forse.y = forse_y;
+		}
+	}
+
+	sumForse(){
+		var sumFX = 0;
+		var sumFY = 0;
+		for(var i = 0; i < this.n; i++){
+			sumFX += this.point[i].forse.x;
+			sumFY += this.point[i].forse.y;
+		}
+		this.forse.x = sumFX;
+		this.forse.y = sumFY;
+
+		var sumForseXFirst 	= 0;
+		var sumForseYFirst 	= 0;
+		var sumForseXLast 	= 0;
+		var sumForseYLast 	= 0;
+		for(var i = 0; i < this.n; i++){
+			sumForseXFirst 	+= this.point[i].forse.x * (this.n - i) / this.n;
+			sumForseYFirst 	+= this.point[i].forse.y * (this.n - i) / this.n;
+			sumForseXLast 	+= this.point[i].forse.x * (i + 1) / this.n;
+			sumForseYLast 	+= this.point[i].forse.y * (i + 1) / this.n;
+		}
+		this.forseFirstPoint.x = sumForseXFirst;
+		this.forseFirstPoint.y = sumForseYFirst;
+		this.forseLastPoint.x = sumForseXLast;
+		this.forseLastPoint.y = sumForseYLast;
+	}
+
+	drawPoints(){
+		ctxD.clearRect(0, 0, W, H);
+		ctxD.fillStyle = "rgba(0,0,0,0)";
+		ctxD.strokeStyle = "rgba(0,0,0,0)";
+		ctxD.fillRect(0,0,W,H);
+
+		for(var i = 0; i < this.n; i++){
+			var xd = this.point[i].pos.x;
+			var yd = this.point[i].pos.y;
+			ctxD.fillStyle = "rgba(255,255,255,0.9)";
+			ctxD.strokeStyle = "rgba(255,255,255,0.9)";
+			ctxD.fillRect(xd,yd,3,3);
+		}
+	}
+
+
+	dynamicPoits( dt ){
+		/*for(var i = 0; i < this.n; i++){
+			var pos_x_old = this.point[i].pos.x;
+			var pos_y_old = this.point[i].pos.y;
+			var dx = this.forse.x * dt;
+			var dy = this.forse.y * dt;
+			var pos_x_new = pos_x_old + dx;
+			var pos_y_new = pos_y_old + dy;
+			this.point[i].pos.x = pos_x_new;
+			this.point[i].pos.y = pos_y_new;
+		}*/
+
+		var posXFirst 	= this.point[0].pos.x;
+		var posYFirst 	= this.point[0].pos.y;
+		var posXLast 	= this.point[this.n - 1].pos.x;
+		var posYLast 	= this.point[this.n - 1].pos.y;
+
+		var ForseXFirst	= this.forseFirstPoint.x;
+		var ForseYFirst	= this.forseFirstPoint.y;
+		var ForseXLast 	= this.forseLastPoint.x;
+		var ForseYLast 	= this.forseLastPoint.y;
+
+		var ForseFirst 	= Math.sqrt( ForseXFirst * ForseXFirst + ForseYFirst * ForseYFirst );
+		var ForseLast 	= Math.sqrt( ForseXLast * ForseXLast + ForseYLast * ForseYLast );
+
+		/*var dx = posXLast - posXFirst;
+		var dy = posYLast - posYFirst;
+
+		var dxl = dx / (ForseFirst + ForseLast) * ForseFirst;
+		var dyl = dy / (ForseFirst + ForseLast) * ForseFirst;
+
+		var xCenter = posXFirst + dxl;
+		var yCenter = posYFirst + dyl;*/
+
+		for(var i = 0; i < this.n; i++){
+			var n = this.n;
+			var pos_x_old = this.point[i].pos.x;
+			var pos_y_old = this.point[i].pos.y;
+
+			var dx = ForseXFirst * (n - i) / n + ForseXLast * (i + 1) / n;
+			var dy = ForseYFirst * (n - i) / n + ForseYLast * (i + 1) / n;
+
+			var pos_x_new = pos_x_old + dx;
+			var pos_y_new = pos_y_old + dy;
+			this.point[i].pos.x = pos_x_new;
+			this.point[i].pos.y = pos_y_new;
+		}
+
+
+	}
+
 }
 
+var f1 = new Fiber(10, 25);
+//f1.setForse(DataArrayX, DataArrayY);
+//f1.sumForse();
+//f1.drawPoints();
+//console.log(f1);
 
-var PArr = cretePoints( 20 );
+
+//var PArr = cretePoints( 10 );
 var Time = new Date();
 
 function animate() {
-	PArr = dynamicPoits( PArr );
-	drawPoints( PArr );
+	//PArr = dynamicPoits( PArr );
+	//drawPoints( PArr );
+	var TimeNow = new Date();
+	var dTime = TimeNow - Time;
 
+	f1.setForse(DataArrayX, DataArrayY);
+	f1.sumForse();
+	f1.dynamicPoits(dTime * 0.03);
+	f1.drawPoints();
+
+	Time = TimeNow;
 	window.requestAnimationFrame(animate);
 }
 

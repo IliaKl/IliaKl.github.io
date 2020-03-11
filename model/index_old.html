@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Model</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="math.js"></script>
+	<script src="script.js"></script>
+	<script type="text/javascript">
+
+		var ctx, IData, ctxd, IPnt, W, H, RunButton, TimeGlobal;
+		RunButton = false;
+
+		var staticData;
+		var dynamicXData;
+		var dynamicYData;
+		var leapXData;
+		var leapYData;
+		
+		function clean(){
+			ctx.clearRect(0, 0, W, H);
+			IData = [NaN];
+		}
+
+		window.onload = function() {
+			init();
+		};
+	</script>
+</head>
+<body>
+	<div id="m1">
+		<div id="header">
+			Model
+		</div>
+		<div id="m2">
+			<div id="m3">
+				<div id="cnv">
+					<canvas id="cnv_1"></canvas>
+					<canvas id="cnv_2"></canvas>
+					<div id="loading_div"></div>
+				</div>
+				<!--<div id="b1">
+					<form>
+						<input type="button" name="b01" value="Run" class="button">
+						<input type="button" name="b02" value="Pause" class="button">
+						<input type="button" name="b03" value="Stop" class="button">
+					</form>
+				</div>-->
+			</div>
+			<div id="set">
+				<div id="checkboxes">
+					<div id="m4">Properties</div>
+					<div>
+						<form>
+							<div class="chbox">
+								<input id="field_1" class="checkbox" type="checkbox" name="field_1" checked="true">
+								<label class="checkboxLabel" for="field_1">Field of friction</label>
+							</div>
+							<div class="chbox">
+								<input id="field_2" class="checkbox" type="checkbox" name="field_2" checked="true">
+								<label class="checkboxLabel" for="field_2">Dynamic field X</label>
+							</div>
+							<div class="chbox">
+								<input id="field_3" class="checkbox" type="checkbox" name="field_3" checked="true">
+								<label class="checkboxLabel" for="field_3">Dynamic field Y</label>
+							</div>
+							<div class="chbox">
+								<input id="field_4" class="checkbox" type="checkbox" name="field_4" checked="true">
+								<label class="checkboxLabel" for="field_4">Electrostatic field</label>
+							</div>
+							<div class="chbox">
+								<input id="field_5" class="checkbox" type="checkbox" name="field_5" checked="true">
+								<label class="checkboxLabel" for="field_5">Threshold</label>
+							</div>
+							<div class="chbox">
+								<input id="field_0" class="checkbox" type="checkbox" name="field_0" checked="true">
+								<label class="checkboxLabel" for="field_0"><i>Border</i></label>
+							</div>
+							<input type="button" name="b04" value="Create" class="button" id="createButton" onclick="init()">
+							<input type="button" name="b05" value="Clean" class="button" id="cleanButton" onclick="clean()">
+						</form>
+					</div>
+				</div>
+				<div id="b2">
+					<!--<form>
+						<input type="button" name="b04" value="Create" class="button" id="createButton" onclick="init()">
+						<input type="button" name="b05" value="Clean" class="button" id="cleanButton" onclick="clean()">
+					</form>-->
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		Created by Ilia K
+	</div>
+</body>
+</html>
