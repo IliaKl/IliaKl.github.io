@@ -57,7 +57,7 @@
 //	ctx.fillStyle = "rgba(255,255,255,1)";
 //	ctx.fillRect(x, y, 1, 1);
 
-	var dl = 100;
+	var dl = 50;
 	var DataArrayX = [];
 	var DataArrayY = [];
 
@@ -76,44 +76,46 @@ function createForseField () {
 			var x = ro * Math.cos( fi );
 			var y = ro * Math.sin( fi );*/
 			var x = Math.random() * 2 - 1;
+			//var x = 1;
 			var y = Math.random() * 2 - 1;
 
-			if (i < 2) {
+			var nnn = 1;
+			if (i < nnn) {
 				var x = 1;
 				var y = 0;
 			}
 
-			if (i > ( W / dl ) - 2) {
+			if (i > ( W / dl ) - nnn) {
 				var x = -1;
 				var y = 0;
 			}
 
-			if (j < 2) {
+			if (j < nnn) {
 				var x = 0;
 				var y = 1;
 			}
 
-			if (j > ( H / dl ) - 2) {
+			if (j > ( H / dl ) - nnn) {
 				var x = 0;
 				var y = -1;
 			}
 
-			if (i < 2 && j < 2) {
+			if (i < nnn && j < nnn) {
 				var x = 1;
 				var y = 1;
 			}
 
-			if (i > ( W / dl ) - 2 && j > ( H / dl ) - 2) {
+			if (i > ( W / dl ) - nnn && j > ( H / dl ) - nnn) {
 				var x = -1;
 				var y = -1;
 			}
 
-			if (i < 2 && j > ( H / dl ) - 2) {
+			if (i < nnn && j > ( H / dl ) - nnn) {
 				var x = 1;
 				var y = -1;
 			}
 
-			if (i > ( W / dl ) - 2 && j < 2) {
+			if (i > ( W / dl ) - nnn && j < nnn) {
 				var x = -1;
 				var y = 1;
 			}
@@ -125,14 +127,14 @@ function createForseField () {
 			var fx = dl * i;
 			var fy = dl * j;
 			//ctx.moveTo()
-			/*ctx.strokeStyle = "rgba(255,255,255,0.3)";
+			ctx.strokeStyle = "rgba(255,255,255,0.3)";
 			ctx.beginPath();
 			ctx.moveTo( fx ,fy );
 			ctx.lineTo( fx + x * 30, fy + y * 30 );
 			ctx.stroke();
 
 			ctx.fillStyle = "rgba(255,255,255,0.3)";
-			ctx.fillRect(fx,fy,3,3);*/
+			ctx.fillRect(fx,fy,3,3);
 		}
 	}
 
@@ -396,6 +398,35 @@ class Fiber {
 			this.point[i].forse.x = forse_x;
 			this.point[i].forse.y = forse_y;
 		}
+
+		for(var f = 1; f < this.n; f++){
+		var lmax = 15;
+		var x0 = this.point[f - 1].pos.x;
+		var y0 = this.point[f - 1].pos.y;
+		var x1 = this.point[f].pos.x;
+		var y1 = this.point[f].pos.y;
+
+		var dlx = x1 - x0;
+		var dly = y1 - y0;
+
+		var r0 = Math.sqrt(dlx * dlx + dly * dly);
+		var forseL = r0 / lmax - 1;
+		var cf = dlx / r0;
+		var sf = dly / r0;
+		var fx = forseL * cf;
+		var fy = forseL * sf;
+		var fcof1 = 1;
+			for(var m = f - 2; m >= 0; m--){
+				this.point[m].forse.x += fx * fcof1 / (f - 1 - m);
+				this.point[m].forse.y += fy * fcof1 / (f - 1 - m);
+			}
+			for(var p = f ; p < this.n; p++){
+				this.point[p].forse.x += -fx * fcof1 / (p - f + 1);
+				this.point[p].forse.y += -fy * fcof1 / (p - f + 1);
+			}
+		}
+
+		
 	}
 
 	sumForse(){
@@ -426,7 +457,7 @@ class Fiber {
 
 
 	countPA(){ 
-		var coeff = 10;
+		var coeff = 1;
 		var lmax = 15;
 		var lmax2 = lmax * lmax;
 		var PosX = [NaN];
@@ -471,18 +502,18 @@ class Fiber {
 					x2 = 0;
 					y2 = 0;
 				} else {
-					/*r = sqrt(y^2 + x^2)
-					cf = x / r
-					sf = y / r
-					x1 = r1 * cf
-					y1 = r1 * sf*/
+					// r = sqrt(y^2 + x^2)
+					// cf = x / r
+					// sf = y / r
+					// x1 = r1 * cf
+					// y1 = r1 * sf
 					var r0 = Math.sqrt(dlx * dlx + dly * dly);
 					var cf = dlx / r0;
 					var sf = dly / r0;
 					var x3 = lmax * cf;
 					var y3 = lmax * sf;
-					x2 = dlx - x3;
-					y2 = dly - y3;
+					x2 = - dlx + x3;
+					y2 = - dly + y3;
 				}
 				ArrayX[i][pl] = x2;
 				ArrayY[i][pl] = y2;
@@ -511,62 +542,58 @@ class Fiber {
 				ArrayX[i][mn] = x2;
 				ArrayY[i][mn] = y2;
 			}
-
-			//this.AXArray[i] = AXArray[i];
-			//this.AYArray[i] = AYArray[i];
-
 		}
-		//this.CXArray = ArrayX;
-		//this.CYArray = ArrayY;
-		//console.log(this.CXArray, this.CYArray);
-
-		/*var Str = '<table>';
-		for(var i = 0; i < n; i++){
-			Str += '<tr>';
-			Str += '<th>' + i + '</th>';
-			for(var j = 0; j < n; j++){
-				Str += '<th>';
-				Str += ArrayX[i][j].toFixed(3) + '<br>' + ArrayY[i][j].toFixed(3);
-				Str += '</th>';
-			}
-			Str += '</tr>';
-		}
-		Str += '</table>';
-
-		document.write(Str);*/
 		
-
-		/*for(var i = 0; i < this.n; i++){
-			// найти среднее арифметическое по всем столбцам 
-			//(смещение для каждой точки) (без учета нулей (?) )
-			// по полученным данным нарисовать волокно
-			var bx = 0;
-			var by = 0;
-			var bn = 0;
-			for(var j = 0; j < this.n; j++){
-				bx += ArrayX[i][j];
-				by += ArrayY[i][j];
+		//var nn = 5;
+		var VectorX = [NaN];
+		var VectorY = [NaN];
+		for(var i = 0; i < n; i++){
+			VectorX[i] = PosX[i];
+			VectorY[i] = PosY[i];
+			for(var nn = 0; nn < n; nn++){
+				VectorX[i] += ArrayX[nn][i];
+				VectorY[i] += ArrayY[nn][i];
 			}
-			this.BArray.x[i] = bx;
-			this.BArray.y[i] = by;
-
-		}*/
-		//console.log(this.BArray);
-
-
-		/*
-		массив n*n, по диагонали смещение точки по x,y, 
-		в стороны - проверка соседних точек, смещение следующей точки
-		*/
-
-
-		var nn = 3;
-		for(var i; i < n; i++){
-			//this.point[i].pos.x += ArrayX[nn][i];
-			//this.point[i].pos.y += ArrayY[nn][i];
-			this.point[i].pos.x = 1;
-			this.point[i].pos.y = 1;
 		}
+
+		for(var val = 1; val < n; val++){
+				var x0 = VectorX[val - 1];
+				var y0 = VectorY[val - 1];
+				var x1 = VectorX[val];
+				var y1 = VectorY[val];
+				var x2 = 0;
+				var y2 = 0;
+
+				var dlx = x1 - x0;
+				var dly = y1 - y0;
+				if ( dlx * dlx + dly * dly <= lmax2 ) {
+					x2 = 0;
+					y2 = 0;
+				} else {
+					// r = sqrt(y^2 + x^2)
+					// cf = x / r
+					// sf = y / r
+					// x1 = r1 * cf
+					// y1 = r1 * sf
+					var r0 = Math.sqrt(dlx * dlx + dly * dly);
+					var cf = dlx / r0;
+					var sf = dly / r0;
+					var x3 = lmax * cf;
+					var y3 = lmax * sf;
+					x2 = - dlx + x3;
+					y2 = - dly + y3;
+				}
+				VectorX[val] = x2 + x1;
+				VectorY[val] = y2 + y1;
+			}
+
+		for(var i = 0; i < n; i++){
+			for(var nn = 0; nn < n; nn++){
+				this.point[i].pos.x = VectorX[i];
+				this.point[i].pos.y = VectorY[i];
+			}
+		}
+
 	}
 
 
