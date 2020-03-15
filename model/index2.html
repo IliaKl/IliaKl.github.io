@@ -5,7 +5,12 @@
 	<title>MT</title>
 	<style type="text/css">
 		body {
-			background-color: #222222;
+			//background-color: #222222;
+			background-color: #777777;
+		}
+
+		th {
+			padding: 5px;
 		}
 		
 		#cnv_1 {
@@ -13,6 +18,7 @@
 			top: 10px;
 			left: 10px;
 			z-index: 1;
+			background-color: transparent;
 		}
 
 		#cnv_2 {
@@ -20,6 +26,7 @@
 			top: 10px;
 			left: 10px;
 			z-index: 2;
+			background-color: transparent;
 		}
 
 	</style>
@@ -42,7 +49,7 @@
 	ctxD.canvas.width = W;
 	ctxD.canvas.height = H;
 
-	ctx.fillStyle = "rgba(50,50,50,1)";
+	ctx.fillStyle = "rgba(50,50,50,0.3)";
 	ctx.fillRect(0,0,W,H);
 	//ctxD.fillStyle = "rgba(255,255,255,0.3)";
 	//ctxD.fillRect(0,0,W,H);
@@ -356,8 +363,12 @@ class Fiber {
 			'x': 0,
 			'y': 0
 		}
-		this.AXArray = [];
-		this.AYArray = [];
+		/*this.CXArray = [];
+		this.CYArray = [];
+		this.BArray = {
+			'x': [],
+			'y': []
+		}*/
 
 	}
 
@@ -415,105 +426,132 @@ class Fiber {
 
 
 	countPA(){ 
-		var coeff = 1;
+		var coeff = 10;
 		var lmax = 15;
 		var lmax2 = lmax * lmax;
-		var XPArray = [];
-		var YPArray = [];
-		var XFArray = [];
-		var YFArray = [];
+		var PosX = [NaN];
+		var PosY = [NaN];
+		var ForseX = [NaN];
+		var ForseY = [NaN];
+		var n = this.n;
 
-		for(var i = 0; i < this.n; i++){
-			XPArray[i] = this.point[i].pos.x;
-			YPArray[i] = this.point[i].pos.y;
-			XFArray[i] = this.point[i].forse.x;
-			YFArray[i] = this.point[i].forse.y;
+		for(var i = 0; i < n; i++){
+			PosX[i] = this.point[i].pos.x;
+			PosY[i] = this.point[i].pos.y;
+			ForseX[i] = this.point[i].forse.x;
+			ForseY[i] = this.point[i].forse.y;
 		}
 
-		var AXArray = [];
-		var AYArray = [];
-		for(var i = 0; i < this.n; i++){
-			AXArray[i] = [];
-			AYArray[i] = [];
-			for(var j = 0; j < this.n; j++){
-				AXArray[i][j] = 0;
-				AYArray[i][j] = 0;
+		var ArrayX = [NaN];
+		var ArrayY = [NaN];
+		for(var i = 0; i < n; i++){
+			ArrayX[i] = [NaN];
+			ArrayY[i] = [NaN];
+			for(var j = 0; j < n; j++){
+				ArrayX[i][j] = 0;
+				ArrayY[i][j] = 0;
 			}
 		}
-		//this.AXArray = AXArray;
-		//this.AYArray = AYArray;
 
-		for(var i = 0; i < this.n; i++){
-			AXArray[i][i] = XPArray[i] + XFArray[i] * coeff;
-			AYArray[i][i] = YPArray[i] + YFArray[i] * coeff;
-			for(var pl = i + 1; pl < this.n; pl++){
-				var x0 = AXArray[i][i - 1];
-				var y0 = AYArray[i][i - 1];
-				var x1 = XPArray[i];
-				var y1 = YPArray[i];
+		for(var i = 0; i < n; i++){
+			ArrayX[i][i] = 0 + ForseX[i] * coeff;
+			ArrayY[i][i] = 0 + ForseY[i] * coeff;
+
+			for(var pl = i + 1; pl < n; pl++){
+				var x0 = ArrayX[i][pl - 1] + PosX[pl - 1];
+				var y0 = ArrayY[i][pl - 1] + PosY[pl - 1];
+				var x1 = PosX[pl];
+				var y1 = PosY[pl];
+				var x2 = 0;
+				var y2 = 0;
 
 				var dlx = x1 - x0;
 				var dly = y1 - y0;
 				if ( dlx * dlx + dly * dly <= lmax2 ) {
-					x1 = 0;
-					y1 = 0;
+					x2 = 0;
+					y2 = 0;
 				} else {
-				/*r = sqrt(y^2 + x^2)
-				cf = x / r
-				sf = y / r
-				x1 = r1 * cf
-				y1 = r1 * sf*/
-
-				var r0 = Math.sqrt(dlx * dlx + dly * dly);
-				var cf = dlx / r0;
-				var sf = dly / r0;
-				var x1 = lmax * cf;
-				var y1 = lmax * sf;
-
-				AXArray[i][pl] = x1;
-				AYArray[i][pl] = y1;
-			}
+					/*r = sqrt(y^2 + x^2)
+					cf = x / r
+					sf = y / r
+					x1 = r1 * cf
+					y1 = r1 * sf*/
+					var r0 = Math.sqrt(dlx * dlx + dly * dly);
+					var cf = dlx / r0;
+					var sf = dly / r0;
+					var x3 = lmax * cf;
+					var y3 = lmax * sf;
+					x2 = dlx - x3;
+					y2 = dly - y3;
+				}
+				ArrayX[i][pl] = x2;
+				ArrayY[i][pl] = y2;
 			}
 
 			for(var mn = i - 1; mn >= 0; mn--){
-				var x0 = AXArray[i + 1];
-				var y0 = AYArray[i + 1];
-				var x1 = XPArray[i];
-				var y1 = YPArray[i];
+				var x0 = ArrayX[i][mn + 1] + PosX[mn + 1];
+				var y0 = ArrayY[i][mn + 1] + PosY[mn + 1];
+				var x1 = PosX[mn];
+				var y1 = PosY[mn];
 
-				var dlx = x1 - x0;
-				var dly = y1 - y0;
-				if ( dlx * dlx <= lmax2 ) {
-					x1 = 0;
-					y1 = 0;
+				var dlx = x0 - x1;
+				var dly = y0 - y1;
+				if ( dlx * dlx + dly * dly <= lmax2 ) {
+					x2 = 0;
+					y2 = 0;
 				} else {
-				/*r = sqrt(y^2 + x^2)
-				cf = x / r
-				sf = y / r
-				x1 = r1 * cf
-				y1 = r1 * sf*/
-
-				var r0 = Math.sqrt(dlx * dlx + dly * dly);
-				var cf = dlx / r0;
-				var sf = dly / r0;
-				var x1 = lmax * cf;
-				var y1 = lmax * sf;
-
-				AXArray[i][mn] = x1;
-				AYArray[i][mn] = y1;
+					var r0 = Math.sqrt(dlx * dlx + dly * dly);
+					var cf = dlx / r0;
+					var sf = dly / r0;
+					var x3 = lmax * cf;
+					var y3 = lmax * sf;
+					x2 = dlx - x3;
+					y2 = dly - y3;
+				}
+				ArrayX[i][mn] = x2;
+				ArrayY[i][mn] = y2;
 			}
-			}
-			this.AXArray[i] = AXArray[i];
-			this.AYArray[i] = AYArray[i];
+
+			//this.AXArray[i] = AXArray[i];
+			//this.AYArray[i] = AYArray[i];
 
 		}
-		console.log(this.AXArray, this.AYArray);
+		//this.CXArray = ArrayX;
+		//this.CYArray = ArrayY;
+		//console.log(this.CXArray, this.CYArray);
 
-		for(var i = 0; i < this.n; i++){
+		/*var Str = '<table>';
+		for(var i = 0; i < n; i++){
+			Str += '<tr>';
+			Str += '<th>' + i + '</th>';
+			for(var j = 0; j < n; j++){
+				Str += '<th>';
+				Str += ArrayX[i][j].toFixed(3) + '<br>' + ArrayY[i][j].toFixed(3);
+				Str += '</th>';
+			}
+			Str += '</tr>';
+		}
+		Str += '</table>';
+
+		document.write(Str);*/
+		
+
+		/*for(var i = 0; i < this.n; i++){
 			// найти среднее арифметическое по всем столбцам 
 			//(смещение для каждой точки) (без учета нулей (?) )
 			// по полученным данным нарисовать волокно
-		}
+			var bx = 0;
+			var by = 0;
+			var bn = 0;
+			for(var j = 0; j < this.n; j++){
+				bx += ArrayX[i][j];
+				by += ArrayY[i][j];
+			}
+			this.BArray.x[i] = bx;
+			this.BArray.y[i] = by;
+
+		}*/
+		//console.log(this.BArray);
 
 
 		/*
@@ -521,6 +559,14 @@ class Fiber {
 		в стороны - проверка соседних точек, смещение следующей точки
 		*/
 
+
+		var nn = 3;
+		for(var i; i < n; i++){
+			//this.point[i].pos.x += ArrayX[nn][i];
+			//this.point[i].pos.y += ArrayY[nn][i];
+			this.point[i].pos.x = 1;
+			this.point[i].pos.y = 1;
+		}
 	}
 
 
@@ -593,7 +639,7 @@ class Fiber {
 
 }
 
-var f1 = new Fiber(10, 25);
+var f1 = new Fiber(10, 15);
 //f1.setForse(DataArrayX, DataArrayY);
 //f1.sumForse();
 //f1.drawPoints();
@@ -613,10 +659,10 @@ function animate() {
 	f1.countPA();
 	//f1.sumForse();
 	//f1.dynamicPoits(dTime * 0.03);
-	//f1.drawPoints();
+	f1.drawPoints();
 
 	Time = TimeNow;
-	//window.requestAnimationFrame(animate);
+	window.requestAnimationFrame(animate);
 }
 
 animate();
