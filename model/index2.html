@@ -60,6 +60,7 @@
 	var dl = 50;
 	var DataArrayX = [];
 	var DataArrayY = [];
+	var DataArray = [];
 
 function createForseField () {
 	var PDataX = [];
@@ -197,6 +198,89 @@ function createForseField () {
 }
 
 createForseField();
+
+
+function createResF(){
+	var PData = [];
+
+	for(var i = 0; i <= ( W / dl ) + 1; i++){
+		PData[i] = [];
+		for(var j = 0; j <= ( H / dl ) + 1; j++){
+
+			var x = Math.random() / 2;
+
+			var nnn = 1;
+			if (i < nnn) {
+				var x = 1;
+			}
+
+			if (i > ( W / dl ) - nnn) {
+				var x = 1;
+			}
+
+			if (j < nnn) {
+				var x = 1;
+			}
+
+			if (j > ( H / dl ) - nnn) {
+				var x = 1;
+			}
+
+			PData[i][j] = x;
+
+
+			var fx = dl * i;
+			var fy = dl * j;
+
+			var Col = x * 255;
+
+			ctx.fillStyle = 'rgba(' + Col + ',' + Col + ',' + Col + ',1 )';
+			ctx.fillRect(fx,fy,3,3);
+		}
+	}
+
+	for(var i = 0; i <= W; i++){
+		DataArray[i] = [];
+		for(var j = 0; j <= H; j++){
+
+			var x = i;
+			var y = j;
+			var indI = ~~ ( i / dl );
+			var indJ = ~~ ( j / dl );
+
+			var P00 = PData[indI][indJ];
+			var P01 = PData[indI][indJ + 1];
+			var P10 = PData[indI + 1][indJ];
+			var P11 = PData[indI + 1][indJ + 1];
+
+			var CoeffX = ( i / dl ) - indI;
+			var CoeffY = ( j / dl ) - indJ;
+
+			var Rez = ( P00 * ( 1 - CoeffX ) * ( 1 - CoeffY ) ) 
+						+ ( P01 * ( 1 - CoeffX ) * ( CoeffY ) ) 
+						+ ( P10 * ( CoeffX ) * ( 1 - CoeffY ) )
+						+ ( P11 * ( CoeffX ) * ( CoeffY ) );
+
+			//console.log(RezX, RezY);
+
+			DataArray[i][j] = Rez;
+		}
+	}
+	//console.log(DataArrayY);
+
+	/*for(var i = 0; i < W; i++){
+		for(var j = 0; j < H; j++){
+
+			var Col = DataArray[i][j] * 127 + 127;
+
+			ctx.fillStyle = 'rgba(' + Col + ',' + Col + ',' + Col + ',0.5 )';
+			ctx.fillRect(i, j, 1, 1);
+		}
+	}*/
+}
+
+createResF();
+
 
 function cretePoints( n ) {
 	var PointsArray = [[],[],[],[],[],[]];
