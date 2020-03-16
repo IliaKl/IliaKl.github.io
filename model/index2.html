@@ -57,7 +57,7 @@
 //	ctx.fillStyle = "rgba(255,255,255,1)";
 //	ctx.fillRect(x, y, 1, 1);
 
-	var dl = 50;
+	var dl = 150;
 	var DataArrayX = [];
 	var DataArrayY = [];
 	var DataArray = [];
@@ -76,8 +76,8 @@ function createForseField () {
 			var ro = Math.random();
 			var x = ro * Math.cos( fi );
 			var y = ro * Math.sin( fi );*/
-			var x = Math.random() * 2 - 1;
-			//var x = 1;
+			//var x = Math.random() * 2 - 1;
+			var x = 1;
 			var y = Math.random() * 2 - 1;
 
 			var nnn = 1;
@@ -468,6 +468,12 @@ class Fiber {
 				'forse': {
 					'x': 0,
 					'y': 0
+				},
+				'addPoint': {
+					'x': 0,
+					'y': 0
+				},
+				'dL': 0
 				}
 			}
 		}
@@ -483,8 +489,9 @@ class Fiber {
 			this.point[i].forse.y = forse_y;
 		}
 
+		// *** растяжение / сжатие
 		for(var f = 1; f < this.n; f++){
-		var lmax = 15;
+		var lmax = this.l;
 		var x0 = this.point[f - 1].pos.x;
 		var y0 = this.point[f - 1].pos.y;
 		var x1 = this.point[f].pos.x;
@@ -511,6 +518,43 @@ class Fiber {
 		}
 
 		
+		// *** смещение от изгиба
+		// count addPoints position
+		var n = this.n; 
+		var al = 1;
+		for(var i = 1; i < n -1; i++){
+
+			var p1x = this.point[i - 1].pos.x;
+			var p1y = this.point[i - 1].pos.y;
+			var px = this.point[i].pos.x;
+			var py = this.point[i].pos.y;
+			var p2x = this.point[i + 1].pos.x;
+			var p2y = this.point[i + 1].pos.y;
+
+			var dx = p2x - p1x;
+			var dy = p2y - p1y;
+
+			// *** dy = a * dx + 0
+			if (dx != 0) {
+				if (dy != 0) {
+					var a = dy / dx;
+				} else {
+					var a = 0.0000000001;
+				}	
+			} else {
+				var a = 1000000000;
+			}
+
+			var dxn = Math.sqrt((al * al - a * a) / 2);
+			var dyn = a * dxn;
+
+			var xn = px + dxn;
+			var yn = py + dyn;
+
+			this.point[i].addPoint.x = xn;
+			this.point[i].addPoint.y = yn;
+		}
+
 	}
 
 	sumForse(){
@@ -542,7 +586,7 @@ class Fiber {
 
 	countPA(){ 
 		var coeff = 1;
-		var lmax = 15;
+		var lmax = this.l;
 		var lmax2 = lmax * lmax;
 		var PosX = [NaN];
 		var PosY = [NaN];
@@ -634,13 +678,28 @@ class Fiber {
 		for(var i = 0; i < n; i++){
 			VectorX[i] = PosX[i];
 			VectorY[i] = PosY[i];
+			var AX = 0;
+			var AY = 0;
+			var mn1 = 0;
 			for(var nn = 0; nn < n; nn++){
-				VectorX[i] += ArrayX[nn][i];
-				VectorY[i] += ArrayY[nn][i];
+				// ***
+				if (ArrayX[nn][i] != 0 & ArrayY[nn][i] != 0){
+					AX += ArrayX[nn][i];
+					AY += ArrayY[nn][i];
+					mn1++;
+				}
+				
+				// ***
+				//VectorX[i] += ArrayX[nn][i];
+				//VectorY[i] += ArrayY[nn][i];
 			}
+			AX = AX / mn1;
+			AY = AY / mn1;
+			VectorX[i] += AX;
+			VectorY[i] += AY;
 		}
 
-		for(var val = 1; val < n; val++){
+		/*for(var val = 1; val < n; val++){
 				var x0 = VectorX[val - 1];
 				var y0 = VectorY[val - 1];
 				var x1 = VectorX[val];
@@ -669,7 +728,7 @@ class Fiber {
 				}
 				VectorX[val] = x2 + x1;
 				VectorY[val] = y2 + y1;
-			}
+		}*/
 
 		for(var i = 0; i < n; i++){
 			for(var nn = 0; nn < n; nn++){
@@ -750,7 +809,7 @@ class Fiber {
 
 }
 
-var f1 = new Fiber(10, 15);
+var f1 = new Fiber(15, 20);
 //f1.setForse(DataArrayX, DataArrayY);
 //f1.sumForse();
 //f1.drawPoints();
