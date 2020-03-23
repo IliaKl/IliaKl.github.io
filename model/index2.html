@@ -76,8 +76,8 @@ function createForseField () {
 			var ro = Math.random();
 			var x = ro * Math.cos( fi );
 			var y = ro * Math.sin( fi );*/
-			//var x = Math.random() * 2 - 1;
-			var x = 1;
+			var x = Math.random() * 2 - 1;
+			//var x = 1;
 			var y = Math.random() * 2 - 1;
 
 			var nnn = 1;
@@ -474,12 +474,11 @@ class Fiber {
 					'y': 0
 				},
 				'dL': 0
-				}
 			}
 		}
 	}
 
-	setForse( ForseDataX, ForseDataY ){
+	setForse(ForseDataX, ForseDataY){
 		for(var i = 0; i < this.n; i++){
 			var point_x = this.point[i].pos.x;
 			var point_y = this.point[i].pos.y;
@@ -490,6 +489,7 @@ class Fiber {
 		}
 
 		// *** растяжение / сжатие
+		var coeffF1 = 0.2;
 		for(var f = 1; f < this.n; f++){
 		var lmax = this.l;
 		var x0 = this.point[f - 1].pos.x;
@@ -508,12 +508,12 @@ class Fiber {
 		var fy = forseL * sf;
 		var fcof1 = 1;
 			for(var m = f - 2; m >= 0; m--){
-				this.point[m].forse.x += fx * fcof1 / (f - 1 - m);
-				this.point[m].forse.y += fy * fcof1 / (f - 1 - m);
+				this.point[m].forse.x += fx * fcof1 / (f - 1 - m) * coeffF1;
+				this.point[m].forse.y += fy * fcof1 / (f - 1 - m) * coeffF1;
 			}
 			for(var p = f ; p < this.n; p++){
-				this.point[p].forse.x += -fx * fcof1 / (p - f + 1);
-				this.point[p].forse.y += -fy * fcof1 / (p - f + 1);
+				this.point[p].forse.x += -fx * fcof1 / (p - f + 1) * coeffF1;
+				this.point[p].forse.y += -fy * fcof1 / (p - f + 1) * coeffF1;
 			}
 		}
 
@@ -809,7 +809,7 @@ class Fiber {
 
 }
 
-var f1 = new Fiber(15, 20);
+var f1 = new Fiber(20, 10);
 //f1.setForse(DataArrayX, DataArrayY);
 //f1.sumForse();
 //f1.drawPoints();
