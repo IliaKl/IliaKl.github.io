@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test_model</title>
+	<style type="text/css">
+		body {
+			margin: 0;
+		}
+
+		#container {
+			width: 97vw;
+			height: 97vh;
+			position: relative;
+			margin: 0;
+
+		}
+
+		#point {
+			width: 3px;
+			height: 3px;
+			background-color: black;
+			position: absolute;
+			left: 0px;
+			top: 0px;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div id="point"></div>
+	</div>
+	<script type="text/javascript">
+		var point = document.getElementById("point");
+		var x = 0;
+		var y = 0;
+
+		function animate() {
+
+			if ( x < 1000 ) { x += 1 } else { x = 0 };
+			if ( y < 800 ) { y += 1 } else { y = 0 };
+			point.style.left = x + "px";
+			point.style.top = y + "px";
+			window.requestAnimationFrame(animate);
+		}
+
+		//animate();
+	</script>
+</body>
+</html>

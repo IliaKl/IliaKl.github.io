@@ -473,23 +473,26 @@ class Fiber {
 					'x': 0,
 					'y': 0
 				},
-				'dL': 0
+				'fi': Math.PI,
+				'vw': 0
 			}
 		}
 	}
 
-	setForse(ForseDataX, ForseDataY){
+	setForse(ForseDataX, ForseDataY, FData){
 		for(var i = 0; i < this.n; i++){
 			var point_x = this.point[i].pos.x;
 			var point_y = this.point[i].pos.y;
 			var forse_x = ForseDataX[Math.abs(~~point_x)][Math.abs(~~point_y)];
 			var forse_y = ForseDataY[Math.abs(~~point_x)][Math.abs(~~point_y)];
+			var vw = FData[Math.abs(~~point_x)][Math.abs(~~point_y)];
 			this.point[i].forse.x = forse_x;
 			this.point[i].forse.y = forse_y;
+			this.point[i].vw = vw;
 		}
 
 		// *** растяжение / сжатие
-		var coeffF1 = 0.2;
+		var coeffF1 = 0.3;
 		for(var f = 1; f < this.n; f++){
 		var lmax = this.l;
 		var x0 = this.point[f - 1].pos.x;
@@ -517,10 +520,96 @@ class Fiber {
 			}
 		}
 
+
+		var coeffF2 = 0.1;
+		var maxfi = 1;
+		for(var i = 1; i < this.n - 1; i++){
+
+			var xm = this.point[i - 1].pos.x;
+			var ym = this.point[i - 1].pos.y;
+			var x = this.point[i].pos.x;
+			var y = this.point[i].pos.y;
+			var xp = this.point[i + 1].pos.x;
+			var yp = this.point[i + 1].pos.y;
+
+			var sfi = this.point[i].fi;
+
+			var dxm = x - xm;
+			var dym = y - ym;
+			var dxp = xp - x;
+			var dyp = yp - y;
+
+			//var rom = Math.hypot(dxm, dym);
+			//var rop = Math.hypot(dym, dyp);
+			var fim = Math.atan2(dym, dxm);
+			var fip = Math.atan2(dyp, dxp);
+			var fi = fim - fip;
+			//if (fi >= 2*Math.PI) { fi -= 2*Math.PI; }
+			//if (fi < 0) { fi += 2*Math.PI; }
+			//console.log(fi);
+
+			var dfi = fi - sfi;
+			//if (dfi >= 2*Math.PI) { dfi -= 2*Math.PI; }
+			//if (dfi < 0) { dfi += 2*Math.PI; }
+			//if ( dfi > maxfi || dfi < -maxfi)
+			/*if ( Math.abs(dfi) > Math.abs(maxfi)) {
+				sfi = dfi - maxfi;
+				this.point[i].fi = sfi;
+				fi = maxfi;
+			}*/
+
+			//fi -= Math.PI;
+			var fib = fi;
+			for(var f2 = i + 1; f2 < this.n; f2++){
+
+				var xn1 = this.point[f2].pos.x;
+				var yn1 = this.point[f2].pos.y;
+				var vn1 = this.point[f2].vw;
+
+				fib = fib * ( 1 - vn1 );
+
+				var rof2 = Math.hypot((xn1 - x),(yn1 - y));
+				var fif2 = Math.atan2((yn1 - y),(xn1 - x));
+
+				var ro2 = rof2 * fib * coeffF2;
+				var fi2 = fif2 + Math.PI / 2;
+
+				var dxf2 = ro2 * Math.cos(fi2);
+				var dyf2 = ro2 * Math.sin(fi2);
+
+				this.point[f2].forse.x += dxf2;
+				this.point[f2].forse.y += dyf2;
+				//this.point[f2].forse.x += 0;
+				//this.point[f2].forse.y += 0;
+			}
+
+			var fib = fi;
+			for(var f2 = i - 1; f2 >= 0; f2--){
+				var xn1 = this.point[f2].pos.x;
+				var yn1 = this.point[f2].pos.y;
+				var vn1 = this.point[f2].vw;
+
+				fib = fib * ( 1 - vn1 );
+
+				var rof2 = Math.hypot((x - xn1),(y - yn1));
+				var fif2 = Math.atan2((y - yn1),(x - xn1));
+
+				var ro2 = rof2 * fib * coeffF2;
+				var fi2 = fif2 + Math.PI / 2;
+
+				var dxf2 = ro2 * Math.cos(fi2);
+				var dyf2 = ro2 * Math.sin(fi2);
+
+				this.point[f2].forse.x += dxf2;
+				this.point[f2].forse.y += dyf2;
+			}
+
+		}
+
 		
 		// *** смещение от изгиба
 		// count addPoints position
-		var n = this.n; 
+		/*var n = this.n; 
 		var al = 1;
 		for(var i = 1; i < n -1; i++){
 
@@ -553,7 +642,9 @@ class Fiber {
 
 			this.point[i].addPoint.x = xn;
 			this.point[i].addPoint.y = yn;
-		}
+		}*/
+
+
 
 	}
 
@@ -825,7 +916,7 @@ function animate() {
 	var TimeNow = new Date();
 	var dTime = TimeNow - Time;
 
-	f1.setForse(DataArrayX, DataArrayY);
+	f1.setForse(DataArrayX, DataArrayY, DataArray);
 	f1.countPA();
 	//f1.sumForse();
 	//f1.dynamicPoits(dTime * 0.03);
