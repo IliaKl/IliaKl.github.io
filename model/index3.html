@@ -39,7 +39,7 @@ function genWHData() {
 	whx = [];
 	why = [];
 	whv = [];
-
+	/*
 	var Xdata = [
 		[	1,	1,	0,	0,	0,	-1,	-1	],
 		[	1,	1,	0,	0,	0,	-1,	-1	],
@@ -58,6 +58,36 @@ function genWHData() {
 		[	0,	0,	1,	1,	-1,	0,	0	],
 		[	-1,	-1,	-1,	-1,	-1,	-1,	-1	],
 		[	-1,	-1,	-1,	-1,	-1,	-1,	-1	]
+	];
+
+	var Vdata = [
+		[	0,	0,	0,	0,	0,	0,	0	],
+		[	0,	0,	0,	0,	0,	0,	0	],
+		[	0,	0,	1,	1,	1,	0,	0	],
+		[	0,	0,	1,	0,	1,	0,	0	],
+		[	0,	0,	1,	1,	1,	0,	0	],
+		[	0,	0,	0,	0,	0,	0,	0	],
+		[	0,	0,	0,	0,	0,	0,	0	]
+	];
+	*/
+	var Xdata = [
+		[	0,	0,	0,	0,	0,	0,	0	],
+		[	0,	0,	0,	0,	0,	0,	0	],
+		[	0,	0,	0,	0,	0,	0,	0	],
+		[	0,	0,	0,	0,	0,	0,	0	],
+		[	0,	0,	0,	0,	0,	0,	0	],
+		[	0,	0,	0,	0,	0,	0,	0	],
+		[	0,	0,	0,	0,	0,	0,	0	]
+	];
+
+	var Ydata = [
+		[	0,	0,	0,	0,	0,	0,	0	],
+		[	0,	0,	0,	0,	0,	0,	0	],
+		[	0,	0,	0,	0,	0,	0,	0	],
+		[	0,	0,	0,	0,	0,	0,	0	],
+		[	0,	0,	0,	0,	0,	0,	0	],
+		[	0,	0,	0,	0,	0,	0,	0	],
+		[	0,	0,	0,	0,	0,	0,	0	]
 	];
 
 	var Vdata = [
@@ -87,32 +117,22 @@ function genWHData() {
 	var dY = (H) / (Xdata.length - 1);
 	var dX = (W) / (Xdata[0].length - 1);
 
-	for(var y = 0; y < H; y++){
-		var whx1[y] = [];
-		var why1[y] = [];
-		var whv1[y] = [];
-		for(var x = 0; x < W; x++){
-			var indX = ~~ ( x / dX );
-			var indY = ~~ ( y / dY );
-			var cX = ( x / dX ) - indX;
-			var cY = ( y / dY ) - indY;
-			whx1[y][x] = cWHD(Xdata, indX, indY, cX, cY);
-			why1[y][x] = cWHD(Ydata, indX, indY, cX, cY);
-			whv1[y][x] = cWHD(Vdata, indX, indY, cX, cY);
-
-		}
-	}
-
 	for(var x = 0; x < W; x++){
 		whx[x] = [];
 		why[x] = [];
 		whv[x] = [];
 		for(var y = 0; y < H; y++){
-			whx[x][y] = whx1[y][x];
-			why[x][y] = why1[y][x];
-			whv[x][y] = whv1[y][x];
+			var indX = ~~ ( x / dX );
+			var indY = ~~ ( y / dY );
+			var cX = ( x / dX ) - indX;
+			var cY = ( y / dY ) - indY;
+			whx[x][y] = cWHD(Xdata, indX, indY, cX, cY);
+			why[x][y] = cWHD(Ydata, indX, indY, cX, cY);
+			whv[x][y] = cWHD(Vdata, indX, indY, cX, cY);
+
 		}
 	}
+
 
 	function drawWHD() {
 		for(var i = 0; i < W; i++){
