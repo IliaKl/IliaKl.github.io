@@ -12,52 +12,40 @@
 	<canvas id="cnv"></canvas>
 	<script type="text/javascript">
 
-var ctx, W, H, whx, why, whv, WHImageData;
+var ctx, W, H, whx, why, whv, FD, WHImageData, lmax, nF;
+
+lmax = 10;
+nF = 20;
 
 W = 1000;
 H = 700;
-
-
-function init() {
-	var canvas = document.getElementById("cnv");
-	ctx = canvas.getContext("2d");
-
-	ctx.canvas.width = W;
-	ctx.canvas.height = H;
-
-	ctx.fillStyle = "rgba(0,0,0,1)";
-	ctx.fillRect(0,0,W,H);
-
-	genWHData();
-
-	WHImageData = ctx.getImageData(0, 0, W, H);
-	//ctx.putImageData(WHImageData, 0, 0);
-}
 
 	
 function genWHData() {
 	whx = [];
 	why = [];
 	whv = [];
-	/*
+
+	var b = 1;
+	
 	var Xdata = [
-		[	1,	1,	0,	0,	0,	-1,	-1	],
-		[	1,	1,	0,	0,	0,	-1,	-1	],
-		[	1,	1,	-1,	-1,	-1,	-1,	-1	],
-		[	1,	1,	-1,	0,	1,	-1,	-1	],
-		[	1,	1,	1,	1,	1,	-1,	-1	],
-		[	1,	1,	0,	0,	0,	-1,	-1	],
-		[	1,	1,	0,	0,	0,	-1,	-1	]
+		[	b,	b,	0,	0,	0,	-b,	-b	],
+		[	b,	b,	0,	0,	0,	-b,	-b	],
+		[	1,	1,	-b,	-b,	-b,	-1,	-1	],
+		[	1,	1,	-b,	0,	b,	-1,	-1	],
+		[	1,	1,	b,	b,	b,	-1,	-1	],
+		[	b,	b,	0,	0,	0,	-b,	-b	],
+		[	b,	b,	0,	0,	0,	-b,	-b	]
 	];
 
 	var Ydata = [
-		[	1,	1,	1,	1,	1,	1,	1	],
-		[	1,	1,	1,	1,	1,	1,	1	],
-		[	0,	0,	1,	-1,	-1,	0,	0	],
-		[	0,	0,	1,	-1,	-1,	0,	0	],
-		[	0,	0,	1,	1,	-1,	0,	0	],
-		[	-1,	-1,	-1,	-1,	-1,	-1,	-1	],
-		[	-1,	-1,	-1,	-1,	-1,	-1,	-1	]
+		[	b,	b,	1,	1,	1,	b,	b	],
+		[	b,	b,	1,	1,	1,	b,	b	],
+		[	0,	0,	b,	-b,	-b,	0,	0	],
+		[	0,	0,	b,	-1,	-b,	0,	0	],
+		[	0,	0,	b,	b,	-b,	0,	0	],
+		[	-b,	-b,	-1,	-1,	-1,	-b,	-b	],
+		[	-b,	-b,	-1,	-1,	-1,	-b,	-b	]
 	];
 
 	var Vdata = [
@@ -69,7 +57,7 @@ function genWHData() {
 		[	0,	0,	0,	0,	0,	0,	0	],
 		[	0,	0,	0,	0,	0,	0,	0	]
 	];
-	*/
+	/*
 	var Xdata = [
 		[	0,	0,	0,	0,	0,	0,	0	],
 		[	0,	0,	0,	0,	0,	0,	0	],
@@ -98,10 +86,10 @@ function genWHData() {
 		[	0,	0,	0,	0,	0,	0,	0	],
 		[	0,	0,	0,	0,	0,	0,	0	],
 		[	0,	0,	0,	0,	0,	0,	0	]
-	];
+	];*/
 
 
-	function cWHD(Adata, indX, indY, aX, aY) {
+	/*function cWHD(Adata, indX, indY, aX, aY) {
 		var a00 = Adata[indX][indY];
 		var a01 = Adata[indX][indY + 1];
 		var a10 = Adata[indX + 1][indY];
@@ -109,6 +97,18 @@ function genWHData() {
 		var a 	= ( a00 * ( 1 - aX ) * ( 1 - aY ) ) 
 				+ ( a01 * ( 1 - aX ) * ( aY ) ) 
 				+ ( a10 * ( aX ) * ( 1 - aY ) )
+				+ ( a11 * ( aX ) * ( aY ) );
+		return a;
+	}*/
+
+	function cWHD(Adata, indX, indY, aX, aY) {
+		var a00 = Adata[indY][indX];
+		var a01 = Adata[indY][indX + 1];
+		var a10 = Adata[indY + 1][indX];
+		var a11 = Adata[indY + 1][indX + 1];
+		var a 	= ( a00 * ( 1 - aX ) * ( 1 - aY ) ) 
+				+ ( a01 * ( aX ) * ( 1 - aY ) ) 
+				+ ( a10 * ( 1 - aX ) * ( aY ) )
 				+ ( a11 * ( aX ) * ( aY ) );
 		return a;
 	}
@@ -150,7 +150,236 @@ function genWHData() {
 	drawWHD();
 }
 
+
+class Fpt {
+	constructor () {
+		this.pos = {
+			'x': 0,
+			'y': 0
+		};
+		this.forse = {
+			'x': 0,
+			'y': 0
+		};
+		this.fArea = {
+			'x': 0,
+			'y': 0
+		};
+		this.v = 0;
+		this.fi = Math.PI;
+	}
+}
+
+
+function createFD ( n, l ) {
+	FD = [];
+	for(var cf = 0; cf < n; cf++){
+		FD[cf] = new Fpt();
+
+		FD[cf].pos.x = 250 + cf * l;
+		FD[cf].pos.y = 250;
+	}
+}
+
+
+function countForse1 () {
+		// set forse
+	var coF1 = 1;
+	for(var f1 = 0; f1 < nF; f1++){
+		var x 	= FD[f1].pos.x;
+		var y 	= FD[f1].pos.y;
+		var fx 	= whx[ Math.abs(~~x) ][ Math.abs(~~y) ];
+		var fy 	= why[ Math.abs(~~x) ][ Math.abs(~~y) ];
+		var v 	= whv[ Math.abs(~~x) ][ Math.abs(~~y) ];
+		FD[f1].fArea.x = fx * coF1;
+		FD[f1].fArea.y = fy * coF1;
+		FD[f1].v = v;
+	}
+}
+
+
+function countForse2 () {
+		// count line forse
+	var coF2 = 4;
+	for(var f2 = 1; f2 < nF; f2++){
+		var x20 = FD[f2 - 1].pos.x;
+		var y20 = FD[f2 - 1].pos.y;
+		var x21 = FD[f2].pos.x;
+		var y21 = FD[f2].pos.y;
+		var cofV2 = /*FD[f2].v*/1;
+
+		var dlx2 = x21 - x20;
+		var dly2 = y21 - y20;
+
+		var r20 = Math.sqrt(dlx2 * dlx2 + dly2 * dly2);
+		var fdl2 = r20 / lmax - 1;
+		var cf2 = dlx2 / r20;
+		var sf2 = dly2 / r20;
+		var fx2 = fdl2 * cf2;
+		var fy2 = fdl2 * sf2;
+
+		for(var m2 = f2 - 2; m2 >= 0; m2--){
+			FD[m2].forse.x = fx2 * cofV2 / nF * coF2;
+			FD[m2].forse.y = fy2 * cofV2 / nF * coF2;
+		}
+		for(var p2 = f2 ; p2 < nF; p2++){
+			FD[p2].forse.x = -fx2 * cofV2 / nF * coF2;
+			FD[p2].forse.y = -fy2 * cofV2 / nF * coF2;
+		}
+	}
+}
+
+
+function countForse3 () {
+		// count rad forse
+	var coF3 = 0.2;
+	for(var i3 = 1; i3 < nF - 1; i3++){
+
+		var xm3 = FD[i3 - 1].pos.x;
+		var ym3 = FD[i3 - 1].pos.y;
+		var x3 = FD[i3].pos.x;
+		var y3 = FD[i3].pos.y;
+		var xp3 = FD[i3 + 1].pos.x;
+		var yp3 = FD[i3 + 1].pos.y;
+
+		var sfi3 = FD[i3].fi;
+
+		var dxm3 = x3 - xm3;
+		var dym3 = y3 - ym3;
+		var dxp3 = xp3 - x3;
+		var dyp3 = yp3 - y3;
+
+		//var rom = Math.hypot(dxm, dym);
+		//var rop = Math.hypot(dym, dyp);
+		var fim3 = Math.atan2(dym3, dxm3);
+		var fip3 = Math.atan2(dyp3, dxp3);
+		var fi3 = fim3 - fip3;
+		if (fi3 > Math.PI) { fi3 -= 2*Math.PI; }
+		//if (fi < 0) { fi += 2*Math.PI; }
+		//console.log(fi);
+
+		var dfi3 = fi3 - sfi3;
+
+		if (dfi3 > Math.PI) { dfi3 -= 2*Math.PI; }
+		if (dfi3 < -Math.PI) { dfi3 += 2*Math.PI; }
+		//if ( dfi > maxfi || dfi < -maxfi)
+		/*if ( Math.abs(dfi) > Math.abs(maxfi)) {
+			sfi = dfi - maxfi;
+			this.point[i].fi = sfi;
+			fi = maxfi;
+		}*/
+
+		//fi -= Math.PI;
+		var fib3 = fi3;
+		for(var f32 = i3 + 1; f32 < nF; f32++){
+
+			var xn31 = FD[f32].pos.x;
+			var yn31 = FD[f32].pos.y;
+			var vn31 = FD[f32].v;
+
+			fib3 = fib3 * ( vn31 );
+
+			var rof32 = Math.hypot((xn31 - x3),(yn31 - y3));
+			var fif32 = Math.atan2((yn31 - y3),(xn31 - x3));
+
+			var ro32 = rof32 * fib3 * coF3;
+			var fi32 = fif32 + Math.PI / 2;
+
+			var dxf32 = ro32 * Math.cos(fi32);
+			var dyf32 = ro32 * Math.sin(fi32);
+
+			FD[f32].forse.x += dxf32;
+			FD[f32].forse.y += dyf32;
+		}
+
+		fib3 = fi3;
+		for(var f31 = i3 - 1; f31 >= 0; f31--){
+			var xn31 = FD[f31].pos.x;
+			var yn31 = FD[f31].pos.y;
+			var vn31 = FD[f31].v;
+
+			fib3 = fib3 * ( vn31 );
+
+			var rof33 = Math.hypot((x3 - xn31),(y3 - yn31));
+			var fif33 = Math.atan2((y3 - yn31),(x3 - xn31));
+
+			var ro33 = rof33 * fib3 * coF3;
+			var fi33 = fif33 + Math.PI / 2;
+
+			var dxf33 = ro33 * Math.cos(fi32);
+			var dyf33 = ro33 * Math.sin(fi32);
+
+			FD[f31].forse.x += dxf32;
+			FD[f31].forse.y += dyf32;
+		}
+	}
+}
+
+
+function updatePos () {
+	cofU = 1;
+	for(var i = 0; i < nF; i++){
+		FD[i].pos.x += (FD[i].forse.x + FD[i].fArea.x) * cofU;
+		FD[i].pos.y += (FD[i].forse.y + FD[i].fArea.y) * cofU;
+	}
+}
+
+
+function drawFD () {
+	ctx.clearRect(0, 0, W, H);
+	ctx.fillStyle = "rgba(0,0,0,0)";
+	ctx.strokeStyle = "rgba(0,0,0,0)";
+	ctx.fillRect(0,0,W,H);
+	ctx.putImageData(WHImageData, 0, 0);
+
+	for(var id = 0; id < nF; id++){
+		var xdd = FD[id].pos.x;
+		var ydd = FD[id].pos.y;
+		ctx.fillStyle = "rgba(255,255,255,0.9)";
+		ctx.strokeStyle = "rgba(255,255,255,0.9)";
+		ctx.fillRect(xdd,ydd,3,3);
+	}
+}
+
+
+function animate() {
+	
+	countForse1();
+	countForse2();
+	countForse3();
+	updatePos();
+	drawFD();
+	window.requestAnimationFrame(animate);
+}
+
+
+function init() {
+	var canvas = document.getElementById("cnv");
+	ctx = canvas.getContext("2d");
+
+	ctx.canvas.width = W;
+	ctx.canvas.height = H;
+
+	ctx.fillStyle = "rgba(0,0,0,1)";
+	ctx.fillRect(0,0,W,H);
+
+	genWHData();
+
+	WHImageData = ctx.getImageData(0, 0, W, H);
+	//ctx.putImageData(WHImageData, 0, 0);
+
+	createFD( nF, lmax );
+
+	animate();
+}
+
+
 init();
+
+
+
+
+
 
 
 
@@ -164,7 +393,7 @@ init();
 
 
 
-class Fiber {
+/*class Fiber {
 	constructor ( n, l ) {
 		this.n = n;
 		this.l = l;
@@ -226,12 +455,12 @@ class Fiber {
 		var fy = forseL * sf;
 		var fcof1 = 1;
 			for(var m = f - 2; m >= 0; m--){
-				//this.point[m].forse.x += fx * fcof1 / /*(f - 1 - m)*/ this.n * coeffF1;
-				//this.point[m].forse.y += fy * fcof1 / /*(f - 1 - m)*/ this.n * coeffF1;
+				//this.point[m].forse.x += fx * fcof1 / /*(f - 1 - m)*/ /*this.n * coeffF1;
+				//this.point[m].forse.y += fy * fcof1 / /*(f - 1 - m)*/ /*this.n * coeffF1;
 			}
 			for(var p = f ; p < this.n; p++){
-				//this.point[p].forse.x += -fx * fcof1 / /*(p - f + 1)*/ this.n * coeffF1;
-				//this.point[p].forse.y += -fy * fcof1 / /*(p - f + 1)*/ this.n * coeffF1;
+				//this.point[p].forse.x += -fx * fcof1 / /*(p - f + 1)*/ /*this.n * coeffF1;
+				//this.point[p].forse.y += -fy * fcof1 / /*(p - f + 1)*/ /*this.n * coeffF1;
 			}
 		}
 
@@ -274,7 +503,7 @@ class Fiber {
 			}*/
 
 			//fi -= Math.PI;
-			var fib = fi;
+	/*		var fib = fi;
 			for(var f2 = i + 1; f2 < this.n; f2++){
 
 				var xn1 = this.point[f2].pos.x;
@@ -469,8 +698,7 @@ class Fiber {
 				VectorX[val] = x2 + x1;
 				VectorY[val] = y2 + y1;
 		}*/
-
-		for(var i = 0; i < n; i++){
+	/*for(var i = 0; i < n; i++){
 			for(var nn = 0; nn < n; nn++){
 				this.point[i].pos.x = VectorX[i];
 				this.point[i].pos.y = VectorY[i];
@@ -509,7 +737,7 @@ class Fiber {
 			this.point[i].pos.y = pos_y_new;
 		}*/
 
-		var posXFirst 	= this.point[0].pos.x;
+	/*	var posXFirst 	= this.point[0].pos.x;
 		var posYFirst 	= this.point[0].pos.y;
 		var posXLast 	= this.point[this.n - 1].pos.x;
 		var posYLast 	= this.point[this.n - 1].pos.y;
@@ -531,7 +759,7 @@ class Fiber {
 		var xCenter = posXFirst + dxl;
 		var yCenter = posYFirst + dyl;*/
 
-		for(var i = 0; i < this.n; i++){
+	/*	for(var i = 0; i < this.n; i++){
 			var n = this.n;
 			var pos_x_old = this.point[i].pos.x;
 			var pos_y_old = this.point[i].pos.y;
@@ -549,12 +777,12 @@ class Fiber {
 	}
 
 }
+*/
+//var f1 = new Fiber(10, 10);
 
-var f1 = new Fiber(10, 10);
+//var Time = new Date();
 
-var Time = new Date();
-
-function animate() {
+/*function animate1() {
 	
 	var TimeNow = new Date();
 	var dTime = TimeNow - Time;
@@ -567,9 +795,9 @@ function animate() {
 
 	Time = TimeNow;
 	window.requestAnimationFrame(animate);
-}
+}*/
 
-animate();
+//animate1();
 
 	</script>
 </body>
