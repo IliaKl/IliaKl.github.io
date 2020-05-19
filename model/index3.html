@@ -14,8 +14,8 @@
 
 var ctx, W, H, whx, why, whv, FD, WHImageData, lmax, nF;
 
-lmax = 10;
-nF = 20;
+lmax = 20;
+nF = 10;
 
 W = 1000;
 H = 700;
@@ -157,6 +157,14 @@ class Fpt {
 			'x': 0,
 			'y': 0
 		};
+		this.Dpos = {
+			'x': 0,
+			'y': 0
+		};
+		this.Spos = {
+			'x': 0,
+			'y': 0
+		};
 		this.forse = {
 			'x': 0,
 			'y': 0
@@ -166,7 +174,7 @@ class Fpt {
 			'y': 0
 		};
 		this.v = 0;
-		this.fi = Math.PI;
+		//this.fi = Math.PI;
 	}
 }
 
@@ -182,8 +190,53 @@ function createFD ( n, l ) {
 }
 
 
+function countPosS ( varC ) {
+	for(var i = 0; i < nF; i++){
+		if (i > 0) {
+			var xm 	= FD[i - 1].pos.x;
+			var ym 	= FD[i - 1].pos.y;
+		} else {
+			var xm 	= FD[i].pos.x;
+			var ym 	= FD[i].pos.y;
+		}
+		var x 	= FD[i].pos.x;
+		var y 	= FD[i].pos.y;
+		if (i < nF - 1) {
+			var xp 	= FD[i + 1].pos.x;
+			var yp 	= FD[i + 1].pos.y;
+		} else {
+			var xp 	= FD[i].pos.x;
+			var yp 	= FD[i].pos.y;
+		}
+
+		var x0 = xp - xm;
+		var y0 = yp - ym;
+
+		var fi1 = Math.atan2(y0, x0) - Math.PI / 2;
+		var ro1 = lmax;
+
+		var x1 = ro1 * Math.cos(fi1) + x;
+		var y1 = ro1 * Math.sin(fi1) + y;
+
+		if (varC == 0) {
+			FD[i].Spos.x = x1;
+			FD[i].Spos.y = y1;
+		}
+
+		if (varC == 1) {
+			FD[i].Dpos.x = x1;
+			FD[i].Dpos.y = y1;
+		}
+
+
+	}
+}
+
+
+
+
 function countForse1 () {
-		// set forse
+	// set forse
 	var coF1 = 1;
 	for(var f1 = 0; f1 < nF; f1++){
 		var x 	= FD[f1].pos.x;
@@ -193,45 +246,150 @@ function countForse1 () {
 		var v 	= whv[ Math.abs(~~x) ][ Math.abs(~~y) ];
 		FD[f1].fArea.x = fx * coF1;
 		FD[f1].fArea.y = fy * coF1;
+		FD[f1].forse.x = 0;
+		FD[f1].forse.y = 0;
 		FD[f1].v = v;
 	}
 }
 
 
 function countForse2 () {
-		// count line forse
-	var coF2 = 4;
+	// count line forse
+	var coF2 = 10;
 	for(var f2 = 1; f2 < nF; f2++){
 		var x20 = FD[f2 - 1].pos.x;
 		var y20 = FD[f2 - 1].pos.y;
 		var x21 = FD[f2].pos.x;
 		var y21 = FD[f2].pos.y;
-		var cofV2 = /*FD[f2].v*/1;
+		var cofV2 = FD[f2].v * 0.3 + 0.7;
 
 		var dlx2 = x21 - x20;
 		var dly2 = y21 - y20;
 
 		var r20 = Math.sqrt(dlx2 * dlx2 + dly2 * dly2);
-		var fdl2 = r20 / lmax - 1;
+		var fdl2 = (r20 / lmax - 1) * coF2;
 		var cf2 = dlx2 / r20;
 		var sf2 = dly2 / r20;
 		var fx2 = fdl2 * cf2;
 		var fy2 = fdl2 * sf2;
 
 		for(var m2 = f2 - 2; m2 >= 0; m2--){
-			FD[m2].forse.x = fx2 * cofV2 / nF * coF2;
-			FD[m2].forse.y = fy2 * cofV2 / nF * coF2;
+			FD[m2].forse.x += fx2 * cofV2 / nF;
+			FD[m2].forse.y += fy2 * cofV2 / nF;
 		}
 		for(var p2 = f2 ; p2 < nF; p2++){
-			FD[p2].forse.x = -fx2 * cofV2 / nF * coF2;
-			FD[p2].forse.y = -fy2 * cofV2 / nF * coF2;
+			FD[p2].forse.x += -fx2 * cofV2 / nF;
+			FD[p2].forse.y += -fy2 * cofV2 / nF;
 		}
 	}
 }
 
 
 function countForse3 () {
-		// count rad forse
+	var coF3 = 0;
+	for(var i = 1; i < nF - 1; i++){
+		var xm 	= FD[i - 1].pos.x;
+		var ym 	= FD[i - 1].pos.y;
+		var x 	= FD[i].pos.x;
+		var y 	= FD[i].pos.y;
+		var xp 	= FD[i + 1].pos.x;
+		var yp 	= FD[i + 1].pos.y;
+
+		var sfi = FD[i].fi;
+
+		var dxm = x - xm;
+		var dym = y - ym;
+		var dxp = xp - x;
+		var dyp = yp - y;
+
+		var fim = Math.atan2(dym, dxm);
+		var fip = Math.atan2(dyp, dxp);
+		var fi = Math.PI - (fim - fip);
+
+		for(var a = 0; a == 0;){
+			if (fi > Math.PI) { 
+				fi -= 2*Math.PI; 
+			} else { 
+				a = 1; 
+			};
+		};
+
+		for(var a = 0; a == 0;){
+			if (fi < -Math.PI) { 
+				fi += 2*Math.PI; 
+			} else { 
+				a = 1; 
+			};
+		};
+
+		//var dfi = fi - sfi;
+		//if (dfi > Math.PI) { dfi -= 2*Math.PI; }
+		//if (dfi < -Math.PI) { dfi += 2*Math.PI; }
+
+		var fib = fi;
+		//for(var f = i + 1; f < nF; f++){
+		for(var f = i + 1; f < i + 2; f++){
+
+			var xn = FD[f].pos.x;
+			var yn = FD[f].pos.y;
+			var vn = FD[f].v;
+
+			fib = fib * ( vn );
+
+			var rof = Math.hypot((xn - x),(yn - y));
+			var fif = Math.atan2((yn - y),(xn - x));
+
+			var ro0 = rof * fib * coF3;
+
+			if (fif > 0) {
+				var fin = fif + Math.PI / 2;
+			} else {
+				var fin = fif - Math.PI / 2;
+			};
+			
+
+			var dxf = ro0 * Math.cos(fin);
+			var dyf = ro0 * Math.sin(fin);
+
+			FD[f].forse.x += dxf;
+			FD[f].forse.y += dyf;
+		}
+
+		var fib = fi;
+		//for(var f = i - 1; f >= 0; f--){
+		/*for(var f = i - 1; (f >= i - 2 && f >= 0); f--){
+
+			var xn = FD[f].pos.x;
+			var yn = FD[f].pos.y;
+			var vn = FD[f].v;
+
+			fib = fib * ( vn );
+
+			var rof = Math.hypot((xn - x),(yn - y));
+			var fif = Math.atan2((yn - y),(xn - x));
+
+			var ro0 = rof * fib * coF3;
+
+			if (fif > 0) {
+				var fin = fif + Math.PI / 2;
+			} else {
+				var fin = fif - Math.PI / 2;
+			};
+			
+
+			var dxf = ro0 * Math.cos(fin);
+			var dyf = ro0 * Math.sin(fin);
+
+			FD[f].forse.x += dxf;
+			FD[f].forse.y += dyf;
+		}*/
+
+	}
+}
+
+
+function countForse3_0 () {
+	// count rad forse
 	var coF3 = 0.2;
 	for(var i3 = 1; i3 < nF - 1; i3++){
 
@@ -339,6 +497,14 @@ function drawFD () {
 		ctx.strokeStyle = "rgba(255,255,255,0.9)";
 		ctx.fillRect(xdd,ydd,3,3);
 	}
+
+	for(var id = 0; id < nF; id++){
+		var xdd = FD[id].Dpos.x;
+		var ydd = FD[id].Dpos.y;
+		ctx.fillStyle = "rgba(255,0,0,0.9)";
+		ctx.strokeStyle = "rgba(255,0,0,0.9)";
+		ctx.fillRect(xdd,ydd,3,3);
+	}
 }
 
 
@@ -346,7 +512,8 @@ function animate() {
 	
 	countForse1();
 	countForse2();
-	countForse3();
+	//countForse3();
+	countPosS(1);
 	updatePos();
 	drawFD();
 	window.requestAnimationFrame(animate);
@@ -369,7 +536,7 @@ function init() {
 	//ctx.putImageData(WHImageData, 0, 0);
 
 	createFD( nF, lmax );
-
+	countPosS(0);
 	animate();
 }
 
