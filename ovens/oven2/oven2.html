@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title>2</title>
+	<style type="text/css">
+		body {margin:5px;
+		counter-reset: test;
+		}
+		p::before {
+			counter-increment: test;
+			content: counter(test);
+		}
+		img {
+			width: 557px;
+			height:325px;
+		}
+	</style>
+</head>
+<body>
+<script>
+
+	var img = [0];
+	
+	var i = 1;
+	for(i=1; i < 48; i++){
+		var p = document.createElement("p");
+		document.body.appendChild(p);
+		img[i] = document.createElement("IMG");
+		
+		if(i < 10 ){
+		   img[i].src = "0"+ i +".jpg";
+		}else{
+		   img[i].src = i +".jpg";
+		};
+		p.appendChild(img[i]);
+	};
+	
+	</script>
+</body>
+</html>
