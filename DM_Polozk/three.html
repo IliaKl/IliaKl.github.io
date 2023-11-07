@@ -1,0 +1,448 @@
+<html>
+<head>
+	<title>ik</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="libraries/three.js"></script>
+	<script type="text/javascript" src="libraries/threex.dynamictexture.js"></script>
+	<script type="text/javascript" src="libraries/OrbitControls.js"></script>
+	<script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+
+	<div id="div0"></div>
+	<div id="div1">
+		<form name="forma1"> 
+			“ÂÍÒÚ 
+			<input type="text" name="t1" size="10">
+			<input type="button" name="button" value="?"  onClick="T1fn();"> 
+			<input type="t2" name="t2" size="50">
+		</form>
+	</div> 
+
+	<div id="container"></div>
+
+<script>
+		
+var renderer = new THREE.WebGLRenderer();
+renderer.setPixelRatio( window.devicePixelRatio );
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.setSize(window.innerWidth, window.innerHeight);
+container.appendChild( renderer.domElement );
+
+var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 10000);
+camera.position.set(0, 0, -100);
+camera.lookAt(new THREE.Vector3(0, 0, 0));
+
+var scene = new THREE.Scene();
+scene.background = new THREE.Color( 0x111111 );
+scene.fog = new THREE.FogExp2( 0x111111, 0.001 );
+
+var memlight = false;
+
+
+
+/*
+/////////////////////////////////////////	Œ—» X Y Z
+
+var materialOX = new THREE.LineBasicMaterial({ color: 0xff0000 }); //Í‡ÒÌ˚È
+var geometryOX = new THREE.Geometry();
+geometryOX.vertices.push(new THREE.Vector3(0, 0, 0));
+geometryOX.vertices.push(new THREE.Vector3(20, 0, 0));
+var lineOX = new THREE.Line(geometryOX, materialOX);
+var materialOY = new THREE.LineBasicMaterial({ color: 0x00ff00 }); //ÁÂÎÂÌ˚È
+var geometryOY = new THREE.Geometry();
+geometryOY.vertices.push(new THREE.Vector3(0, 0, 0));
+geometryOY.vertices.push(new THREE.Vector3(0, 20, 0));
+var lineOY = new THREE.Line(geometryOY, materialOY);
+var materialOZ = new THREE.LineBasicMaterial({ color: 0x0000ff }); //ÒËÌËÈ
+var geometryOZ = new THREE.Geometry();
+geometryOZ.vertices.push(new THREE.Vector3(0, 0, 0));
+geometryOZ.vertices.push(new THREE.Vector3(0, 0, 20));
+var lineOZ = new THREE.Line(geometryOZ, materialOZ);
+scene.add( lineOX, lineOY, lineOZ );
+*/
+
+
+/////////////////////////////////////////	—¬≈“
+
+var light = new THREE.PointLight( 0xffffff, 1, 0, 1 );
+light.position.set( 0, 120, 0 );
+light.castShadow = true;
+scene.add( light );
+light.shadow.mapSize.width = 512;  // default
+light.shadow.mapSize.height = 512; // default
+light.shadow.camera.near = 0.5;       // default
+light.shadow.camera.far = 500      // default
+var light1 = new THREE.AmbientLight( 0xffffff, 0.15 ); 
+scene.add( light1 );
+
+
+
+/////////////////////////////////////////	 ŒÃÕ¿“¿
+
+var x, y, z;
+var material = new THREE.LineBasicMaterial({ color: 0xffffff, opacity: 0.5, transparent: true });
+
+x = 240; y = 255; z = 340;
+var KOMNm = new Float32Array([
+0, 0, 0, 	x, 0, 0, 	x, 0, 0, 	x, y, 0, 	x, y, 0, 	0, y, 0, 	0, y, 0,  	0, 0, 0,
+0, 0, z, 	x, 0, z, 	x, 0, z, 	x, y, z, 	x, y, z, 	0, y, z, 	0, y, z,  	0, 0, z,
+0, 0, 0, 	0, 0, z, 	x, 0, 0, 	x, 0, z, 	x, y, 0, 	x, y, z,  	0, y, 0, 	0, y, z ]);
+var KOMNg = new THREE.BufferGeometry();
+KOMNg.addAttribute( 'position', new THREE.BufferAttribute( KOMNm, 3 ) );
+var KOMN = new THREE.LineSegments( KOMNg, material );
+KOMN.position.set(-(x/2), -(y/2), -(z/2));
+scene.add(KOMN);
+
+
+/////////////////////////////////////////	Œ ÕŒ
+
+x = 125; y = 135; z = 14; 
+var okno1m = new Float32Array([
+0, 0, 0, 	x, 0, 0, 	x, 0, 0, 	x, y, 0, 	x, y, 0, 	0, y, 0, 	0, y, 0,  	0, 0, 0,
+0, 0, z, 	x, 0, z, 	x, 0, z, 	x, y, z, 	x, y, z, 	0, y, z, 	0, y, z,  	0, 0, z,
+0, 0, 0, 	0, 0, z, 	x, 0, 0, 	x, 0, z, 	x, y, 0, 	x, y, z,  	0, y, 0, 	0, y, z ]);
+var okno1g = new THREE.BufferGeometry();
+okno1g.addAttribute( 'position', new THREE.BufferAttribute( okno1m, 3 ) );
+var okno1 = new THREE.LineSegments( okno1g, material );
+okno1.position.z = -14;
+x = 80; y = 124; z = 2; 
+var okno2m = new Float32Array([
+0, 0, 0, 	x, 0, 0, 	x, 0, 0, 	x, y, 0, 	x, y, 0, 	0, y, 0, 	0, y, 0,  	0, 0, 0,
+0, 0, z, 	x, 0, z, 	x, 0, z, 	x, y, z, 	x, y, z, 	0, y, z, 	0, y, z,  	0, 0, z,
+0, 0, 0, 	0, 0, z, 	x, 0, 0, 	x, 0, z, 	x, y, 0, 	x, y, z,  	0, y, 0, 	0, y, z ]);
+var okno2g = new THREE.BufferGeometry();
+okno2g.addAttribute( 'position', new THREE.BufferAttribute( okno2m, 3 ) );
+var okno2 = new THREE.LineSegments( okno2g, material );
+okno2.position.set(8, 4, -12);
+x = 64; y = 108; z = 1; 
+var okno3m = new Float32Array([
+0, 0, 0, 	x, 0, 0, 	x, 0, 0, 	x, y, 0, 	x, y, 0, 	0, y, 0, 	0, y, 0,  	0, 0, 0,
+0, 0, z, 	x, 0, z, 	x, 0, z, 	x, y, z, 	x, y, z, 	0, y, z, 	0, y, z,  	0, 0, z,
+0, 0, 0, 	0, 0, z, 	x, 0, 0, 	x, 0, z, 	x, y, 0, 	x, y, z,  	0, y, 0, 	0, y, z ]);
+var okno3g = new THREE.BufferGeometry();
+okno3g.addAttribute( 'position', new THREE.BufferAttribute( okno3m, 3 ) );
+var okno3 = new THREE.LineSegments( okno3g, material );
+okno3.position.set(14, 11, -12);
+x = 31; y = 119; z = 1; 
+var okno4m = new Float32Array([
+0, 0, 0, 	x, 0, 0, 	x, 0, 0, 	x, y, 0, 	x, y, 0, 	0, y, 0, 	0, y, 0,  	0, 0, 0,
+0, 0, z, 	x, 0, z, 	x, 0, z, 	x, y, z, 	x, y, z, 	0, y, z, 	0, y, z,  	0, 0, z,
+0, 0, 0, 	0, 0, z, 	x, 0, 0, 	x, 0, z, 	x, y, 0, 	x, y, z,  	0, y, 0, 	0, y, z ]);
+var okno4g = new THREE.BufferGeometry();
+okno4g.addAttribute( 'position', new THREE.BufferAttribute( okno4m, 3 ) );
+var okno4 = new THREE.LineSegments( okno4g, material );
+okno4.position.set(93, 6, -14);
+okno = new THREE.Group();
+okno.add( okno1, okno2, okno3, okno4 );
+okno.position.set(-70, -47.5, -170 );
+scene.add(okno);
+
+
+/////////////////////////////////////////	ƒ¬≈–‹
+
+x = 100; y = 210; z = 1; 
+var dver1m = new Float32Array([
+0, 0, 0, 	x, 0, 0, 	x, 0, 0, 	x, y, 0, 	x, y, 0, 	0, y, 0, 	0, y, 0,  	0, 0, 0,
+0, 0, z, 	x, 0, z, 	x, 0, z, 	x, y, z, 	x, y, z, 	0, y, z, 	0, y, z,  	0, 0, z,
+0, 0, 0, 	0, 0, z, 	x, 0, 0, 	x, 0, z, 	x, y, 0, 	x, y, z,  	0, y, 0, 	0, y, z ]);
+var dver1g = new THREE.BufferGeometry();
+dver1g.addAttribute( 'position', new THREE.BufferAttribute( dver1m, 3 ) );
+var dver1 = new THREE.LineSegments( dver1g, material );
+dver1.position.set( -53, -127.5, -1);
+
+x = 82; y = 202; z = 1; 
+var dver2m = new Float32Array([
+0, 0, 0, 	x, 0, 0, 	x, 0, 0, 	x, y, 0, 	x, y, 0, 	0, y, 0, 	0, y, 0,  	0, 0, 0,
+0, 0, z, 	x, 0, z, 	x, 0, z, 	x, y, z, 	x, y, z, 	0, y, z, 	0, y, z,  	0, 0, z,
+0, 0, 0, 	0, 0, z, 	x, 0, 0, 	x, 0, z, 	x, y, 0, 	x, y, z,  	0, y, 0, 	0, y, z ]);
+var dver2g = new THREE.BufferGeometry();
+dver2g.addAttribute( 'position', new THREE.BufferAttribute( dver2m, 3 ) );
+var dver2 = new THREE.LineSegments( dver2g, material );
+dver2.position.set( -44, -127.5, -1);
+
+x = 80; y = 200;  
+var dver3m = new Float32Array([
+0, 0, 0, 	x, 0, 0, 	x, 0, 0, 	x, y, 0, 	x, y, 0, 	0, y, 0, 	0, y, 0,  	0, 0, 0 ]);
+var dver3g = new THREE.BufferGeometry();
+dver3g.addAttribute( 'position', new THREE.BufferAttribute( dver3m, 3 ) );
+var dver3 = new THREE.LineSegments( dver3g, material );
+dver3.position.set( -43, -126.5, 0);
+
+x = 75; y = 195; z = 0.5; 
+var dver4m = new Float32Array([
+0, 0, 0, 	x, 0, 0, 	x, 0, 0, 	x, y, 0, 	x, y, 0, 	0, y, 0, 	0, y, 0,  	0, 0, 0,
+0, 0, z, 	x, 0, z, 	x, 0, z, 	x, y, z, 	x, y, z, 	0, y, z, 	0, y, z,  	0, 0, z,
+0, 0, 0, 	0, 0, z, 	x, 0, 0, 	x, 0, z, 	x, y, 0, 	x, y, z,  	0, y, 0, 	0, y, z ]);
+var dver4g = new THREE.BufferGeometry();
+dver4g.addAttribute( 'position', new THREE.BufferAttribute( dver4m, 3 ) );
+var dver4 = new THREE.LineSegments( dver4g, material );
+dver4.position.set( -41.5, -124, 0.5);
+
+x = 51; y = 110; z = 0.5; 
+var dver5m = new Float32Array([
+0, 0, 0, 	x, 0, 0, 	x, 0, 0, 	x, y, 0, 	x, y, 0, 	0, y, 0, 	0, y, 0,  	0, 0, 0,
+0, 0, z, 	x, 0, z, 	x, 0, z, 	x, y, z, 	x, y, z, 	0, y, z, 	0, y, z,  	0, 0, z,
+0, 0, 0, 	0, 0, z, 	x, 0, 0, 	x, 0, z, 	x, y, 0, 	x, y, z,  	0, y, 0, 	0, y, z ]);
+var dver5g = new THREE.BufferGeometry();
+dver5g.addAttribute( 'position', new THREE.BufferAttribute( dver5m, 3 ) );
+var dver5 = new THREE.LineSegments( dver5g, material );
+dver5.position.set( -29.5, -56.5, 0);
+
+x = 49; y = 108; z = 1; 
+var dver6m = new Float32Array([
+0, 0, 0, 	x, 0, 0, 	x, 0, 0, 	x, y, 0, 	x, y, 0, 	0, y, 0, 	0, y, 0,  	0, 0, 0,
+0, 0, z, 	x, 0, z, 	x, 0, z, 	x, y, z, 	x, y, z, 	0, y, z, 	0, y, z,  	0, 0, z,
+0, 0, 0, 	0, 0, z, 	x, 0, 0, 	x, 0, z, 	x, y, 0, 	x, y, z,  	0, y, 0, 	0, y, z ]);
+var dver6g = new THREE.BufferGeometry();
+dver6g.addAttribute( 'position', new THREE.BufferAttribute( dver6m, 3 ) );
+var dver6 = new THREE.LineSegments( dver6g, material );
+dver6.position.set( -28.5, -55.5, 0);
+
+dver = new THREE.Group();
+dver.add( dver1, dver2, dver3, dver4, dver5, dver6 );
+dver.position.set(0, 0, 170 );
+scene.add(dver);
+
+
+/////////////////////////////////////////	ÿ ¿‘€
+
+var materialS = new THREE.MeshPhongMaterial( {color: 0xaaaaaa} );
+var geometryS1 = new THREE.BoxGeometry( 45, 210, 45 );
+var S1 = new THREE.Mesh( geometryS1, materialS );
+S1.position.set(-97.5, -22.5, -107.5 );
+S1.castShadow = true;
+S1.receiveShadow = false;
+scene.add( S1 );
+var geometryS2 = new THREE.BoxGeometry( 60, 195, 100 );
+var S2 = new THREE.Mesh( geometryS2, materialS );
+S2.position.set( -90, -30, 120 );
+S2.castShadow = true;
+S2.receiveShadow = false;
+scene.add( S2 );
+
+
+/////////////////////////////////////////	 –Œ¬¿“‹
+
+var geometryS3 = new THREE.BoxGeometry( 80, 50, 200 );
+var S3 = new THREE.Mesh( geometryS3, materialS );
+S3.position.set(80, -102.5, 70 );
+S3.castShadow = true;
+S3.receiveShadow = false;
+scene.add( S3 );
+
+
+/////////////////////////////////////////	—“ŒÀ
+
+var geometryS41 = new THREE.BoxGeometry( 110, 2, 60 );
+var S41 = new THREE.Mesh( geometryS41, materialS );
+S41.position.set(0, -51.5, 0 );
+var geometryS42 = new THREE.BoxGeometry( 2, 75, 55 );
+var S42 = new THREE.Mesh( geometryS42, materialS );
+S42.position.set(-54, -90, -2.5 );
+var geometryS43 = new THREE.BoxGeometry( 2, 75, 55 );
+var S43 = new THREE.Mesh( geometryS43, materialS );
+S43.position.set(54, -90, -2.5 );
+S4 = new THREE.Group();
+S4.add( S41, S42, S43 );
+S4.position.set(35, 0, -115 );
+S4.castShadow = true;
+S4.receiveShadow = false;
+scene.add( S4 );
+
+
+/////////////////////////////////////////	œŒÀ ¿
+
+var geometryS51 = new THREE.BoxGeometry( 20, 1, 50 );
+var S51 = new THREE.Mesh( geometryS51, materialS );
+S51.position.set(0, 0.5, -25 );
+
+var geometryS52 = new THREE.BoxGeometry( 20, 1, 50 );
+var S52 = new THREE.Mesh( geometryS52, materialS );
+S52.position.set(0, 23.5, -25 );
+
+var geometryS53 = new THREE.BoxGeometry( 20, 1, 50 );
+var S53 = new THREE.Mesh( geometryS53, materialS );
+S53.position.set(0, 53.5, -25 );
+
+var geometryS54 = new THREE.BoxGeometry( 20, 1, 50 );
+var S54 = new THREE.Mesh( geometryS54, materialS );
+S54.position.set(0, 5.5, 25 );
+
+var geometryS55 = new THREE.BoxGeometry( 20, 1, 50 );
+var S55 = new THREE.Mesh( geometryS55, materialS );
+S55.position.set(0, 28.5, 25 );
+
+var geometryS56 = new THREE.BoxGeometry( 20, 1, 50 );
+var S56 = new THREE.Mesh( geometryS56, materialS );
+S56.position.set(0, 58.5, 25 );
+
+S5 = new THREE.Group();
+S5.add( S51, S52, S53, S54, S55, S56 );
+S5.position.set(110, 6, -42 );
+S5.castShadow = true;
+S5.receiveShadow = false;
+scene.add( S5 );
+
+
+/////////////////////////////////////////	 –≈—ÀŒ
+
+var geometryS61 = new THREE.BoxGeometry( 55, 40, 50 );
+var S61 = new THREE.Mesh( geometryS61, materialS );
+S61.position.set(0, -100, 0 );
+
+var geometryS62 = new THREE.BoxGeometry( 55, 80, 25 );
+var S62 = new THREE.Mesh( geometryS62, materialS );
+S62.position.set(0, -80, -37.5 );
+
+var geometryS63 = new THREE.BoxGeometry( 16, 60, 70 );
+var S63 = new THREE.Mesh( geometryS63, materialS );
+S63.position.set(-35.5, -90, -10 );
+
+var geometryS64 = new THREE.BoxGeometry( 16, 60, 70 );
+var S64 = new THREE.Mesh( geometryS64, materialS );
+S64.position.set(35.5, -90, -10 );
+
+S6 = new THREE.Group();
+S6.add( S61, S62, S63, S64 );
+S6.position.set(-70, 0, 0 );
+S6.rotation.y = Math.PI/2;
+S6.castShadow = true;
+S6.receiveShadow = false;
+scene.add( S6 );
+
+
+/////////////////////////////////////////	œŒÀ
+
+var materialP = new THREE.MeshPhongMaterial( {color: 0x222222} );
+var pol = new THREE.PlaneGeometry( 240, 340 );
+var planeP = new THREE.Mesh( pol, materialP );
+planeP.position.set( 0, -127.5, 0 );
+planeP.rotation.set(-Math.PI/2, 0, 0);
+planeP.receiveShadow = true;
+scene.add( planeP );
+
+//////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+/////////////////////////////////////////	“≈ —“ 
+
+var updateFcts = [];
+var aT;
+function FnaT() { aT = document.forma1.t1.value; };
+
+var dynamicTexture	= new THREEx.DynamicTexture(512,512)
+dynamicTexture.context.font = "90px Times New Roman";
+dynamicTexture.texture.anisotropy = renderer.getMaxAnisotropy()
+updateFcts.push(function(delta, now){
+var text = aT;
+dynamicTexture.clear( '#111111' )
+.drawText(text, undefined, 256, '#ffffff')})
+
+var geometryDT = new THREE.PlaneGeometry( 100, 100 );
+var materialDT = new THREE.MeshBasicMaterial({ map: dynamicTexture.texture })
+var meshDT = new THREE.Mesh( geometryDT, materialDT );
+meshDT.position.set( -120, 0, 0 );
+meshDT.rotation.y = Math.PI/2;
+scene.add( meshDT );
+
+//////////////////////////////////////////////////////////////////////////////////
+
+
+
+/////////////////////////////////////////	¬€ Àﬁ◊¿“≈À‹
+
+var mV1 = new THREE.MeshPhongMaterial( {color: 0x222222} );
+var gV1 = new THREE.PlaneGeometry( 10, 10 );
+var V1 = new THREE.Mesh( gV1, mV1 );
+V1.position.set( 68, 43, 170 );
+V1.rotation.x = Math.PI;
+scene.add( V1 );
+
+var mV2 = new THREE.MeshPhongMaterial( {color: 0x111111, opacity: 0, transparent: true } );
+var gV2 = new THREE.PlaneGeometry( 30, 50 );
+var V2 = new THREE.Mesh( gV2, mV2 );
+V2.position.set( 68, 43, 170 );
+V2.rotation.x = Math.PI;
+scene.add( V2 );
+//////////////////////////////////////////////////////////////////////////////////
+
+
+
+/////////////////////////////////////////	œ≈–≈ Àﬁ◊¿“≈À‹
+
+function setFromCamera(raycaster, coords, origin){
+    raycaster.ray.origin.copy( camera.position );
+    raycaster.ray.direction.set( coords.x, coords.y, 0.5 ).unproject( camera ).sub( camera.position     ).normalize();
+}
+function onMouseDown(event){
+    
+    raycaster = new THREE.Raycaster();
+    mouse = new THREE.Vector2();
+    
+    mouse.x = ( event.clientX / renderer.domElement.width ) * 2 - 1;
+    mouse.y = - ( event.clientY / renderer.domElement.height ) * 2 + 1;
+    setFromCamera(raycaster, mouse, camera );
+    var intersects = raycaster.intersectObjects( scene.children );
+
+if (intersects[ 0 ].object.id == V1.id || intersects[ 0 ].object.id == V2.id){
+    document.forma1.t2.value = 'true';
+if (memlight == false){
+    light1.intensity = 0.5;
+    memlight = true;}
+else {
+    light1.intensity = 0.15;
+    memlight = false;}
+//
+//
+//
+}
+else
+{
+   document.forma1.t2.value = 'false';
+};
+}
+
+document.addEventListener('mousedown', onMouseDown, false);
+
+//////////////////////////////////////////////////////////////////////////////////
+
+var T1fn = function () {
+document.forma1.t2.value = V1.id ;
+};
+
+
+var controls = new THREE.OrbitControls( camera, renderer.domElement );
+
+
+var animate1 = function () {
+camera.aspect = window.innerWidth / window.innerHeight;
+camera.updateProjectionMatrix();
+renderer.setSize( window.innerWidth, window.innerHeight );
+};
+
+
+updateFcts.push(function(){
+controls.update();
+renderer.render( scene, camera );})
+
+var lastTimeMsec= null
+requestAnimationFrame(function animate(nowMsec)
+{
+requestAnimationFrame( animate );
+FnaT();
+animate1();
+lastTimeMsec = lastTimeMsec || nowMsec-1000/60
+var deltaMsec = Math.min(200, nowMsec - lastTimeMsec)
+lastTimeMsec = nowMsec
+updateFcts.forEach(function(updateFn){
+updateFn(deltaMsec/1000, nowMsec/1000) })
+})
+
+</script>
+
+</body>
+</html>
